@@ -20,7 +20,7 @@ function y = SoundPlayback(f1,f2,fs,length_sec)
 %       - Implement varargin for different signals
 %       - 
 
-[y,t] = log_sine_sweep(f1,f2,fs,length_sec);
+y = log_sine_sweep(f1,f2,fs,length_sec);
 
 freq = fs;
 nrchannels = 1;    % One channel only -> Mono sound.
