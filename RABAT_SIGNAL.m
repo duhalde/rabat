@@ -8,9 +8,10 @@ classdef RABAT_SIGNAL < handle
     % Copyright RaBaT Toolbox, DTU 2012
     
     properties
-        signal
-        Fs
-        positionNumber
+        signal      % the actual data
+        fs          % sampling frequency
+        N           % bitrate
+        positionNumber  % for reference when doing measurements
     end
     
     methods
