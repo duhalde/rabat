@@ -1,25 +1,33 @@
-function y = SoundPlayback(f1,f2,fs,length_sec)
+function y = SoundPlayback(f1,f2,fs,length_sec,sig_type)
 %
 %   Description: Generate log sine sweep and play
 %
-%   Usage: y = SoundPlayback(f1,f2,fs,length_sec)
+%   Usage: y = SoundPlayback(f1,f2,fs,length_sec,sig_type)
 %
 %   Input parameters:
 %       - f1: Lower frequency
 %       - f2: Upper frequency
 %       - fs: Sampling frequency
 %       - length_sec: Length of signal
+%       - sig_type: String specifing the type of signal to be generated
+%         'sin'     : Sine signal
+%         'linsin'  : Linear sine sweep
+%         'logsin'  : Exponential sine sweep
+%         'mls'     : MLS
+%         'irs'     : IRS
+%
 %   Output parameters:
 %       - y: sampled signal
 %
 %   Author: Oliver Lylloff, Mathias Immanuel Nielsen & David Duhalde 
-%   Date: 11-9-2012, Last update: 11-9-2012
+%   Date: 11-9-2012, Last update: 12-9-2012
 %   Acoustic Technology, DTU 2012
 % 
 %   TODO:   
-%       - Implement varargin for different signals
+%       - Implement all signals
 %       - 
 
+if (strcmp(sig_type,'logsin'))
 y = log_sine_sweep(f1,f2,fs,length_sec);
 
 freq = fs;
@@ -54,3 +62,7 @@ PsychPortAudio('Stop', pahandle);
 
 % Close the audio device:
 PsychPortAudio('Close', pahandle);
+
+else
+  error('Illegal method')
+end
