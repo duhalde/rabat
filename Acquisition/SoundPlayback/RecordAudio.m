@@ -1,4 +1,4 @@
-function y = RecordAudio(length, Fs)
+function y = RecordAudio(maxseconds, Fs)
 %
 %   Description:    
 %
@@ -18,6 +18,7 @@ function y = RecordAudio(length, Fs)
 InitializePsychSound;
 
 nrchannels = 1;
+recordedaudio = [];
 
 % Open audio device for recording. Mode == 2: Only recording. Latency == 0:
 % Low latency. Recording on 1 channel.
@@ -25,18 +26,24 @@ pahandle = PsychPortAudio('Open', [], 2, 0, Fs, nrchannels);
 
 
 % Preallocate recording buffer with length (s)
-PsychPortAudio('GetAudioData', pahandle, length);
+PsychPortAudio('GetAudioData', pahandle, maxseconds*2);
 
 % Start recording. 1 repetition.
-PsychPortAudio('Start', pahandle, 1, 0, 0, length);
+PsychPortAudio('Start', pahandle, 1, 0, 1, maxseconds);
 disp('Recording Started');
-WaitSecs(length);
 
-PsychPortAudio('Stop', pahandle);
+while length(recordedaudio)/Fs < maxseconds
 
+% Extract audio data
+audiodata = PsychPortAudio('GetAudioData', pahandle);
+recordedaudio = [recordedaudio audiodata];
+
+end
 
 audiodata = PsychPortAudio('GetAudioData', pahandle);
+recordedaudio = [recordedaudio audiodata];
 
+% Close connection
 PsychPortAudio('Close',pahandle);
 
-y = audiodata';
+y = recordedaudio';
