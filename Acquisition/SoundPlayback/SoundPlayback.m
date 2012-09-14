@@ -42,7 +42,7 @@ function y = SoundPlayback(sig_type,varargin)
 % 
 % 
 %   Author: Oliver Lylloff, Mathias Immanuel Nielsen & David Duhalde 
-%   Date: 11-9-2012, Last update: 13-9-2012
+%   Date: 11-9-2012, Last update: 14-9-2012
 %   Acoustic Technology, DTU 2012
 % 
 %   TODO:   
@@ -56,8 +56,10 @@ switch lower(sig_type)
         f1 = varargin{2};
         f2 = varargin{3};
         length_sec = varargin{4};
-  
-        y = log_sine_sweep(f1,f2,fs,length_sec);
+        if nargin > 4
+            arg = varargin{5:end};
+        end
+        y = log_sine_sweep(f1,f2,fs,length_sec,arg);
     
     case 'linsin'
         fs = varargin{1};
