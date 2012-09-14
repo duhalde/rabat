@@ -1,0 +1,71 @@
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychHardware/PR655Toolbox
+END
+PR655init.m
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychHardware/PR655Toolbox/PR655init.m
+END
+PR655rawxyz.m
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychHardware/PR655Toolbox/PR655rawxyz.m
+END
+PR655close.m
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychHardware/PR655Toolbox/PR655close.m
+END
+PR655config.m
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychHardware/PR655Toolbox/PR655config.m
+END
+PR655getsyncfreq.m
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychHardware/PR655Toolbox/PR655getsyncfreq.m
+END
+PR655parsespdstr.m
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychHardware/PR655Toolbox/PR655parsespdstr.m
+END
+PR655write.m
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychHardware/PR655Toolbox/PR655write.m
+END
+PR655read.m
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychHardware/PR655Toolbox/PR655read.m
+END
+PR655measspd.m
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychHardware/PR655Toolbox/PR655measspd.m
+END
+PR655measxyz.m
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychHardware/PR655Toolbox/PR655measxyz.m
+END
+PR655rawspd.m
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychHardware/PR655Toolbox/PR655rawspd.m
+END

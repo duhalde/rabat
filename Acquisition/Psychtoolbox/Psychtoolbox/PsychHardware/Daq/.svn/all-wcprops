@@ -1,0 +1,257 @@
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychHardware/Daq
+END
+DaqReadCode.m
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychHardware/Daq/DaqReadCode.m
+END
+DaqAOut.m
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychHardware/Daq/DaqAOut.m
+END
+DaqSetCal.m
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychHardware/Daq/DaqSetCal.m
+END
+DaqtoolboxConfigDir.m
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychHardware/Daq/DaqtoolboxConfigDir.m
+END
+DaqAInStop.m
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychHardware/Daq/DaqAInStop.m
+END
+DaqAOutScan.m
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychHardware/Daq/DaqAOutScan.m
+END
+DaqDConfigPort.m
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychHardware/Daq/DaqDConfigPort.m
+END
+DaqCalibrateAIn.m
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychHardware/Daq/DaqCalibrateAIn.m
+END
+DaqFind.m
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychHardware/Daq/DaqFind.m
+END
+DaqAInScanContinue.m
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychHardware/Daq/DaqAInScanContinue.m
+END
+DaqReset.m
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychHardware/Daq/DaqReset.m
+END
+DaqALoadQueue.m
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychHardware/Daq/DaqALoadQueue.m
+END
+DaqPrepareDownload.m
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychHardware/Daq/DaqPrepareDownload.m
+END
+DaqDeviceIndex.m
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychHardware/Daq/DaqDeviceIndex.m
+END
+DaqHelp.m
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychHardware/Daq/DaqHelp.m
+END
+DaqSetSync.m
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychHardware/Daq/DaqSetSync.m
+END
+60-mcc.rules
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychHardware/Daq/60-mcc.rules
+END
+DaqCalls.m
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychHardware/Daq/DaqCalls.m
+END
+DaqAInScanEnd.m
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychHardware/Daq/DaqAInScanEnd.m
+END
+DaqWriteSerialNumber.m
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychHardware/Daq/DaqWriteSerialNumber.m
+END
+DaqCInit.m
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychHardware/Daq/DaqCInit.m
+END
+Contents.m
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychHardware/Daq/Contents.m
+END
+DaqAIn.m
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychHardware/Daq/DaqAIn.m
+END
+DaqGetAll.m
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychHardware/Daq/DaqGetAll.m
+END
+DaqFunctions.m
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychHardware/Daq/DaqFunctions.m
+END
+DaqCIn.m
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychHardware/Daq/DaqCIn.m
+END
+DaqPins.m
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychHardware/Daq/DaqPins.m
+END
+DaqMemRead.m
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychHardware/Daq/DaqMemRead.m
+END
+DaqDIn.m
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychHardware/Daq/DaqDIn.m
+END
+DaqDOut.m
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychHardware/Daq/DaqDOut.m
+END
+DaqAInScan.m
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychHardware/Daq/DaqAInScan.m
+END
+DaqDConfigPortBit.m
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychHardware/Daq/DaqDConfigPortBit.m
+END
+DaqDReadBit.m
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychHardware/Daq/DaqDReadBit.m
+END
+DaqAOutStop.m
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychHardware/Daq/DaqAOutStop.m
+END
+DaqSetTrigger.m
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychHardware/Daq/DaqSetTrigger.m
+END
+DaqAInScanBegin.m
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychHardware/Daq/DaqAInScanBegin.m
+END
+DaqGetStatus.m
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychHardware/Daq/DaqGetStatus.m
+END
+DaqBlinkLED.m
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychHardware/Daq/DaqBlinkLED.m
+END
+DaqWriteCode.m
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychHardware/Daq/DaqWriteCode.m
+END
+DaqMemWrite.m
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychHardware/Daq/DaqMemWrite.m
+END
+DaqDWriteBit.m
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychHardware/Daq/DaqDWriteBit.m
+END
+DaqCodes.m
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychHardware/Daq/DaqCodes.m
+END

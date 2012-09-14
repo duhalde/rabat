@@ -1,0 +1,491 @@
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychOpenGL/PsychGLSLShaders
+END
+BasicGaborShader.frag.txt
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychOpenGL/PsychGLSLShaders/BasicGaborShader.frag.txt
+END
+BasicGaborShader.vert.txt
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychOpenGL/PsychGLSLShaders/BasicGaborShader.vert.txt
+END
+KinectShaderStandard.vert.txt
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychOpenGL/PsychGLSLShaders/KinectShaderStandard.vert.txt
+END
+VideoSwitcherCalibratedLuminanceToRB8_FormattingShader.frag.txt
+K 25
+svn:wc:ra_dav:version-url
+V 164
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychOpenGL/PsychGLSLShaders/VideoSwitcherCalibratedLuminanceToRB8_FormattingShader.frag.txt
+END
+LinearCombinationOfTwoImagesShader.frag.txt
+K 25
+svn:wc:ra_dav:version-url
+V 144
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychOpenGL/PsychGLSLShaders/LinearCombinationOfTwoImagesShader.frag.txt
+END
+InterleavedColumnStereoShader.frag.txt
+K 25
+svn:wc:ra_dav:version-url
+V 139
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychOpenGL/PsychGLSLShaders/InterleavedColumnStereoShader.frag.txt
+END
+Create2DGaussianBlurShader.m
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychOpenGL/PsychGLSLShaders/Create2DGaussianBlurShader.m
+END
+moglFDFBackgroundDotsRenderShader.frag.txt
+K 25
+svn:wc:ra_dav:version-url
+V 143
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychOpenGL/PsychGLSLShaders/moglFDFBackgroundDotsRenderShader.frag.txt
+END
+GammaCorrectionShader.frag.txt
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychOpenGL/PsychGLSLShaders/GammaCorrectionShader.frag.txt
+END
+moglFDFRectTexturedDotsRenderShader.frag.txt
+K 25
+svn:wc:ra_dav:version-url
+V 145
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychOpenGL/PsychGLSLShaders/moglFDFRectTexturedDotsRenderShader.frag.txt
+END
+HorizontalDerivativeShader.frag.txt
+K 25
+svn:wc:ra_dav:version-url
+V 136
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychOpenGL/PsychGLSLShaders/HorizontalDerivativeShader.frag.txt
+END
+BilinearTextureFilterShader.frag.txt
+K 25
+svn:wc:ra_dav:version-url
+V 137
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychOpenGL/PsychGLSLShaders/BilinearTextureFilterShader.frag.txt
+END
+EXPCreateStatic2DConvolutionShader.m
+K 25
+svn:wc:ra_dav:version-url
+V 137
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychOpenGL/PsychGLSLShaders/EXPCreateStatic2DConvolutionShader.m
+END
+ApertureSineGratingShader.frag.txt
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychOpenGL/PsychGLSLShaders/ApertureSineGratingShader.frag.txt
+END
+SphereProjectionShader.frag.txt
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychOpenGL/PsychGLSLShaders/SphereProjectionShader.frag.txt
+END
+RGB2GrayConversionShader.frag.txt
+K 25
+svn:wc:ra_dav:version-url
+V 134
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychOpenGL/PsychGLSLShaders/RGB2GrayConversionShader.frag.txt
+END
+ParametricBoxBlurShader.frag.txt
+K 25
+svn:wc:ra_dav:version-url
+V 133
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychOpenGL/PsychGLSLShaders/ParametricBoxBlurShader.frag.txt
+END
+HorizontalMinimumEdgeDistanceShader.frag.txt
+K 25
+svn:wc:ra_dav:version-url
+V 145
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychOpenGL/PsychGLSLShaders/HorizontalMinimumEdgeDistanceShader.frag.txt
+END
+ICMClampedPassThroughShader.frag.txt
+K 25
+svn:wc:ra_dav:version-url
+V 137
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychOpenGL/PsychGLSLShaders/ICMClampedPassThroughShader.frag.txt
+END
+ICMCLUTCorrectionShader.frag.txt
+K 25
+svn:wc:ra_dav:version-url
+V 133
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychOpenGL/PsychGLSLShaders/ICMCLUTCorrectionShader.frag.txt
+END
+ClassicPerlinNoiseLib.frag.txt
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychOpenGL/PsychGLSLShaders/ClassicPerlinNoiseLib.frag.txt
+END
+Convolve2DRectTexture1ChannelShader.frag.txt
+K 25
+svn:wc:ra_dav:version-url
+V 145
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychOpenGL/PsychGLSLShaders/Convolve2DRectTexture1ChannelShader.frag.txt
+END
+LinearCombinationOfManyImagesShader.frag.txt
+K 25
+svn:wc:ra_dav:version-url
+V 145
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychOpenGL/PsychGLSLShaders/LinearCombinationOfManyImagesShader.frag.txt
+END
+EXPDeinterlaceShaderLineDouble.frag.txt
+K 25
+svn:wc:ra_dav:version-url
+V 140
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychOpenGL/PsychGLSLShaders/EXPDeinterlaceShaderLineDouble.frag.txt
+END
+moglFDFForegroundDotsRenderShader.frag.txt
+K 25
+svn:wc:ra_dav:version-url
+V 143
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychOpenGL/PsychGLSLShaders/moglFDFForegroundDotsRenderShader.frag.txt
+END
+SimpleColorClassificationShader.frag.txt
+K 25
+svn:wc:ra_dav:version-url
+V 141
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychOpenGL/PsychGLSLShaders/SimpleColorClassificationShader.frag.txt
+END
+Bits++_Color++_FormattingShader.frag.txt
+K 25
+svn:wc:ra_dav:version-url
+V 141
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychOpenGL/PsychGLSLShaders/Bits++_Color++_FormattingShader.frag.txt
+END
+CylinderProjectionShader.frag.txt
+K 25
+svn:wc:ra_dav:version-url
+V 134
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychOpenGL/PsychGLSLShaders/CylinderProjectionShader.frag.txt
+END
+GVFInitShader.frag.txt
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychOpenGL/PsychGLSLShaders/GVFInitShader.frag.txt
+END
+moglFDFSamplingShader.frag.txt
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychOpenGL/PsychGLSLShaders/moglFDFSamplingShader.frag.txt
+END
+Bits++_Color++_BilinearFormattingShader.frag.txt
+K 25
+svn:wc:ra_dav:version-url
+V 149
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychOpenGL/PsychGLSLShaders/Bits++_Color++_BilinearFormattingShader.frag.txt
+END
+ICMSimpleGammaCorrectionShader.frag.txt
+K 25
+svn:wc:ra_dav:version-url
+V 140
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychOpenGL/PsychGLSLShaders/ICMSimpleGammaCorrectionShader.frag.txt
+END
+ICM2DGainCorrectionShader.frag.txt
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychOpenGL/PsychGLSLShaders/ICM2DGainCorrectionShader.frag.txt
+END
+GVFUpdateShader.frag.txt
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychOpenGL/PsychGLSLShaders/GVFUpdateShader.frag.txt
+END
+LuminanceBlitShader.frag.txt
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychOpenGL/PsychGLSLShaders/LuminanceBlitShader.frag.txt
+END
+DualPipeHDRPipe1_FormattingShader.frag.txt
+K 25
+svn:wc:ra_dav:version-url
+V 143
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychOpenGL/PsychGLSLShaders/DualPipeHDRPipe1_FormattingShader.frag.txt
+END
+gpgpuGVF.m
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychOpenGL/PsychGLSLShaders/gpgpuGVF.m
+END
+ColoredAnaglyphsShader.frag.txt
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychOpenGL/PsychGLSLShaders/ColoredAnaglyphsShader.frag.txt
+END
+Bits++_Mono++_FormattingShader.frag.txt
+K 25
+svn:wc:ra_dav:version-url
+V 140
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychOpenGL/PsychGLSLShaders/Bits++_Mono++_FormattingShader.frag.txt
+END
+ColorMaskedTextureBlitShader.frag.txt
+K 25
+svn:wc:ra_dav:version-url
+V 138
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychOpenGL/PsychGLSLShaders/ColorMaskedTextureBlitShader.frag.txt
+END
+HDRColorsShader.frag.txt
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychOpenGL/PsychGLSLShaders/HDRColorsShader.frag.txt
+END
+ICMPassThroughShader.frag.txt
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychOpenGL/PsychGLSLShaders/ICMPassThroughShader.frag.txt
+END
+ICMCheckedPassThroughShader.frag.txt
+K 25
+svn:wc:ra_dav:version-url
+V 137
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychOpenGL/PsychGLSLShaders/ICMCheckedPassThroughShader.frag.txt
+END
+SimpleFeatureMeanPositionTrackerShader.frag.txt
+K 25
+svn:wc:ra_dav:version-url
+V 148
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychOpenGL/PsychGLSLShaders/SimpleFeatureMeanPositionTrackerShader.frag.txt
+END
+ScaleAndBiasShader.frag.txt
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychOpenGL/PsychGLSLShaders/ScaleAndBiasShader.frag.txt
+END
+HorizontalSumShader.frag.txt
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychOpenGL/PsychGLSLShaders/HorizontalSumShader.frag.txt
+END
+moglTextureExtractionShader.frag.txt
+K 25
+svn:wc:ra_dav:version-url
+V 137
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychOpenGL/PsychGLSLShaders/moglTextureExtractionShader.frag.txt
+END
+HoughDiskDetectionShader.frag.txt
+K 25
+svn:wc:ra_dav:version-url
+V 134
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychOpenGL/PsychGLSLShaders/HoughDiskDetectionShader.frag.txt
+END
+Bits++_Mono++_LUTFormattingShader.frag.txt
+K 25
+svn:wc:ra_dav:version-url
+V 143
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychOpenGL/PsychGLSLShaders/Bits++_Mono++_LUTFormattingShader.frag.txt
+END
+moglComputeMinMaxMeanOfTexture.m
+K 25
+svn:wc:ra_dav:version-url
+V 133
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychOpenGL/PsychGLSLShaders/moglComputeMinMaxMeanOfTexture.m
+END
+moglFDFSilhouetteRenderShader.frag.txt
+K 25
+svn:wc:ra_dav:version-url
+V 139
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychOpenGL/PsychGLSLShaders/moglFDFSilhouetteRenderShader.frag.txt
+END
+NonSymetricGaborShader.frag.txt
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychOpenGL/PsychGLSLShaders/NonSymetricGaborShader.frag.txt
+END
+NonSymetricGaborShader.vert.txt
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychOpenGL/PsychGLSLShaders/NonSymetricGaborShader.vert.txt
+END
+PerlinNoiseLib.frag.txt
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychOpenGL/PsychGLSLShaders/PerlinNoiseLib.frag.txt
+END
+GenericLuminanceToRGBA8_FormattingShader.frag.txt
+K 25
+svn:wc:ra_dav:version-url
+V 150
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychOpenGL/PsychGLSLShaders/GenericLuminanceToRGBA8_FormattingShader.frag.txt
+END
+EXPDeinterlaceShaderAvg.frag.txt
+K 25
+svn:wc:ra_dav:version-url
+V 133
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychOpenGL/PsychGLSLShaders/EXPDeinterlaceShaderAvg.frag.txt
+END
+SeparateAlphaTextureShader.frag.txt
+K 25
+svn:wc:ra_dav:version-url
+V 136
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychOpenGL/PsychGLSLShaders/SeparateAlphaTextureShader.frag.txt
+END
+SeparateAlphaTextureShader.vert.txt
+K 25
+svn:wc:ra_dav:version-url
+V 136
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychOpenGL/PsychGLSLShaders/SeparateAlphaTextureShader.vert.txt
+END
+InterleavedLineStereoShader.frag.txt
+K 25
+svn:wc:ra_dav:version-url
+V 137
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychOpenGL/PsychGLSLShaders/InterleavedLineStereoShader.frag.txt
+END
+ColorKeyedTextureBlitShader.frag.txt
+K 25
+svn:wc:ra_dav:version-url
+V 137
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychOpenGL/PsychGLSLShaders/ColorKeyedTextureBlitShader.frag.txt
+END
+moglFDFTexturedDotsRenderShader.frag.txt
+K 25
+svn:wc:ra_dav:version-url
+V 141
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychOpenGL/PsychGLSLShaders/moglFDFTexturedDotsRenderShader.frag.txt
+END
+VideoSwitcherSimpleLuminanceToRB8_FormattingShader.frag.txt
+K 25
+svn:wc:ra_dav:version-url
+V 160
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychOpenGL/PsychGLSLShaders/VideoSwitcherSimpleLuminanceToRB8_FormattingShader.frag.txt
+END
+MultiMorphShader.frag.txt
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychOpenGL/PsychGLSLShaders/MultiMorphShader.frag.txt
+END
+moglFDFTrackingRenderShader.frag.txt
+K 25
+svn:wc:ra_dav:version-url
+V 137
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychOpenGL/PsychGLSLShaders/moglFDFTrackingRenderShader.frag.txt
+END
+moglFDFTrackingRenderShader.vert.txt
+K 25
+svn:wc:ra_dav:version-url
+V 137
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychOpenGL/PsychGLSLShaders/moglFDFTrackingRenderShader.vert.txt
+END
+KinectShaderCompressed.vert.txt
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychOpenGL/PsychGLSLShaders/KinectShaderCompressed.vert.txt
+END
+PremultipliedAlphaTextureShader.frag.txt
+K 25
+svn:wc:ra_dav:version-url
+V 141
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychOpenGL/PsychGLSLShaders/PremultipliedAlphaTextureShader.frag.txt
+END
+PremultipliedAlphaTextureShader.vert.txt
+K 25
+svn:wc:ra_dav:version-url
+V 141
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychOpenGL/PsychGLSLShaders/PremultipliedAlphaTextureShader.vert.txt
+END
+BasicSineGratingShader.frag.txt
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychOpenGL/PsychGLSLShaders/BasicSineGratingShader.frag.txt
+END
+YRGColorClassificationShader.frag.txt
+K 25
+svn:wc:ra_dav:version-url
+V 138
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychOpenGL/PsychGLSLShaders/YRGColorClassificationShader.frag.txt
+END
+BasicSineGratingShader.vert.txt
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychOpenGL/PsychGLSLShaders/BasicSineGratingShader.vert.txt
+END
+Convolve2DRectTextureShader.frag.txt
+K 25
+svn:wc:ra_dav:version-url
+V 137
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychOpenGL/PsychGLSLShaders/Convolve2DRectTextureShader.frag.txt
+END
+MinMaxMeanReduceShader.frag.txt
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychOpenGL/PsychGLSLShaders/MinMaxMeanReduceShader.frag.txt
+END
+ClutBlitShader.frag.txt
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychOpenGL/PsychGLSLShaders/ClutBlitShader.frag.txt
+END
+ScaleBiasAndGradientShader.frag.txt
+K 25
+svn:wc:ra_dav:version-url
+V 136
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychOpenGL/PsychGLSLShaders/ScaleBiasAndGradientShader.frag.txt
+END
+ColorCodeDifferenceImageShader.frag.txt
+K 25
+svn:wc:ra_dav:version-url
+V 140
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychOpenGL/PsychGLSLShaders/ColorCodeDifferenceImageShader.frag.txt
+END
+BasicPerlinNoiseShader.frag.txt
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychOpenGL/PsychGLSLShaders/BasicPerlinNoiseShader.frag.txt
+END
+DualPipeHDRPipe0_FormattingShader.frag.txt
+K 25
+svn:wc:ra_dav:version-url
+V 143
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychOpenGL/PsychGLSLShaders/DualPipeHDRPipe0_FormattingShader.frag.txt
+END
+BasicPerlinNoiseShader.vert.txt
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychOpenGL/PsychGLSLShaders/BasicPerlinNoiseShader.vert.txt
+END
+TextureWarpShader.frag.txt
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychOpenGL/PsychGLSLShaders/TextureWarpShader.frag.txt
+END
+RGBMultiLUTLookupCombine_FormattingShader.frag.txt
+K 25
+svn:wc:ra_dav:version-url
+V 151
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychOpenGL/PsychGLSLShaders/RGBMultiLUTLookupCombine_FormattingShader.frag.txt
+END

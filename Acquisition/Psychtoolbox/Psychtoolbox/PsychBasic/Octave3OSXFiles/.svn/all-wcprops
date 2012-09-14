@@ -1,0 +1,125 @@
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychBasic/Octave3OSXFiles
+END
+PsychKinectCore.mex
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychBasic/Octave3OSXFiles/PsychKinectCore.mex
+END
+GetSecs.mex
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychBasic/Octave3OSXFiles/GetSecs.mex
+END
+MachSetPriorityMex.mex
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychBasic/Octave3OSXFiles/MachSetPriorityMex.mex
+END
+Eyelink.mex
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychBasic/Octave3OSXFiles/Eyelink.mex
+END
+Contents.m
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychBasic/Octave3OSXFiles/Contents.m
+END
+Gestalt.mex
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychBasic/Octave3OSXFiles/Gestalt.mex
+END
+pnet.mex
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychBasic/Octave3OSXFiles/pnet.mex
+END
+moglcore.mex
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychBasic/Octave3OSXFiles/moglcore.mex
+END
+PsychHID.mex
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychBasic/Octave3OSXFiles/PsychHID.mex
+END
+IOPort.mex
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychBasic/Octave3OSXFiles/IOPort.mex
+END
+GetPID.mex
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychBasic/Octave3OSXFiles/GetPID.mex
+END
+PsychPortAudio.mex
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychBasic/Octave3OSXFiles/PsychPortAudio.mex
+END
+GetTicks.mex
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychBasic/Octave3OSXFiles/GetTicks.mex
+END
+PsychCV.mex
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychBasic/Octave3OSXFiles/PsychCV.mex
+END
+Screen.mex
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychBasic/Octave3OSXFiles/Screen.mex
+END
+FontInfo.mex
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychBasic/Octave3OSXFiles/FontInfo.mex
+END
+Datapixx.mex
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychBasic/Octave3OSXFiles/Datapixx.mex
+END
+WaitSecs.mex
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychBasic/Octave3OSXFiles/WaitSecs.mex
+END
+MachGetPriorityMex.mex
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychBasic/Octave3OSXFiles/MachGetPriorityMex.mex
+END
+MachAbsoluteTimeClockFrequency.mex
+K 25
+svn:wc:ra_dav:version-url
+V 133
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychBasic/Octave3OSXFiles/MachAbsoluteTimeClockFrequency.mex
+END

@@ -1,0 +1,809 @@
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2497/branches/beta/Psychtoolbox/PsychBasic
+END
+PsychSerial.m
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychBasic/PsychSerial.m
+END
+ListenChar.m
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychBasic/ListenChar.m
+END
+KbName.m
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychBasic/KbName.m
+END
+KbQueueCheck.m
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychBasic/KbQueueCheck.m
+END
+KbEventFlush.m
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychBasic/KbEventFlush.m
+END
+PsychtoolboxVersion.m
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychBasic/PsychtoolboxVersion.m
+END
+IOPort.mexmaci
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychBasic/IOPort.mexmaci
+END
+Screen.mexmaci
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychBasic/Screen.mexmaci
+END
+99-psychtoolboxlimits.conf
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychBasic/99-psychtoolboxlimits.conf
+END
+GetSecsTick.m
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychBasic/GetSecsTick.m
+END
+psychassert.m
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychBasic/psychassert.m
+END
+WaitSecs.mexmaci
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychBasic/WaitSecs.mexmaci
+END
+GetPID.m
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychBasic/GetPID.m
+END
+GetMouseWheel.m
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychBasic/GetMouseWheel.m
+END
+GetChar.m
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychBasic/GetChar.m
+END
+FontInfo.m
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychBasic/FontInfo.m
+END
+FontInfo.mexmaci64
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2486/branches/beta/Psychtoolbox/PsychBasic/FontInfo.mexmaci64
+END
+clearPsychPortAudio.m
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychBasic/clearPsychPortAudio.m
+END
+IOPort.mexa64
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychBasic/IOPort.mexa64
+END
+MachGetPriorityMex.mexmaci64
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2486/branches/beta/Psychtoolbox/PsychBasic/MachGetPriorityMex.mexmaci64
+END
+clearScreen.m
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychBasic/clearScreen.m
+END
+KbQueueWait.m
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychBasic/KbQueueWait.m
+END
+PsychtoolboxRegistration.m
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychBasic/PsychtoolboxRegistration.m
+END
+WaitSecs.mexglx
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychBasic/WaitSecs.mexglx
+END
+KbEventGet.m
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychBasic/KbEventGet.m
+END
+GetSecsTick.mexmaci
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychBasic/GetSecsTick.mexmaci
+END
+KbQueueRelease.m
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychBasic/KbQueueRelease.m
+END
+GetPID.mexmaci
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychBasic/GetPID.mexmaci
+END
+KbQueueFlush.m
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychBasic/KbQueueFlush.m
+END
+PsychKinectCore.mexglx
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychBasic/PsychKinectCore.mexglx
+END
+GetSecs.mexglx
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychBasic/GetSecs.mexglx
+END
+FlushEvents.m
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychBasic/FlushEvents.m
+END
+Eyelink.mexglx
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychBasic/Eyelink.mexglx
+END
+GetBusTicks.mexmaci
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychBasic/GetBusTicks.mexmaci
+END
+DoNothing.mexmaci
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychBasic/DoNothing.mexmaci
+END
+PsychHID.mexa64
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychBasic/PsychHID.mexa64
+END
+Snd.m
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychBasic/Snd.m
+END
+PsychKinect.m
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychBasic/PsychKinect.m
+END
+PsychPortAudio.mexglx
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychBasic/PsychPortAudio.mexglx
+END
+GetTicksTick.m
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychBasic/GetTicksTick.m
+END
+KbCheck.m
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychBasic/KbCheck.m
+END
+KbPressWait.m
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychBasic/KbPressWait.m
+END
+WaitTicks.m
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychBasic/WaitTicks.m
+END
+GetBusTicksTick.m
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychBasic/GetBusTicksTick.m
+END
+Gestalt.m
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychBasic/Gestalt.m
+END
+Gestalt.mexmaci64
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2486/branches/beta/Psychtoolbox/PsychBasic/Gestalt.mexmaci64
+END
+WelcomeSplash.ppm
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychBasic/WelcomeSplash.ppm
+END
+HideCursor.m
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychBasic/HideCursor.m
+END
+clearall.m
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychBasic/clearall.m
+END
+clearIOPort.m
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychBasic/clearIOPort.m
+END
+DoNothing.m
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychBasic/DoNothing.m
+END
+WaitSecs.mexa64
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychBasic/WaitSecs.mexa64
+END
+SetMouse.m
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychBasic/SetMouse.m
+END
+PsychKinectCore.mexa64
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychBasic/PsychKinectCore.mexa64
+END
+GetSecs.mexa64
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychBasic/GetSecs.mexa64
+END
+KbQueueStop.m
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychBasic/KbQueueStop.m
+END
+DrawFormattedText.m
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychBasic/DrawFormattedText.m
+END
+Eyelink.mexa64
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychBasic/Eyelink.mexa64
+END
+Datapixx.mexmaci
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychBasic/Datapixx.mexmaci
+END
+PredictVisualOnsetForTime.m
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychBasic/PredictVisualOnsetForTime.m
+END
+WaitSecs.m
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychBasic/WaitSecs.m
+END
+WaitSecs.mexmaci64
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2486/branches/beta/Psychtoolbox/PsychBasic/WaitSecs.mexmaci64
+END
+PsychKinectCore.mexmaci
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychBasic/PsychKinectCore.mexmaci
+END
+GetSecs.mexmaci
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychBasic/GetSecs.mexmaci
+END
+psychlasterror.m
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychBasic/psychlasterror.m
+END
+PsychPortAudio.mexa64
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychBasic/PsychPortAudio.mexa64
+END
+Screen.mexglx
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychBasic/Screen.mexglx
+END
+Datapixx.mexglx
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychBasic/Datapixx.mexglx
+END
+moalcore.mexmaci64
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2486/branches/beta/Psychtoolbox/PsychBasic/moalcore.mexmaci64
+END
+PsychPortAudio.mexmaci
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychBasic/PsychPortAudio.mexmaci
+END
+PsychDrawSprites2D.m
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychBasic/PsychDrawSprites2D.m
+END
+LoadClut.m
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychBasic/LoadClut.m
+END
+moalcore.mexglx
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychBasic/moalcore.mexglx
+END
+LoadPsychHID.m
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychBasic/LoadPsychHID.m
+END
+VideoRefreshFromMeasurement.m
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychBasic/VideoRefreshFromMeasurement.m
+END
+KbQueueStart.m
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychBasic/KbQueueStart.m
+END
+moglcore.mexglx
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychBasic/moglcore.mexglx
+END
+MachAbsoluteTimeClockFrequency.m
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychBasic/MachAbsoluteTimeClockFrequency.m
+END
+MachAbsoluteTimeClockFrequency.mexmaci64
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2486/branches/beta/Psychtoolbox/PsychBasic/MachAbsoluteTimeClockFrequency.mexmaci64
+END
+KbQueueCreate.m
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychBasic/KbQueueCreate.m
+END
+KbKeysAction.m
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychBasic/KbKeysAction.m
+END
+clearWaitSecs.m
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychBasic/clearWaitSecs.m
+END
+Gestalt.mexmaci
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychBasic/Gestalt.mexmaci
+END
+CharAvail.m
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychBasic/CharAvail.m
+END
+PsychKinectCore.m
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychBasic/PsychKinectCore.m
+END
+Contents.m
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2451/branches/beta/Psychtoolbox/PsychBasic/Contents.m
+END
+GetSecs.m
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychBasic/GetSecs.m
+END
+PsychKinectCore.mexmaci64
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2486/branches/beta/Psychtoolbox/PsychBasic/PsychKinectCore.mexmaci64
+END
+GetSecs.mexmaci64
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2486/branches/beta/Psychtoolbox/PsychBasic/GetSecs.mexmaci64
+END
+MachSetPriorityMex.mexmaci64
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2486/branches/beta/Psychtoolbox/PsychBasic/MachSetPriorityMex.mexmaci64
+END
+Beeper.m
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychBasic/Beeper.m
+END
+GetTicks.mexmaci
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychBasic/GetTicks.mexmaci
+END
+FontInfo.mexmaci
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychBasic/FontInfo.mexmaci
+END
+MachAbsoluteTimeClockFrequency.mexmaci
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychBasic/MachAbsoluteTimeClockFrequency.mexmaci
+END
+KbEventAvail.m
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychBasic/KbEventAvail.m
+END
+PsychHID.mexmaci64
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2486/branches/beta/Psychtoolbox/PsychBasic/PsychHID.mexmaci64
+END
+PsychPortAudio.m
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychBasic/PsychPortAudio.m
+END
+ShowCursor.m
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychBasic/ShowCursor.m
+END
+PsychPortAudio.mexmaci64
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2497/branches/beta/Psychtoolbox/PsychBasic/PsychPortAudio.mexmaci64
+END
+Screen.m
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychBasic/Screen.m
+END
+Screen.mexmaci64
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2486/branches/beta/Psychtoolbox/PsychBasic/Screen.mexmaci64
+END
+ScreenDrawDots.m
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychBasic/ScreenDrawDots.m
+END
+Screen.mexa64
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychBasic/Screen.mexa64
+END
+Datapixx.mexa64
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychBasic/Datapixx.mexa64
+END
+PsychtoolboxDate.m
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychBasic/PsychtoolboxDate.m
+END
+clearmex.m
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychBasic/clearmex.m
+END
+Eyelink.mexmaci64
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2486/branches/beta/Psychtoolbox/PsychBasic/Eyelink.mexmaci64
+END
+GetClicks.m
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychBasic/GetClicks.m
+END
+moglcore.mexmaci64
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2486/branches/beta/Psychtoolbox/PsychBasic/moglcore.mexmaci64
+END
+moalcore.mexa64
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychBasic/moalcore.mexa64
+END
+RestrictKeysForKbCheck.m
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychBasic/RestrictKeysForKbCheck.m
+END
+GetTicks.m
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychBasic/GetTicks.m
+END
+moglcore.mexa64
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychBasic/moglcore.mexa64
+END
+PsychCV.m
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychBasic/PsychCV.m
+END
+clearPsychHID.m
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychBasic/clearPsychHID.m
+END
+Datapixx.mexmaci64
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychBasic/Datapixx.mexmaci64
+END
+IOPort.mexglx
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychBasic/IOPort.mexglx
+END
+GetBusTicks.m
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychBasic/GetBusTicks.m
+END
+GetMouse.m
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychBasic/GetMouse.m
+END
+psychtoolbox.rules
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychBasic/psychtoolbox.rules
+END
+FrameRateFromMeasurement.m
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychBasic/FrameRateFromMeasurement.m
+END
+psychrethrow.m
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychBasic/psychrethrow.m
+END
+clearGetSecs.m
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychBasic/clearGetSecs.m
+END
+KbTriggerWait.m
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychBasic/KbTriggerWait.m
+END
+PsychWatchDog.m
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychBasic/PsychWatchDog.m
+END
+KbStrokeWait.m
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychBasic/KbStrokeWait.m
+END
+IOPort.m
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychBasic/IOPort.m
+END
+RemapMouse.m
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychBasic/RemapMouse.m
+END
+IOPort.mexmaci64
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2486/branches/beta/Psychtoolbox/PsychBasic/IOPort.mexmaci64
+END
+clearmoglcore.m
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychBasic/clearmoglcore.m
+END
+KbWait.m
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychBasic/KbWait.m
+END
+DisableKeysForKbCheck.m
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychBasic/DisableKeysForKbCheck.m
+END
+KbReleaseWait.m
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychBasic/KbReleaseWait.m
+END
+PsychHID.mexglx
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychBasic/PsychHID.mexglx
+END

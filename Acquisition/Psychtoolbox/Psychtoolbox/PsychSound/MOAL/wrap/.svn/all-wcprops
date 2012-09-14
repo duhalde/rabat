@@ -1,0 +1,455 @@
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychSound/MOAL/wrap
+END
+alSourcei.m
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychSound/MOAL/wrap/alSourcei.m
+END
+_alGetListener3f.m
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychSound/MOAL/wrap/_alGetListener3f.m
+END
+_alGetBufferf.m
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychSound/MOAL/wrap/_alGetBufferf.m
+END
+alBufferf.m
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychSound/MOAL/wrap/alBufferf.m
+END
+alDeleteBuffers.m
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychSound/MOAL/wrap/alDeleteBuffers.m
+END
+_alGetListeneriv.m
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychSound/MOAL/wrap/_alGetListeneriv.m
+END
+_alGetSourcefv.m
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychSound/MOAL/wrap/_alGetSourcefv.m
+END
+alSource3i.m
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychSound/MOAL/wrap/alSource3i.m
+END
+_alGetBuffer3f.m
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychSound/MOAL/wrap/_alGetBuffer3f.m
+END
+alDisable.m
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychSound/MOAL/wrap/alDisable.m
+END
+alBufferfv.m
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychSound/MOAL/wrap/alBufferfv.m
+END
+alGetSourcef.m
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychSound/MOAL/wrap/alGetSourcef.m
+END
+_alGetBufferiv.m
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychSound/MOAL/wrap/_alGetBufferiv.m
+END
+alSourceRewind.m
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychSound/MOAL/wrap/alSourceRewind.m
+END
+alcGetString.m
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychSound/MOAL/wrap/alcGetString.m
+END
+alGetDouble.m
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychSound/MOAL/wrap/alGetDouble.m
+END
+alGenSources.m
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychSound/MOAL/wrap/alGenSources.m
+END
+alListener3i.m
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychSound/MOAL/wrap/alListener3i.m
+END
+_alGetIntegerv.m
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychSound/MOAL/wrap/_alGetIntegerv.m
+END
+alDopplerVelocity.m
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychSound/MOAL/wrap/alDopplerVelocity.m
+END
+alSourceUnqueueBuffers.m
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychSound/MOAL/wrap/alSourceUnqueueBuffers.m
+END
+_alGetSource3f.m
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychSound/MOAL/wrap/_alGetSource3f.m
+END
+alGetError.m
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychSound/MOAL/wrap/alGetError.m
+END
+alListenerf.m
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychSound/MOAL/wrap/alListenerf.m
+END
+alIsSource.m
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychSound/MOAL/wrap/alIsSource.m
+END
+alSourceStopv.m
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychSound/MOAL/wrap/alSourceStopv.m
+END
+alSourcefv.m
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychSound/MOAL/wrap/alSourcefv.m
+END
+_alGetListeneri.m
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychSound/MOAL/wrap/_alGetListeneri.m
+END
+_alGetSourceiv.m
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychSound/MOAL/wrap/_alGetSourceiv.m
+END
+_alGetDoublev.m
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychSound/MOAL/wrap/_alGetDoublev.m
+END
+alGetEnumValue.m
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychSound/MOAL/wrap/alGetEnumValue.m
+END
+alBuffer3f.m
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychSound/MOAL/wrap/alBuffer3f.m
+END
+alDeleteSources.m
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychSound/MOAL/wrap/alDeleteSources.m
+END
+alSourceStop.m
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychSound/MOAL/wrap/alSourceStop.m
+END
+alSourcef.m
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychSound/MOAL/wrap/alSourcef.m
+END
+alBufferiv.m
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychSound/MOAL/wrap/alBufferiv.m
+END
+alDistanceModel.m
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychSound/MOAL/wrap/alDistanceModel.m
+END
+alSourcePlayv.m
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychSound/MOAL/wrap/alSourcePlayv.m
+END
+alGetBoolean.m
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychSound/MOAL/wrap/alGetBoolean.m
+END
+_alGetListener3i.m
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychSound/MOAL/wrap/_alGetListener3i.m
+END
+alListenerfv.m
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychSound/MOAL/wrap/alListenerfv.m
+END
+_alGetBufferi.m
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychSound/MOAL/wrap/_alGetBufferi.m
+END
+alBufferi.m
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychSound/MOAL/wrap/alBufferi.m
+END
+alSourcePausev.m
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychSound/MOAL/wrap/alSourcePausev.m
+END
+alSourcePlay.m
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychSound/MOAL/wrap/alSourcePlay.m
+END
+alIsEnabled.m
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychSound/MOAL/wrap/alIsEnabled.m
+END
+alEnable.m
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychSound/MOAL/wrap/alEnable.m
+END
+alSource3f.m
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychSound/MOAL/wrap/alSource3f.m
+END
+alcASASetListener.m
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychSound/MOAL/wrap/alcASASetListener.m
+END
+alGetInteger.m
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychSound/MOAL/wrap/alGetInteger.m
+END
+alSourcePause.m
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychSound/MOAL/wrap/alSourcePause.m
+END
+alSpeedOfSound.m
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychSound/MOAL/wrap/alSpeedOfSound.m
+END
+alSourceiv.m
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychSound/MOAL/wrap/alSourceiv.m
+END
+_alGetBuffer3i.m
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychSound/MOAL/wrap/_alGetBuffer3i.m
+END
+_alGetBooleanv.m
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychSound/MOAL/wrap/_alGetBooleanv.m
+END
+alDopplerFactor.m
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychSound/MOAL/wrap/alDopplerFactor.m
+END
+alIsBuffer.m
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychSound/MOAL/wrap/alIsBuffer.m
+END
+alGetFloat.m
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychSound/MOAL/wrap/alGetFloat.m
+END
+alIsExtensionPresent.m
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychSound/MOAL/wrap/alIsExtensionPresent.m
+END
+alGetSourcei.m
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychSound/MOAL/wrap/alGetSourcei.m
+END
+alListener3f.m
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychSound/MOAL/wrap/alListener3f.m
+END
+_alGetListenerfv.m
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychSound/MOAL/wrap/_alGetListenerfv.m
+END
+alSourceQueueBuffers.m
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychSound/MOAL/wrap/alSourceQueueBuffers.m
+END
+alListeneriv.m
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychSound/MOAL/wrap/alListeneriv.m
+END
+alGenBuffers.m
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychSound/MOAL/wrap/alGenBuffers.m
+END
+_alGetListenerf.m
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychSound/MOAL/wrap/_alGetListenerf.m
+END
+_alGetFloatv.m
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychSound/MOAL/wrap/_alGetFloatv.m
+END
+_alGetSource3i.m
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychSound/MOAL/wrap/_alGetSource3i.m
+END
+alListeneri.m
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychSound/MOAL/wrap/alListeneri.m
+END
+alSourceRewindv.m
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychSound/MOAL/wrap/alSourceRewindv.m
+END
+alBufferData.m
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychSound/MOAL/wrap/alBufferData.m
+END
+_alGetBufferfv.m
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychSound/MOAL/wrap/_alGetBufferfv.m
+END
+alcASASetSource.m
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychSound/MOAL/wrap/alcASASetSource.m
+END
+alBuffer3i.m
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychSound/MOAL/wrap/alBuffer3i.m
+END
+alGetString.m
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychSound/MOAL/wrap/alGetString.m
+END

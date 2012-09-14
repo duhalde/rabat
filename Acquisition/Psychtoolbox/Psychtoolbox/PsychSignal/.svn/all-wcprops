@@ -1,0 +1,155 @@
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychSignal
+END
+MatMin.m
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychSignal/MatMin.m
+END
+MatMax.m
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychSignal/MatMax.m
+END
+Scale.m
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychSignal/Scale.m
+END
+HalfRect.m
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychSignal/HalfRect.m
+END
+AltRound.m
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychSignal/AltRound.m
+END
+MatMinMax.m
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychSignal/MatMinMax.m
+END
+Bandpass.m
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychSignal/Bandpass.m
+END
+Trunc.m
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychSignal/Trunc.m
+END
+Contents.m
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychSignal/Contents.m
+END
+SumAll.m
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychSignal/SumAll.m
+END
+AllAll.m
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychSignal/AllAll.m
+END
+BoolFromSNR.m
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychSignal/BoolFromSNR.m
+END
+ComputeRMSE.m
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychSignal/ComputeRMSE.m
+END
+OrientationBandpass.m
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychSignal/OrientationBandpass.m
+END
+ATand2.m
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychSignal/ATand2.m
+END
+MeanAll.m
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychSignal/MeanAll.m
+END
+MinAll.m
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychSignal/MinAll.m
+END
+Bandpass2.m
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychSignal/Bandpass2.m
+END
+MaxAll.m
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychSignal/MaxAll.m
+END
+MinInd.m
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychSignal/MinInd.m
+END
+Expand.m
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychSignal/Expand.m
+END
+AnyAll.m
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychSignal/AnyAll.m
+END
+ATand360.m
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychSignal/ATand360.m
+END
+MaxInd.m
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychSignal/MaxInd.m
+END
+StdAll.m
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychSignal/StdAll.m
+END

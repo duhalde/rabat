@@ -1,0 +1,83 @@
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychSound/MOAL/source
+END
+makefile_windows.m
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychSound/MOAL/source/makefile_windows.m
+END
+moalcore.c
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychSound/MOAL/source/moalcore.c
+END
+windowhacks.c
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychSound/MOAL/source/windowhacks.c
+END
+moaltypes.h
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychSound/MOAL/source/moaltypes.h
+END
+al_auto.c
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychSound/MOAL/source/al_auto.c
+END
+al_auto_init.c
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychSound/MOAL/source/al_auto_init.c
+END
+makefile_intelmac
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychSound/MOAL/source/makefile_intelmac
+END
+al_manual.c
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychSound/MOAL/source/al_manual.c
+END
+alm.c
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychSound/MOAL/source/alm.c
+END
+makefile_linux
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychSound/MOAL/source/makefile_linux
+END
+makefile
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychSound/MOAL/source/makefile
+END
+oalconst.m
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychSound/MOAL/source/oalconst.m
+END
+makefile_octavelinux
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychSound/MOAL/source/makefile_octavelinux
+END

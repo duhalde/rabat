@@ -1,0 +1,227 @@
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychGamma
+END
+FitGammaPowFun.m
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychGamma/FitGammaPowFun.m
+END
+InitialXPoly.m
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychGamma/InitialXPoly.m
+END
+FitGammaExtP.m
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychGamma/FitGammaExtP.m
+END
+HalfRect.m
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychGamma/HalfRect.m
+END
+FitGammaPoly.m
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychGamma/FitGammaPoly.m
+END
+MonitorGamma.m
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychGamma/MonitorGamma.m
+END
+FitGammaSigFun.m
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychGamma/FitGammaSigFun.m
+END
+FitGammaPolyFun.m
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychGamma/FitGammaPolyFun.m
+END
+CheckMonotonic.m
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychGamma/CheckMonotonic.m
+END
+MakeMonotonic.m
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychGamma/MakeMonotonic.m
+END
+NormalizeGamma.m
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychGamma/NormalizeGamma.m
+END
+MonitorGammaError.m
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychGamma/MonitorGammaError.m
+END
+FitGammaWeibFun.m
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychGamma/FitGammaWeibFun.m
+END
+ComputeGammaPolyR.m
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychGamma/ComputeGammaPolyR.m
+END
+FitDeviceGamma.m
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychGamma/FitDeviceGamma.m
+END
+MakeGammaMonotonic.m
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychGamma/MakeGammaMonotonic.m
+END
+InitialXPolyR.m
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychGamma/InitialXPolyR.m
+END
+FitGammaPolyR.m
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychGamma/FitGammaPolyR.m
+END
+ComputeGammaSig.m
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychGamma/ComputeGammaSig.m
+END
+InitialXSig.m
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychGamma/InitialXSig.m
+END
+FitGamma.m
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychGamma/FitGamma.m
+END
+ComputeGammaWeib.m
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychGamma/ComputeGammaWeib.m
+END
+InitialXWeib.m
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychGamma/InitialXWeib.m
+END
+FitGammaSig.m
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychGamma/FitGammaSig.m
+END
+FitGammaLin.m
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychGamma/FitGammaLin.m
+END
+FitGammaWeib.m
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychGamma/FitGammaWeib.m
+END
+Contents.m
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychGamma/Contents.m
+END
+FitGammaExtPFun.m
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychGamma/FitGammaExtPFun.m
+END
+FitGammaSpline.m
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychGamma/FitGammaSpline.m
+END
+ComputeRMSE.m
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychGamma/ComputeRMSE.m
+END
+ComputeGammaPow.m
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychGamma/ComputeGammaPow.m
+END
+InitialXPow.m
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychGamma/InitialXPow.m
+END
+InvertGammaExtP.m
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychGamma/InvertGammaExtP.m
+END
+FitGammaPow.m
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychGamma/FitGammaPow.m
+END
+ComputeGammaExtP.m
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychGamma/ComputeGammaExtP.m
+END
+InitialXExtP.m
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychGamma/InitialXExtP.m
+END
+ComputeGammaPoly.m
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychGamma/ComputeGammaPoly.m
+END

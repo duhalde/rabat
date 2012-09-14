@@ -1,0 +1,83 @@
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychHardware/PR650Toolbox
+END
+PR650getserialnumber.m
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychHardware/PR650Toolbox/PR650getserialnumber.m
+END
+Cable to the PR-650.txt
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychHardware/PR650Toolbox/Cable%20to%20the%20PR-650.txt
+END
+PR650getsyncfreq.m
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychHardware/PR650Toolbox/PR650getsyncfreq.m
+END
+PR650parsespdstr.m
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychHardware/PR650Toolbox/PR650parsespdstr.m
+END
+PR650serialread.m
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychHardware/PR650Toolbox/PR650serialread.m
+END
+PR650measspd.m
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychHardware/PR650Toolbox/PR650measspd.m
+END
+PR650retrievespd.m
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychHardware/PR650Toolbox/PR650retrievespd.m
+END
+PR650measxyz.m
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychHardware/PR650Toolbox/PR650measxyz.m
+END
+PR650rawspd.m
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychHardware/PR650Toolbox/PR650rawspd.m
+END
+PR650init.m
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychHardware/PR650Toolbox/PR650init.m
+END
+PR650rawxyz.m
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychHardware/PR650Toolbox/PR650rawxyz.m
+END
+PR650close.m
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychHardware/PR650Toolbox/PR650close.m
+END
+PR650setsyncfreq.m
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychHardware/PR650Toolbox/PR650setsyncfreq.m
+END

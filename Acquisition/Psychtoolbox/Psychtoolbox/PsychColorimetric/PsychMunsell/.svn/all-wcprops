@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychColorimetric/PsychMunsell
+END
+RITAllMunsellData.txt
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychColorimetric/PsychMunsell/RITAllMunsellData.txt
+END
+MunsellConversionTest.m
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychColorimetric/PsychMunsell/MunsellConversionTest.m
+END
+MunsellGetxyY.m
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychColorimetric/PsychMunsell/MunsellGetxyY.m
+END
+MunsellAngleToHue.m
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychColorimetric/PsychMunsell/MunsellAngleToHue.m
+END
+MunsellHueToAngle.m
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychColorimetric/PsychMunsell/MunsellHueToAngle.m
+END
+Contents.m
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychColorimetric/PsychMunsell/Contents.m
+END
+MunsellPreprocessTable.m
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychColorimetric/PsychMunsell/MunsellPreprocessTable.m
+END
+MunsellGriddata3.m
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychColorimetric/PsychMunsell/MunsellGriddata3.m
+END

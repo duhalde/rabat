@@ -1,0 +1,191 @@
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/Psychometric
+END
+NormLikelyRatio.m
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/Psychometric/NormLikelyRatio.m
+END
+NormLogLikelyRatio.m
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/Psychometric/NormLogLikelyRatio.m
+END
+FitWeibTAFC.m
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/Psychometric/FitWeibTAFC.m
+END
+FitLogitYN.m
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/Psychometric/FitLogitYN.m
+END
+LogToDb.m
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/Psychometric/LogToDb.m
+END
+FindAlphaWeibTAFC.m
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/Psychometric/FindAlphaWeibTAFC.m
+END
+NormalROC.m
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/Psychometric/NormalROC.m
+END
+FindEpsWeibTAFC.m
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/Psychometric/FindEpsWeibTAFC.m
+END
+ComputeOptimalBeta.m
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/Psychometric/ComputeOptimalBeta.m
+END
+GiveFeedback.m
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/Psychometric/GiveFeedback.m
+END
+FindThreshWeibTAFC.m
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/Psychometric/FindThreshWeibTAFC.m
+END
+WeibAlphTAFCFitFun.m
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/Psychometric/WeibAlphTAFCFitFun.m
+END
+InvertLogistic.m
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/Psychometric/InvertLogistic.m
+END
+WeibYNFitFun.m
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/Psychometric/WeibYNFitFun.m
+END
+FitNakaRushtonFun.m
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/Psychometric/FitNakaRushtonFun.m
+END
+ComputeNakaRushton.m
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/Psychometric/ComputeNakaRushton.m
+END
+ComputeWeibYN.m
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/Psychometric/ComputeWeibYN.m
+END
+DbToLog.m
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/Psychometric/DbToLog.m
+END
+FitCumNormYN.m
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/Psychometric/FitCumNormYN.m
+END
+FitWeibAlphTAFC.m
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/Psychometric/FitWeibAlphTAFC.m
+END
+Contents.m
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/Psychometric/Contents.m
+END
+WeibTAFCFitFun.m
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/Psychometric/WeibTAFCFitFun.m
+END
+FitWeibYN.m
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/Psychometric/FitWeibYN.m
+END
+FitNakaRushton.m
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/Psychometric/FitNakaRushton.m
+END
+SimWeibTAFCObs.m
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/Psychometric/SimWeibTAFCObs.m
+END
+CumNormYNFitFun.m
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/Psychometric/CumNormYNFitFun.m
+END
+AreaUnderROC.m
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/Psychometric/AreaUnderROC.m
+END
+ComputeLogistic.m
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/Psychometric/ComputeLogistic.m
+END
+FindThreshWeibYN.m
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/Psychometric/FindThreshWeibYN.m
+END
+FitLogistic.m
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/Psychometric/FitLogistic.m
+END
+ComputeWeibTAFC.m
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/Psychometric/ComputeWeibTAFC.m
+END

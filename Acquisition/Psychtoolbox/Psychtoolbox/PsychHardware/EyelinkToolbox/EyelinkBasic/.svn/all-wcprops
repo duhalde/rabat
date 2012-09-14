@@ -1,0 +1,101 @@
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychHardware/EyelinkToolbox/EyelinkBasic
+END
+Eyelink.mexmaci
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychHardware/EyelinkToolbox/EyelinkBasic/Eyelink.mexmaci
+END
+EyelinkUpdateDefaults.m
+K 25
+svn:wc:ra_dav:version-url
+V 137
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychHardware/EyelinkToolbox/EyelinkBasic/EyelinkUpdateDefaults.m
+END
+contents.m
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychHardware/EyelinkToolbox/EyelinkBasic/contents.m
+END
+EyelinkDoDriftCorrect.m
+K 25
+svn:wc:ra_dav:version-url
+V 137
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychHardware/EyelinkToolbox/EyelinkBasic/EyelinkDoDriftCorrect.m
+END
+Eyelink.m
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychHardware/EyelinkToolbox/EyelinkBasic/Eyelink.m
+END
+EyelinkTargetModeDisplay.m
+K 25
+svn:wc:ra_dav:version-url
+V 140
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychHardware/EyelinkToolbox/EyelinkBasic/EyelinkTargetModeDisplay.m
+END
+PsychEyelinkDispatchCallback.m
+K 25
+svn:wc:ra_dav:version-url
+V 144
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychHardware/EyelinkToolbox/EyelinkBasic/PsychEyelinkDispatchCallback.m
+END
+EyelinkDoDriftCorrection.m
+K 25
+svn:wc:ra_dav:version-url
+V 140
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychHardware/EyelinkToolbox/EyelinkBasic/EyelinkDoDriftCorrection.m
+END
+EyelinkDrawCalTarget.m
+K 25
+svn:wc:ra_dav:version-url
+V 136
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychHardware/EyelinkToolbox/EyelinkBasic/EyelinkDrawCalTarget.m
+END
+EyelinkEraseCalTarget.m
+K 25
+svn:wc:ra_dav:version-url
+V 137
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychHardware/EyelinkToolbox/EyelinkBasic/EyelinkEraseCalTarget.m
+END
+EyelinkGetKey.m
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychHardware/EyelinkToolbox/EyelinkBasic/EyelinkGetKey.m
+END
+EyelinkInitDefaults.m
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychHardware/EyelinkToolbox/EyelinkBasic/EyelinkInitDefaults.m
+END
+EyelinkClearCalDisplay.m
+K 25
+svn:wc:ra_dav:version-url
+V 138
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychHardware/EyelinkToolbox/EyelinkBasic/EyelinkClearCalDisplay.m
+END
+EyelinkDoTrackerSetup.m
+K 25
+svn:wc:ra_dav:version-url
+V 137
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychHardware/EyelinkToolbox/EyelinkBasic/EyelinkDoTrackerSetup.m
+END
+EyelinkCalDoneBeep.m
+K 25
+svn:wc:ra_dav:version-url
+V 134
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychHardware/EyelinkToolbox/EyelinkBasic/EyelinkCalDoneBeep.m
+END
+EyelinkCalTargetBeep.m
+K 25
+svn:wc:ra_dav:version-url
+V 136
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychHardware/EyelinkToolbox/EyelinkBasic/EyelinkCalTargetBeep.m
+END

@@ -1,0 +1,143 @@
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychColorimetricData
+END
+EyeLength.m
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychColorimetricData/EyeLength.m
+END
+FitConeFundamentalsWithNomogram.m
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychColorimetricData/FitConeFundamentalsWithNomogram.m
+END
+DefaultPhotoreceptors.m
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychColorimetricData/DefaultPhotoreceptors.m
+END
+PhotoreceptorDimensions.m
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychColorimetricData/PhotoreceptorDimensions.m
+END
+BaylorNomogram.m
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychColorimetricData/BaylorNomogram.m
+END
+PhotopigmentQuantalEfficiency.m
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychColorimetricData/PhotopigmentQuantalEfficiency.m
+END
+DegreesToRetinalMM.m
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychColorimetricData/DegreesToRetinalMM.m
+END
+RetinalMMToDegrees.m
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychColorimetricData/RetinalMMToDegrees.m
+END
+PhotopigmentAxialDensity.m
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychColorimetricData/PhotopigmentAxialDensity.m
+END
+Contents.m
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychColorimetricData/Contents.m
+END
+ComputeRawConeFundamentals.m
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychColorimetricData/ComputeRawConeFundamentals.m
+END
+LensTransmittance.m
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychColorimetricData/LensTransmittance.m
+END
+ComputeCIEConeFundamentals.m
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychColorimetricData/ComputeCIEConeFundamentals.m
+END
+ValetonVanNorrenParams.m
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychColorimetricData/ValetonVanNorrenParams.m
+END
+PupilDiameterFromLum.m
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychColorimetricData/PupilDiameterFromLum.m
+END
+GovardovskiiNomogram.m
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychColorimetricData/GovardovskiiNomogram.m
+END
+DawisNomogram.m
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychColorimetricData/DawisNomogram.m
+END
+LambNomogram.m
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychColorimetricData/LambNomogram.m
+END
+PhotopigmentNomogram.m
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychColorimetricData/PhotopigmentNomogram.m
+END
+FillInPhotoreceptors.m
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychColorimetricData/FillInPhotoreceptors.m
+END
+MacularTransmittance.m
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychColorimetricData/MacularTransmittance.m
+END
+StockmanSharpeNomogram.m
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychColorimetricData/StockmanSharpeNomogram.m
+END
+PhotopigmentSpecificDensity.m
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychColorimetricData/PhotopigmentSpecificDensity.m
+END

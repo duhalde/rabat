@@ -1,0 +1,137 @@
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychAlphaBlending
+END
+MaskImageIn.m
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychAlphaBlending/MaskImageIn.m
+END
+GL_SRC_ALPHA_SATURATE.m
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychAlphaBlending/GL_SRC_ALPHA_SATURATE.m
+END
+GL_ONE_MINUS_DST_COLOR.m
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychAlphaBlending/GL_ONE_MINUS_DST_COLOR.m
+END
+MaskImageOut.m
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychAlphaBlending/MaskImageOut.m
+END
+AlphaTimes.m
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychAlphaBlending/AlphaTimes.m
+END
+GL_ONE_MINUS_SRC_ALPHA.m
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychAlphaBlending/GL_ONE_MINUS_SRC_ALPHA.m
+END
+AlphaBlend.m
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychAlphaBlending/AlphaBlend.m
+END
+GL_ONE_MINUS_DST_ALPHA.m
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychAlphaBlending/GL_ONE_MINUS_DST_ALPHA.m
+END
+Contents.m
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychAlphaBlending/Contents.m
+END
+AlphaSourceTerm.m
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychAlphaBlending/AlphaSourceTerm.m
+END
+GL_ZERO.m
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychAlphaBlending/GL_ZERO.m
+END
+GL_ONE.m
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychAlphaBlending/GL_ONE.m
+END
+SetDestinationAlpha.m
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychAlphaBlending/SetDestinationAlpha.m
+END
+SetImageAlpha.m
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychAlphaBlending/SetImageAlpha.m
+END
+GL_SRC_COLOR.m
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychAlphaBlending/GL_SRC_COLOR.m
+END
+GL_DST_COLOR.m
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychAlphaBlending/GL_DST_COLOR.m
+END
+AlphaSum.m
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychAlphaBlending/AlphaSum.m
+END
+GL_SRC_ALPHA.m
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychAlphaBlending/GL_SRC_ALPHA.m
+END
+AlphaDestinationTerm.m
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychAlphaBlending/AlphaDestinationTerm.m
+END
+GL_DST_ALPHA.m
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychAlphaBlending/GL_DST_ALPHA.m
+END
+SetSourceAlpha.m
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychAlphaBlending/SetSourceAlpha.m
+END
+GL_ONE_MINUS_SRC_COLOR.m
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychAlphaBlending/GL_ONE_MINUS_SRC_COLOR.m
+END

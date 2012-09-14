@@ -1,0 +1,119 @@
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychGLImageProcessing/private
+END
+NewCalibFile.m
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychGLImageProcessing/private/NewCalibFile.m
+END
+selectcalibrationpoints.m
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychGLImageProcessing/private/selectcalibrationpoints.m
+END
+DrawRectFrame.m
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychGLImageProcessing/private/DrawRectFrame.m
+END
+createnewcalibrationgrid.m
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychGLImageProcessing/private/createnewcalibrationgrid.m
+END
+bvlTranslateDots.m
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychGLImageProcessing/private/bvlTranslateDots.m
+END
+fineadjust.m
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychGLImageProcessing/private/fineadjust.m
+END
+bvlWaitForInput.m
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychGLImageProcessing/private/bvlWaitForInput.m
+END
+bvlTrapezoidDots.m
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychGLImageProcessing/private/bvlTrapezoidDots.m
+END
+bvlShearDots.m
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychGLImageProcessing/private/bvlShearDots.m
+END
+BFRenderSceneUnwrap.m
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychGLImageProcessing/private/BFRenderSceneUnwrap.m
+END
+bvlBarrelPincushionDots.m
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychGLImageProcessing/private/bvlBarrelPincushionDots.m
+END
+bvlDrawText.m
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychGLImageProcessing/private/bvlDrawText.m
+END
+poly2fit.m
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychGLImageProcessing/private/poly2fit.m
+END
+bvlExpandContractDots.m
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychGLImageProcessing/private/bvlExpandContractDots.m
+END
+bvlSelectFitPts.m
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychGLImageProcessing/private/bvlSelectFitPts.m
+END
+bvlDrawCrosshair.m
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychGLImageProcessing/private/bvlDrawCrosshair.m
+END
+fit.m
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychGLImageProcessing/private/fit.m
+END
+bvlAcceptCalibGuiInput.m
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychGLImageProcessing/private/bvlAcceptCalibGuiInput.m
+END
+manual_calibrate.m
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychGLImageProcessing/private/manual_calibrate.m
+END

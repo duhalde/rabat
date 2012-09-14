@@ -1,0 +1,59 @@
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2471/branches/beta/Psychtoolbox/PsychVideoCapture
+END
+PsychGetCamIdForSpec.m
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychVideoCapture/PsychGetCamIdForSpec.m
+END
+PsychVideoDelayLoop.m
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychVideoCapture/PsychVideoDelayLoop.m
+END
+libdc1394.22.dylib
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychVideoCapture/libdc1394.22.dylib
+END
+PsychCamSettings.m
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychVideoCapture/PsychCamSettings.m
+END
+Contents.m
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychVideoCapture/Contents.m
+END
+PsychOpenEyes.m
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychVideoCapture/PsychOpenEyes.m
+END
+PsychSetupCamera.m
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychVideoCapture/PsychSetupCamera.m
+END
+VideoDelayLoopMiniDemo.m
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2447/branches/beta/Psychtoolbox/PsychVideoCapture/VideoDelayLoopMiniDemo.m
+END
+VideoCaptureDC1394.m
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/Psychtoolbox-3/Psychtoolbox-3/!svn/ver/2471/branches/beta/Psychtoolbox/PsychVideoCapture/VideoCaptureDC1394.m
+END
