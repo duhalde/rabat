@@ -1,82 +1,84 @@
-function y = RBTMeasurement(signal, fs, latency)
+function y = rbtMeasurement(signal, fs, estimatedRT ,latency)
 %
 %   Description:    
 %
-%   Usage: y = RBTMeasurement(signal, fs[, latency=1])
+%   Usage: y = rbtMeasurement(signal, fs[, latency=1])
 %
 %   Input parameters:
 %       - signal    : Measurement Signal
 %       - fs        : Sampling frequency
-%       - latency   : Latency setting (defau)
+%       - latency   : Latency setting (default)
 %   Output parameters:
 %       - y     : Measured Signal 
 %
 %   Author: Oliver Lylloff, Mathias Immanuel Nielsen & David Duhalde 
-%   Date: 23-9-2012, Last update: 23-9-2012
+%   Date: 23-9-2012, Last update: 24-9-2012
 %   Acoustic Technology, DTU 2012
 
-if nargin < 2
-   error('Missing input arguments');
-end
-
+% error checking
 if nargin < 3
+   error('Missing input arguments!');
+elseif nargin < 4
     latency = 1;
-end
-
-if nargin > 2 && latency > 0
+elseif nargin > 3 && (latency == 1 || latency == 2)
     InitializePsychSound;
+else
+    error('Latency must be either 1 or 2!')
 end
 
-wavedata = signal;
-nrchannels = 1;
-length = max(size(wavedata))/fs;
-recordedaudio = [];
+nrChannels = 1;
+inputSignalLength = length(signal)/fs;
+recordedAudio = [];
 
 % Open channels for playback and recording
-playhandle = PsychPortAudio('Open', [], [], latency, fs, nrchannels);
-rechandle = PsychPortAudio('Open', [], 2, latenct, fs, nrchannels);
+playHandle = PsychPortAudio('Open', [], [], latency, fs, nrChannels);
+recHandle = PsychPortAudio('Open', [], 2, latency, fs, nrChannels);
 
 % Fill playback buffer
-PsychPortAudio('FillBuffer', playhandle, wavedata);
+PsychPortAudio('FillBuffer', playHandle, signal);
 
 % Allocate recording buffer     * Check Buffersize
-PsychPortAudio('GetAudioData', rechandle, length*2);
+PsychPortAudio('GetAudioData', recHandle, inputSignalLength*2);
 
 % Start recording
-PsychPortAudio('Start', rechandle, 1, 0, 1, []);
-Disp('Recording Started')
+PsychPortAudio('Start', recHandle, 1, 0, 1, []);
+disp('Recording Started')
 
 % Start playback
-PsychPortAudio('Start', playhandle, 1, 0, 0);
-Disp('Playback Started');
+PsychPortAudio('Start', playHandle, 1, 0, 0);
+disp('Playback Started');
 
 % Get playback status
-status = PsychPortAudio('GetStatus',playhandle);
-
+status = PsychPortAudio('GetStatus',playHandle);
 
 % Record while playback is active
-while status.Active == 1
+while status.Active
     % Read audiodata from recording buffer
-    audiodata = PsychPortAudio('GetAudioData',rechandle);
-    recordedaudio = [recordedaudio audiodata];
+    audioData = PsychPortAudio('GetAudioData',recHandle);
+    recordedAudio = [recordedAudio audioData];
     
-    status = PsychPortAudio('GetStatus',playhandle);
+    status = PsychPortAudio('GetStatus',playHandle);
+    %status.Active
 end
 
+status
+
+WaitSecs(estimatedRT*1.5);
 
 % Stop audio recording
-PsychPortAudio('Stop',rechandle);
+PsychPortAudio('Stop',recHandle);
+disp('Recording stopped')
 
 % Read audiodata from recording buffer
-audiodata = PsychPortAudio('GetAudioData',rechandle);
-recordedaudio = [recordedaudio audiodata];
+audioData = PsychPortAudio('GetAudioData',recHandle);
+recordedAudio = [recordedAudio audioData];
 
 % Close channels
-PsychPortAudio('Close', rechandle);
-PsychPortAudio('Close', playhandle);
+PsychPortAudio('Close', recHandle);
+PsychPortAudio('Close', playHandle);
 
 
-y = recordedaudio';
+y = recordedAudio';
 
 
 
