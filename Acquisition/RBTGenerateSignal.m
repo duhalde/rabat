@@ -13,7 +13,7 @@ function [y,t] = rbtGenerateSignal(sig_type,varargin)
 %         'irs'     : IRS
 %       - varargin: Variable input parameter list depending on signal
 %
-%   Output parameters:
+%   Output parameters:1
 %       - y: sampled signal
 %       - t: time vector in seconds
 % 
@@ -78,6 +78,7 @@ function [y,t] = rbtGenerateSignal(sig_type,varargin)
 %       - Should irs be included? Make help text.
 %       - Rewrite mls and irs.
 %       - Option to save as wavefile
+%       - Add sweepwin to end signal
 
 switch lower(sig_type)
     case 'logsin'
