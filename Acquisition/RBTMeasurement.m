@@ -2,7 +2,7 @@ function y = rbtMeasurement(signal, fs, estimatedRT ,latency)
 %
 %   Description:    
 %
-%   Usage: y = rbtMeasurement(signal, fs[, latency=1])
+%   Usage: y = rbtMeasurement(signal, fs, estimatedRT[, latency=1])
 %
 %   Input parameters:
 %       - signal    : Measurement Signal
@@ -42,11 +42,11 @@ PsychPortAudio('GetAudioData', recHandle, inputSignalLength*2);
 
 % Start recording
 PsychPortAudio('Start', recHandle, 1, 0, 1, []);
-disp('Recording Started')
+disp('Recording started')
 
 % Start playback
 PsychPortAudio('Start', playHandle, 1, 0, 0);
-disp('Playback Started');
+disp('Playback started');
 
 % Get playback status
 status = PsychPortAudio('GetStatus',playHandle);
@@ -58,10 +58,10 @@ while status.Active
     recordedAudio = [recordedAudio audioData];
     
     status = PsychPortAudio('GetStatus',playHandle);
-    %status.Active
+    status.Active
 end
 
-status
+disp('Playback finished');
 
 WaitSecs(estimatedRT*1.5);
 
@@ -79,10 +79,3 @@ PsychPortAudio('Close', playHandle);
 
 
 y = recordedAudio';
-
-
-
-
-
-
-
