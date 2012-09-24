@@ -51,14 +51,17 @@ disp('Playback started');
 % Get playback status
 status = PsychPortAudio('GetStatus',playHandle);
 
+while status.Active == 0
+    status = PsychPortAudio('GetStatus',playHandle);
+end
+
 % Record while playback is active
-while status.Active
+while status.Active == 1
     % Read audiodata from recording buffer
     audioData = PsychPortAudio('GetAudioData',recHandle);
     recordedAudio = [recordedAudio audioData];
     
     status = PsychPortAudio('GetStatus',playHandle);
-    status.Active
 end
 
 disp('Playback finished');
