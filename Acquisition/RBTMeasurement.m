@@ -38,6 +38,9 @@ recHandle = PsychPortAudio('Open', [], 2, latency, fs, nrChannels);
 PsychPortAudio('FillBuffer', playHandle, signal);
 
 % Allocate recording buffer     * Check Buffersize
+%
+% OLY NOTE: 
+% Consider using ceil(size(inputSignalLength,2)/fs) instead of inputSignalLength*2
 PsychPortAudio('GetAudioData', recHandle, inputSignalLength*2);
 
 % Start recording
