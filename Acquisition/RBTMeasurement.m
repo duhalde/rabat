@@ -12,7 +12,7 @@ function y = rbtMeasurement(signal, fs, estimatedRT ,latency)
 %       - y     : Measured Signal 
 %
 %   Author: Oliver Lylloff, Mathias Immanuel Nielsen & David Duhalde 
-%   Date: 23-9-2012, Last update: 24-9-2012
+%   Date: 23-9-2012, Last update: 26-9-2012
 %   Acoustic Technology, DTU 2012
 
 % error checking
