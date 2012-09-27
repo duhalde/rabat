@@ -90,10 +90,10 @@ switch lower(sig_type)
         f2 = varargin{3};
         length_sec = varargin{4};
         if nargin == 5  
-        [y,t] = log_sine_sweep(f1,f2,fs,length_sec);
+        [y,t] = rbtLogSin(f1,f2,fs,length_sec);
         elseif nargin > 5 && nargin < 9
             arg = varargin{5:end};
-            [y,t] = log_sine_sweep(f1,f2,fs,length_sec,arg);
+            [y,t] = rbtLogSin(f1,f2,fs,length_sec,arg);
         elseif nargin > 8
             error('Too many input arguments')
         end
@@ -108,10 +108,10 @@ switch lower(sig_type)
         f2 = varargin{3};
         length_sec = varargin{4};
         if nargin == 5 
-            [y,t] = lin_sine_sweep(f1,f2,fs,length_sec);
+            [y,t] = rbtLinSin(f1,f2,fs,length_sec);
         elseif nargin > 5 && nargin < 9
             arg = varargin{5:end};
-            [y,t] = lin_sine_sweep(f1,f2,fs,length_sec,arg);
+            [y,t] = rbtLinSin(f1,f2,fs,length_sec,arg);
         else
             error('Too many input arguments')
         end
@@ -125,10 +125,10 @@ switch lower(sig_type)
         f0 = varargin{2};
         length_sec = varargin{3};
         if nargin == 4
-            [y,t] = gen_sin(f0,fs,length_sec);
+            [y,t] = rbtSin(f0,fs,length_sec);
         elseif nargin > 4 && nargin <8
             arg = varargin{4:end};
-            [y,t] = gen_sin(f0,fs,length_sec,arg);
+            [y,t] = rbtSin(f0,fs,length_sec,arg);
         else
             error('Too many input arguments')
         end
@@ -141,10 +141,10 @@ switch lower(sig_type)
         fs = varargin{1};
         n = varargin{2};
         if nargin == 3
-            [y,t] = mls2(n,fs);
+            [y,t] = RbtMls(n,fs);
         elseif nargin > 3 && nargin < 5
             arg = varargin{3:end};
-            [y,t] = mls2(n,fs,arg);
+            [y,t] = RbtMls(n,fs,arg);
         else
             error('Too many input arguments')
         end
@@ -153,7 +153,7 @@ switch lower(sig_type)
     case 'irs'
         fs = varargin{1};
         n = varargin{2};
-        [y,t] = irs2(n,fs);
+        [y,t] = RbtIrs(n,fs);
     otherwise
         error('Unknown method, choose one of: "logsin","linsin","mls","sin","irs"')
 end

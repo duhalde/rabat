@@ -1,8 +1,8 @@
-function [x,t,Sweeprate] = lin_sine_sweep(flow,fup,fs,T,varargin)
+function [x,t,Sweeprate] = rbtLinSin(flow,fup,fs,T,varargin)
 %
-% LIN_SINE_SWEEP creates a linear sweep in the time domain.
+% rbtLinSin creates a linear sweep in the time domain.
 %
-% [x,t] = LIN_SINE_SWEEP(flow,fup,fs,T,zero_padding,amplitude,phase_rad)
+% [x,t] = rbtLinSin(flow,fup,fs,T,zero_padding,amplitude,phase_rad)
 %
 % Input parameters:
 %       - flow: lower frequency of the sweep.
@@ -20,7 +20,9 @@ function [x,t,Sweeprate] = lin_sine_sweep(flow,fup,fs,T,varargin)
 %       - t: the corresponding time vector in seconds.
 %       - Sweeprate: Sweep rate in Hz/second.
 %
-% Author: Toni Torras, Date: 10-2-2009, Last update: 23-7-2009
+%   Author: Toni Torras, Date: 23-7-2009.
+%   Modified by Oliver Lylloff, Mathias Immanuel Nielsen & David Duhalde 
+%   Date: 27-9-2012
 
 switch nargin
     case 4

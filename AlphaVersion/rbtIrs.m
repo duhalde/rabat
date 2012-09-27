@@ -1,8 +1,8 @@
-function [seq,varargout] = irs2(m,varargin)
-% IRS2 computes a Inverse Repeated Sequence defined from the corresponding
+function [seq,varargout] = rbtIrs(m,varargin)
+% rbtIrs computes a Inverse Repeated Sequence defined from the corresponding
 % MLS sequence of period 2^m-1. It also returns the corresponding time vector.
 %
-%   Usage: [seq,t,idx,flagWarn] = mls(m,'opt1',val_opt1,'opt2',val_opt2,...)
+%   Usage: [seq,t,idx,flagWarn] = rbtIrs(m,'opt1',val_opt1,'opt2',val_opt2,...)
 %
 %   Input parameters:
 %       - m: Integer that determines the order of GF and thus the length of
@@ -31,7 +31,10 @@ function [seq,varargout] = irs2(m,varargin)
 %       For a more general and powerful irs generating function see also
 %       IRS.
 %
-%   Author: Toni Torras, Date: 7-1-2009, Last update: 7-1-2009
+%   Author: Toni Torras, Date: 7-1-2009.
+%   Modified by Oliver Lylloff, Mathias Immanuel Nielsen & David Duhalde 
+%   Date: 27-9-2012
+
 zeroPadIdx = find(strcmpi(varargin,'zeropadding'));
 idxin = ones(1,nargin-1);
 idxin(zeroPadIdx:zeroPadIdx+1) = 0;

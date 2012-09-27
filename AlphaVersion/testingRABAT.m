@@ -1,6 +1,7 @@
 % Script for testing RABAT
 clear all
-addpath Signals/    % Remember to add signals path
+% Note addpath if Signals are located i separate folder
+% addpath Signals/    % Remember to add signals path
 
 % Generate logarithmic sine sweep
 fs = 44100;         % Sampling frequency

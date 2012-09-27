@@ -1,8 +1,8 @@
-function [x,t] = log_sine_sweep(f1,f2,fs,length_sec,varargin)
+function [x,t] = rbtLogSin(f1,f2,fs,length_sec,varargin)
 % 
-% LOG_SINE_SWEEP creates a logarithmic sweep in the time domain.
+% rbtLogSin creates a logarithmic sweep in the time domain.
 %
-% [x,t] = LOG_SINE_SWEEP(f1,f2,fs,length_sec,zero_padding,amplitude,phase)
+% [x,t] = rbtLogSin(f1,f2,fs,length_sec,zero_padding,amplitude,phase)
 %
 % Input parameters:
 %       - f1: lower frequency of the sweep.
@@ -19,7 +19,10 @@ function [x,t] = log_sine_sweep(f1,f2,fs,length_sec,varargin)
 %       - x: sampled logarithmic sine sweep in seconds.
 %       - t: the corresponding time vector in seconds.
 %
-% Author: Toni Torras, Date: 3-2-2009, Last update: 15-7-2009
+%   Author: Toni Torras, Date: 15-7-2009.
+%   Modified by Oliver Lylloff, Mathias Immanuel Nielsen & David Duhalde 
+%   Date: 27-9-2012
+
 if f1 == 0
     f1 = eps;
 end

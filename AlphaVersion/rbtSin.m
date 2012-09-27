@@ -1,11 +1,11 @@
-function [y,t] = gen_sin(f0,fs,length_sec,varargin)
+function [y,t] = rbtSin(f0,fs,length_sec,varargin)
 %
-% GEN_SIN returns a sampled sine function and its corresponding time
+%   rbtSin returns a sampled sine function and its corresponding time
 %   vector. It is taken into account the effect of the very last sample when
 %   calculating the corresponding Fourier Transform, i.e. the sine is sampled
 %   within the interval of time from '0' to 'length_sec-1/fs'.
 %
-%   [y,t] = gen_sin(f0,fs,length_sec,amplitude,phase_rad)
+%   [y,t] = rbtSin(f0,fs,length_sec,amplitude,phase_rad)
 %
 %   Input parameters:
 %       - f0: frequency of oscillation.
@@ -18,9 +18,11 @@ function [y,t] = gen_sin(f0,fs,length_sec,varargin)
 %       - y: the sampled sine.
 %       - t: the corresponding time vector in seconds.
 %
-%   See also BAD_GEN_SIN, GEN_TRIANGLE, GEN_SQUARE.
+%   
 %
-%   Author: Toni Torras, Date: 18-1-2009, Last update: 20-2-2009
+%   Author: Toni Torras, Date: 20-2-2009
+%   Modified by Oliver Lylloff, Mathias Immanuel Nielsen & David Duhalde 
+%   Date: 27-9-2012
 
 if nargin == 4
     amplitude = varargin{1};
