@@ -2,15 +2,15 @@
 clear all
 close all
 
-[h,fs] = wavread('IRtest.wav');  % Note this is a stereo signal
+[h,fs] = wavread('IRtest.wav'); % Note this is a stereo signal
 h = h(:,1);                      % Make mono signal
 R = rbtDecayCurve(h);            % This is the decay curve
-t = (0:length(R)-1)/fs;          % Time vector
 
-plot(t,R)
+%t = (0:length(R)-1)/fs;         % Time vector
+%plot(t,R)
 
 fc = [63 125 250 500 1000 2000 4000 8000];
-h_band = rbtOctaveBand(h,fc);
+h_band = rbtOctaveBand(h,fs,fc);
 
 t30 = zeros(length(fc),1);
 for ii = 1:length(fc)

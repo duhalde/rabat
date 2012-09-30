@@ -1,4 +1,4 @@
-function h_band = rbtOctaveBand(h,varargin)
+function h_band = rbtOctaveBand(h,fs,varargin)
 %
 %   Description: Calculate octave bands   
 %
@@ -15,15 +15,13 @@ function h_band = rbtOctaveBand(h,varargin)
 %   Date: 30-9-2012, Last update: 30-9-2012
 %   Acoustic Technology, DTU 2012
 
-fs = 44100;
-
 if size(h,2) ~= 1
 h = h(:,1);         % Only mono signal
 end
 
-if nargin == 1
+if nargin == 2
     fc = [63 125 250 500 1000 2000 4000 8000];
-elseif nargin == 2
+elseif nargin == 3
     fc = varargin{1};
 else
     error('Wrong number of input arguments')
