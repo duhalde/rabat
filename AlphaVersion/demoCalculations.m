@@ -3,13 +3,23 @@ clear all
 close all
 
 [h,fs] = wavread('IRtest.wav');  % Note this is a stereo signal
-R = rbtDecayCurve(h(:,1));  % This is the decay curve
+h = h(:,1);
+R = rbtDecayCurve(h);  % This is the decay curve
+t = (0:length(R)-1)/fs;
 
+plot(t,R)
+
+fc = [63 125 250 500 1000 2000 4000 8000];
 h_band = rbtOctaveBand(h);
 
-t30 = zeros(size(h_band,1),1);
-
-for ii = 1:size(h_band,1)
+t30 = zeros(length(fc),1);
+for ii = 1:length(fc)
    Rband = rbtDecayCurve(h_band(ii,:));
    t30(ii) = rbtT30(Rband,fs);
+   h(ii) = plot((0:length(Rband)-1)/fs,Rband); 
+   hold all
+   axis([0 length(h)/fs -80 0])
+   drawnow;
 end
+
+legend('63','125','250','500','1k','2k','4k','8k')

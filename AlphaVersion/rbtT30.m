@@ -1,11 +1,11 @@
-function t30 = rbtT30(R,fs)
+function t30 = rbtT30(RdB,fs)
 %
 %   Description: Calculate T30 from decay curve
 %
 %   Usage: t30 = rbtT30(R,fs)
 %
 %   Input parameters:
-%       - R: Decay curve
+%       - R: Decay curve in dB
 %       - fs: Sampling frequency
 %   Output parameters:
 %       - t30: Reverberation time 
@@ -15,8 +15,8 @@ function t30 = rbtT30(R,fs)
 %   Acoustic Technology, DTU 2012
 
 % Calculate in dB and normalize to 0 dB
-RdB = 10*log10(R); 
-RdB = RdB-max(RdB);
+%RdB = 10*log10(R); 
+%RdB = RdB-max(RdB);
 
 n5 = find(RdB<=-5,1);
 n35 = find(RdB<=-35,1);
