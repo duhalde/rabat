@@ -8,7 +8,7 @@ function R = rbtDecayCurve(h)
 %   Input parameters:
 %       - h: Impulse response 
 %   Output parameters:
-%       - R: Decay curve in dB normalized
+%       - R: Normalized decay curve in dB 
 %
 %   Author: Oliver Lylloff, Mathias Immanuel Nielsen & David Duhalde 
 %   Date: 30-9-2012, Last update: 30-9-2012

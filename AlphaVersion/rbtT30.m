@@ -15,8 +15,6 @@ function t30 = rbtT30(RdB,fs)
 %   Acoustic Technology, DTU 2012
 
 % Calculate in dB and normalize to 0 dB
-%RdB = 10*log10(R); 
-%RdB = RdB-max(RdB);
 
 n5 = find(RdB<=-5,1);
 n35 = find(RdB<=-35,1);
