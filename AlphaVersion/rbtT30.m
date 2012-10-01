@@ -16,7 +16,13 @@ function t30 = rbtT30(RdB,fs)
 
 
 [~, id5] = min(abs(RdB+5));
-[~, id35] = min(abs(RdB+35));
+[~, id35] = min(abs(RdB+65));
+
+% t = 0:1/fs:length(RdB)/fs-1/fs;
+% 
+% p = polyfit(t,RdB,1);
+% p(1)
 
 t30 = 2*(id35-id5)/fs;
+
 

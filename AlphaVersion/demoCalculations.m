@@ -9,7 +9,7 @@ fc = [63 125 250 500 1000 2000 4000 8000];
 h_band = rbtOctaveBand(h,fs,fc);
 
 t30 = zeros(length(fc),1);
-for ii = 1:length(fc)
+for ii = 1:1%length(fc)
    Rband = rbtDecayCurve(h_band(ii,:));
    t30(ii) = rbtT30(Rband,fs);
    h(ii) = plot((0:length(Rband)-1)/fs,Rband); 
@@ -18,4 +18,8 @@ for ii = 1:length(fc)
    drawnow;
 end
 
-legend('63','125','250','500','1k','2k','4k','8k')
+%legend('63','125','250','500','1k','2k','4k','8k')
+close all
+Rband = Rband';
+[v, norm1] = decay2_fit(Rband(:,1),[],[],1);
+%decay2_fit(vp(:,40),[],[],1)
