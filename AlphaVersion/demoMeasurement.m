@@ -12,7 +12,7 @@ phase = 0;          % Phase (default value)
 
 [sweep,t] = rbtGenerateSignal('logsin',fs,f1,f2,length_sig,zero_pad,amp,phase);
 
-% Start measurement
+%% Start measurement
 RT = 1;     % Estimated reverberation time of room
 y = rbtMeasurement(sweep,fs,RT);
 
