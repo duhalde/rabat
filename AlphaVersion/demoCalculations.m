@@ -19,7 +19,7 @@ for ii = 1:1%length(fc)
 end
 
 %legend('63','125','250','500','1k','2k','4k','8k')
+
 close all
 Rband = Rband';
 [v, norm1] = decay2_fit(Rband(:,1),[],[],1);
-%decay2_fit(vp(:,40),[],[],1)
