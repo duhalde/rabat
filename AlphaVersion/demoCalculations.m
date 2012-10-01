@@ -2,7 +2,7 @@
 clear all
 close all
 
-[h,fs] = wavread('IRtest.wav'); % Note this is a stereo signal
+[h,fs] = wavread('IRtest.wav');  % Note this is a stereo signal
 h = h(:,1);                      % Make mono signal
 R = rbtDecayCurve(h);            % This is the decay curve
 

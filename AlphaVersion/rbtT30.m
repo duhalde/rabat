@@ -11,11 +11,12 @@ function t30 = rbtT30(RdB,fs)
 %       - t30: Reverberation time 
 %
 %   Author: Oliver Lylloff, Mathias Immanuel Nielsen & David Duhalde 
-%   Date: 30-9-2012, Last update: 30-9-2012
+%   Date: 1-10-2012, Last update: 1-10-2012
 %   Acoustic Technology, DTU 2012
 
-n5 = find(RdB<=-5,1);
-n35 = find(RdB<=-35,1);
 
-t30 = 2*(n35-n5)/fs;
+[~, id5] = min(abs(RdB+5));
+[~, id35] = min(abs(RdB+35));
+
+t30 = 2*(id35-id5)/fs;
 
