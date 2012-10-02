@@ -32,7 +32,11 @@ function Hd = rbtFilterBank(BandsPerOctave,fs,cfmin,cfmax,varargin)
 % input handling
 if nargin == 5
     class = varargin{1};
+<<<<<<< HEAD
     if ~isinteger(class) || (class > 2)     % Consider using sum(ismember([0 1 2],1)~=1
+=======
+    if mod(class,1) ~= 0 || (class > 2)
+>>>>>>> filterbanktest added + homemade filterbank :-)
         error('class must be 0, 1 or 2')
     end
     classStr = ['Class ' num2str(class)];
@@ -66,13 +70,11 @@ end
 F0 = 1000;  % Center reference frequency (Hz)
 f = fdesign.octave(BandsPerOctave,classStr,'N,F0',N,F0,fs);
 
-F1 = validfrequencies(f) % get valid frequencies from filter
-% note these are (1000).*((2^(1/3)).^[-10:7]) and not exactly 125, 1250...
+F1 = validfrequencies(f); % get valid frequencies from filter
+% note these are (1000).*((2^(1/3)).^[-10:7]) and not exactly 125, 250...
 
-tol = 1.01; % 1% tolerance, to compensate for roundoff in the lower frequencies -NB: Is this OK??!!
-
-F1 = F1(F1>cfmin*tol)
-F1 = F1(F1<cfmax)
+F1 = F1(F1>cfmin);
+F1 = F1(F1<cfmax);
 
 nrCenterFrequencies = length(F1);
 
