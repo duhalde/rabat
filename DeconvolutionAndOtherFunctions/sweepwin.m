@@ -24,6 +24,6 @@ end
 
 win = ones(1,N);
 n = 1:n1;
-win(1,1:n1) = (1 + cos(pi*(n-n1)/n1))/2;
+win(1,n) = (1 + cos(pi*(n-n1)/n1))/2;
 n = n2:N;
-win(1,n2:end) = (1 + cos(pi*(n-n2)/(N-n2)))/2;
+win(1,n) = (1 + cos(pi*(n-n2)/(N-n2)))/2;

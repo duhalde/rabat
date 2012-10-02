@@ -29,8 +29,8 @@ function Hd = filterBank(BandsPerOctave,fs,cfmin,cfmax,varargin)
 %   Acoustic Technology, DTU 2012
 
 
-%% input handling
-if varargin > 0
+% input handling
+if nargin == 5
     class = varargin{1};
     if ~isintegert(class) || class > 2
         error('class must be 0, 1 or 2')
@@ -77,4 +77,6 @@ nrCenterFrequencies = length(F1);
 for i = 1:nrCenterFrequencies
     f.F0 = F1(i);
     Hd(i) = design(f,'butter');
+end
+
 end

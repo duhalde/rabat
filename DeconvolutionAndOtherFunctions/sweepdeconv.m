@@ -8,16 +8,18 @@ function [h,t] = sweepdeconv(x,y,f1,f2,fs,varargin)
 %       - f1: Lower frequency of interest
 %       - f2: Higher frequency of interest
 %       - fs: Sampling frequency
+%  
 %   Output parameters:
 %       - h: impulse response.
 %       - t: time vector of the impulse response.
 %
 %   Author: Toni Torras, Date: 3-1-2009, Last update: 26-6-2009    
+
 x = x(:);
 y = y(:);
 
 Xinv = fft([zeros(length(y)-1,1) ; flip(x)]);
-F = Xinv.*exp(-j*2*pi*(0:length(Xinv)-1).'/length(Xinv))./(Xinv.*conj(Xinv));
+F = Xinv.*exp(-1j*2*pi*(0:length(Xinv)-1).'/length(Xinv))./(Xinv.*conj(Xinv));
 
 Y = fft([y ; zeros(length(x)-1,1)]);
 
