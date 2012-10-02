@@ -1,4 +1,4 @@
-function Hd = filterBank(BandsPerOctave,fs,cfmin,cfmax,varargin)
+function Hd = rbtFilterBank(BandsPerOctave,fs,cfmin,cfmax,varargin)
 %
 %   Description: Calculate standardized octave or 3rd-octave band second 
 %       order section filters.
@@ -32,11 +32,11 @@ function Hd = filterBank(BandsPerOctave,fs,cfmin,cfmax,varargin)
 % input handling
 if nargin == 5
     class = varargin{1};
-    if ~isintegert(class) || class > 2
+    if ~isinteger(class) || (class > 2)
         error('class must be 0, 1 or 2')
     end
     classStr = ['Class ' num2str(class)];
-elseif
+else
     class = 1; % default filter class
     classStr = ['Class ' num2str(class)];
 end
@@ -58,6 +58,8 @@ elseif BandsPerOctave == 1
     end
     % set filter order --NB check with ANSI S1.11-2004
     N = 6;
+else
+    error('Only 1 or 3 bands per octave is supported, at the moment.')
 end
 
 
