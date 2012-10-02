@@ -3,9 +3,9 @@ function Hd = rbtFilterBank(BandsPerOctave,fs,cfmin,cfmax,varargin)
 %   Description: Calculate standardized octave or 3rd-octave band second 
 %       order section filters.
 %
-%   Usage: Hd = filterBank(BandsPerOctave,fs,cfmin,cfmax,1)
+%   Usage: Hd = rbtFilterBank(BandsPerOctave,fs,cfmin,cfmax,1)
 % 
-%   Example: Hd = filterBank(1,44100,63,8000,0) creates 8 octave band
+%   Example: Hd = rbtFilterBank(1,44100,63,8000,0) creates 8 octave band
 %   filters of 'Class 0' (acc. ANSI S1.11-2004) which can be used with
 %   Matlab's FILTER() function
 %
@@ -17,15 +17,15 @@ function Hd = rbtFilterBank(BandsPerOctave,fs,cfmin,cfmax,varargin)
 %       - class (optional): Filter class according to ANSI S1.11-2004,
 %           either 0, 1 or 2.
 %           Class 0: 0.15 dB ripple in pass band
-%           Class 0: 0.30 dB ripple in pass band
-%           Class 0: 0.50 dB ripple in pass band
+%           Class 1: 0.30 dB ripple in pass band
+%           Class 2: 0.50 dB ripple in pass band
 % 
 %   Output parameters:
 %       - Hd: vector with filter-structs. Used like:
 %           out = filter(sig,Hd(1));
 %
 %   Author: Oliver Lylloff, Mathias Immanuel Nielsen & David Duhalde 
-%   Date: 1-10-2012, Last update: 1-10-2012
+%   Date: 1-10-2012, Last update: 2-10-2012
 %   Acoustic Technology, DTU 2012
 
 
