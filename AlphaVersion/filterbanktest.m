@@ -9,7 +9,7 @@ bandsPerOctave = 1;     % octave band filter
 
 freqs = rbtGetFreqs(cfmin,cfmax,bandsPerOctave);
 nCF = length(freqs);
-[rir,fs] = wavread('room.wav');
+[rir,fs] = wavread('../room.wav');
 
 rir = rir(:,1);     % convert to mono
 t = 0:1/fs:length(rir)/fs-1/fs;
