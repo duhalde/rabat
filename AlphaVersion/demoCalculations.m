@@ -4,10 +4,11 @@ close all
 
 [h,fs] = wavread('IRtest.wav');  % Note this is a stereo signal
 h = h(:,1);                      % Make mono signal
-fc = [63 125 250 500 1000 2000 4000 8000];
+%fc = [63 125 250 500 1000 2000 4000 8000];
 
-h_band = rbtOctaveBand(h,fs,fc);
-
+%h_band = rbtOctaveBand(h,fs,fc);
+Hd = rbtFilterBank(1,44100,63,8000,0);
+%%
 t30 = zeros(length(fc),1);
 for ii = 1:1%length(fc)
    Rband = rbtDecayCurve(h_band(ii,:));
