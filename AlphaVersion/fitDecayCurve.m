@@ -12,6 +12,9 @@ nCF = length(freqs);
 [rir,fs] = wavread('../room.wav');
 
 rir = rir(:,1);     % convert to mono
+
+intnoise = find(diff(rir)>1e-3,1);      % Cut away onset 
+rir = rir(intnoise:end);
 t = 0:1/fs:length(rir)/fs-1/fs;
 
 [B,A] = rbtHomemadeFilterBank(1,fs,cfmin,cfmax,1);
@@ -19,6 +22,7 @@ t = 0:1/fs:length(rir)/fs-1/fs;
 % filter rir with octave band filters
 rir_band = zeros(length(rir),nCF);
 data = zeros(length(rir_band), 2);
+
 for i = 1:nCF
     disp(['Now processing band ' num2str(i) ' out of ' num2str(nCF)])
     rir_band(:,i) = filter(B(:,i),A(:,i),rir);          % Filtered IR
@@ -26,6 +30,7 @@ for i = 1:nCF
     rir_band(:,i) = 10*log(rir_band(:,i));                  % dB scale
     rir_band(:,i) = rir_band(:,i) - max(rir_band(:,i));     % Normalize
     % Fit curve to RIR
+    
     data = [rir_band(:,i) t'];
     v = decay2_fit(data,[],[],0);
     Fitted_Curve = 20*log10(decay_model(v,t',1));
@@ -35,4 +40,5 @@ for i = 1:nCF
     plot(t,Fitted_Curve,'r')
     line([intt(i)/fs intt(i)/fs],[-300 0],'color','k')  % Plot knee-point
     title([num2str(freqs(i),'%4.0f') ' Hz']);
+    axis([0 t(end) -400 0])
 end
