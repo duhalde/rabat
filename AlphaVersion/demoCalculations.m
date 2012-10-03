@@ -1,8 +1,8 @@
 % Demo script for calculating acoustic parameters from impulse response
 clear all
-%close all
+close all
 
-[h,fs] = wavread('room.wav');  % Note this is a stereo signal
+[h,fs] = wavread('../room.wav');  % Note this is a stereo signal
 h = h(:,1);                      % Make mono signal
 fc = [63 125 250 500 1000 2000 4000 8000];
 
@@ -11,10 +11,18 @@ fc = [63 125 250 500 1000 2000 4000 8000];
 h_band = rbtOctaveBand(h,fs,fc);
 %a = int8(0);
 %Hd = rbtFilterBank(1,44100,63,8000,a);
-
 %out = filter(sig,Hd(1));
+
+rir = h_band.^2;
+rir = 10*log10(rir);           % In dB
+%rir = rir-max(rir);           % Normalize
+%semilogy(rir(1,:))
+rir = rir';
 %%
-figure(2)
+close all
+[v, norm1] = decay2_fit(rir(:,6),[],[],1);
+%%
+figure(1)
 t30 = zeros(length(fc),1);
 for ii = 1:1%length(fc)
    Rband = rbtDecayCurve(h_band(ii,:));
