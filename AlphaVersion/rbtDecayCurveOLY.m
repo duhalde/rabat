@@ -1,4 +1,4 @@
-function [R,varargout] = rbtDecayCurve(h,fs,cfmin,cfmax,method)
+function [R,varargout] = rbtDecayCurveOLY(h,fs,cfmin,cfmax,method)
 %
 %   Description: Calculate the decay curve from Schröders backwards
 %   integration method.
@@ -14,7 +14,7 @@ function [R,varargout] = rbtDecayCurve(h,fs,cfmin,cfmax,method)
 %       - R: Normalized decay curve in dB 
 %
 %   Author: Oliver Lylloff, Mathias Immanuel Nielsen & David Duhalde 
-%   Date: 30-9-2012, Last update: 30-9-2012
+%   Date: 30-9-2012, Last update: 8-10-2012
 %   Acoustic Technology, DTU 2012
 
 
@@ -57,10 +57,12 @@ switch lower(method)
     Fitted_Curve = 20*log10(decay_model(v,t',1));
     [~,intt(i)] = max(diff(Fitted_Curve,2));            % Find knee-point
     
-    end
-
+    R(:,i) = Fitted_Curve-max(Fitted_Curve);
+    %R(:,i) = rir_band(1:intt(i)+2000,i); 
     
-    varargout{1} = intt;
+    end
+    
+    varargout{1} = intt';
     
     otherwise
           error('Unknown method, choose one of: "schroeder","lundeby","non-linear"')
