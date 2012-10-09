@@ -15,5 +15,7 @@ function R = rbtReflectogram(h)
 %   Date: 9-10-2012, Last update: 9-10-2012
 %   Acoustic Technology, DTU 2012
 
+% NOTE: Not sure this is correct!
+
 env = sqrt(h.^2+hilbert(h).^2);
 R = abs(env.^2);
