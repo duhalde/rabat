@@ -30,7 +30,9 @@ nrChannels = 1;
 inputSignalLength = length(signal)/fs;
 recordedAudio = [];
 
+% make sure the signal vector is horizontal!
 signal = signal(:)';
+
 % Open channels for playback and recording
 playHandle = PsychPortAudio('Open', [], [], latency, fs, nrChannels);
 recHandle = PsychPortAudio('Open', [], 2, latency, fs, nrChannels);
