@@ -21,6 +21,7 @@ N = 3;      % Number of sweeps
 sweepNull = [sweep zeros(1,RT*fs)];
 
 % assemble measurement signal with N sweeps
+% using Tony's Trick - blazing fast - and no growing vectors in for-loops!
 c = sweepNull';
 cc = c(:,ones(N,1));
 measSig = cc(:)';
