@@ -1,5 +1,6 @@
 % Demo script for testing RABAT measurement
 clear all
+clc
 
 % Generate logarithmic sine sweep
 fs = 44100;         % Sampling frequency
@@ -12,12 +13,24 @@ phase = 0;          % Phase (default value)
 
 [sweep,t] = rbtGenerateSignal('logsin',fs,f1,f2,length_sig,zero_pad,amp,phase);
 
-
-% Start measurement
 RT = 1;             % Estimated reverberation time of room
-y = rbtMeasurement(sweep,fs,RT,2);
+N = 3;
+sweepNull = [sweep zeros(1,RT*fs)];
+% Start measurement®
 
+measSig = sweepNull;
+for i = 1:N-1
+measSig = [measSig sweepNull];
+end
+
+recSig = rbtMeasurement(measSig',fs,RT,2);
+
+[C lags] = xcorr(recSig,sweep);
+stem(lags,C)
+%y = mean(recSig);
+
+%%
 % Compute impulse response
-h = sweepdeconv(sweep,y,f1,f2,fs);
+%h = sweepdeconv(sweep,recSig,f1,f2,fs);
 
-specgram(y,min(256,length(y)),fs)
+%specgram(y,min(256,length(y)),fs)

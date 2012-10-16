@@ -30,6 +30,7 @@ nrChannels = 1;
 inputSignalLength = length(signal)/fs;
 recordedAudio = [];
 
+signal = signal(:)';
 % Open channels for playback and recording
 playHandle = PsychPortAudio('Open', [], [], latency, fs, nrChannels);
 recHandle = PsychPortAudio('Open', [], 2, latency, fs, nrChannels);
@@ -44,6 +45,7 @@ PsychPortAudio('FillBuffer', playHandle, signal);
 PsychPortAudio('GetAudioData', recHandle, inputSignalLength*2);
 
 % Start recording
+
 PsychPortAudio('Start', recHandle, 1, 0, 1, []);
 disp('Recording started')
 
@@ -73,6 +75,7 @@ WaitSecs(estimatedRT*1.5);
 
 % Stop audio recording
 PsychPortAudio('Stop',recHandle);
+
 disp('Recording stopped')
 
 % Read audiodata from recording buffer

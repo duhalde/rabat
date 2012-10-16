@@ -23,7 +23,7 @@ t = 0:1/fs:length(rir)/fs-1/fs;
 rir_band = zeros(length(rir),nCF);
 data = zeros(length(rir_band), 2);
 
-i = 3;  % select Hz band
+i = 1;  % select Hz band
 disp(['Now processing ' num2str(freqs(i)) ' Hz band.'])
 
 rir_band(:,i) = filter(B(:,i),A(:,i),rir);          % Filtered IR
@@ -35,13 +35,13 @@ subplot(2,2,3); plot(rir_band(:,i))
 rir_band(:,i) = 10.*log10(rir_band(:,i));         % dB SPL scale
 subplot(2,2,4); plot(rir_band(:,i))
 % Fit curve to RIR
-plot(rir_band)
+% plot(rir_band)
 
 maxIter=5;
 avgTime= 50e-3;
-noiseHeadRoom=5;
-dynRange=10;
+noiseHeadRoom=10;
+dynRange=20;
 
-[knee, rms_noise] = rbtLundeby(rir_band(:,i),fs)%,maxIter,avgTime,noiseHeadRoom,dynRange)
+[knee, rms_noise] = rbtLundeby(rir_band(:,i),fs,maxIter,avgTime,noiseHeadRoom,dynRange)
 
 
