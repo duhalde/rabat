@@ -34,11 +34,11 @@ recSig = [ 0 0 0 measSig 0 0 ];
 figure(1)
 stem(lags,C)
 
-% find indices of each sweep in recSig
-[~, sortedIndex, ~] = unique(C);                    % Unique sorted values
-maxIndex = sort(lags(sortedIndex(end-(N-1):end)));  % Indices for N largest values 
+%% find indices of each sweep in recSig
+[~, sortedIndex] = sort(C);                    % sorted values
+maxIndex = sort(lags(sortedIndex(end-(N-1):end)))  % Indices for N largest values 
 
-% extract measured sweeps for averaging
+%% extract measured sweeps for averaging
 recSweeps = zeros(N,length(sweepNull));
 for m = 1:N
     idx = maxIndex(m)+1:(maxIndex(m)+length(sweepNull));
