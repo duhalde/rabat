@@ -53,18 +53,21 @@ tic
 [c,lags] = xcorr(recSig,sweep);
 toc
 tic
-C = rbtXCorr(recSig,sweep);
+[C, Lags] = rbtCrossCorr(recSig,sweep);
 toc
 
 figure(1)
-subplot(1,4,1)
-plot(c)
-subplot(1,4,2)
-stem(lags,c)
-subplot(1,4,3)
-plot(C)
-subplot(1,4,4)
-stem(C)
+plot(Lags)
+hold all
+plot(lags)
+legend('xcorr lags','rbtXCorr lags')
+
+%%
+figure(2)
+subplot(1,2,1)
+plot(lags,c)
+subplot(1,2,2)
+plot(Lags,C)
 
 %% find indices of each sweep in recSig
 [~, sortedIndex] = sort(c);                    % sorted values
