@@ -7,7 +7,7 @@ clc
 sigType = 'logsin'; % We can also use 'linsin', 'sin', 'mls' or 'irs'
 fs = 44100;         % Sampling frequency
 f1 = 1000;          % Lower frequency
-f2 = 8000;          % Upper frequency
+f2 = 8000;          % Upper fr  equency
 length_sig = 5;     % Duration of sweep in seconds
 zero_pad = 0;       % zero padding (default value)
 amp = 1;            % Amplitude (default value)
@@ -27,7 +27,6 @@ c = sweepNull'; % or sweepNull(:)?
 cc = c(:,ones(N,1));
 measSig = cc(:)';
 
-<<<<<<< HEAD
 %% Use for actual rec/play measurement! 
 % recSig = rbtMeasurement(measSig,fs,RT,2);
 
@@ -44,10 +43,9 @@ recSig = [zeros(1,randi(50e-3*fs)) measSig zeros(1,randi(50e-3*fs))];
 % add noise for debugging purpose
 noise = randn(1,length(recSig));
 recSig = recSig + noise;
-=======
-recSig = rbtMeasurement(measSig,fs,RT,2);
+
+%recSig = rbtMeasurement(measSig,fs,RT,2);
 %recSig = [ 0 0 0 measSig 0 0 ];
->>>>>>> Small changes to multiple sweep script
 %%
 [C lags] = xcorr(recSig,sweep);
 
