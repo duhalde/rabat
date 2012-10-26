@@ -25,6 +25,8 @@ function y = rbtConv(f,h)
 
 
 %% Convolution
+f = f(:);
+h = h(:);
 
 Ly = length(f)+length(h)-1;   % find length of output signal  
 
@@ -38,7 +40,7 @@ H = fft(h, LyPow2);	          % fast Fourier transform
 Y = F.*H;                     % muliply in frequency domain
 
 % now go back to time-domain
-y = real(ifft(Y, Ly2));       % Inverse fast Fourier transform
+y = real(ifft(Y, LyPow2));       % Inverse fast Fourier transform
 
 % and cut back to the wanted result length Ly
 y = y(1:Ly);                  % Take just the first N elements

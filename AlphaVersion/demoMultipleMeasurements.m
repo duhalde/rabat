@@ -4,30 +4,45 @@ close all
 clc
 
 % Generate logarithmic sine sweep
+sigType = 'logsin'; % We can also use 'linsin', 'sin', 'mls' or 'irs'
 fs = 44100;         % Sampling frequency
-f1 = 1000;           % Lower frequency
+f1 = 1000;          % Lower frequency
 f2 = 8000;          % Upper frequency
 length_sig = 5;     % Duration of sweep in seconds
 zero_pad = 0;       % zero padding (default value)
 amp = 1;            % Amplitude (default value)
 phase = 0;          % Phase (default value)
 
-[sweep,t] = rbtGenerateSignal('logsin',fs,f1,f2,length_sig,zero_pad,amp,phase);
+[sweep,t] = rbtGenerateSignal(sigType,fs,f1,f2,length_sig,zero_pad,amp,phase);
 
-RT = 1;     % Estimated reverberation time of room
+RT = 5;     % Estimated reverberation time of room
 N = 3;      % Number of sweeps
 
-% sweep with "silent" padding, with room for natural decay
+% sweep with "silent" padding, with time for the natural decay*
 sweepNull = [sweep zeros(1,RT*fs)];
 
 % assemble measurement signal with N sweeps
 % using Tony's Trick - blazing fast - and no growing vectors in for-loops!
-c = sweepNull';
+c = sweepNull'; % or sweepNull(:)?
 cc = c(:,ones(N,1));
 measSig = cc(:)';
 
+%% Use for actual rec/play measurement! 
 % recSig = rbtMeasurement(measSig,fs,RT,2);
-recSig = [ 0 0 0 measSig 0 0 ];
+
+%% Use for debug, without actual record and playback!
+rir = wavread('rir/church');
+% use loaded mono rir to simulate a recording in a room
+sweepResp = rbtConv(sweepNull,rir(:,1));
+% assemble recorded signal of N sweep responses
+c = sweepResp(:);
+cc = c(:,ones(N,1));
+measSig = cc(:)';
+% add random latency (up to 50ms) in both ends
+recSig = [zeros(1,randi(50e-3*fs)) measSig zeros(1,randi(50e-3*fs))];
+% add noise for debugging purpose
+noise = randn(1,length(recSig));
+recSig = recSig + noise;
 %%
 [C lags] = xcorr(recSig,sweep);
 
