@@ -27,13 +27,13 @@ c = sweepNull'; % or sweepNull(:)?
 cc = c(:,ones(N,1));
 measSig = cc(:)';
 
-%% Use for actual rec/play measurement! 
+%% Use for actual rec/play measurement!
 % recSig = rbtMeasurement(measSig,fs,RT,2);
 
 %% Use for debug, without actual record and playback!
 rir = wavread('rir/church');
 % use loaded mono rir to simulate a recording in a room
-sweepResp = rbtConv(sweepNull,rir(:,1));
+sweepResp = RBTconv(sweepNull,rir(:,1));
 % assemble recorded signal of N sweep responses
 c = sweepResp(:);
 cc = c(:,ones(N,1));
