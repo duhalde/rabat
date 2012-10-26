@@ -46,12 +46,14 @@ recSig = recSig + noise;
 
 %recSig = rbtMeasurement(measSig,fs,RT,2);
 %recSig = [ 0 0 0 measSig 0 0 ];
+
+
 %%
 tic
-[c,lags] = crosscorr(recSig,sweep);
+[c,lags] = xcorr(recSig,sweep);
 toc
 tic
-[C,Lags] = rbtXCorr(recSig,sweep);
+C = rbtXCorr(recSig,sweep);
 toc
 
 figure(1)
@@ -62,10 +64,10 @@ stem(lags,c)
 subplot(1,4,3)
 plot(C)
 subplot(1,4,4)
-stem(Lags,C)
+stem(C)
 
 %% find indices of each sweep in recSig
-[~, sortedIndex] = sort(C);                    % sorted values
+[~, sortedIndex] = sort(c);                    % sorted values
 maxIndex = sort(lags(sortedIndex(end-(N-1):end)))  % Indices for N largest values 
 
 %% extract measured sweeps for averaging

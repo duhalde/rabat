@@ -42,13 +42,12 @@ H = fft(h, LyPow2);	          % fast Fourier transform
 Y = F.*conj(H);                     % muliply in frequency domain
 
 % now go back to time-domain
-y = real(ifft(Y, LyPow2));       % Inverse fast Fourier transform
+y = ifft(Y, LyPow2);       % Inverse fast Fourier transform
 
 % and cut back to the wanted result length Ly
 y = y(1:Ly);                  % Take just the first N elements
 
 % get index of lags
-maxlag = Lh-1;
-lags = (-maxlag:maxlag); 
+lags = (-(Lh-1):1:Lf-1); 
 
 
