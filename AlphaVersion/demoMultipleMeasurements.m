@@ -27,6 +27,7 @@ c = sweepNull'; % or sweepNull(:)?
 cc = c(:,ones(N,1));
 measSig = cc(:)';
 
+<<<<<<< HEAD
 %% Use for actual rec/play measurement! 
 % recSig = rbtMeasurement(measSig,fs,RT,2);
 
@@ -43,6 +44,10 @@ recSig = [zeros(1,randi(50e-3*fs)) measSig zeros(1,randi(50e-3*fs))];
 % add noise for debugging purpose
 noise = randn(1,length(recSig));
 recSig = recSig + noise;
+=======
+recSig = rbtMeasurement(measSig,fs,RT,2);
+%recSig = [ 0 0 0 measSig 0 0 ];
+>>>>>>> Small changes to multiple sweep script
 %%
 [C lags] = xcorr(recSig,sweep);
 
