@@ -60,23 +60,10 @@ figure(1)
 plot(lags,c)
 %%
 tic
-[C, Lags] = rbtCrossCorr(recSig,sweep);
+C = rbtXCorr(recSig,sweep);
 toc
 
 figure(1)
-<<<<<<< HEAD
-plot(Lags)
-hold all
-plot(lags)
-legend('xcorr lags','rbtXCorr lags')
-
-%%
-figure(2)
-subplot(1,2,1)
-plot(lags,c)
-subplot(1,2,2)
-plot(Lags,C)
-=======
 plot(C)
 %%
 figure(1)
