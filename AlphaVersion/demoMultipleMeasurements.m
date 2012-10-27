@@ -52,19 +52,18 @@ recSig = recSig + noise;
 close all
 tic
 [c,lags] = xcorr(recSig,sweep);
-cut = find(c>1,1,'first');
+%cut = find(c>1,1,'first');
 %c = c(cut:end);
 %lags = lags(cut:end);
 toc
-figure(1)
-plot(lags,c)
+%figure(1)
+%plot(lags,c)
 %%
 tic
 [C, Lags] = rbtCrossCorr(recSig,sweep);
 toc
 
 figure(1)
-<<<<<<< HEAD
 plot(Lags)
 hold all
 plot(lags)
@@ -76,24 +75,12 @@ subplot(1,2,1)
 plot(lags,c)
 subplot(1,2,2)
 plot(Lags,C)
-=======
-plot(C)
-%%
-figure(1)
-subplot(1,4,1)
-plot(c)
-subplot(1,4,2)
-stem(lags,c)
-subplot(1,4,3)
-plot(C)
-subplot(1,4,4)
-stem(C)
 
 %% find indices of each sweep in recSig
-[csort, sortedIndex] = sort(c);                    % sorted values
+[Csort, sortedIndex] = sort(C);                    % sorted values
 
-maxIndex = sort(lags(sortedIndex(end-(N*3-1):end)));  % Indices for N largest values 
-maxIndex = [maxIndex(1) maxIndex(3) maxIndex(6)];
+maxIndex = sort(Lags(sortedIndex(end-(N*3-1):end)));  % Indices for N largest values 
+maxIndex = [maxIndex(1) maxIndex(4) maxIndex(7)];
 
 %% extract measured sweeps for averaging
 recSweeps = zeros(N,length(sweepNull));
