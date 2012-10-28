@@ -6,8 +6,8 @@ clc
 % Generate logarithmic sine sweep
 sigType = 'logsin'; % We can also use 'linsin', 'sin', 'mls' or 'irs'
 fs = 44100;         % Sampling frequency
-f1 = 1000;          % Lower frequency
-f2 = 8000;          % Upper fr  equency
+f1 = 100;          % Lower frequency
+f2 = 15000;          % Upper fr  equency
 length_sig = 5;     % Duration of sweep in seconds
 zero_pad = 0;       % zero padding (default value)
 amp = 1;            % Amplitude (default value)
@@ -44,7 +44,7 @@ measSig = cc(:)';
 % add random latency (up to 50ms) in both ends
 recSig = [zeros(1,randi(50e-3*fs)) measSig zeros(1,randi(50e-3*fs))];
 % add noise for debugging purpose
-noise = 0.01*randn(1,length(recSig));
+noise = 1e-5*randn(1,length(recSig));
 recSig = recSig + noise;
 
 %% Determine cross correlation
@@ -56,7 +56,7 @@ recSig = recSig + noise;
 maxIndex = sort(lags(sortedIndex(end-(N*5-1):end)))  % Indices for 5*N largest values 
 
 %% Pick the right indices (just until we find a better solution) 
-maxIndex = [maxIndex(10) maxIndex(13) maxIndex(16) maxIndex(19) maxIndex(23)];
+maxIndex = [maxIndex(10) maxIndex(14) maxIndex(17) maxIndex(20) maxIndex(23)];
 
 % extract measured sweeps for averaging
 recSweeps = zeros(N,length(sweepNull));
