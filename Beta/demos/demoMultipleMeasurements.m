@@ -3,6 +3,8 @@ clear all
 close all
 clc
 
+rbtStartUp
+
 % Generate logarithmic sine sweep
 sigType = 'logsin'; % We can also use 'linsin', 'sin', 'mls' or 'irs'
 fs = 44100;         % Sampling frequency
@@ -17,8 +19,13 @@ phase = 0;          % Phase (default value)
 
 % Apply sweepwindow here?
 
+<<<<<<< HEAD
 RT = 5;     % Estimated reverberation time of room
 N = 1;      % Number of sweeps
+=======
+RT = 1;     % Estimated reverberation time of room
+N = 5;      % Number of sweeps
+>>>>>>> changes to the sort method
 
 % sweep with "silent" padding, with time for the natural decay
 sweepNull = [sweep zeros(1,RT*fs)];
@@ -26,15 +33,15 @@ sweepNull = [sweep zeros(1,RT*fs)];
 %%  Use for actual rec/play measurement!
 
 % assemble measurement signal with N sweeps
-c = sweepNull'; % or sweepNull(:)?
-cc = c(:,ones(N,1));
-measSig = cc(:)';
+% c = sweepNull'; % or sweepNull(:)?
+% cc = c(:,ones(N,1));
+% measSig = cc(:)';
 
 %recSig = rbtMeasurement(measSig,fs,RT,2);
 
 %% Use for debug, without actual record and playback!
 
-rir = wavread('church');
+rir = wavread('room');
 % use loaded mono rir to simulate a recording in a room
 sweepResp = rbtConv(sweepNull,rir(:,1));
 % assemble recorded signal of N sweep responses
@@ -46,34 +53,73 @@ recSig = [zeros(1,randi(50e-3*fs)) measSig zeros(1,randi(50e-3*fs))];
 % add noise for debugging purpose
 noise = 1e-5*randn(1,length(recSig));
 recSig = recSig + noise;
+<<<<<<< HEAD
 %figure(1)
 %plot(recSig)
+=======
+
+%% plot spectrogram of recorded signal
+% [~,F,T,P] = spectrogram(recSig,256,250,256,fs);
+% 
+% close(findobj('type','figure','name','spectrogram of recorded signal'))
+% figure('Name','spectrogram of recorded signal','Position',[0 200 300 300])
+% % plot spectrogram!! NOTE: a lot more difficult than with specgram, which
+% % is no longer supported from Mathworks :-(
+% surf(T,F,10*log10(P),'edgecolor','none'); axis tight; 
+% view(0,90);
+% xlabel('Time (Seconds)'); ylabel('Hz');
+
+>>>>>>> changes to the sort method
 %% Determine cross correlation
 [c,lags] = rbtCrossCorr(recSig,sweep);
 
-% find indices of each sweep in recSig
-[~, sortedIndex] = sort(c);                    % sorted values
+% % find indices of each sweep in recSig
+[~, sortedIndex] = sort(c,'descend');                    % sorted values
+peaks = sortedIndex(1:N);
+% maxIndex = sort(lags(sortedIndex(end-(N*5-1):end)));  % Indices for 5*N largest values 
+% % Pick the right indices (just until we find a better solution) 
+% maxIndex = [maxIndex(10) maxIndex(13) maxIndex(16) maxIndex(19) maxIndex(23)];
 
-maxIndex = sort(lags(sortedIndex(end-(N*5-1):end)))  % Indices for 5*N largest values 
+close(findobj('type','figure','name','Cross Correlation'))
+figure('Name','Cross Correlation','Position',[320 200 300 300])
+plot(c)
+hold all
+plot(peaks,c(peaks),'ro')
 
-%% Pick the right indices (just until we find a better solution) 
-maxIndex = [maxIndex(10) maxIndex(13) maxIndex(16) maxIndex(19) maxIndex(23)];
-
-% extract measured sweeps for averaging
+%% extract measured sweeps for averaging
 recSweeps = zeros(N,length(sweepNull));
 for m = 1:N
-    idx = maxIndex(m)+1:(maxIndex(m)+length(sweepNull));
+    idx = peaks(m):(peaks(m)+length(sweepNull)-1);
     recSweeps(m,:) = recSig(idx);
 end
 
 % time average to get rid of background noise
 meanRecSweep = mean(recSweeps);                 % ensemble average
-meanRecSweep = meanRecSweep(1:length(sweep));   % cut off to length of sweep
-figure(2)
-specgram(meanRecSweep)
+% meanRecSweep = meanRecSweep(1:length(sweep));   % cut off to length of sweep
+
+[S,F,T,P] = spectrogram(meanRecSweep,256,250,256,fs);
+
+close(findobj('type','figure','name','spectrogram'))
+figure('Name','spectrogram','Position',[660 200 300 300])
+% plot spectrogram!! NOTE: a lot more difficult than with specgram, which
+% is no longer supported from Mathworks :-(
+surf(T,F,10*log10(P),'edgecolor','none'); axis tight; 
+view(0,90);
+xlabel('Time (Seconds)'); ylabel('Hz');
 %%
 % Compute impulse response
 h = sweepdeconv(sweep,meanRecSweep,f1,f2,fs);
+<<<<<<< HEAD
 figure(3)
 plot(h)
 %wavwrite(h(4:end-4),fs,'rirtest')
+=======
+
+h = h./max(h);      % normalize
+h = h.^2;           % square rir
+h_dB = 10*log10(h); % convert to dB
+
+close(findobj('type','figure','name','Impulse Response'))
+figure('Name','Impulse Response','Position',[980 200 300 300])
+plot(h_dB)
+>>>>>>> changes to the sort method

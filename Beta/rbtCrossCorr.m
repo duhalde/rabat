@@ -41,20 +41,24 @@ Ly = Lf+Lh-1;   % find length of cross correlation
 
 % to get the highest speed from fft() and ifft(), 
 % the signal lengths should be a power of 2
-LyPow2 = pow2(nextpow2(Ly));  % find smallest power of 2 > Ly
+LyPow2 = 2^nextpow2(Ly);  % find smallest power of 2 > Ly
 
 % perform fourier transform with zero-padding to length LyPow2
-F = fft(f, LyPow2);     % fast Fourier transform
-H = fft(h, LyPow2);	    % fast Fourier transform
-Y = F.*conj(H);         % muliply in frequency domain
+x = zeros(Ly,1);
+x(Lh:Ly) = f;
+X = fft(x, LyPow2);     % fast Fourier transform
+
+y = zeros(Ly,1);
+y(1:Lh) = h;
+Y = fft(y, LyPow2);	    % fast Fourier transform
+C = X.*conj(Y);         % muliply in frequency domain
 
 % now go back to time-domain and force real values.
-c = real(ifft(Y, LyPow2));       % Inverse fast Fourier transform
+c = ifft(C, LyPow2);       % Inverse fast Fourier transform
 
 % get index of lags
-maxlag = Lf-1;
-lags = -maxlag:maxlag; 
+lags = -Lh-1:Lf-1; 
 
-c = [c(end-maxlag+1:end,:); c(1:maxlag+1,:)];
+% c = [c(end-maxlag+1:end,:); c(1:maxlag+1,:)];
 
 
