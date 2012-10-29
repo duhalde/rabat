@@ -1,4 +1,4 @@
-function y = rbtMeasurement(signal, fs, estimatedRT ,latency, N)
+function y = rbtMeasurementAverage(signal, fs, estimatedRT ,latency, N)
 %
 %   Description:    
 %
