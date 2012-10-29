@@ -18,7 +18,7 @@ phase = 0;          % Phase (default value)
 % Apply sweepwindow here?
 
 RT = 5;     % Estimated reverberation time of room
-N = 5;      % Number of sweeps
+N = 1;      % Number of sweeps
 
 % sweep with "silent" padding, with time for the natural decay
 sweepNull = [sweep zeros(1,RT*fs)];
@@ -46,7 +46,8 @@ recSig = [zeros(1,randi(50e-3*fs)) measSig zeros(1,randi(50e-3*fs))];
 % add noise for debugging purpose
 noise = 1e-5*randn(1,length(recSig));
 recSig = recSig + noise;
-
+%figure(1)
+%plot(recSig)
 %% Determine cross correlation
 [c,lags] = rbtCrossCorr(recSig,sweep);
 
@@ -56,7 +57,7 @@ recSig = recSig + noise;
 maxIndex = sort(lags(sortedIndex(end-(N*5-1):end)))  % Indices for 5*N largest values 
 
 %% Pick the right indices (just until we find a better solution) 
-maxIndex = [maxIndex(10) maxIndex(14) maxIndex(17) maxIndex(20) maxIndex(23)];
+maxIndex = [maxIndex(10) maxIndex(13) maxIndex(16) maxIndex(19) maxIndex(23)];
 
 % extract measured sweeps for averaging
 recSweeps = zeros(N,length(sweepNull));
@@ -73,4 +74,6 @@ specgram(meanRecSweep)
 %%
 % Compute impulse response
 h = sweepdeconv(sweep,meanRecSweep,f1,f2,fs);
-
+figure(3)
+plot(h)
+%wavwrite(h(4:end-4),fs,'rirtest')

@@ -1,4 +1,4 @@
-% Testing new curve fitting by means of fminsearch
+% Testing new curve fitting by Lundeby method
 close all
 clear all
 clc
@@ -9,21 +9,21 @@ bandsPerOctave = 1;     % octave band filter
 
 freqs = rbtGetFreqs(cfmin,cfmax,bandsPerOctave);
 nCF = length(freqs);
-[rir,fs] = wavread('rir/church.wav');
+[rir,fs] = wavread('sounds/church.wav');
 
 rir = rir(:,1);     % convert to mono
-
+%%
 intnoise = find(diff(rir)>1e-3,1);      % Cut away onset
 rir = rir(intnoise:end);
 t = 0:1/fs:length(rir)/fs-1/fs;
-
+%%
 [B,A] = rbtHomemadeFilterBank(1,fs,cfmin,cfmax,1);
 
 % filter rir with octave band filters
 rir_band = zeros(length(rir),nCF);
 data = zeros(length(rir_band), 2);
 
-i = 1;  % select Hz band
+i = 8;  % select Hz band
 disp(['Now processing ' num2str(freqs(i)) ' Hz band.'])
 
 rir_band(:,i) = filter(B(:,i),A(:,i),rir);          % Filtered IR
@@ -34,8 +34,7 @@ rir_band(:,i) = rir_band(:,i).^2;                   % Squared IR
 subplot(2,2,3); plot(rir_band(:,i))
 rir_band(:,i) = 10.*log10(rir_band(:,i));         % dB SPL scale
 subplot(2,2,4); plot(rir_band(:,i))
-% Fit curve to RIR
-% plot(rir_band)
+
 
 maxIter=5;
 avgTime= 50e-3;
