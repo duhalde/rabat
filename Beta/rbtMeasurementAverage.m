@@ -1,4 +1,4 @@
-function y = rbtMeasurement(signal, fs, estimatedRT ,latency)
+function y = rbtMeasurement(signal, fs, estimatedRT ,latency, N)
 %
 %   Description:    
 %
@@ -8,6 +8,7 @@ function y = rbtMeasurement(signal, fs, estimatedRT ,latency)
 %       - signal    : Measurement Signal
 %       - fs        : Sampling frequency
 %       - latency   : Latency setting (default)
+%       - N         : Number of Averages
 %   Output parameters:
 %       - y     : Measured Signal 
 %
@@ -46,6 +47,8 @@ PsychPortAudio('FillBuffer', playHandle, signal);
 % Consider using ceil(size(inputSignalLength,2)/fs) instead of inputSignalLength*2
 PsychPortAudio('GetAudioData', recHandle, inputSignalLength*2);
 
+% For-loop START
+
 % Start recording
 
 PsychPortAudio('Start', recHandle, 1, 0, 1, []);
@@ -71,6 +74,7 @@ while status.Active == 1
     status = PsychPortAudio('GetStatus',playHandle);
 end
 
+
 disp('Playback finished');
 
 WaitSecs(estimatedRT*1.5);
@@ -83,6 +87,11 @@ disp('Recording stopped')
 % Read audiodata from recording buffer
 audioData = PsychPortAudio('GetAudioData',recHandle);
 recordedAudio = [recordedAudio audioData];
+
+% [c,lags] = xcorr(recordedAudio, signal)
+% insert in y(:,N) = recordedAudio
+
+% FOR-Loop END
 
 % Close channels
 PsychPortAudio('Close', recHandle);

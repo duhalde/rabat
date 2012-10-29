@@ -6,8 +6,8 @@ clc
 % Generate logarithmic sine sweep
 sigType = 'logsin'; % We can also use 'linsin', 'sin', 'mls' or 'irs'
 fs = 44100;         % Sampling frequency
-f1 = 100;          % Lower frequency
-f2 = 15000;          % Upper fr  equency
+f1 = 100;           % Lower frequency
+f2 = 15000;         % Upper fr  equency
 length_sig = 5;     % Duration of sweep in seconds
 zero_pad = 0;       % zero padding (default value)
 amp = 1;            % Amplitude (default value)
