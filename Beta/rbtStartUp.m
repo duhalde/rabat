@@ -3,5 +3,3 @@ close all
 clc
 
 addpath demos helpers sounds
-
-InitializePsychSound;
