@@ -6,9 +6,9 @@ clc
 % Generate logarithmic sine sweep
 sigType = 'logsin'; % We can also use 'linsin', 'sin', 'mls' or 'irs'
 fs = 44100;         % Sampling frequency
-f1 = 20;           % Lower frequency of interest
-f2 = 20000;         % Upper frequency of interest
-length_sig = 5;     % Duration of sweep in seconds
+f1 = 100;           % Lower frequency of interest
+f2 = 12000;         % Upper frequency of interest
+length_sig = 4;     % Duration of sweep in seconds
 zero_pad = 0;       % zero padding (default value)
 amp = 1;            % Amplitude (default value)
 phase = 0;          % Phase (default value)
@@ -29,7 +29,7 @@ N = 5;      % Number of sweeps
 % sweepNull = [sweep zeros(1,RT*fs)];
 
 
-recSig = rbtMeasurementAverage(sweep,fs,RT,1,N);
+recSig = rbtMeasurement(sweep,fs,N,RT,1);
 
 %% plot spectrogram of recorded signal
 % [~,F,T,P] = spectrogram(recSig,256,250,256,fs);
@@ -50,11 +50,15 @@ specgram(recSig)
 % Compute impulse response
 h = sweepdeconv(sweep,recSig,f1,f2,fs);
 
-h = h./max(h);      % normalize
-h = h.^2;           % square rir
-h_dB = 10*log10(h); % convert to dB
+%h = h./max(h);      % normalize
+%h = h.^2;           % square rir
+%h_dB = 10*log10(h); % convert to dB
 
-close(findobj('type','figure','name','Impulse Response'))
-figure('Name','Impulse Response','Position',[980 200 300 300])
-plot(h_dB)
+plot(h)
+
+
+% This plotting feature might make you run out of java heap memory: 
+%close(findobj('type','figure','name','Impulse Response'))
+%figure('Name','Impulse Response','Position',[980 200 300 300])
+
 
