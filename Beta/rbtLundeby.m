@@ -1,5 +1,8 @@
 function [knee, rmsNoise] = rbtLundeby(h2,fs,maxIter,avgTime,noiseHeadRoom,dynRange)
 
+% NOTE function mag2db is from Control Systems Toolbox, should be changed to
+% 20*log10...
+
 if nargin < 3
     %run maximun 5 times
     maxIter = 5;
