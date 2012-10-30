@@ -57,11 +57,11 @@ for k = 1:N
     
     % Start recording
     
-    PsychPortAudio('Start', recHandle, 1, 0, 1, []);
+    PsychPortAudio('Start', recHandle);
     disp('Recording started')
     
     % Start playback
-    PsychPortAudio('Start', playHandle, 1, 0, 0);
+    PsychPortAudio('Start', playHandle);
     disp('Playback started');
     
     % Get playback status
@@ -80,11 +80,12 @@ for k = 1:N
         status = PsychPortAudio('GetStatus',playHandle);
     end
     
+    WaitSecs(100e-3);
     
     disp('Playback finished');
     
     % Stop audio recording
-    PsychPortAudio('Stop',recHandle);
+    PsychPortAudio('Stop',recHandle,1); 
     
     disp('Recording stopped')
     
@@ -97,7 +98,7 @@ for k = 1:N
 
     sweepIdx = lags(max(c)==c);
     % and place the recorded sweep in a matrix
-    Y(:,k) = recordedAudio(sweepIdx:sweepIdx+signalSeconds*fs-1);
+    Y(:,k) = recordedAudio(sweepIdx:sweepIdx+length(signal)-1);
 end
 
 % Close channels

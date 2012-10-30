@@ -40,10 +40,10 @@ recSig = rbtMeasurementAverage(sweep,fs,RT,1,N);
 
 
 figure(2)
-specgram(RecSig)
+specgram(recSig)
 %%
 % Compute impulse response
-h = sweepdeconv(sweepNull,RecSig,f1,f2,fs);
+h = sweepdeconv(sweep,recSig,f1,f2,fs);
 
 figure(3)
 plot(h)
