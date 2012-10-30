@@ -19,8 +19,7 @@ winLength = 100;
 win = sweepwin(winLength,f1/sqrt(2),f2*sqrt(2),f1,f2,'log');
 
 sweep = rbtConv(sweep,win);
-
-% Apply sweepwindow here?
+ 
 
 RT = 1;     % Estimated reverberation time of room
 N = 1;      % Number of sweeps
@@ -51,10 +50,10 @@ specgram(recSig)
 h = sweepdeconv(sweep,recSig,f1,f2,fs);
 
 %h = h./max(h);      % normalize
-%h = h.^2;           % square rir
-%h_dB = 10*log10(h); % convert to dB
+h = h.^2;           % square rir
+h_dB = 10*log10(h); % convert to dB
 
-plot(h)
+plot(h_dB)
 
 
 % This plotting feature might make you run out of java heap memory: 
