@@ -23,7 +23,7 @@ sweep = rbtConv(sweep,win);
 % Apply sweepwindow here?
 
 RT = 1;     % Estimated reverberation time of room
-N = 5;      % Number of sweeps
+N = 1;      % Number of sweeps
 
 % sweep with "silent" padding, with time for the natural decay
 % sweepNull = [sweep zeros(1,RT*fs)];
