@@ -1,6 +1,6 @@
 function y = rbtMeasurementAverage(signal, fs, estimatedRT ,latency, N)
 %
-%   Description:    
+%   Description:
 %
 %   Usage: y = rbtMeasurement(signal, fs, estimatedRT[, latency=1])
 %
@@ -10,29 +10,29 @@ function y = rbtMeasurementAverage(signal, fs, estimatedRT ,latency, N)
 %       - latency   : Latency setting (default)
 %       - N         : Number of Averages
 %   Output parameters:
-%       - y     : Measured Signal 
+%       - y     : Measured Signal
 %
-%   Author: Oliver Lylloff, Mathias Immanuel Nielsen & David Duhalde 
+%   Author: Oliver Lylloff, Mathias Immanuel Nielsen & David Duhalde
 %   Date: 23-9-2012, Last update: 26-9-2012
 %   Acoustic Technology, DTU 2012
 
 % error checking
 if nargin < 3
-   error('Missing input arguments!');
+    error('Missing input arguments!');
 elseif nargin < 4
     latency = 1;
 elseif nargin > 3 && (latency == 1 || latency == 2)
     InitializePsychSound;
 else
-    error('Latency must be either 1 or 2!')
+    error('Latency must be set to either 1 or 2!')
 end
 
-nrChannels = 1;
-inputSignalLength = length(signal)/fs;
-recordedAudio = [];
+% zero-pad to wanted length
+signal = [signal(:)' zeros(1,estimatedRT*fs)];
 
-% make sure the signal vector is horizontal!
-signal = signal(:)';
+nrChannels = 1;
+signalSeconds = length(signal)/fs;
+
 
 % Open channels for playback and recording
 playHandle = PsychPortAudio('Open', [], [], latency, fs, nrChannels);
@@ -43,59 +43,66 @@ PsychPortAudio('FillBuffer', playHandle, signal);
 
 % Allocate recording buffer     * Check Buffersize
 %
-% OLY NOTE: 
-% Consider using ceil(size(inputSignalLength,2)/fs) instead of inputSignalLength*2
-PsychPortAudio('GetAudioData', recHandle, inputSignalLength*2);
+% OLY NOTE:
+% Consider using ceil(size(signalSeconds,2)/fs) instead of signalSeconds*2
+PsychPortAudio('GetAudioData', recHandle, signalSeconds+500e-3); % allow 500 ms for latency
+
+% initialize matrix for storing the recorded sweeps
+Y = zeros(signalSeconds*fs,N);
 
 % For-loop START
-
-% Start recording
-
-PsychPortAudio('Start', recHandle, 1, 0, 1, []);
-disp('Recording started')
-
-% Start playback
-PsychPortAudio('Start', playHandle, 1, 0, 0);
-disp('Playback started');
-
-% Get playback status
-status = PsychPortAudio('GetStatus',playHandle);
-
-while status.Active == 0
+for k = 1:N
+    
+    recordedAudio = [];
+    
+    % Start recording
+    
+    PsychPortAudio('Start', recHandle, 1, 0, 1, []);
+    disp('Recording started')
+    
+    % Start playback
+    PsychPortAudio('Start', playHandle, 1, 0, 0);
+    disp('Playback started');
+    
+    % Get playback status
     status = PsychPortAudio('GetStatus',playHandle);
-end
-
-% Record while playback is active
-while status.Active == 1
+    
+    while status.Active == 0
+        status = PsychPortAudio('GetStatus',playHandle);
+    end
+    
+    % Record while playback is active
+    while status.Active == 1
+        % Read audiodata from recording buffer
+        audioData = PsychPortAudio('GetAudioData',recHandle);
+        recordedAudio = [recordedAudio audioData];
+        % check if recording is done
+        status = PsychPortAudio('GetStatus',playHandle);
+    end
+    
+    
+    disp('Playback finished');
+    
+    % Stop audio recording
+    PsychPortAudio('Stop',recHandle);
+    
+    disp('Recording stopped')
+    
     % Read audiodata from recording buffer
     audioData = PsychPortAudio('GetAudioData',recHandle);
     recordedAudio = [recordedAudio audioData];
     
-    status = PsychPortAudio('GetStatus',playHandle);
+    % find the exact position of the sweep in the recorded signal
+    [c,lags] = rbtCrossCorr(recordedAudio, signal);
+
+    sweepIdx = lags(max(c)==c);
+    % and place the recorded sweep in a matrix
+    Y(:,k) = recordedAudio(sweepIdx:sweepIdx+signalSeconds*fs-1);
 end
-
-
-disp('Playback finished');
-
-WaitSecs(estimatedRT*1.5);
-
-% Stop audio recording
-PsychPortAudio('Stop',recHandle);
-
-disp('Recording stopped')
-
-% Read audiodata from recording buffer
-audioData = PsychPortAudio('GetAudioData',recHandle);
-recordedAudio = [recordedAudio audioData];
-
-% [c,lags] = xcorr(recordedAudio, signal)
-% insert in y(:,N) = recordedAudio
-
-% FOR-Loop END
 
 % Close channels
 PsychPortAudio('Close', recHandle);
 PsychPortAudio('Close', playHandle);
 
-
-y = recordedAudio';
+% take the ensemble average, i.e. along the 2nd dimension of Y
+y = mean(Y,2);

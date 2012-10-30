@@ -46,7 +46,6 @@ recSig = [zeros(1,randi(50e-3*fs)) measSig zeros(1,randi(50e-3*fs))];
 % add noise for debugging purpose
 noise = 1e-5*randn(1,length(recSig));
 recSig = recSig + noise;
-<<<<<<< HEAD
 %figure(1)
 %plot(recSig)
 
