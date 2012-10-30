@@ -17,17 +17,8 @@ phase = 0;          % Phase (default value)
 
 % Apply sweepwindow here?
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 RT = 5;     % Estimated reverberation time of room
 N = 1;      % Number of sweeps
-=======
-RT = 1;     % Estimated reverberation time of room
-=======
-RT = 5;     % Estimated reverberation time of room
->>>>>>> Revert "changes to the sort method"
-N = 5;      % Number of sweeps
->>>>>>> changes to the sort method
 
 % sweep with "silent" padding, with time for the natural decay
 sweepNull = [sweep zeros(1,RT*fs)];
@@ -58,9 +49,7 @@ recSig = recSig + noise;
 <<<<<<< HEAD
 %figure(1)
 %plot(recSig)
-=======
 
-<<<<<<< HEAD
 %% plot spectrogram of recorded signal
 % [~,F,T,P] = spectrogram(recSig,256,250,256,fs);
 % 
@@ -72,9 +61,7 @@ recSig = recSig + noise;
 % view(0,90);
 % xlabel('Time (Seconds)'); ylabel('Hz');
 
->>>>>>> changes to the sort method
-=======
->>>>>>> Revert "changes to the sort method"
+
 %% Determine cross correlation
 [c,lags] = rbtCrossCorr(recSig,sweep);
 
@@ -101,13 +88,11 @@ specgram(meanRecSweep)
 %%
 % Compute impulse response
 h = sweepdeconv(sweep,meanRecSweep,f1,f2,fs);
-<<<<<<< HEAD
+
 figure(3)
 plot(h)
 %wavwrite(h(4:end-4),fs,'rirtest')
-=======
 
-<<<<<<< HEAD
 h = h./max(h);      % normalize
 h = h.^2;           % square rir
 h_dB = 10*log10(h); % convert to dB
@@ -115,6 +100,4 @@ h_dB = 10*log10(h); % convert to dB
 close(findobj('type','figure','name','Impulse Response'))
 figure('Name','Impulse Response','Position',[980 200 300 300])
 plot(h_dB)
->>>>>>> changes to the sort method
-=======
->>>>>>> Revert "changes to the sort method"
+
