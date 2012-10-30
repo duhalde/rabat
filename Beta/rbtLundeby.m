@@ -52,14 +52,15 @@ hSqrSmooth = smooth(h2,avgSamples);
 xdim = 2;
 ydim = round((maxIter+1)/xdim);
 
-figure
+%figure
 
 %% STEP 7
 
 for k=1:maxIter
     %%
-    subplot(xdim,ydim,k); plot(hSqrSmooth); hold all;
-    plot([0,length(hSqrSmooth)],[rmsNoise(k), rmsNoise(k)],'r--');
+    % Plots for debugging  
+    %subplot(xdim,ydim,k); plot(hSqrSmooth); hold all;
+    %plot([0,length(hSqrSmooth)],[rmsNoise(k), rmsNoise(k)],'r--');
     
     % cross point between decay and noise-5dB
     noiseIdx = ceil((rmsNoise(k)-noiseHeadRoom-b)/a);
@@ -68,7 +69,7 @@ for k=1:maxIter
         noiseIdx = floor(0.9*length(h2));
     end
     
-    plot([noiseIdx,noiseIdx],[min(hSqrSmooth),0],'k--');
+    %plot([noiseIdx,noiseIdx],[min(hSqrSmooth),0],'k--');
     
     
     % determine background noise level
@@ -86,8 +87,8 @@ for k=1:maxIter
         id1 = 1;
     end
     
-    plot([0,length(hSqrSmooth)],[rmsNoise(k+1)+noiseHeadRoom,rmsNoise(k+1)+noiseHeadRoom],'b--')
-    plot([0,length(hSqrSmooth)],[rmsNoise(k+1)+dynRange+noiseHeadRoom,rmsNoise(k+1)+dynRange+noiseHeadRoom],'b--')
+    %plot([0,length(hSqrSmooth)],[rmsNoise(k+1)+noiseHeadRoom,rmsNoise(k+1)+noiseHeadRoom],'b--')
+    %plot([0,length(hSqrSmooth)],[rmsNoise(k+1)+dynRange+noiseHeadRoom,rmsNoise(k+1)+dynRange+noiseHeadRoom],'b--')
     
     % linear regression on smoothed rir until the SPL is noise floor + 5dB
     coeff = polyfit((id1:id2)',hSqrSmooth(id1:id2),1);
@@ -97,7 +98,7 @@ for k=1:maxIter
     % preliminary cross point
     preCross(k+1) = (rmsNoise(k+1)-b)/a;
     x = (0:length(hSqrSmooth));
-    plot(x,a.*x+b,'k');
+    %plot(x,a.*x+b,'k');
 end
 
 knee = preCross;
