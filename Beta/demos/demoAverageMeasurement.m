@@ -6,14 +6,19 @@ clc
 % Generate logarithmic sine sweep
 sigType = 'logsin'; % We can also use 'linsin', 'sin', 'mls' or 'irs'
 fs = 44100;         % Sampling frequency
-f1 = 100;           % Lower frequency
-f2 = 15000;         % Upper fr  equency
+f1 = 20;           % Lower frequency of interest
+f2 = 20000;         % Upper frequency of interest
 length_sig = 5;     % Duration of sweep in seconds
 zero_pad = 0;       % zero padding (default value)
 amp = 1;            % Amplitude (default value)
 phase = 0;          % Phase (default value)
 
 [sweep,t] = rbtGenerateSignal(sigType,fs,f1,f2,length_sig,zero_pad,amp,phase);
+
+winLength = 100;
+win = sweepwin(winLength,f1/sqrt(2),f2*sqrt(2),f1,f2,'log');
+
+sweep = rbtConv(sweep,win);
 
 % Apply sweepwindow here?
 
@@ -44,10 +49,6 @@ specgram(recSig)
 %%
 % Compute impulse response
 h = sweepdeconv(sweep,recSig,f1,f2,fs);
-
-figure(3)
-plot(h)
-%wavwrite(h(4:end-4),fs,'rirtest')
 
 h = h./max(h);      % normalize
 h = h.^2;           % square rir
