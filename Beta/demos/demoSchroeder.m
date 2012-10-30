@@ -29,15 +29,14 @@ h_band(:,i) = filter(B(:,i),A(:,i),h);          % Filtered IR
 %h_band(:,i) = h_band(:,i)./max(abs(h_band(:,i))); % normalize
 h_band(:,i) = h_band(:,i).^2;                   % Squared IR
 h_band(:,i) = 10.*log10(h_band(:,i));         % dB SPL scale
-
+subplot(2,4,i), plot(h_band(:,i)), hold on
 maxIter=5;
-avgTime= 50e-3;
+avgTime= 10e-3;
 noiseHeadRoom=10;
-dynRange=20;
+dynRange=30;
 
 [knee, rms_noise] = rbtLundeby(h_band(:,i),fs,maxIter,avgTime,noiseHeadRoom,dynRange);
 kneepoint(i) = knee(end);
 noisefloor(i) = rms_noise(end);
+plot(kneepoint(i),noisefloor(i),'ro')
 end
-
-[kneepoint(:) noisefloor(:)]
