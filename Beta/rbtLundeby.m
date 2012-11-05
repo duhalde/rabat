@@ -1,8 +1,5 @@
 function [knee, rmsNoise] = rbtLundeby(h2,fs,maxIter,avgTime,noiseHeadRoom,dynRange)
 
-% NOTE function mag2db is from Control Systems Toolbox, should be changed to
-% 20*log10...
-
 if nargin < 3
     %run maximun 5 times
     maxIter = 5;
@@ -114,11 +111,11 @@ hSmoothSize = length(h)/avgSamples;
 hSmooth = zeros(length(h),1);
 for k = 1:floor(hSmoothSize)
     idx = ((k-1)*avgSamples+1):k*avgSamples;
-    hSmooth(idx) = mag2db(mean(db2mag( h(idx))));
+    hSmooth(idx) = 20*log10(mean(10.^(h(idx)/20)));
 end
 % process rest - if it exists
 if mod(length(h),avgSamples) ~= 0
     idx = k*avgSamples+1:length(h);
-    hSmooth(idx) = mag2db(mean(db2mag(h(idx))));
+    hSmooth(idx) = 20*log10(mean(10.^(h(idx)/20)));
 end
 end
