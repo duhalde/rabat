@@ -18,12 +18,14 @@ function R = rbtBackInt(h,onset,kneepoint)
 
 switch nargin
     case 1
-        onset = 1;
-        kneepoint = length(h);
+        onset = uint32(1);
+        kneepoint = uint32(length(h));
     case 2
-        kneepoint = length(h);
+        onset = uint32(onset);
+        kneepoint = uint32(length(h));
     case 3
-        return
+        onset = uint32(onset);
+        kneepoint = uint32(floor(kneepoint));
     otherwise
         error('Wrong number of input argument')
 end
@@ -32,3 +34,4 @@ R = cumsum(h(kneepoint:-1:onset).^2);
 R = R(end:-1:1);
 R = 10*log10(R);        % In dB
 R = R-max(R);           % Normalize
+%R = R';
