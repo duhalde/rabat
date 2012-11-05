@@ -31,6 +31,7 @@ h_band(:,i) = filter(B(:,i),A(:,i),h);          % Filtered IR
 h_bandSqr(:,i) = h_band(:,i).^2;                   % Squared IR
 h_bandDb(:,i) = 10.*log10(h_bandSqr(:,i));         % dB SPL scale
 subplot(2,4,i), plot(h_bandDb(:,i)), hold on
+
 maxIter=5;
 avgTime= 50e-3; 
 noiseHeadRoom=20;

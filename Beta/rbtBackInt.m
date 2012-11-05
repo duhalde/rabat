@@ -13,7 +13,7 @@ function R = rbtBackInt(h,onset,kneepoint)
 %       - R: Normalized decay curve in dB 
 %
 %   Author: Oliver Lylloff, Mathias Immanuel Nielsen & David Duhalde 
-%   Date: 30-10-2012, Last update: 30-10-2012
+%   Date: 30-10-2012, Last update: 5-11-2012
 %   Acoustic Technology, DTU 2012
 
 switch nargin
@@ -34,4 +34,3 @@ R = cumsum(h(kneepoint:-1:onset).^2);
 R = R(end:-1:1);
 R = 10*log10(R);        % In dB
 R = R-max(R);           % Normalize
-%R = R';
