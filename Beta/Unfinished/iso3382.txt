@@ -1,0 +1,25 @@
+Find functions in ISO-3382-1: 
+
+Sound Strenght G (A.1)
+
+EDT (A.2.2)
+
+Early-to-late index C (A.10) (Clarity)
+
+Definition D50 (A.11)
+
+Clarity C50 (A.12)
+
+Centre Time Ts (A.13)
+
+Early lateral energy LF 	(A.14), LFC (A.15)
+
+Late lateral energy L (A.16), Lavg (A.17)
+
+STearly (C.1)
+
+STlate (C.2)
+
+
+
+
