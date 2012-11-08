@@ -1,8 +1,8 @@
 function RT = rbtRevTime(RdB,fs,time)
 %
-%   Description: Calculate T30 from decay curve
+%   Description: Calculate T30/T60 from decay curve
 %
-%   Usage: t30 = rbtT30(R,fs)
+%   Usage: RT = rbtRevTime(R,fs)
 %
 %   Input parameters:
 %       - R: Decay curve in dB
@@ -14,6 +14,9 @@ function RT = rbtRevTime(RdB,fs,time)
 %   Date: 1-10-2012, Last update: 1-10-2012
 %   Acoustic Technology, DTU 2012
 
+if nargin < 3
+    time = 30;  % default behaviour si to calc. T30
+end
 
 [~, idxStart] = min(abs(RdB+5));
 [~, idxEnd] = min(abs(RdB+time+5));

@@ -16,18 +16,24 @@ function freqs = rbtGetFreqs(cfmin,cfmax,BandsPerOctave)
 %   Date: 1-10-2012, Last update: 1-10-2012
 %   Acoustic Technology, DTU 2012
 
-% error handling
+% input handling
+if nargin < 1
+    cfmin = 125;        % default behaviour according to standard
+    cfmax = 4000;
+    BandsPerOctave = 1;
+elseif nargin < 3
+    BandsPerOctave = 1; % octave bands by default
+end
+
 if (BandsPerOctave ~= 1) && (BandsPerOctave ~= 3)
-    error('only octave bands and 3rd octave bands supported!')
-    
+    error('only octave bands and 3rd octave bands supported!')    
 % 3rd octave band functionality    
 elseif BandsPerOctave == 3
     freqs = [25 31.5 40 50 63 80 100 125 160 200 250 315 ...
         400 500 630 800 1000 1250 1600 2000 2500 3150 4000 5000 ...
         6300 8000 10000 12500 16000 20000];
     freqs = freqs(freqs<=cfmax); % cut away f's above cfmax
-    freqs = freqs(freqs>=cfmin); % cut away f's below cfmin
-    
+    freqs = freqs(freqs>=cfmin); % cut away f's below cfmin    
 % octave band functionality
 else
     freqs = [16 31.5 63 125 250 500 1000 2000 4000 8000 16000];

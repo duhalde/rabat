@@ -32,11 +32,8 @@ function Hd = rbtFilterBank(BandsPerOctave,fs,cfmin,cfmax,varargin)
 % input handling
 if nargin == 5
     class = varargin{1};
-<<<<<<< HEAD
-    if ~isinteger(class) || (class > 2)     % Consider using sum(ismember([0 1 2],1)~=1
-=======
     if mod(class,1) ~= 0 || (class > 2)
->>>>>>> filterbanktest added + homemade filterbank :-)
+
         error('class must be 0, 1 or 2')
     end
     classStr = ['Class ' num2str(class)];

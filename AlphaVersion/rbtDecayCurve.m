@@ -3,7 +3,7 @@ function [R,varargout] = rbtDecayCurve(h,fs,cfmin,cfmax,method)
 %   Description: Calculate the decay curve from Schröders backwards
 %   integration method.
 %
-%   Usage: R = rbtDecayCurve(h,method)
+%   Usage: R = rbtDecayCurve(h,fs,cfmin,cfmax,method)
 %
 %   Input parameters:
 %       - h: Impulse response
@@ -15,8 +15,7 @@ function [R,varargout] = rbtDecayCurve(h,fs,cfmin,cfmax,method)
 %
 %   Author: Oliver Lylloff, Mathias Immanuel Nielsen & David Duhalde 
 %   Date: 30-9-2012, Last update: 30-9-2012
-%   Acoustic Technology, DTU 2012
-
+%   Acoustic Technology, DTU 2012    
 
 switch lower(method)
 
@@ -54,12 +53,12 @@ switch lower(method)
     % Fit curve to RIR
     data = [rir_scale(:,i) t'];
     v = decay2_fit(data,[],[],0);
-    Fitted_Curve = 20*log10(decay_model(v,t',1));
-    [~,intt(i)] = max(diff(Fitted_Curve,2));            % Find knee-point
+    fittedCurve = 20*log10(decay_model(v,t',1));
+    [~,intt(i)] = max(diff(fittedCurve,2));            % Find knee-point
     
     end
 
-    
+    R = fittedCurve;
     varargout{1} = intt;
     
     otherwise
