@@ -30,7 +30,8 @@ h_band(:,i) = filter(B(:,i),A(:,i),h);          % Filtered IR
 %h_band(:,i) = h_band(:,i)./max(abs(h_band(:,i))); % normalize
 h_bandSqr(:,i) = h_band(:,i).^2;                   % Squared IR
 h_bandDb(:,i) = 10.*log10(h_bandSqr(:,i));         % dB SPL scale
-subplot(2,4,i), plot(h_bandDb(:,i)), hold on
+t = 0:1/fs:length(h_bandDb)/fs-1/fs;
+subplot(2,4,i), plot(t,h_bandDb(:,i)), hold on
 
 maxIter=5;
 avgTime= 50e-3; 
@@ -40,11 +41,15 @@ dynRange=30;
 [knee, rms_noise] = rbtLundeby(h_bandDb(:,i),fs,maxIter,avgTime,noiseHeadRoom,dynRange);
 kneepoint(i) = knee(end);
 noisefloor(i) = rms_noise(end);
-plot(kneepoint(i),noisefloor(i),'ro')
+plot(kneepoint(i)/fs,noisefloor(i),'ro')
 
 onset = 1;
 R = rbtBackInt(h_band(:,i),onset,kneepoint(i));
-subplot(2,4,i), plot(R), hold on
+t = 0:1/fs:length(R)/fs-1/fs;
+subplot(2,4,i), plot(t,R), hold on
+xlabel('time / s')
+ylim([noisefloor(i)-10 0])
+set(gca,'XTick',[1:5])
 clear R
 end
 
