@@ -18,6 +18,10 @@ function y = rbtMeasurement(signal, fs, N, estimatedRT ,latency)
 %   Author: Oliver Lylloff, Mathias Immanuel Nielsen & David Duhalde
 %   Date: 23-9-2012, Last update: 30-10-2012
 %   Acoustic Technology, DTU 2012
+%
+%   Note d = PsychPortAudio('GetDevices') returns a struct containing
+%   information about latency, devices, etc. Consider implementing latency
+%   check (OLY).
 
 % Error checking
 switch nargin
