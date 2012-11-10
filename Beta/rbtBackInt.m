@@ -12,6 +12,8 @@ function R = rbtBackInt(h,onset,kneepoint)
 %   Output parameters:
 %       - R: Normalized decay curve in dB 
 %
+%   Ref: ISO 3382-1:2009(E) section 5.3.3
+%
 %   Author: Oliver Lylloff, Mathias Immanuel Nielsen & David Duhalde 
 %   Date: 30-10-2012, Last update: 5-11-2012
 %   Acoustic Technology, DTU 2012
