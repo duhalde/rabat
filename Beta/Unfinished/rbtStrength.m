@@ -1,14 +1,13 @@
-function RT = rbtReverberationTime(x,T)
+function G = rbtStrength(x,...)
 %
-%   Description:    
+%   Description:    Calculate sound strength (G) (ISO-3382)
 %
-%   Usage: RT = rbtReverberationTime(x,T)
+%   Usage: G = rbtSoundStrength(x,...)
 %
 %   Input parameters:
 %       - x: 
-%		- T: 
 %   Output parameters:
-%       - RT: 
+%       - G: 
 %
 %   Author: Oliver Lylloff, Mathias Immanuel Nielsen & David Duhalde 
 %   Date: 05-11-2012, Last update: 05-11-2012
