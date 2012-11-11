@@ -23,7 +23,7 @@ h_band = zeros(length(h),nCF);
 %R = zeros(length(h),nCF);
 data = zeros(length(h_band), 2);
 
-for i = 1:8;  % select Hz band
+for i = 7:7;  % select Hz band
 disp(['Now processing ' num2str(freqs(i)) ' Hz band.'])
 
 h_band(:,i) = filter(B(:,i),A(:,i),h);          % Filtered IR
@@ -50,6 +50,5 @@ subplot(2,4,i), plot(t,R), hold on
 xlabel('time / s')
 ylim([noisefloor(i)-10 0])
 set(gca,'XTick',[1:5])
-clear R
 end
 
