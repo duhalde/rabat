@@ -81,7 +81,7 @@ for k = 1:N
     recordedAudio = [];
     
     % Start recording
-   tic
+   
     PsychPortAudio('Start', recHandle);
     %disp('Recording started')
     
