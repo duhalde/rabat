@@ -16,12 +16,9 @@ function y = rbtMeasurement(signal, fs, N, estimatedRT ,latency)
 %       - y             : Measured Signal
 %
 %   Author: Oliver Lylloff, Mathias Immanuel Nielsen & David Duhalde
-%   Date: 23-9-2012, Last update: 30-10-2012
+%   Date: 23-9-2012, Last update: 11-11-2012
 %   Acoustic Technology, DTU 2012
 %
-%   Note d = PsychPortAudio('GetDevices') returns a struct containing
-%   information about latency, devices, etc. Consider implementing latency
-%   check (OLY).
 
 % Error checking
 switch nargin
@@ -62,11 +59,18 @@ PsychPortAudio('Verbosity',outputMsg);
 % Fill playback buffer
 PsychPortAudio('FillBuffer', playHandle, signal);
 
+% Get I/O latency estimatation
+statusPlay = PsychPortAudio('GetStatus',playHandle);
+statusRec = PsychPortAudio('GetStatus',recHandle);
+dOut = PsychPortAudio('GetDevices',[],statusPlay.OutDeviceIndex);
+dIn = PsychPortAudio('GetDevices',[],statusRec.InDeviceIndex);
+outLatency = dOut.HighOutputLatency;
+inLatency = dIn.HighInputLatency;
+
+totalLatency = outLatency+inLatency;
+compTime = 2;     % Estimated CPU time: 1 second.
 % Allocate recording buffer     * Check Buffersize
-%
-% OLY NOTE:
-% Consider using ceil(size(signalSeconds,2)/fs) instead of signalSeconds*2
-PsychPortAudio('GetAudioData', recHandle, signalSeconds+500e-3); % allow 500 ms for latency
+PsychPortAudio('GetAudioData', recHandle, signalSeconds+totalLatency+compTime);
 
 % initialize matrix for storing the recorded sweeps
 Y = zeros(signalSeconds*fs,N);
@@ -77,7 +81,7 @@ for k = 1:N
     recordedAudio = [];
     
     % Start recording
-    
+   tic
     PsychPortAudio('Start', recHandle);
     %disp('Recording started')
     
@@ -134,7 +138,7 @@ for k = 1:N
         % Stop due to error and close channels
         PsychPortAudio('Close', recHandle);
         PsychPortAudio('Close', playHandle);
-        error(['Signals are not correlated at all. Correlation goodness-of-fit is' num2str(cGoodnessOfFit)])
+        error(['Signals are not correlated at all. Correlation goodness-of-fit is ' num2str(cGoodnessOfFit)])
     else
         sweepIdx = lags(max(c)==c);
         % and place the recorded sweep in a matrix
