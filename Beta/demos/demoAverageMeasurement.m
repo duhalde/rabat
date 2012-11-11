@@ -15,10 +15,10 @@ phase = 0;          % Phase (default value)
 
 [sweep,t] = rbtGenerateSignal(sigType,fs,f1,f2,length_sig,zero_pad,amp,phase);
 
-winLength = 100;
-win = sweepwin(winLength,f1/sqrt(2),f2*sqrt(2),f1,f2,'log');
+%winLength = 100;
+%win = sweepwin(winLength,f1/sqrt(2),f2*sqrt(2),f1,f2,'log');
 
-sweep = rbtConv(sweep,win);
+%sweep = rbtConv(sweep,win);
  
 
 RT = 1;     % Estimated reverberation time of room
