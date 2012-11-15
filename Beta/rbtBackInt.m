@@ -3,7 +3,7 @@ function R = rbtBackInt(h,onset,kneepoint)
 %   Description: Compute decay curve from Schröders backwards integration
 %                method
 %
-%   Usage: R = rbtBackInt(h,kneepoint)
+%   Usage: R = rbtBackInt(h,onset,kneepoint)
 %
 %   Input parameters:
 %       - h         : Impulse response 
