@@ -1,6 +1,8 @@
 clear all
+close all
 % Load impulse response from wav:
-[h,fs] = wavread('meas5NoDirac.wav');
+[h,fs] = wavread('sounds/Grundtvigs.wav');
+h = h(:,1);
 
 % Frequency range of interest 
 cfmin = 63;             % lowest center frequency of interest
@@ -26,4 +28,4 @@ R = rbtBackInt(H);
 
 semilogx(freqs,RT,'-.')
 set(gca,'XTick',freqs)
-axis([60 8000 0 8])
+axis([60 8000 0 max(RT)])
