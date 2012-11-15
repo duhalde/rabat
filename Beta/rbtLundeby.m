@@ -25,32 +25,38 @@ end
 
 if m<n
     h = h';
+    [m,n] = size(h);
 end
 
-% Squared impulse response in dB
-h2 = 10*log10(h.^2);
+% Allocate
+h2 = zeros(m,n);
+hSqrSmooth = zeros(m,n);
 
+for i = 1:n
+% Squared impulse response in dB
+h2(:,i) = 10*log10(h(:,i).^2);
+h2(:,i) = h2(:,i)-max(h2(:,i));
 %% STEP 1
 % averaging over 10-50 ms to make a smoother curve
 
 avgSamples = round(avgTime*fs);  % number of samples to average over
 
 % smooth the response
-hSqrSmooth = smooth(h2,avgSamples);
+hSqrSmooth(:,i) = smooth(h2(:,i),avgSamples);
 
 rmsNoise = zeros(maxIter+1,1);
 %% STEP 2
 % determine background noise level
-noise_data = hSqrSmooth(floor(0.9*length(hSqrSmooth)):end);
+noise_data = hSqrSmooth(floor(0.9*length(hSqrSmooth(:,i))):end,i);
 % find rms value of noise_data
 rmsNoise(1) = -sqrt(mean(noise_data.^2));
 
 %% STEP 3
 % last averaged time interval, with value above noise floor + 5 dB
-id2 = find(hSqrSmooth>(rmsNoise(1)+noiseHeadRoom),1,'last');
+id2(i) = find(hSqrSmooth(:,i)>(rmsNoise(1)+noiseHeadRoom),1,'last');
 
 % linear regression on smoothed rir until the SPL is noise floor + 5dB
-coeff = polyfit((0:id2-1)',hSqrSmooth(1:id2),1);
+coeff = polyfit((0:id2(i)-1)',hSqrSmooth(1:id2(i),i),1);
 
 a = coeff(1);
 b = coeff(2);
@@ -59,7 +65,9 @@ b = coeff(2);
 % preliminary cross point
 preCross = zeros(maxIter+1,1);
 preCross(1) = (rmsNoise(1)-b)/a;
-
+if preCross(1)>length(h2)
+    preCross(1) = length(h2);
+end
 %% STEP 5
 % find number of samples in 10 dB decay
 numSamplesIn10dB = ceil(-10/a);
@@ -67,13 +75,8 @@ numSamplesIn10dB = ceil(-10/a);
 avgSamples = ceil(numSamplesIn10dB/10);
 
 %% STEP 6
-hSqrSmooth = smooth(h2,avgSamples);
+hSqrSmooth(:,i) = smooth(h2(:,i),avgSamples);
 
-%% subplot settings
-xdim = 2;
-ydim = round((maxIter+1)/xdim);
-
-%figure
 
 %% STEP 7
 
@@ -94,16 +97,16 @@ for k=1:maxIter
     
     
     % determine background noise level
-    noise_data = hSqrSmooth(noiseIdx:end);
+    noise_data = hSqrSmooth(noiseIdx:end,i);
     % find rms value of noise_data NOTE Negative values, since impulse 
     % response is normalised to 0 dB
-    rmsNoise(k+1) = -sqrt(mean(noise_data.^2));
+    rmsNoise(k+1) = -sqrt(mean(noise_data(:,i).^2));
     
     %% STEP 8
     % last averaged time interval, with value above noise floor + 5 dB
-    id2 = find(hSqrSmooth>(rmsNoise(k+1)+noiseHeadRoom),1,'last');
+    id2 = find(hSqrSmooth(:,i)>(rmsNoise(k+1)+noiseHeadRoom),1,'last');
     % last averaged time interval, with value above noise floor + 15 dB
-    id1 = find(hSqrSmooth>(rmsNoise(k+1)+dynRange+noiseHeadRoom),1,'last');
+    id1 = find(hSqrSmooth(:,i)>(rmsNoise(k+1)+dynRange+noiseHeadRoom),1,'last');
     if isempty(id1)
         id1 = 1;
     end
@@ -112,17 +115,21 @@ for k=1:maxIter
     %plot([0,length(hSqrSmooth)],[rmsNoise(k+1)+dynRange+noiseHeadRoom,rmsNoise(k+1)+dynRange+noiseHeadRoom],'b--')
     
     % linear regression on smoothed rir until the SPL is noise floor + 5dB
-    coeff = polyfit((id1:id2)',hSqrSmooth(id1:id2),1);
+    coeff = polyfit((id1:id2)',hSqrSmooth(id1:id2,i),1);
     a = coeff(1);
     b = coeff(2);
     %% STEP 9
     % preliminary cross point
     preCross(k+1) = (rmsNoise(k+1)-b)/a;
-    x = (0:length(hSqrSmooth));
+    if preCross(k+1)>length(h2)
+        preCross(k+1) = length(h2);
+    end
+    x = (0:length(hSqrSmooth(:,i)));
     %plot(x,a.*x+b,'k');
 end
 
 knee = preCross;
+end
 end
 
 function hSmooth = smooth(h,avgSamples)
