@@ -18,7 +18,7 @@ f2 = 8e3;
 
 length_sec = 10;
 disp('Generating Signal')
-[y,t] = rbtGenerateSignalWin('linsin',fs,f1,f2,length_sec);
+[y,t] = rbtGenerateSignalWin(sig_type,fs,f1,f2,length_sec);
 disp('Signal Generated')
 
 estimatedRT = 1;
@@ -37,25 +37,28 @@ clear all
 close all
 
 sig_type = 'logsin';
-fs = 44.1e3;
-f1 = 1e3;
-f2 = 8e3;
+fs = 48000;
+f1 = 22;
+f2 = 22*(fs/48);
 
-length_sec = 10;
+lengthSec = 5.46;
 disp('Generating Signal')
-[y,t] = rbtGenerateSignalWin('linsin',fs,f1,f2,length_sec);
+[sig,t] = rbtGenerateSignalWin(sig_type,fs,f1,f2,lengthSec);
 disp('Signal Generated')
 
 estimatedRT = 1;
+repetitions = 5;
 
+WaitSecs(5);
 disp('Measurement:')
-meas = rbtMeasurement(y, fs, 1, estimatedRT);
+meas = rbtMeasurement(sig, fs, repetitions, estimatedRT);
 
 savedir = uigetdir;
 filename = [sig_type '_' datestr(now) '.wav'];
 
 
 disp('Saving Measurement')
+meas = 0.9*meas./max(meas);
 wavwrite(meas, fs,[savedir '/' filename])
 
 

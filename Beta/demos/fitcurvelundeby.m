@@ -9,9 +9,9 @@ bandsPerOctave = 1;     % octave band filter
 
 freqs = rbtGetFreqs(cfmin,cfmax,bandsPerOctave);
 nCF = length(freqs);
-[rir,fs] = wavread('sounds/church.wav');
+[rir,fs] = wavread('/Users/Oliver/Dropbox/Specialkursus/Measurements/LargeRoom/Dirac/meas1NoDirac.wav');
 
-rir = rir(:,1);     % convert to mono
+%rir = rir(:,1);     % convert to mono
 %%
 intnoise = find(diff(rir)>1e-3,1);      % Cut away onset
 rir = rir(intnoise:end);

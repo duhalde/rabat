@@ -2,7 +2,7 @@
 clear all
 
 % Generate logarithmic sine sweep
-fs = 44100;         % Sampling frequency
+fs = 48000;         % Sampling frequency
 f1 = 1000;           % Lower frequency
 f2 = 8000;          % Upper frequency
 length_sig = 5;     % Duration of sweep in seconds

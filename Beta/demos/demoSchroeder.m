@@ -14,8 +14,8 @@ nCF = length(freqs);
 
 h = mean(h,2);     % convert to mono by mean of stereo
 
-intnoise = find(diff(h>1e-3),1,'first');      % Cut away onset
-h = h(intnoise:end);
+%intnoise = find(diff(h>1e-3),1,'first');      % Cut away onset
+%h = h(intnoise:end);
 t = 0:1/fs:length(h)/fs-1/fs;
 
 % filter rir with octave band filters
@@ -23,7 +23,7 @@ h_band = zeros(length(h),nCF);
 %R = zeros(length(h),nCF);
 data = zeros(length(h_band), 2);
 
-for i = 7:7;  % select Hz band
+for i = 1:8;  % select Hz band
 disp(['Now processing ' num2str(freqs(i)) ' Hz band.'])
 
 h_band(:,i) = filter(B(:,i),A(:,i),h);          % Filtered IR

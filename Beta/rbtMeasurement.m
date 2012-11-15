@@ -59,7 +59,7 @@ PsychPortAudio('Verbosity',outputMsg);
 % Fill playback buffer
 PsychPortAudio('FillBuffer', playHandle, signal);
 
-% Get I/O latency estimatation
+% Get I/O latency estimation
 statusPlay = PsychPortAudio('GetStatus',playHandle);
 statusRec = PsychPortAudio('GetStatus',recHandle);
 dOut = PsychPortAudio('GetDevices',[],statusPlay.OutDeviceIndex);
@@ -68,7 +68,9 @@ outLatency = dOut.HighOutputLatency;
 inLatency = dIn.HighInputLatency;
 
 totalLatency = outLatency+inLatency;
-compTime = 2;     % Estimated CPU time: 1 second.
+compTime = 2;           % Estimated CPU time
+%soundDecayTime = 5;    % ISO 3382-1 suggest a delay of at least 5s + estimated RT
+
 % Allocate recording buffer     * Check Buffersize
 PsychPortAudio('GetAudioData', recHandle, signalSeconds+totalLatency+compTime);
 
@@ -134,16 +136,16 @@ for k = 1:N
     % Compute goodness-of-fit
     cGoodnessOfFit = max(c)/(norm(recordedAudio)*norm(signal));
     
-    if cGoodnessOfFit < 0.2    %  Perfectly correlated if cGoodnessOfFit = 1
-        % Stop due to error and close channels
-        PsychPortAudio('Close', recHandle);
-        PsychPortAudio('Close', playHandle);
-        error(['Signals are not correlated at all. Correlation goodness-of-fit is ' num2str(cGoodnessOfFit)])
-    else
-        sweepIdx = lags(max(c)==c);
-        % and place the recorded sweep in a matrix
-        Y(:,k) = recordedAudio(sweepIdx:sweepIdx+length(signal)-1);
-    end
+%     if cGoodnessOfFit < 0.2    %  Perfectly correlated if cGoodnessOfFit = 1
+%         % Stop due to error and close channels
+%         PsychPortAudio('Close', recHandle);
+%         PsychPortAudio('Close', playHandle);
+%         error(['Signals are not correlated at all. Correlation goodness-of-fit is ' num2str(cGoodnessOfFit)])
+%     else
+         sweepIdx = lags(max(c)==c);
+         % and place the recorded sweep in a matrix
+         Y(:,k) = recordedAudio(sweepIdx:sweepIdx+length(signal)-1);
+%     end
 end
 
 % Close channels
@@ -152,4 +154,5 @@ PsychPortAudio('Close', playHandle);
 
 % take the ensemble average, i.e. along the 2nd dimension of Y
 y = mean(Y,2);
+%y = recordedAudio;
 
