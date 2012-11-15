@@ -1,4 +1,4 @@
-function [hCrop,idxStart,idxEnd] = rbtCropIR(h,fs)
+function [hCrop,idxStart,idxEnd,t] = rbtCropIR(h,fs)
 %
 %   Description: Crop impulse response according to ISO 3382 and Lundeby's
 %                method. Indices of start and end samples of the uncropped 
@@ -25,7 +25,6 @@ if m<n
     h = h';
     [m,n] = size(h);
 end
-hCrop = zeros(m,n);
 
 for i = 1:n
 % Find start of impulse response
@@ -36,5 +35,13 @@ kneePoint = rbtLundeby(h(idxStart:end,i),fs);
 
 % Crop impulse response
 idxEnd(i) = idxStart(i)+ceil(kneePoint(end));
+
+if n == 1
+hCrop(:,i) = h(idxStart(i):idxEnd(i),i);
+else
+hCrop = zeros(m,n);
 hCrop(:,i) = [h(idxStart(i):idxEnd(i),i);zeros(m-(idxEnd(i)-idxStart(i))-1,1)];
+end
+
+t = (0:1/fs:length(hCrop)/fs-1/fs)';
 end

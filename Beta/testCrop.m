@@ -1,24 +1,29 @@
 clear all
 % Load impulse response from wav:
 [h,fs] = wavread('meas5NoDirac.wav');
-%h = h(:,1);
-t = 0:1/fs:length(h)/fs-1/fs;
 
 % Frequency range of interest 
 cfmin = 63;             % lowest center frequency of interest
 cfmax = 8000;           % highest center frequency of interest
 
-% Filter IR into octave bands
-H = rbtIR2octBands(h,fs,cfmin,cfmax);
+% Get center frequencies in octave bands
+freqs = rbtGetFreqs(cfmin,cfmax,1);
 
-[hCrop,idxStart,idxEnd] = rbtCropIR(H,fs);
+% Crop IR
+[hCrop,idxStart,idxEnd,t] = rbtCropIR(h,fs);
 
-[knee, rmsNoise] = rbtLundeby(hCrop,fs);
-%%
-t = 0:1/fs:length(h)/fs-1/fs;
-for i = 7:7;%1:size(H,2)
-R = rbtBackInt(hCrop(:,i));
-[RT(i), r2p, dynRange] = rbtRevTime(R,t);
-plot(t,R), hold all
-end
+% Filter impulse response
+H = rbtIR2octBands(hCrop,fs,cfmin,cfmax);
 
+% Determine knee points and Noise floor level
+[knee, rmsNoise] = rbtLundeby(H,fs);
+
+% Get decay curves
+R = rbtBackInt(H);
+
+% Get reverberation time
+[RT, r2p, dynRange] = rbtRevTime(R,t);
+
+semilogx(freqs,RT,'-.')
+set(gca,'XTick',freqs)
+axis([60 8000 0 8])

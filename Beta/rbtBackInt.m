@@ -18,6 +18,14 @@ function R = rbtBackInt(h,onset,kneepoint)
 %   Date: 30-10-2012, Last update: 5-11-2012
 %   Acoustic Technology, DTU 2012
 
+% Check size of h
+[m,n] = size(h);
+
+if m<n
+    h = h';
+    [m,n] = size(h);
+end
+
 switch nargin
     case 1
         onset = uint32(1);
@@ -32,7 +40,11 @@ switch nargin
         error('Wrong number of input argument')
 end
 
-R = cumsum(h(kneepoint:-1:onset).^2);
-R = R(end:-1:1);
-R = 10*log10(R);        % In dB
-R = R-max(R);           % Normalize
+R = zeros(m,n);
+
+for i = 1:n
+R(:,i) = cumsum(h(kneepoint:-1:onset,i).^2);
+R(:,i) = R(end:-1:1,i);
+R(:,i) = 10*log10(R(:,i));        % In dB
+R(:,i) = R(:,i)-max(R(:,i));      % Normalize
+end

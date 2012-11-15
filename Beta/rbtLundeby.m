@@ -33,7 +33,7 @@ h2 = zeros(m,n);
 hSqrSmooth = zeros(m,n);
 
 for i = 1:n
-% Squared impulse response in dB
+% Squared impulse response normalized in dB
 h2(:,i) = 10*log10(h(:,i).^2);
 h2(:,i) = h2(:,i)-max(h2(:,i));
 %% STEP 1
@@ -100,7 +100,7 @@ for k=1:maxIter
     noise_data = hSqrSmooth(noiseIdx:end,i);
     % find rms value of noise_data NOTE Negative values, since impulse 
     % response is normalised to 0 dB
-    rmsNoise(k+1) = -sqrt(mean(noise_data(:,i).^2));
+    rmsNoise(k+1) = -sqrt(mean(noise_data.^2));
     
     %% STEP 8
     % last averaged time interval, with value above noise floor + 5 dB
