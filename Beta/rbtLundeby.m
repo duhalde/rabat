@@ -1,13 +1,34 @@
-function [knee, rmsNoise] = rbtLundeby(h2,fs,maxIter,avgTime,noiseHeadRoom,dynRange)
+function [knee, rmsNoise] = rbtLundeby(h,fs,maxIter,avgTime,noiseHeadRoom,dynRange)
+%
+%   Description:    
+%
+%   Usage: y = function_name(x,...)
+%
+%   Input parameters:
+%       - x: 
+%   Output parameters:
+%       - y: 
+%
+%   Author: Oliver Lylloff, Mathias Immanuel Nielsen & David Duhalde 
+%   Date: 11-9-2012, Last update: 11-9-2012
+%   Acoustic Technology, DTU 2012
 
 if nargin < 3
-    %run maximun 5 times
-    maxIter = 5;
-    avgTime = 10e-3;     % 10-50 ms averaging
+    maxIter = 5;        %run maximun 5 times
+    avgTime = 10e-3;    % 10-50 ms averaging
     noiseHeadRoom = 10; % dB
     dynRange = 20;      % dB
 
 end
+
+[m,n] = size(h);
+
+if m<n
+    h = h';
+end
+
+% Squared impulse response in dB
+h2 = 10*log10(h.^2);
 
 %% STEP 1
 % averaging over 10-50 ms to make a smoother curve
