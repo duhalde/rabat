@@ -128,6 +128,8 @@ for k = 1:N
     %disp('Recording stopped')
     
     % Read audiodata from recording buffer
+    % ctsstarttime could give a good estimate of the onset sample, to use
+    % with rbtCropIR
     [audioData,~,~,ctsstarttime] = PsychPortAudio('GetAudioData',recHandle);
     recordedAudio = [recordedAudio audioData];
     % find the exact position of the sweep in the recorded signal
