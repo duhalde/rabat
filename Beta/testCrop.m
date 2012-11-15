@@ -1,6 +1,6 @@
 % Load impulse response from wav:
-[h,fs] = wavread('sounds/church.wav');
-h = h(:,1);
+[h,fs] = wavread('meas5NoDirac.wav');
+%h = h(:,1);
 t = 0:1/fs:length(h)/fs-1/fs;
 
 % Frequency range of interest 
