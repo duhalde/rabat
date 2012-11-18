@@ -1,10 +1,6 @@
-%% Measurement Procedures
-%
-%
-%
-
-
-
+% Measurement procedure
+% Runs Linear sine sweep, log sine sweep and MLS
+% 
 
 %% Linear Sine Sweep
 
@@ -12,11 +8,11 @@ clear all
 close all
 
 sig_type = 'linsin';
-fs = 44.1e3;
-f1 = 1e3;
-f2 = 8e3;
+fs = 48000;
+f1 = 22;
+f2 = 22*(fs/48);
 
-length_sec = 10;
+length_sec = 5.46;
 disp('Generating Signal')
 [y,t] = rbtGenerateSignalWin(sig_type,fs,f1,f2,length_sec);
 disp('Signal Generated')
@@ -29,7 +25,7 @@ meas = rbtMeasurement(y, fs, 1, estimatedRT);
 savedir = uigetdir;
 
 disp('Saving Measurement')
-wavwrite(meas, fs,[savedir '/' sig_type '_' datestr(now) '.wav'])
+wavwrite(meas, fs,32,[savedir '/' sig_type '_' datestr(now,'dd-mmm-HH-MM') '.wav'])
 
 %% Logarithmic Sine Sweep
 
@@ -54,11 +50,12 @@ disp('Measurement:')
 meas = rbtMeasurement(sig, fs, repetitions, estimatedRT);
 
 savedir = uigetdir;
-filename = [sig_type '_' datestr(now) '.wav'];
+filename = [sig_type '_' datestr(now,'dd-mmm-HH-MM') '.wav'];
 
 
 disp('Saving Measurement')
 meas = 0.9*meas./max(meas);
-wavwrite(meas, fs,[savedir '/' filename])
+wavwrite(meas, fs,32,[savedir '/' filename])
 
+%%
 
