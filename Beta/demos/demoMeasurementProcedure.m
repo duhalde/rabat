@@ -54,8 +54,24 @@ filename = [sig_type '_' datestr(now,'dd-mmm-HH-MM') '.wav'];
 
 
 disp('Saving Measurement')
-meas = 0.9*meas./max(meas);
+%meas = 0.9*meas./max(meas);
 wavwrite(meas, fs,32,[savedir '/' filename])
 
-%%
+%% MLS
 
+clear all
+close all
+
+sig_type = 'mls';
+fs = 48000;
+
+seq = rbtMls(19,'fs',fs);
+repetitions = 1;
+estimatedRT = 2;
+%%
+meas = rbtMeasurement(seq, fs, repetitions, estimatedRT);
+
+savedir = uigetdir;
+filename = [sig_type '_' datestr(now,'dd-mmm-HH-MM-SS') '.wav'];
+
+wavwrite(meas, fs,32,[savedir '/' filename])

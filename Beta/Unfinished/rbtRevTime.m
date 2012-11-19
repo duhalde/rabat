@@ -1,6 +1,5 @@
 function [RT, r2p,dynRange] = rbtRevTime(R,t,varargin)
 %
-%   NOTE: Not finished
 %
 %   Description: Calculate reverberation time from decay curve.
 %
@@ -165,9 +164,4 @@ end
 
 function rSqr = nonLinCheck(Ri,Li)
     rSqr = sum((Li(:)-mean(Ri)).^2)/sum((Ri(:)-mean(Ri)).^2);
-end
-
-function k = curvature(R)
-k = norm(diff(R,2))./(1+diff(R).^2).^(3/2);
-k = k-max(k);
 end
