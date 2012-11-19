@@ -30,7 +30,7 @@ else
     ir = ir(:,1);
 end
 % find index of integration time in ir
-int_idx = time*1e-3*fs;
+int_idx = ceil(time*1e-3*fs);
 % error handling
 if int_idx > length(ir)
     error('Impulse response must be longer than wanted time intergration!')

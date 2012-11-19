@@ -1,30 +1,30 @@
 function [B,A] = rbtHomemadeFilterBank(BandsPerOctave,fs,cfmin,cfmax,varargin)
 %
-%   Description: Calculate standardized octave or 3rd-octave band second 
+%   Description: Calculate standardized octave or 3rd-octave band second
 %       order section filters.
 %
 %   Usage: Hd = filterBank(BandsPerOctave,fs,cfmin,cfmax,1)
-% 
+%
 %   Example: Hd = filterBank(1,44100,63,8000,0) creates 8 octave band
 %   filters of 'Class 0' (acc. ANSI S1.11-2004) which can be used with
-%   Matlab's FILTER() function
+%   Matlab's FILTER() function or your convolution function of choice.
 %
 %   Input parameters:
 %       - BandsPerOctave: bands per octave
 %       - fs: sampling frequency
-%       - cfmin: lowest center frequency of interest 
+%       - cfmin: lowest center frequency of interest
 %       - cfmax: highest center frequency of interest
 %       - class (optional): Filter class according to ANSI S1.11-2004,
 %           either 0, 1 or 2.
 %           Class 0: 0.15 dB ripple in pass band
-%           Class 0: 0.30 dB ripple in pass band
-%           Class 0: 0.50 dB ripple in pass band
-% 
+%           Class 1: 0.30 dB ripple in pass band
+%           Class 2: 0.50 dB ripple in pass band
+%
 %   Output parameters:
 %       - Hd: vector with filter-structs. Used like:
 %           out = filter(sig,Hd(1));
 %
-%   Author: Oliver Lylloff, Mathias Immanuel Nielsen & David Duhalde 
+%   Author: Oliver Lylloff, Mathias Immanuel Nielsen & David Duhalde
 %   Date: 1-10-2012, Last update: 1-10-2012
 %   Acoustic Technology, DTU 2012
 
@@ -38,7 +38,7 @@ if nargin == 5
 else
     class = 1; % default filter class
 end
-    
+
 if BandsPerOctave == 1
     if cfmin < 31.5
         error('minimum center frequency is 31.5 Hz');
@@ -94,7 +94,7 @@ A = zeros(2*N+1,nCF);
 for m = 1:nCF
     fupper = fc(m) * 2^(1/(2*BandsPerOctave)) / (fs/2); % find normalized upper
     flower = fc(m) / 2^(1/(2*BandsPerOctave)) / (fs/2); % and lower frequencies
-
+    
     WN = [flower,fupper];
     [B(:,m),A(:,m)] = butter(N,WN);
 end

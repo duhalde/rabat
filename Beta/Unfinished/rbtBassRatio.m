@@ -14,8 +14,7 @@ function BR = rbtBassRatio(ir,fs)
 %   Acoustic Technology, DTU 2012
 
 % references:
-% [1]
-% Niels Werner Adelman-Larsen, Eric R. Thompson and Anders Christian Gade
+% [1] Niels Werner Adelman-Larsen, Eric R. Thompson and Anders Christian Gade
 % Suitable reverberation times for halls for rock and pop music
 % Journal of the Acoustical Society of America, 2010, Vol. 127, nr. 1, pp. 247-255
 
