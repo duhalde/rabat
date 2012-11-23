@@ -32,12 +32,12 @@ function [RT, r2p,dynRange] = rbtRevTime(R,t,varargin)
 %              The decay curve is non-linear for r2p > 10. 
 %              According to ISO 3382-1:2009 (sec. B.3)
 %
-%   Ref: ISO 3382-1:2009(E) section (A.2.2)
+%   Ref: ISO 3382-1:2009(E) and ISO 3382-2:2008
 %
 %   See also: rbtBackInt
 % 
 %   Author: Oliver Lylloff, Mathias Immanuel Nielsen & David Duhalde 
-%   Date: 05-11-2012, Last update: 11-11-2012
+%   Date: 05-11-2012, Last update: 23-11-2012
 %   Acoustic Technology, DTU 2012
 
 if nargin == 2
@@ -123,7 +123,6 @@ for ii = 1:n
     coeff = polyfit(t(idx5:idx65),R(idx5:idx65,ii),1);
     L(:,ii) = coeff(1)*t+coeff(2);
     RT(ii) = -60/coeff(1);
-    %RT(:,ii) = t(find(L(:,ii)<-65,1,'first')) - t(find(L(:,ii)<-5,1,'first'));
     r2(ii) = nonLinCheck(R(idx5:idx65,ii),L(idx5:idx65,ii));
 end
 end
@@ -140,7 +139,6 @@ for ii = 1:size(R,2)
     coeff = polyfit(t(idx5:idx35),R(idx5:idx35,ii),1);
     L(:,ii) = coeff(1)*t+coeff(2);
     RT(ii) = 2*(-30/coeff(1));
-    %t(find(L(:,ii)<-35,1,'first')) - t(find(L(:,ii)<-5,1,'first'));
     r2(ii) = nonLinCheck(R(idx5:idx35,ii),L(idx5:idx35,ii));
 end
 end
@@ -157,7 +155,6 @@ for ii = 1:size(R,2)
     coeff = polyfit(t(idx5:idx25),R(idx5:idx25,ii),1);
     L(:,ii) = coeff(1)*t+coeff(2);
     RT(ii) = 3*(-20/coeff(1));
-    %RT(:,ii) = t(find(L(:,ii)<-25,1,'first')) - t(find(L(:,ii)<-5,1,'first'));
     r2(ii) = nonLinCheck(R(idx5:idx25,ii),L(idx5:idx25,ii));
 end
 end
