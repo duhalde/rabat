@@ -1,4 +1,4 @@
-function [B,A] = rbtHomemadeFilterBank(BandsPerOctave,fs,cfmin,cfmax,varargin)
+% function [B,A] = rbtHomemadeFilterBank(BandsPerOctave,fs,cfmin,cfmax,varargin)
 %
 %   Description: Calculate standardized octave or 3rd-octave band second
 %       order section filters.
@@ -27,17 +27,16 @@ function [B,A] = rbtHomemadeFilterBank(BandsPerOctave,fs,cfmin,cfmax,varargin)
 %   Author: Oliver Lylloff, Mathias Immanuel Nielsen & David Duhalde
 %   Date: 1-10-2012, Last update: 1-10-2012
 %   Acoustic Technology, DTU 2012
+clear all
+close all
+clc
 
+BandsPerOctave = 1;
+fs = 48000;
+cfmin = 63;
+cfmax = 1000;
+class = 0;
 
-% input handling
-if nargin == 5
-    class = varargin{1};
-    if mod(class,1) ~= 0 || (class > 2)
-        error('class must be 0, 1 or 2')
-    end
-else
-    class = 1; % default filter class
-end
 
 if BandsPerOctave == 1
     if cfmin < 31.5
@@ -54,7 +53,7 @@ elseif BandsPerOctave == 3
         error('maximum center frequency is 20000 Hz');
     end
     % set filter order --NB check with ANSI S1.11-2004
-    N = 6;
+    N = 5;
 else
     error('Only 1 or 3 bands per octave is supported, at the moment.')
 end
@@ -63,10 +62,13 @@ end
 switch class
     case 0
         ripple = 0.15;
+        stopBandAtt = 75;
     case 1
         ripple = 0.30;
+        stopBandAtt = 70;
     case 2
         ripple = 0.50;
+        stopBandAtt = 60;
 end
 
 
@@ -88,15 +90,40 @@ fc(idf0) = f0;
 
 fc(idf0+1:nCF) = 1000.*(2.^(1/BandsPerOctave).^(1:nCF-idf0));
 
-B = zeros(2*N+1,nCF);
-A = zeros(2*N+1,nCF);
+% B = zeros(2*N+1,nCF);
+% A = zeros(2*N+1,nCF);
 
+f = figure(1);
 for m = 1:nCF
-    fupper = fc(m) * 2^(1/(2*BandsPerOctave)) / (fs/2); % find normalized upper
-    flower = fc(m) / 2^(1/(2*BandsPerOctave)) / (fs/2); % and lower frequencies
+    passUpper = fc(m) * 2^(1/(2*BandsPerOctave)) / (fs/2); % find normalized upper
+    passLower = fc(m) / 2^(1/(2*BandsPerOctave)) / (fs/2); % and lower passband frequencies
+    wp = [passLower,passUpper];
     
-    WN = [flower,fupper];
-    [B(:,m),A(:,m)] = butter(N,WN);
+    stopUpper = fc(m) * 2^(8/(2*BandsPerOctave)) / (fs/2); % find normalized upper
+    stopLower = fc(m) / 2^(8/(2*BandsPerOctave)) / (fs/2); % and lower stopband frequencies
+    ws = [stopLower,stopUpper];
+    
+    [n wn] = buttord(wp,ws,ripple,stopBandAtt);
+    disp([num2str(freqs(m)) ' Hz filter has order ' num2str(n)])
+    [b,a] = butter(n,wn);
+%     [B(:,m),A(:,m)] = butter(n,wn);
+    
+%     freqz(B(:,m),A(:,m));
+    freqz(b,a),
+    ylim([-20 0])
+    xlim([0.001 .3])
+    hold all
+    leg{m} = ['cf = ' num2str(freqs(m))]; 
 end
 
+colors = colormap(lines(nCF));
+% get handle for freqz plot
+hh = get(f,'Children');
+for i=1:nCF
+    h1 = get(hh(1),'Children');
+    set(h1(i),'Color',colors(i,:));
+    h2 = get(hh(2),'Children');
+    set(h2(i),'Color',colors(i,:));
 end
+
+legend(leg)
