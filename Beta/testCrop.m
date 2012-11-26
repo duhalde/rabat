@@ -29,13 +29,39 @@ freqs = rbtGetFreqs(cfmin,cfmax,1);
 HD = rbtIR2octBands(hCropD,fsD,cfmin,cfmax);
 HR = rbtIR2octBands(hCropR,fsR,cfmin,cfmax);
 
-% Determine knee points and Noise floor level
+%% Determine knee points and Noise floor level
 [kneeD, rmsNoiseD] = rbtLundeby(HD,fsD);
-[kneeR, rmsNoiseR] = rbtLundeby(HR,fsR);
+%%
+[kneeR, rmsNoiseR,C] = rbtLundeby(HR,fsR);
 
-% Get decay curves
-RD = rbtBackInt(HD);
-RR = rbtBackInt(HR);
+%% Get decay curves
+%RD = rbtBackInt(HD,1,kneeD(end),0);
+RR = rbtBackInt(HR,[],C);
+
+%R = rbtBackIntComp(HR,kneeR(end),1);
+
+figure(1)
+plot(RR(:,1))
+%hold all
+%plot(RdB(:,1))
+
+%%
+
+figure(1)
+for i = 1:2
+RR5 = floor(0.95*length(RR(:,i)));
+RD5 = floor(0.95*length(RD(:,i)));
+subplot(1,2,i)
+plot(RR(:,i)), hold all
+plot(RD(:,i))
+title([num2str(freqs(i)) ' Hz'])
+ylim([-65 0])
+plot(RR5,RR(RR5,i),'or')
+plot(RD5,RD(RD5,i),'or')
+hold off
+end
+legend('Rabat','Dirac')
+%%
 
 % Get reverberation time
 [RTD, r2pD, dynRangeD] = rbtRevTime(RD,tD,'all');
@@ -45,8 +71,15 @@ RR = rbtBackInt(HR);
 T30 = [5.196 7.447 7.376 5.968 4.976 4.308 3.344 2.349 1.414 0.849];
 T20 = [6.141	7.531	7.309	5.892	4.989	4.312	3.333	2.284	1.379	0.937]; 
 %%
-semilogx(freqs,T20(2:end-1),'--o'), hold on
-plot(freqs,RTD,'k--s'), plot(freqs,RTR(1,:),'r--.')
+figure(2)
+semilogx(freqs,T20(2:end-1),'--ob'), hold on
+plot(freqs,T30(2:end-1),'--db')
+
+plot(freqs,RTR(1,:),'r--o')
+plot(freqs,RTR(2,:),'r--d')
+
+plot(freqs,RTD,'k--x'), 
+
 set(gca,'XTick',freqs)
 axis([60 8000 0 max(T30)+1])
-legend('Dirac-derived T30','RABAT derived from Dirac rec.','RABAT derived from RABAT rec.')
+legend('Dirac-derived T20','Dirac-derived T20','RABAT-derived T20','RABAT-derived T30','RABAT T20 from Dirac rec.')

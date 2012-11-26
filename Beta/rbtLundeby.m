@@ -1,4 +1,4 @@
-function [knee, rmsNoise] = rbtLundeby(h,fs,maxIter,avgTime,noiseHeadRoom,dynRange)
+function [knee, rmsNoise,varargout] = rbtLundeby(h,fs,maxIter,avgTime,noiseHeadRoom,dynRange)
 %
 %   Description:    
 %
@@ -14,10 +14,11 @@ function [knee, rmsNoise] = rbtLundeby(h,fs,maxIter,avgTime,noiseHeadRoom,dynRan
 %   Acoustic Technology, DTU 2012
 
 if nargin < 3
-    maxIter = 5;        %run maximun 5 times
-    avgTime = 10e-3;    % 10-50 ms averaging
-    noiseHeadRoom = 10; % dB
-    dynRange = 20;      % dB
+    maxIter = 5;            %run maximun 5 times
+    avgTime = 10e-3;        % 10-50 ms averaging
+    intervalsIn10dB = 10;   % 3-10
+    noiseHeadRoom = 10;     % dB
+    dynRange = 20;          % dB
 
 end
 
@@ -65,14 +66,14 @@ b = coeff(2);
 % preliminary cross point
 preCross = zeros(maxIter+1,1);
 preCross(1) = (rmsNoise(1)-b)/a;
-if preCross(1)>length(h2)
-    preCross(1) = length(h2);
-end
+%if preCross(1)>length(h2)
+%    preCross(1) = length(h2);
+%end
 %% STEP 5
 % find number of samples in 10 dB decay
 numSamplesIn10dB = ceil(-10/a);
 % divide 10dB into 10 intervals
-avgSamples = ceil(numSamplesIn10dB/10);
+avgSamples = ceil(numSamplesIn10dB/intervalsIn10dB);
 
 %% STEP 6
 hSqrSmooth(:,i) = smooth(h2(:,i),avgSamples);
@@ -121,14 +122,18 @@ for k=1:maxIter
     %% STEP 9
     % preliminary cross point
     preCross(k+1) = (rmsNoise(k+1)-b)/a;
-    if preCross(k+1)>length(h2)
-        preCross(k+1) = length(h2);
-    end
+    %if preCross(k+1)>length(h2)
+    %    preCross(k+1) = length(h2);
+    %end
     x = (0:length(hSqrSmooth(:,i)));
     %plot(x,a.*x+b,'k');
 end
 
-knee = preCross;
+knee = floor(preCross);
+A = fs*10^(a/10);
+B = 10^(b/10);
+C = -(B/A)*exp(A * knee(end)/fs);
+varargout{1} = C;
 end
 end
 
