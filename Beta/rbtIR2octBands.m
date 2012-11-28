@@ -16,12 +16,16 @@ function H = rbtIR2octBands(h,fs,cfmin,cfmax)
 %   See also: rbtCropIR
 %
 %   Author: Oliver Lylloff, Mathias Immanuel Nielsen & David Duhalde 
-%   Date: 9-11-2012, Last update: 9-11-2012
+%   Date: 9-11-2012, Last update: 28-11-2012
 %   Acoustic Technology, DTU 2012
 
 bandsPerOctave = 1;
+
+% Get octave-band center frequencies
 freqs = rbtGetFreqs(cfmin,cfmax,bandsPerOctave);
-nCF = length(freqs);    
+nCF = length(freqs);
+
+% Calculate filter coeeficients
 [B,A] = rbtHomemadeFilterBank(bandsPerOctave,fs,cfmin,cfmax,1);
 
 H = zeros(length(h),nCF);           % filter rir with octave band filters
