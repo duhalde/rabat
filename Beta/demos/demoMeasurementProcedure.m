@@ -1,6 +1,6 @@
 % Measurement procedure
 % Runs Linear sine sweep, log sine sweep and MLS
-% 
+%
 
 %% Linear Sine Sweep
 
@@ -14,7 +14,7 @@ f2 = 22*(fs/48);
 
 length_sec = 5.46;
 disp('Generating Signal')
-[y,t] = rbtGenerateSignalWin(sig_type,fs,f1,f2,length_sec);
+[y,t] = rbaGenerateSignalWin(sig_type,fs,f1,f2,length_sec);
 disp('Signal Generated')
 
 estimatedRT = 1;
@@ -39,7 +39,7 @@ f2 = 22*(fs/48);
 
 lengthSec = 5.46;
 disp('Generating Signal')
-[sig,t] = rbtGenerateSignalWin(sig_type,fs,f1,f2,lengthSec);
+[sig,t] = rbaGenerateSignalWin(sig_type,fs,f1,f2,lengthSec);
 disp('Signal Generated')
 
 estimatedRT = 1;

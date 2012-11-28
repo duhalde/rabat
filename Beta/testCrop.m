@@ -10,11 +10,11 @@ f1 = 22;
 f2 = 22*(fs/48);
 
 lengthSec = 5.46;
-[sweep,t] = rbtGenerateSignalWin(sig_type,fs,f1,f2,lengthSec);
+[sweep,t] = rbaGenerateSignalWin(sig_type,fs,f1,f2,lengthSec);
 
 hR = sweepdeconv(sweep,measRabat3,f1,f2,fs);
 
-% Frequency range of interest 
+% Frequency range of interest
 cfmin = 63;             % lowest center frequency of interest
 cfmax = 8000;           % highest center frequency of interest
 
@@ -67,9 +67,9 @@ legend('Rabat','Dirac')
 [RTD, r2pD, dynRangeD] = rbtRevTime(RD,tD,'all');
 [RTR, r2pR, dynRangeR] = rbtRevTime(RR,tR,'all');
 
-% Results from Dirac 
+% Results from Dirac
 T30 = [5.196 7.447 7.376 5.968 4.976 4.308 3.344 2.349 1.414 0.849];
-T20 = [6.141	7.531	7.309	5.892	4.989	4.312	3.333	2.284	1.379	0.937]; 
+T20 = [6.141	7.531	7.309	5.892	4.989	4.312	3.333	2.284	1.379	0.937];
 %%
 figure(2)
 semilogx(freqs,T20(2:end-1),'--ob'), hold on
@@ -78,7 +78,7 @@ plot(freqs,T30(2:end-1),'--db')
 plot(freqs,RTR(1,:),'r--o')
 plot(freqs,RTR(2,:),'r--d')
 
-plot(freqs,RTD,'k--x'), 
+plot(freqs,RTD,'k--x'),
 
 set(gca,'XTick',freqs)
 axis([60 8000 0 max(T30)+1])

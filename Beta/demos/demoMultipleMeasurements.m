@@ -13,7 +13,7 @@ zero_pad = 0;       % zero padding (default value)
 amp = 1;            % Amplitude (default value)
 phase = 0;          % Phase (default value)
 
-[sweep,t] = rbtGenerateSignal(sigType,fs,f1,f2,length_sig,zero_pad,amp,phase);
+[sweep,t] = rbaGenerateSignal(sigType,fs,f1,f2,length_sig,zero_pad,amp,phase);
 
 % Apply sweepwindow here?
 
