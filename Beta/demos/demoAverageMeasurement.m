@@ -18,8 +18,8 @@ phase = 0;          % Phase (default value)
 %winLength = 100;
 %win = sweepwin(winLength,f1/sqrt(2),f2*sqrt(2),f1,f2,'log');
 
-%sweep = rbtConv(sweep,win);
- 
+%sweep = rbaConv(sweep,win);
+
 
 RT = 1;     % Estimated reverberation time of room
 N = 1;      % Number of sweeps
@@ -32,12 +32,12 @@ recSig = rbtMeasurement(sweep,fs,N,RT,1);
 
 %% plot spectrogram of recorded signal
 % [~,F,T,P] = spectrogram(recSig,256,250,256,fs);
-% 
+%
 % close(findobj('type','figure','name','spectrogram of recorded signal'))
 % figure('Name','spectrogram of recorded signal','Position',[0 200 300 300])
 % % plot spectrogram!! NOTE: a lot more difficult than with specgram, which
 % % is no longer supported from Mathworks :-(
-% surf(T,F,10*log10(P),'edgecolor','none'); axis tight; 
+% surf(T,F,10*log10(P),'edgecolor','none'); axis tight;
 % view(0,90);
 % xlabel('Time (Seconds)'); ylabel('Hz');
 
@@ -56,7 +56,7 @@ h_dB = 10*log10(h); % convert to dB
 plot(h_dB)
 
 
-% This plotting feature might make you run out of java heap memory: 
+% This plotting feature might make you run out of java heap memory:
 %close(findobj('type','figure','name','Impulse Response'))
 %figure('Name','Impulse Response','Position',[980 200 300 300])
 

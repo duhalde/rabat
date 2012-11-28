@@ -1,36 +1,35 @@
-function y = rbtConv(f,h)
+function y = rbaConv(f,h)
 %$RABAT_CONV  Fast implementation of convolution
-%   conv_sig = rabat_conv(sig1,sig2)
+%   y = rbaConv(f, h)
 %
 %   Description:
-%       Since Matlabs built-in convolve implements the mathematic
+%       Matlabs built-in convolve implements the mathematic
 %       definition and not the fastest method for convolving, this function
 %       is a must for everyone working with signal processing.
 %
 %   Inputs:
-%       f:   the (music?) signal to be convolved with h 
-%       h:   the (filter?) signal to be convolved with f
+%       f:   the signal to be convolved with h
+%       h:   the signal to be convolved with f
 %
 %   Outputs:
-%       g:   the convolved signal. the length will be the sum of the
+%       y:   the convolved signal. the length will be the sum of the
 %                   lengths of the two input signals minus 1.
 %
 %   Example:
-%     	auralization = rbtConv(music_signal,room_impulse_response)
+%     	auralization = rbaConv(music_signal,room_impulse_response)
 %
-
 % Author: David Duhalde Rahbæk & Mathias Immanuel Nielsen & Oliver Lylloff
-% Created: sep 5 2012
-% Copyright RaBaT Toolbox, DTU 2012
+% 2012
+% Created: sep 5 2012 Updated: 28/11/2012
 
 
 %% Convolution
 f = f(:);
 h = h(:);
 
-Ly = length(f)+length(h)-1;   % find length of output signal  
+Ly = length(f)+length(h)-1;   % find length of output signal
 
-% to get the highest speed from fft() and ifft(), 
+% to get the highest speed from fft() and ifft(),
 % the signal lengths should be a power of 2
 LyPow2 = pow2(nextpow2(Ly));  % find smallest power of 2 > Ly
 

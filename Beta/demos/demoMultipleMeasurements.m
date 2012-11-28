@@ -36,7 +36,7 @@ measSig = cc(:)';
 
 rir = wavread('church');
 % use loaded mono rir to simulate a recording in a room
-sweepResp = rbtConv(sweepNull,rir(:,1));
+sweepResp = rbaConv(sweepNull,rir(:,1));
 % assemble recorded signal of N sweep responses
 c = sweepResp(:);
 cc = c(:,ones(N,1));
@@ -51,12 +51,12 @@ recSig = recSig + noise;
 
 %% plot spectrogram of recorded signal
 % [~,F,T,P] = spectrogram(recSig,256,250,256,fs);
-% 
+%
 % close(findobj('type','figure','name','spectrogram of recorded signal'))
 % figure('Name','spectrogram of recorded signal','Position',[0 200 300 300])
 % % plot spectrogram!! NOTE: a lot more difficult than with specgram, which
 % % is no longer supported from Mathworks :-(
-% surf(T,F,10*log10(P),'edgecolor','none'); axis tight; 
+% surf(T,F,10*log10(P),'edgecolor','none'); axis tight;
 % view(0,90);
 % xlabel('Time (Seconds)'); ylabel('Hz');
 
@@ -67,9 +67,9 @@ recSig = recSig + noise;
 % find indices of each sweep in recSig
 [~, sortedIndex] = sort(c);                    % sorted values
 
-maxIndex = sort(lags(sortedIndex(end-(N*5-1):end)))  % Indices for 5*N largest values 
+maxIndex = sort(lags(sortedIndex(end-(N*5-1):end)))  % Indices for 5*N largest values
 
-%% Pick the right indices (just until we find a better solution) 
+%% Pick the right indices (just until we find a better solution)
 maxIndex = [maxIndex(10) maxIndex(13) maxIndex(16) maxIndex(19) maxIndex(23)];
 
 % extract measured sweeps for averaging
