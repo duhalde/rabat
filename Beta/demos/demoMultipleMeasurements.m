@@ -62,7 +62,7 @@ recSig = recSig + noise;
 
 
 %% Determine cross correlation
-[c,lags] = rbtCrossCorr(recSig,sweep);
+[c,lags] = rbaCrossCorr(recSig,sweep);
 
 % find indices of each sweep in recSig
 [~, sortedIndex] = sort(c);                    % sorted values

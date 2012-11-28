@@ -9,9 +9,9 @@ function y = rbtMeasurement(signal, fs, N, estimatedRT ,latency)
 %       - fs            : Sampling frequency
 %       - N             : Number of Averages
 %       - estimatedRT   : Estimated reverberation time in seconds
-%       - latency       : Latency setting for PsychPortAudio (default = 1) 
+%       - latency       : Latency setting for PsychPortAudio (default = 1)
 %                         Low latency setting (latency = 2)
-%       
+%
 %   Output parameters:
 %       - y             : Measured Signal
 %
@@ -24,9 +24,9 @@ function y = rbtMeasurement(signal, fs, N, estimatedRT ,latency)
 switch nargin
     case 4
         latency = 1;
-    case 5 
+    case 5
         if latency == 1 || latency == 2
-           
+
         else
             error('Latency must be set to either 1 or 2!')
         end
@@ -79,26 +79,26 @@ Y = zeros(signalSeconds*fs,N);
 
 % For-loop START
 for k = 1:N
-    
+
     recordedAudio = [];
-    
+
     % Start recording
-   
+
     PsychPortAudio('Start', recHandle);
     %disp('Recording started')
-    
+
     % Start playback
     PsychPortAudio('Start', playHandle);
-    
+
     disp(['Now recording sweep ' num2str(k) ' out of ' num2str(N)]);
-    
+
     % Get playback status
     status = PsychPortAudio('GetStatus',playHandle);
-    
+
     while status.Active == 0
         status = PsychPortAudio('GetStatus',playHandle);
     end
-    
+
     % Record while playback is active
     while status.Active == 1
         % Read audiodata from recording buffer
@@ -110,34 +110,34 @@ for k = 1:N
             disp('Very high CPU load. Timing or sound glitches are likely to occur.')
         end
     end
-    
-    % Make sure full sound decay has reached the microphone. 
+
+    % Make sure full sound decay has reached the microphone.
     % 500 ms corresponds to a sound travel distance of 171.5 m. Change this
     % value if any of the room dimensions exceeds 86 m.
     soundDecayDistance = 500e-3;
-    WaitSecs(soundDecayDistance);       
-    
+    WaitSecs(soundDecayDistance);
+
     %disp('Playback finished');
-    
+
     % Stop audio recording
-    PsychPortAudio('Stop',recHandle,1); 
-    
+    PsychPortAudio('Stop',recHandle,1);
+
     % Use status struct to predict system latency
-    % status.PredictedLatency 
- 
+    % status.PredictedLatency
+
     %disp('Recording stopped')
-    
+
     % Read audiodata from recording buffer
     % ctsstarttime could give a good estimate of the onset sample, to use
     % with rbtCropIR
     [audioData,~,~,ctsstarttime] = PsychPortAudio('GetAudioData',recHandle);
     recordedAudio = [recordedAudio audioData];
     % find the exact position of the sweep in the recorded signal
-    [c,lags] = rbtCrossCorr(recordedAudio, signal);
-    
+    [c,lags] = rbaCrossCorr(recordedAudio, signal);
+
     % Compute goodness-of-fit
     cGoodnessOfFit = max(c)/(norm(recordedAudio)*norm(signal));
-    
+
 %     if cGoodnessOfFit < 0.2    %  Perfectly correlated if cGoodnessOfFit = 1
 %         % Stop due to error and close channels
 %         PsychPortAudio('Close', recHandle);
