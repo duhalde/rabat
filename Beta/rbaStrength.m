@@ -1,8 +1,8 @@
-function G = rbtStrength(h,h10,fs,varargin)
+function G = rbaStrength(h,h10,fs,varargin)
 %
 %   Description:    Calculate sound strength (G)
 %
-%   Usage: G = rbtStrength(h,h10,fs,tInf)
+%   Usage: G = rbaStrength(h,h10,fs,tInf)
 %
 %   Input parameters:
 %       - h: Impulse response
@@ -43,5 +43,5 @@ else
 end
 
 for i = 1:n
-G(i) = 10*log10(sum(h(1:tInf).^2)/sum(h10(1:tInf).^2));
+G(i) = 10*log10(sum(h(1:tInf,i).^2)/sum(h10(1:tInf).^2));
 end

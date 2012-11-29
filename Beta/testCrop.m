@@ -10,7 +10,7 @@ f1 = 22;
 f2 = 22*(fs/48);
 
 lengthSec = 5.46;
-[sweep,t] = rbaGenerateSignalWin(sig_type,fs,f1,f2,lengthSec);
+[sweep,t] = rbaGenerateSignal(sig_type,fs,f1,f2,lengthSec);
 
 hR = sweepdeconv(sweep,measRabat3,f1,f2,fs);
 
@@ -22,8 +22,11 @@ cfmax = 8000;           % highest center frequency of interest
 freqs = rbtGetFreqs(cfmin,cfmax,1);
 
 % Crop IR
-[hCropD,idxStartD,idxEndD,tD] = rbtCropIR(hD,fsD);
-[hCropR,idxStartR,idxEndR,tR] = rbtCropIR(hR,fsR);
+idxStartR = rbaStartIR(hR);
+idxStartD = rbaStartIR(hD);
+%%
+[hCropD,idxEndD,tD] = rbaCropIR(hD,fsD,idxStartD,floor(1.9e5));
+[hCropR,idxEndR,tR] = rbaCropIR(hR,fsR,idxStartR,floor(6.271e5));
 
 % Filter impulse response
 HD = rbtIR2octBands(hCropD,fsD,cfmin,cfmax);
@@ -36,7 +39,7 @@ HR = rbtIR2octBands(hCropR,fsR,cfmin,cfmax);
 
 %% Get decay curves
 %RD = rbtBackInt(HD,1,kneeD(end),0);
-RR = rbtBackInt(HR,[],C);
+RR = rbtBackInt(HR,C);
 
 %R = rbtBackIntComp(HR,kneeR(end),1);
 
@@ -64,8 +67,8 @@ legend('Rabat','Dirac')
 %%
 
 % Get reverberation time
-[RTD, r2pD, dynRangeD] = rbtRevTime(RD,tD,'all');
-[RTR, r2pR, dynRangeR] = rbtRevTime(RR,tR,'all');
+[RTD, r2pD, dynRangeD] = rbaReverberationTime(RD,tD,'all');
+[RTR, r2pR, dynRangeR] = rbaReverberationTime(RR,tR,'all');
 
 % Results from Dirac
 T30 = [5.196 7.447 7.376 5.968 4.976 4.308 3.344 2.349 1.414 0.849];

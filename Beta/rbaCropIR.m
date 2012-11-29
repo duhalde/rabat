@@ -48,10 +48,10 @@ if nargin == 3
     kneePoint = rbaLundeby(h(idxStart:end,i),fs);
 elseif nargin == 4 
     % Get knee point from input
-    kneePoint = floor(varargin{1}); 
+    kneePoint = ceil(varargin{1}); 
 end
 % Crop impulse response
-idxEnd(i) = idxStart+ceil(kneePoint(end));
+idxEnd(i) = ceil(kneePoint(end));
 
 if n == 1
 hCrop(:,i) = h(idxStart:idxEnd(i),i);
