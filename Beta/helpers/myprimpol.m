@@ -1,18 +1,26 @@
 function pol = myprimpol(m)
-% MYPRIMPOL returns a primitive polynomial of order m in GF(2^m). GF stands
-%   for Galois Field. Note that there are other primitive polynomials that
-%   can be used.
+%
+% 	Description: Returns a primitive polynomial of order m in GF(2^m). 
+%                GF stands for Galois Field. Note that there are other 
+%                primitive polynomials that can be used.
+%                Utility function to be used for generating MLS.
+%
 %   Usage: pol = myprimpol(m)
+%   
 %   Input parameters:
-%       - m: order of the primitive polynomial. m must be and integer
+%       - m: Order of the primitive polynomial. m must be and integer
 %       number between 0 < m < 27.
 %   Output parameters:
-%       - pol: the corresponding primitive polynomial of order m.
+%       - pol: The corresponding primitive polynomial of order m.
 %
 %   For more powerful and general function related to primitive polynomials
 %   see also GFPRIMDF, GFPRIMCK, ISPRIMITIVE.
 %
-%   Author: Toni Torras, Date: 1-7-2009, Last update: 1-7-2009
+%   Author: Toni Torras, Date: 1-7-2009
+%   Modified by Oliver Lylloff, Mathias Immanuel Nielsen & David Duhalde 
+%   Date: 29-11-2012
+%   Acoustic Technology, DTU 2012
+
 if  floor(m)~=m || m < 0 || m > 26
     error('Wrong value of m (integer number) ==> 0 < m < 27');
 else

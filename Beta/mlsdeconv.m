@@ -1,7 +1,9 @@
 function [h,t] = mlsdeconv(x,y,fs,varargin)
-% MLSDECONV computes the circular crosscorrelation function between x and
-%   y. If y is the output signal of a linear system, the result is a good
-%   approximation of the impulse response (IR) of the system. 
+% 
+%   Description: Computes the circular crosscorrelation function between 
+%                x and y. If y is the output signal of a linear system, 
+%                the result is a good approximation of the impulse response 
+%                of the system. 
 %
 %   Usage: [h,t] = mlsdeconv(x,y,fs,'AmpCorr')
 %
@@ -17,12 +19,18 @@ function [h,t] = mlsdeconv(x,y,fs,varargin)
 %       - h: the measured IR.
 %       - t: the corresponding time vector of the IR.
 %
-%   Author: Toni Torras, Date: 1-4-2009, Last update: 12-6-2009
+%   Author: Antoni Torras Rosell, Date: 12-6-2009
+%   Modified by Oliver Lylloff, Mathias Immanuel Nielsen & David Duhalde 
+%   Date: 29-11-2012
+%   Acoustic Technology, DTU 2012
 
+% Initialize input
 x = x(:);
 y = y(:);
+
 Y = fft(y);
 Xinv = fft(flip(x));
+% Compute circular crosscorrelation
 h = ifft(Y.*Xinv.*exp(-1j*2*pi*(0:length(Xinv)-1).'/length(Xinv))/length(x),'symmetric');
 h = h.';
 if mod(length(h),2) == 0 % Even number of samples
