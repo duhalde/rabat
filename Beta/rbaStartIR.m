@@ -1,4 +1,4 @@
-function sampleStart = rbtStartIR(h)
+function sampleStart = rbaStartIR(h)
 %
 %   Description:    
 %       The start of the impulse response should be determined from 
@@ -6,20 +6,21 @@ function sampleStart = rbtStartIR(h)
 %       significantly above the background but is more than 20 dB below the
 %       maximum.
 %
-%   Usage: sampleStart = rbtStartIR(h)
+%   Usage: sampleStart = rbaStartIR(h)
 %
 %   Input parameters:
-%       - h: 
+%       - h: Broadband impulse response
 %   Output parameters:
-%       - sampleStart: 
+%       - sampleStart: Start sample of impulse response.
 %
 %   Author: Oliver Lylloff, Mathias Immanuel Nielsen & David Duhalde 
-%   Date: 11-9-2012, Last update: 11-9-2012
+%   Date: 11-9-2012, Last update: 29-11-2012
 %   Acoustic Technology, DTU 2012
 % 
 %   Reference: ISO 3382-1:2009(E)
 %
 
+% Check size of input
 [m,n] = size(h);
 
 if m<n
@@ -45,5 +46,4 @@ end
 % Normalize and find sample start
 abs_dat = 10.*log10(IRsqr(1:max_idx)) - 10.*log10(max_val);
 sampleStart = find(abs_dat > -20,1,'first');
-
 end
