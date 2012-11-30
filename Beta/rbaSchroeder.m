@@ -1,13 +1,14 @@
-function R = rbaSchroeder(h,fs,varargin)
+function R = rbaSchroeder(h,fs,flag,varargin)
 %
 %   Description: Compute decay curve from Schröders backwards integration
 %                method
 %
-%   Usage: R = rbtSchroeder(h,onset,kneepoint)
+%   Usage: R = rbtSchroeder(h,fs,flag[,option])
 %
 %   Input parameters:
 %       - h         : Impulse response
 %       - fs        : Sampling frequency
+%       - flag      : 1 or 0. Enable noise compensation 
 %   Optional input parameters:
 %       - 'Lundeby' : String enabling the use of Lundeby's method to determine
 %                     the kneepoint between decay and noise floor (default)
@@ -31,35 +32,50 @@ end
 
 h2 = h.^2;
 
-if nargin == 2
+if nargin == 3
     [knee, rmsNoise] = rbaLundeby(h,fs);
-elseif nargin == 3 && strcmpi(varargin{1},'Lundeby');
+elseif nargin == 4 && strcmpi(varargin{1},'Lundeby');
     [knee, rmsNoise,varargout] = rbaLundeby(h,fs);
-elseif nargin == 3 && isnumeric(varargin{1})
+elseif nargin == 4 && isnumeric(varargin{1})
     knee = ceil(varargin{1});
-    rmsNoise = sqrt(mean(h2(knee:end).^2));
-elseif nargin<2 && nargin > 3
+    rmsNoise = 10*log10(sqrt(mean(h2(knee:end).^2)));
+elseif nargin<3 && nargin > 4
     error('Wrong number of input arguments')
 end
-    
+
+%if (flag~=1 || flag~=0)
+%    error('Flag must be set to 1 or 0')
+%end
+
 R = zeros(knee,n);
 
 for i = 1:n
-   
-    rmsNoise = 10*log10(sqrt(mean(h2(knee:end,i).^2)));
-    hSmooth = 10*log10(smooth(h2(:,i),1000));
-    idx = find(hSmooth(1:knee)<rmsNoise+10,1,'first');
-    coeff = polyfit((idx:knee),hSmooth(idx:knee)',1);
-
-    A = coeff(1);
-    B = coeff(2);
-
-    E0 = 10^(B/10);
-    a = log(10^(A/10));
-    E = -(E0/a)*exp(a*knee);
     
-    R(:,i) = cumsum(h2(knee:-1:1),i);
-    R(:,i) = 10*log10(R(:,i)+E);
+    % Noise compensation
+    if flag == 1
+        % Average in intervals of 100 samples
+        hSmooth = 10*log10(smooth(h2(:,i),100));
+        idx = find(hSmooth(1:knee)<rmsNoise+10,1,'first');
+        coeff = polyfit((idx:knee),hSmooth(idx:knee)',1);
+   
+        A = coeff(1);
+        B = coeff(2);
+        if A == 0   % Try another interval if A is zero
+            hSmooth = 10*log10(smooth(h2(:,i),500));
+            idx = find(hSmooth(1:knee)<rmsNoise+10,1,'first');
+            coeff = polyfit((idx:knee),hSmooth(idx:knee)',1);
+            A = coeff(1);
+            B = coeff(2);
+        end
+        E0 = 10^(B/10);
+        a = log(10^(A/10));
+        E = -(E0/a)*exp(a*knee);
+    else
+        E = 0;
+    end
+    
+    R(:,i) = cumsum(h2(knee:-1:1,i));
+    R(:,i) = 10*log10(R(end:-1:1,i)+E);
     R(:,i) = R(:,i)-max(R(:,i));
 end
 
