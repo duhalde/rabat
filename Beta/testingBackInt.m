@@ -10,11 +10,6 @@ h2 = hC.^2;
 h2 = h2/max(h2);
 kneepoint = 4*fs;
 
-% Decay
-E0 = 0.1;
-a = -0.65;
-E = E0*exp(a.*tc);
-
 rmsNoise = 10*log10(sqrt(mean(h2(kneepoint:end).^2)));
 hSmooth = 10*log10(smooth(h2,1000));
 idx = find(hSmooth(1:kneepoint)<rmsNoise+10,1,'first');
@@ -24,7 +19,11 @@ B = coeff(2);
 plot(10*log10(h2)), hold on
 plot(hSmooth,'r'), 
 plot(A*(1:length(hSmooth))+B,'k'),
-plot(10*log(E),'r')
+
+E0 = 10^(B/10);
+a = log(10^(A/10));
+E = -(E0/a)*exp(a*kneepoint);
+
 %%
 %step = 1000;
 %idx1 = 1:step:kneepoint-step;
@@ -39,10 +38,8 @@ idx = (idx1(idx10)+idx2(idx10))/2;
 %A = coeff(1);
 B = coeff(2);
 %%
-A = log(rmsNoise/B)/4;
-C = -(E0/a)*exp(a*4)
 R = cumsum(h2(kneepoint:-1:1));
-R1 = 10*log10(R(end:-1:1)+C);
+R1 = 10*log10(R(end:-1:1)+E);
 R1 = R1-max(R1);
 R2 = 10*log10(R(end:-1:1));
 R2 = R2-max(R2);
