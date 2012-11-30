@@ -1,9 +1,9 @@
 function [y,t] = rbtGenerateSignal(sig_type,varargin)
 %
-%   Description: Generate signals 
+%   Description: Generate signals
 %
 %   Usage: [y,t] = rbtGenerateSignal(sig_type,varargin)
-%   
+%
 %   Input parameters:
 %       - sig_type: String specifing the type of signal to be generated
 %         'logsin'  : Logarithmic sine sweep
@@ -16,15 +16,15 @@ function [y,t] = rbtGenerateSignal(sig_type,varargin)
 %   Output parameters:1
 %       - y: sampled signal
 %       - t: time vector in seconds
-% 
+%
 %   Details on signal types and input arguments:
-% 
+%
 %   Signal types
 %   ------------
-%   
-%   'logsin'    Creates a logarithmic sweep in the time domain. 
+%
+%   'logsin'    Creates a logarithmic sweep in the time domain.
 %               Usage: [y,t] = rbtGenerateSignal('logsin',fs,f1,f2,length_sig,zero_pad,amp,phase)
-%               Input parameters:  
+%               Input parameters:
 %               - fs: Sampling frequency
 %               - f1: Lower frequency
 %               - f2: Upper frequency
@@ -37,7 +37,7 @@ function [y,t] = rbtGenerateSignal(sig_type,varargin)
 %
 %   'linsin'    Creates a linear sweep in the time domain.
 %               Usage: [y,t] = rbtGenerateSignal('linsin',fs,f1,f2,length_sig,zero_pad,amp,phase)
-%               Input parameters:  
+%               Input parameters:
 %               - fs: Sampling frequency
 %               - f1: Lower frequency
 %               - f2: Upper frequency
@@ -50,30 +50,30 @@ function [y,t] = rbtGenerateSignal(sig_type,varargin)
 %
 %   'sin'       Creates a linear sweep in the time domain.
 %               Usage: [y,t] = rbtGenerateSignal('sin',fs,f0,length_sig,amp,phase)
-%               Input parameters:  
+%               Input parameters:
 %               - fs: Sampling frequency
 %               - f0: frequency
 %               - length_sec: Length of signal
 %               Optional input parameters:
 %               - amp: Amplitude of the sine sweep (default = 1).
-%               - phase: Initial phase in rad (default = 0).   
+%               - phase: Initial phase in rad (default = 0).
 %
 %
 %   'mls'       Creates a Maximum-Length Sequence in GF(2^m), where GF stands for
 %               Galois Field.
 %               Usage: [y,t] = rbtGenerateSignal('mls',fs,varargin)
 %               Input parameters:
-%               - 
-%               - 
+%               -
+%               -
 %               Optional input parameters:
-%               - 
-% 
-% 
-%   Author: Oliver Lylloff, Mathias Immanuel Nielsen & David Duhalde 
+%               -
+%
+%
+%   Author: Oliver Lylloff, Mathias Immanuel Nielsen & David Duhalde
 %   Date: 11-9-2012, Last update: 1-10-2012
 %   Acoustic Technology, DTU 2012
-% 
-%   TODO:   
+%
+%   TODO:
 %       - Should irs be included? Make help text.
 %       - Rewrite mls and irs.
 %       - Option to save as wavefile
@@ -83,12 +83,12 @@ switch lower(sig_type)
     case 'logsin'
         if nargin < 5
             error('Too few input arguments')
-        else  
+        else
         fs = varargin{1};
         f1 = varargin{2};
         f2 = varargin{3};
         length_sec = varargin{4};
-        if nargin == 5  
+        if nargin == 5
         [y,t] = rbtLogSin(f1,f2,fs,length_sec);
         elseif nargin > 5 && nargin < 9
             arg = varargin{5:end};
@@ -97,7 +97,7 @@ switch lower(sig_type)
             error('Too many input arguments')
         end
         end
-    
+
     case 'linsin'
         if nargin < 5
             error('Too few input arguments')
@@ -106,7 +106,7 @@ switch lower(sig_type)
         f1 = varargin{2};
         f2 = varargin{3};
         length_sec = varargin{4};
-        if nargin == 5 
+        if nargin == 5
             [y,t] = rbtLinSin(f1,f2,fs,length_sec);
         elseif nargin > 5 && nargin < 9
             arg = varargin{5:end};
@@ -115,7 +115,7 @@ switch lower(sig_type)
             error('Too many input arguments')
         end
         end
-        
+
     case 'sin'
         if nargin < 4
             error('Too few input arguments')
@@ -132,7 +132,7 @@ switch lower(sig_type)
             error('Too many input arguments')
         end
         end
-        
+
     case 'mls'
         if nargin < 2
             error('Too few input arguments')
@@ -140,15 +140,15 @@ switch lower(sig_type)
         fs = varargin{1};
         n = varargin{2};
         if nargin == 3
-            [y,t] = RbtMls(n,fs);
+            [y,t] = rbaMls(n,fs);
         elseif nargin > 3 && nargin < 5
             arg = varargin{3:end};
-            [y,t] = RbtMls(n,fs,arg);
+            [y,t] = rbaMls(n,fs,arg);
         else
             error('Too many input arguments')
         end
         end
-            
+
     case 'irs'
         fs = varargin{1};
         n = varargin{2};
@@ -159,7 +159,7 @@ end
 end
 
 function [x,t] = rbtLogSin(f1,f2,fs,length_sec,varargin)
-% 
+%
 % rbtLogSin creates a logarithmic sweep in the time domain.
 %
 % [x,t] = rbtLogSin(f1,f2,fs,length_sec,zero_padding,amplitude,phase)
@@ -180,7 +180,7 @@ function [x,t] = rbtLogSin(f1,f2,fs,length_sec,varargin)
 %       - t: the corresponding time vector in seconds.
 %
 %   Author: Toni Torras, Date: 15-7-2009.
-%   Modified by Oliver Lylloff, Mathias Immanuel Nielsen & David Duhalde 
+%   Modified by Oliver Lylloff, Mathias Immanuel Nielsen & David Duhalde
 %   Date: 27-9-2012
 
 if f1 == 0
@@ -235,7 +235,7 @@ function [x,t,Sweeprate] = rbtLinSin(flow,fup,fs,T,varargin)
 %       - Sweeprate: Sweep rate in Hz/second.
 %
 %   Author: Toni Torras, Date: 23-7-2009.
-%   Modified by Oliver Lylloff, Mathias Immanuel Nielsen & David Duhalde 
+%   Modified by Oliver Lylloff, Mathias Immanuel Nielsen & David Duhalde
 %   Date: 27-9-2012
 
 switch nargin
@@ -293,10 +293,10 @@ function [y,t] = rbtSin(f0,fs,length_sec,varargin)
 %       - y: the sampled sine.
 %       - t: the corresponding time vector in seconds.
 %
-%   
+%
 %
 %   Author: Toni Torras, Date: 20-2-2009
-%   Modified by Oliver Lylloff, Mathias Immanuel Nielsen & David Duhalde 
+%   Modified by Oliver Lylloff, Mathias Immanuel Nielsen & David Duhalde
 %   Date: 27-9-2012
 
 if nargin == 4
@@ -308,7 +308,7 @@ elseif nargin == 5
 elseif nargin > 5
     error('Wrong usage! More than five input arguments are not supported!')
 elseif nargin < 3
-    error('Wrong usage! Less than three input arguments are not supported!') 
+    error('Wrong usage! Less than three input arguments are not supported!')
 else
     amplitude = 1;
     phase = 0;
@@ -322,11 +322,11 @@ y = amplitude*sin(2*pi*f0*t + phase);
 % end
 end
 
-function [seq,varargout] = rbtMls(m,varargin)
-% rbtMls computes a Maximum-Length Sequence in GF(2^m), where GF stands for
+function [seq,varargout] = rbaMls(m,varargin)
+% rbaMls computes a Maximum-Length Sequence in GF(2^m), where GF stands for
 % Galois Field. It also returns the corresponding time vector.
 %
-%   Usage: [seq,t,idx,flagWarn] = rbtMls(m,'opt1',val_opt1,'opt2',val_opt2,...)
+%   Usage: [seq,t,idx,flagWarn] = rbaMls(m,'opt1',val_opt1,'opt2',val_opt2,...)
 %
 %   Input parameters:
 %       - m: Integer that determines the order of GF and thus the length of
@@ -358,7 +358,7 @@ function [seq,varargout] = rbtMls(m,varargin)
 %       For a more general and powerful mls generating function see also MLS.
 %
 %   Author: Toni Torras, Date: 1-7-2009.
-%   Modified by Oliver Lylloff, Mathias Immanuel Nielsen & David Duhalde 
+%   Modified by Oliver Lylloff, Mathias Immanuel Nielsen & David Duhalde
 %   Date: 27-9-2012
 
 %% Let's read the optional parameters:
@@ -455,25 +455,25 @@ function [seq,varargout] = rbtIrs(m,varargin)
 %       IRS.
 %
 %   Author: Toni Torras, Date: 7-1-2009.
-%   Modified by Oliver Lylloff, Mathias Immanuel Nielsen & David Duhalde 
+%   Modified by Oliver Lylloff, Mathias Immanuel Nielsen & David Duhalde
 %   Date: 27-9-2012
 
 zeroPadIdx = find(strcmpi(varargin,'zeropadding'));
 idxin = ones(1,nargin-1);
 idxin(zeroPadIdx:zeroPadIdx+1) = 0;
 [seqMLS,t,idx,flagWarn] = mls2(m,varargin{logical(idxin)});
-if flagWarn == 0  
+if flagWarn == 0
 % Stan - Embrechts - Archambeau, version 1 ==> INCORRECT!!!
 %     seq = zeros(1,2*(2^m-1));
 %     seq(1:2:end) = seqMLS;
 %     seq(2:2:end) = -seqMLS;
-% Stan - Embrechts - Archambeau, version 2   
+% Stan - Embrechts - Archambeau, version 2
     seq = (-1).^(0:2*(2^m-1)-1).*[seqMLS seqMLS];
 % A. Farina version
 %     seq = [seqMLS -seqMLS];
  idxfs = find(strcmpi(varargin,'fs'));
  if isempty(idxfs)
-    fs = 44100; 
+    fs = 44100;
  else
     fs = varargin{idxfs+1};
  end

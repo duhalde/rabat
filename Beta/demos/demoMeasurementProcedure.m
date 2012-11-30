@@ -65,7 +65,7 @@ close all
 sig_type = 'mls';
 fs = 48000;
 
-seq = rbtMls(19,'fs',fs);
+seq = rbaMls(19,'fs',fs);
 repetitions = 1;
 estimatedRT = 2;
 %%

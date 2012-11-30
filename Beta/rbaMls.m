@@ -1,8 +1,8 @@
-function [seq,varargout] = rbtMls(m,varargin)
-% rbtMls computes a Maximum-Length Sequence in GF(2^m), where GF stands for
+function [seq,varargout] = rbaMls(m,varargin)
+% rbaMls computes a Maximum-Length Sequence in GF(2^m), where GF stands for
 % Galois Field. It also returns the corresponding time vector.
 %
-%   Usage: [seq,t,idx,flagWarn] = rbtMls(m,'opt1',val_opt1,'opt2',val_opt2,...)
+%   Usage: [seq,t,idx,flagWarn] = rbaMls(m,'opt1',val_opt1,'opt2',val_opt2,...)
 %
 %   Input parameters:
 %       - m: Integer that determines the order of GF and thus the length of
@@ -34,7 +34,7 @@ function [seq,varargout] = rbtMls(m,varargin)
 %       For a more general and powerful mls generating function see also MLS.
 %
 %   Author: Toni Torras, Date: 1-7-2009.
-%   Modified by Oliver Lylloff, Mathias Immanuel Nielsen & David Duhalde 
+%   Modified by Oliver Lylloff, Mathias Immanuel Nielsen & David Duhalde
 %   Date: 27-9-2012
 
 %% Let's read the optional parameters:

@@ -60,20 +60,22 @@ function [y,t] = rbaGenerateSignal(sig_type,varargin)
 %
 %   'mls'       Creates a Maximum-Length Sequence in GF(2^m), where GF stands for
 %               Galois Field.
-%               Usage: [y,t] = rbaGenerateSignal('mls',fs,varargin)
+%               Usage: [y,t] = rbaGenerateSignal('mls',fs, n, amp, zero_pad, offset)
 %               Input parameters:
-%               -
-%               -
+%               - fs: Sampling frequency
+%               - n : Integer that determines the order of GF and thus the length of the sequence, i.e. 2^m-1
 %               Optional input parameters:
-%               -
+%               - amp: Amplitude. By default, the sequence only takes the values 0 and 1.
+%                       Use 'Amplitude' if you want to change 1 for another value.
+%               - zero_pad: duration (in seconds) of the silence inserted after
+%                       the sequence. By default it is set to 0.
+%               - offset: It is possible to introduce an offset in order to change the two values of the MLS signal. You can use it in combination
+%                           with 'Amplitude'.
 %
 %
 %   Author: Oliver Lylloff, Mathias Immanuel Nielsen & David Duhalde
 %   Date: 11-9-2012, Last update: 1-10-2012
 %   Acoustic Technology, DTU 2012
-%
-%   TODO:
-%       - Option to save as wavefile
 
 switch lower(sig_type)
     case 'logsin'
@@ -86,10 +88,10 @@ switch lower(sig_type)
         length_sec = varargin{4};
         win_len = 1.2;
         if nargin == 5
-        [s ,t] = rbtLogSin(f1/win_len,f2*win_len,fs,length_sec);
+        [s ,t] = rbaLogSin(f1/win_len,f2*win_len,fs,length_sec);
         elseif nargin > 5 && nargin < 9
             arg = varargin{5:end};
-            [s,t] = rbtLogSin(f1/win_len,f2*win_len,fs,length_sec,arg);
+            [s,t] = rbaLogSin(f1/win_len,f2*win_len,fs,length_sec,arg);
         elseif nargin > 8
             error('Too many input arguments')
         end
@@ -107,10 +109,10 @@ switch lower(sig_type)
         length_sec = varargin{4};
         win_len = 1.2;
         if nargin == 5
-            [s,t] = rbtLinSin(f1/win_len,f2*win_len,fs,length_sec);
+            [s,t] = rbaLinSin(f1/win_len,f2*win_len,fs,length_sec);
         elseif nargin > 5 && nargin < 9
             arg = varargin{5:end};
-            [s,t] = rbtLinSin(f1/win_len,f2*win_len,fs,length_sec,arg);
+            [s,t] = rbaLinSin(f1/win_len,f2*win_len,fs,length_sec,arg);
         else
             error('Too many input arguments')
         end
@@ -126,10 +128,10 @@ switch lower(sig_type)
         f0 = varargin{2};
         length_sec = varargin{3};
         if nargin == 4
-            [y,t] = rbtSin(f0,fs,length_sec);
+            [y,t] = rbaSin(f0,fs,length_sec);
         elseif nargin > 4 && nargin <8
             arg = varargin{4:end};
-            [y,t] = rbtSin(f0,fs,length_sec,arg);
+            [y,t] = rbaSin(f0,fs,length_sec,arg);
         else
             error('Too many input arguments')
         end
@@ -142,10 +144,10 @@ switch lower(sig_type)
         fs = varargin{1};
         n = varargin{2};
         if nargin == 3
-            [y,t] = RbtMls(n,fs);
+            [y,t] = rbaMls(n,fs);
         elseif nargin > 3 && nargin < 5
             arg = varargin{3:end};
-            [y,t] = RbtMls(n,fs,arg);
+            [y,t] = rbaMls(n,fs,arg);
         else
             error('Too many input arguments')
         end
@@ -154,17 +156,17 @@ switch lower(sig_type)
     case 'irs'
         fs = varargin{1};
         n = varargin{2};
-        [y,t] = RbtIrs(n,fs);
+        [y,t] = rbaIrs(n,fs);
     otherwise
         error('Unknown method, choose one of: "logsin","linsin","mls","sin"')
 end
 end
 
-function [x,t] = rbtLogSin(f1,f2,fs,length_sec,varargin)
+function [x,t] = rbaLogSin(f1,f2,fs,length_sec,varargin)
 %
-% rbtLogSin creates a logarithmic sweep in the time domain.
+% rbaLogSin creates a logarithmic sweep in the time domain.
 %
-% [x,t] = rbtLogSin(f1,f2,fs,length_sec,zero_padding,amplitude,phase)
+% [x,t] = rbaLogSin(f1,f2,fs,length_sec,zero_padding,amplitude,phase)
 %
 % Input parameters:
 %       - f1: lower frequency of the sweep.
@@ -214,11 +216,11 @@ x = [amplitude*sin(length_sec*2*pi*f1/log(f2/f1)*(exp(t*log(f2/f1)/length_sec)-1
 t = 0:1/fs:(length_sec+zero_padding-1/fs);
 end
 
-function [x,t,Sweeprate] = rbtLinSin(flow,fup,fs,T,varargin)
+function [x,t,Sweeprate] = rbaLinSin(flow,fup,fs,T,varargin)
 %
-% rbtLinSin creates a linear sweep in the time domain.
+% rbaLinSin creates a linear sweep in the time domain.
 %
-% [x,t] = rbtLinSin(flow,fup,fs,T,zero_padding,amplitude,phase_rad)
+% [x,t] = rbaLinSin(flow,fup,fs,T,zero_padding,amplitude,phase_rad)
 %
 % Input parameters:
 %       - flow: lower frequency of the sweep.
@@ -275,14 +277,14 @@ Sweeprate =(f2-f1)/T;
 
 end
 
-function [y,t] = rbtSin(f0,fs,length_sec,varargin)
+function [y,t] = rbaSin(f0,fs,length_sec,varargin)
 %
-%   rbtSin returns a sampled sine function and its corresponding time
+%   rbaSin returns a sampled sine function and its corresponding time
 %   vector. It is taken into account the effect of the very last sample when
 %   calculating the corresponding Fourier Transform, i.e. the sine is sampled
 %   within the interval of time from '0' to 'length_sec-1/fs'.
 %
-%   [y,t] = rbtSin(f0,fs,length_sec,amplitude,phase_rad)
+%   [y,t] = rbaSin(f0,fs,length_sec,amplitude,phase_rad)
 %
 %   Input parameters:
 %       - f0: frequency of oscillation.
@@ -324,11 +326,11 @@ y = amplitude*sin(2*pi*f0*t + phase);
 % end
 end
 
-function [seq,varargout] = rbtMls(m,varargin)
-% rbtMls computes a Maximum-Length Sequence in GF(2^m), where GF stands for
+function [seq,varargout] = rbaMls(m,varargin)
+% rbaMls computes a Maximum-Length Sequence in GF(2^m), where GF stands for
 % Galois Field. It also returns the corresponding time vector.
 %
-%   Usage: [seq,t,idx,flagWarn] = rbtMls(m,'opt1',val_opt1,'opt2',val_opt2,...)
+%   Usage: [seq,t,idx,flagWarn] = rbaMls(m,'opt1',val_opt1,'opt2',val_opt2,...)
 %
 %   Input parameters:
 %       - m: Integer that determines the order of GF and thus the length of
@@ -423,11 +425,11 @@ varargout{2} = idx;
 varargout{3} = 0;
 end
 
-function [seq,varargout] = rbtIrs(m,varargin)
-% rbtIrs computes a Inverse Repeated Sequence defined from the corresponding
+function [seq,varargout] = rbaIrs(m,varargin)
+% rbaIrs computes a Inverse Repeated Sequence defined from the corresponding
 % MLS sequence of period 2^m-1. It also returns the corresponding time vector.
 %
-%   Usage: [seq,t,idx,flagWarn] = rbtIrs(m,'opt1',val_opt1,'opt2',val_opt2,...)
+%   Usage: [seq,t,idx,flagWarn] = rbaIrs(m,'opt1',val_opt1,'opt2',val_opt2,...)
 %
 %   Input parameters:
 %       - m: Integer that determines the order of GF and thus the length of
