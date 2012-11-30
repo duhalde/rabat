@@ -54,10 +54,10 @@ end
 idxEnd(i) = ceil(kneePoint(end));
 
 if n == 1
-hCrop(:,i) = h(idxStart:idxEnd(i),i);
+hCrop(:,i) = h(idxStart:idxStart+idxEnd(i),i);
 else
 hCrop = zeros(m,n);
-hCrop(:,i) = [h(idxStart:idxEnd(i),i);zeros(m-(idxEnd(i)-idxStart)-1,1)];
+hCrop(:,i) = [h(idxStart:idxStart+idxEnd(i),i);zeros(m-(idxEnd(i)-idxStart)-1,1)];
 end
 
 t = (0:1/fs:length(hCrop)/fs-1/fs)';
