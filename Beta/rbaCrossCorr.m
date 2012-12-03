@@ -51,7 +51,7 @@ Y = F.*conj(G);         % muliply in frequency domain
 c = real(ifft(Y, LyPow2));       % Inverse fast Fourier transform
 
 % get index of lags
-maxlag = Lh1-1;
+maxlag = Lf-1;
 lags = -maxlag:maxlag;
 
 % crop output c to match lags

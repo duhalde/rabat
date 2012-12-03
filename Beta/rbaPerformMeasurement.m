@@ -90,15 +90,15 @@ compTime = 2;           % Estimated CPU time
 PsychPortAudio('GetAudioData', recHandle, signalSeconds+totalLatency+compTime);
 
 if transient
-	% do N recordings and let fade
-	playbacks = 1:N;
-	% process all
-	extract = 1:N;
+    % do N recordings and let fade
+    playbacks = 1:N;
+    % process all
+    extracts = 1:N;
 else
-	% do N+1 short recordings with no gap in between
-	playbacks = 1:N+1;
-	% but only process the last N recordings
-	extract = 2:N+1;
+    % do N+1 short recordings with no gap in between
+    playbacks = 1:N+1;
+    % but only process the last N recordings
+    extracts = 2:N+1;
 end
 
 % initialize matrix for storing the recorded sweeps
@@ -108,27 +108,28 @@ measurements = zeros(2*signalSeconds*fs,N);
 % Record loop START
 for k = playbacks
     
-	% initialize vector of unknown length...
+    % initialize vector of unknown length...
     recordedAudio = [];
-
+    
     % Start recording
     PsychPortAudio('Start', recHandle);
     
     % Start playback
     PsychPortAudio('Start', playHandle);
-	if transient
-    	disp(['Now recording sweep ' num2str(k) ' out of ' num2str(N)]);
-	elseif k == 1
-		disp(['Sound field building up'])
-	else
-		disp(['Now recording sweep ' num2str(k-1) ' out of ' num2str(N-1)]);
-	end	
+    if transient
+        disp(['Now recording sweep ' num2str(k) ' out of ' num2str(N)]);
+    elseif k == 1
+        disp('Sound field building up')
+    else
+        disp(['Now recording sweep ' num2str(k-1) ' out of ' num2str(N-1)]);
+    end
     
     % Get playback status
     status = PsychPortAudio('GetStatus',playHandle);
     
     while status.Active == 0
         status = PsychPortAudio('GetStatus',playHandle);
+        disp('not active')
     end
     
     % Record while playback is active
@@ -136,33 +137,36 @@ for k = playbacks
         % Read audiodata from recording buffer
         audioData  = PsychPortAudio('GetAudioData',recHandle);
         recordedAudio = [recordedAudio audioData];
-        % check if recording is done
+        % check if playback is done
+        disp('active')
         status = PsychPortAudio('GetStatus',playHandle);
-		% make sure CPU laod is not too high
+        % make sure CPU laod is not too high
         if status.CPULoad > 0.95
             disp('Very high CPU load. Timing or sound glitches are likely to occur.')
         end
     end
     
     % when doing transient measurement
-    if transient 
+    %if transient
         % Make sure full sound decay has reached the microphone.
         % 500 ms corresponds to a sound travel distance of 171.5 m. Change this
         % value if any of the room dimensions exceeds 86 m.
         soundDecayDistance = 500e-3;
         WaitSecs(soundDecayDistance);
-    end
+	%end
     
     % Stop audio recording
     PsychPortAudio('Stop',recHandle,1);
+    disp('recording stopped')
     
     % Read audiodata from recording buffer
     % ctsstarttime could give a good estimate of the onset sample, to use
     % with rbtCropIR
+    disp('data is being read')
     [audioData,~,~,ctsstarttime] = PsychPortAudio('GetAudioData',recHandle);
     recordedAudio = [recordedAudio audioData];
-    
-    measurements(:,k) = recordedAudio;
+    disp('data is read')
+    measurements(:,k) = [recordedAudio zeros(length(measurements)-length(recordedAudio))];
 end
 
 % initialize returning matrix, which holds the cropped recorded sweeps
@@ -170,7 +174,7 @@ Y = zeros(signalSeconds*fs,N);
 
 % Process loop START
 for m = extracts
-
+    
     % find the exact position of the sweep in the recorded signal
     [c,lags] = rbaCrossCorr(measurements(:,m), signal);
     
@@ -187,13 +191,14 @@ for m = extracts
     
     sweepIdx = lags(max(c)==c);
     % and place the recorded sweep in a matrix
-	if transient
-    	Y(:,m) = measurements(sweepIdx:sweepIdx+length(signal)-1,m);
-	else
-		% make sure that there are only N recorded sweeps in Y
-		Y(:,m-1) = measurements(sweepIdx:sweepIdx+length(signal)-1,m);
-	end
-    %     end
+    if transient
+        Y(:,m) = measurements(sweepIdx:sweepIdx+length(signal)-1,m);
+    else
+        % make sure that there are only N recorded sweeps in Y
+        Y(:,m-1) = measurements(sweepIdx:sweepIdx+length(signal)-1,m);
+    end
+end
+%     end
 
 % Close channels
 PsychPortAudio('Close', recHandle);
