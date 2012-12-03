@@ -2,7 +2,7 @@ function y = rbaPerformMeasurement(signal, fs, N, estimatedRT, transient, latenc
 %
 %   Description:
 %
-%   Usage: y = rbtMeasurement(signal, fs, N, estimatedRT[, transient = 1, latency=1])
+%   Usage: y = rbtMeasurement(signal, fs, N, estimatedRT[, transient = 0, latency=1])
 %
 %   Input parameters:
 %       - signal        : Measurement Signal
@@ -30,7 +30,8 @@ switch nargin
         transient = 0;
         latency = 1;
     case 5
-        if transient == 0 || latency == 1
+        latency = 1;
+        if transient == 0 || transient == 1
             % everything ok
         else
             error('Transient must be set to either 0 or 1!')
@@ -107,15 +108,16 @@ measurements = zeros(2*signalSeconds*fs,N);
 
 % Record loop START
 for k = playbacks
-    
+
     % initialize vector of unknown length...
     recordedAudio = [];
-    
+
     % Start recording
     PsychPortAudio('Start', recHandle);
-    
+
     % Start playback
     PsychPortAudio('Start', playHandle);
+
     if transient
         disp(['Now recording sweep ' num2str(k) ' out of ' num2str(N)]);
     elseif k == 1
@@ -123,29 +125,36 @@ for k = playbacks
     else
         disp(['Now recording sweep ' num2str(k-1) ' out of ' num2str(N-1)]);
     end
-    
+
     % Get playback status
     status = PsychPortAudio('GetStatus',playHandle);
-    
+
     while status.Active == 0
         status = PsychPortAudio('GetStatus',playHandle);
-        disp('not active')
+        %disp('not active')
     end
-    
+
     % Record while playback is active
     while status.Active == 1
         % Read audiodata from recording buffer
         audioData  = PsychPortAudio('GetAudioData',recHandle);
         recordedAudio = [recordedAudio audioData];
+
+        if length(recordedAudio) > length(signal)*3;
+             status = PsychPortAudio('GetStatus',recHandle);
+             disp(status.Active);
+             error('System is stalling');
+        end
+
         % check if playback is done
-        disp('active')
+        %disp('active')
         status = PsychPortAudio('GetStatus',playHandle);
         % make sure CPU laod is not too high
         if status.CPULoad > 0.95
             disp('Very high CPU load. Timing or sound glitches are likely to occur.')
         end
     end
-    
+
     % when doing transient measurement
     %if transient
         % Make sure full sound decay has reached the microphone.
@@ -154,17 +163,17 @@ for k = playbacks
         soundDecayDistance = 500e-3;
         WaitSecs(soundDecayDistance);
 	%end
-    
+
     % Stop audio recording
     PsychPortAudio('Stop',recHandle,1);
     disp('recording stopped')
-    
+
     % Read audiodata from recording buffer
     % ctsstarttime could give a good estimate of the onset sample, to use
     % with rbtCropIR
     disp('data is being read')
-    [audioData,~,~,ctsstarttime] = PsychPortAudio('GetAudioData',recHandle);
-    recordedAudio = [recordedAudio audioData];
+    %[audioData,~,~,ctsstarttime] = PsychPortAudio('GetAudioData',recHandle);
+    %recordedAudio = [recordedAudio audioData];
     disp('data is read')
     measurements(:,k) = [recordedAudio zeros(length(measurements)-length(recordedAudio))];
 end
@@ -174,10 +183,10 @@ Y = zeros(signalSeconds*fs,N);
 
 % Process loop START
 for m = extracts
-    
+
     % find the exact position of the sweep in the recorded signal
     [c,lags] = rbaCrossCorr(measurements(:,m), signal);
-    
+
     % uncertain if this error check should be done or not!
     % Compute goodness-of-fit
     cGoodnessOfFit = max(c)/(norm(measurements(:,m))*norm(signal));
@@ -188,7 +197,7 @@ for m = extracts
     %         PsychPortAudio('Close', playHandle);
     %         error(['Signals are not correlated at all. Correlation goodness-of-fit is ' num2str(cGoodnessOfFit)])
     %     else
-    
+
     sweepIdx = lags(max(c)==c);
     % and place the recorded sweep in a matrix
     if transient
