@@ -1,8 +1,8 @@
-function LF = rbtEarlyLateralEnergy(pL, p, fs)
+function LF = rbaEarlyLateralEnergy(pL, p, fs)
 %
 %   Description:    Calculate early lateral energy (ISO-3382) (NOT TESTED)
 %
-%   Usage: LF = rbtEarlyLateralEnergy(h)
+%   Usage: LF = rbaEarlyLateralEnergy(pL, p, fs)
 %
 %   Input parameters:
 %       - pL: Instantaneous sound pressure of the impulse response measured
@@ -13,13 +13,13 @@ function LF = rbtEarlyLateralEnergy(pL, p, fs)
 %       - LF: Calculated early lateral energy
 %
 %   Author: Oliver Lylloff, Mathias Immanuel Nielsen & David Duhalde 
-%   Date: 05-11-2012, Last update: 07-11-2012
+%   Date: 05-11-2012, Last update: 30-11-2012
 %   Acoustic Technology, DTU 2012
 
 
 % ISO-3382-1_2009-2 A.14
 if nargin < 3
-    error('Not enough input arguments. See help rbtEarlyLateralEnergy')
+    error('Not enough input arguments. See help rbaEarlyLateralEnergy')
 end
 
 if length(pL) < ceil(80e-3*fs)

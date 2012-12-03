@@ -1,8 +1,8 @@
-function H = rbtIR2octBands(h,fs,cfmin,cfmax)
+function H = rbaIR2OctaveBands(h,fs,cfmin,cfmax)
 %
 %   Description: Filters impulse response into octave bands
 %
-%   Usage: H = rbtIR2octBands(h,fs,...)
+%   Usage: H = rbaIR2OctaveBands(h, fs, cfmin, cfmax)
 %
 %   Input parameters:
 %       - h: A vector with the impulse response in the time domain.
@@ -16,8 +16,15 @@ function H = rbtIR2octBands(h,fs,cfmin,cfmax)
 %   See also: rbtCropIR
 %
 %   Author: Oliver Lylloff, Mathias Immanuel Nielsen & David Duhalde 
-%   Date: 9-11-2012, Last update: 28-11-2012
+%   Date: 9-11-2012, Last update: 30-11-2012
 %   Acoustic Technology, DTU 2012
+
+[m,n] = size(h);
+ 
+if m<n
+    h = h';
+    %[m,n] = size(h);
+end
 
 bandsPerOctave = 1;
 
