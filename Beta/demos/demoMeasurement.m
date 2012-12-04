@@ -12,12 +12,16 @@ length_sig = 5;     % Duration of sweep in seconds
 
 % Start measurement
 RT = 1;             % Estimated reverberation time of room
-N = 1;              % number of sweeps to average over
-trans = 1;
-y = rbaPerformMeasurement(sweep,fs,N,RT);
-%y = rbtMeasurement(sweep,fs,N,RT);
+N = 4;              % number of sweeps to average over
+transient = 0;
+y = rbaMeasurement(sweep,fs,N,RT,transient);
 
 % Compute impulse response
 h = sweepdeconv(sweep,y,f1,f2,fs);
 
+%
+figure('Name','Spectrogram','Position',[0 400 400 400])
 specgram(y,min(256,length(y)),fs)
+
+figure('Name','Impulse response','Position',[420 400 400 400])
+plot(h)

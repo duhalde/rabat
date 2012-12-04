@@ -30,7 +30,7 @@ c = sweepNull'; % or sweepNull(:)?
 cc = c(:,ones(N,1));
 measSig = cc(:)';
 
-%recSig = rbtMeasurement(measSig,fs,RT,2);
+%recSig = rbaMeasurement(measSig,fs,RT,2);
 
 %% Use for debug, without actual record and playback!
 

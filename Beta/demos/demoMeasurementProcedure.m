@@ -20,7 +20,7 @@ disp('Signal Generated')
 estimatedRT = 1;
 
 disp('Measurement:')
-meas = rbtMeasurement(y, fs, 1, estimatedRT);
+meas = rbaMeasurement(y, fs, 1, estimatedRT);
 
 savedir = uigetdir;
 
@@ -47,7 +47,7 @@ repetitions = 5;
 
 WaitSecs(5);
 disp('Measurement:')
-meas = rbtMeasurement(sig, fs, repetitions, estimatedRT);
+meas = rbaMeasurement(sig, fs, repetitions, estimatedRT);
 
 savedir = uigetdir;
 filename = [sig_type '_' datestr(now,'dd-mmm-HH-MM') '.wav'];
@@ -69,7 +69,7 @@ seq = rbaMls(19,'fs',fs);
 repetitions = 1;
 estimatedRT = 2;
 %%
-meas = rbtMeasurement(seq, fs, repetitions, estimatedRT);
+meas = rbaMeasurement(seq, fs, repetitions, estimatedRT);
 
 savedir = uigetdir;
 filename = [sig_type '_' datestr(now,'dd-mmm-HH-MM-SS') '.wav'];

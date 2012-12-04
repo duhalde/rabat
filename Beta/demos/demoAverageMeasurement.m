@@ -28,7 +28,7 @@ N = 1;      % Number of sweeps
 % sweepNull = [sweep zeros(1,RT*fs)];
 
 
-recSig = rbtMeasurement(sweep,fs,N,RT,1);
+recSig = rbaMeasurement(sweep,fs,N,RT,1);
 
 %% plot spectrogram of recorded signal
 % [~,F,T,P] = spectrogram(recSig,256,250,256,fs);
