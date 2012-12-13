@@ -35,12 +35,12 @@ h2 = h.^2;
 if nargin == 3
     [knee, rmsNoise] = rbaLundeby(h,fs);
 elseif nargin == 4 && strcmpi(varargin{1},'Lundeby');
-    [knee, rmsNoise,varargout] = rbaLundeby(h,fs);
+    [knee, rmsNoise] = rbaLundeby(h,fs);
 elseif nargin == 4 && isnumeric(varargin{1})
     knee = ceil(varargin{1});
-    h2dB = 10*log10(h2);
+    h2dB = 10*log10(h2(:,1));
     h2dB = h2dB-max(h2dB);
-    rmsNoise = -sqrt(mean(h2dB(knee:end).^2));
+    rmsNoise = mean(h2dB(knee:end));
 elseif nargin<3 && nargin > 4
     error('Wrong number of input arguments')
 end
@@ -52,12 +52,13 @@ end
 R = zeros(knee,n);
 
 for i = 1:n
-    
     % Noise compensation
     if flag == 1
+        h2dB = 10*log10(h2(:,i));
+        h2dB = h2dB-max(h2dB);
         % Average in intervals of 5ms
-        tAvg = ceil(fs*1e-3);
-        hSmooth = smooth(h2dB(:,i),tAvg);
+        tAvg = ceil(fs*10e-3);
+        hSmooth = smooth(h2dB,tAvg);
         idx = find(hSmooth(1:knee)<rmsNoise+10,1,'first');
         coeff = polyfit((idx:knee),hSmooth(idx:knee)',1);
    
@@ -65,7 +66,7 @@ for i = 1:n
         B = coeff(2);
         if A == 0   % Try another interval if A is zero
             tAvg = ceil(fs*10e-3);
-            hSmooth = smooth(h2dB(:,i),tAvg);
+            hSmooth = smooth(h2dB,tAvg);
             idx = find(hSmooth(1:knee)<rmsNoise+10,1,'first');
             coeff = polyfit((idx:knee),hSmooth(idx:knee)',1);
             A = coeff(1);
@@ -86,17 +87,16 @@ end
 end
 
 function hSmooth = smooth(h,avgSamples)
-
 % process in blocks
 hSmoothSize = length(h)/avgSamples;
 hSmooth = zeros(length(h),1);
 for k = 1:floor(hSmoothSize)
     idx = ((k-1)*avgSamples+1):k*avgSamples;
-    hSmooth(idx) = 20*log10(mean(10.^(h(idx)/20)));
+    hSmooth(idx) = mean(h(idx));
 end
 % process rest - if it exists
 if mod(length(h),avgSamples) ~= 0
     idx = k*avgSamples+1:length(h);
-    hSmooth(idx) = 20*log10(mean(10.^(h(idx)/20)));
+    hSmooth(idx) = mean(h(idx));
 end
 end

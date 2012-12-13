@@ -3,7 +3,7 @@ function [hCrop,t] = rbaCropIR(h,fs,varargin)
 %   Description: Crop impulse response according to ISO 3382 and optionally 
 %                Lundeby's method.
 %
-%   Usage: [hCrop,t] = rbaCropIR(h,fs,knee)
+%   Usage: [hCrop,t] = rbaCropIR(h,fs[,knee])
 %
 %   Input parameters:
 %       - h: Broadband impulse response. If h is a matrix then it's assumed that the
@@ -53,7 +53,11 @@ end
 % Crop impulse response
 idxEnd(i) = ceil(kneePoint(end));
 
+if n == 1
+hCrop = hCropOnset(1:idxEnd(i),i);
+else
 hCrop(:,i) = [hCropOnset(1:idxEnd(i)); zeros(m-idxEnd(i),1)];
+end
 
 t = (0:1/fs:length(hCrop)/fs-1/fs)';
 end
