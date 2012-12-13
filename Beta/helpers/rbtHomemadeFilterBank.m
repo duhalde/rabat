@@ -40,10 +40,10 @@ else
 end
 
 if BandsPerOctave == 1
-    if cfmin < 16
-        error('minimum center frequency is 16 Hz');
-    elseif cfmax > 120000
-        error('maximum center frequency is 120000 Hz');
+    if cfmin < 31.5
+        error('minimum center frequency is 31.5 Hz');
+    elseif cfmax > 16000
+        error('maximum center frequency is 16000 Hz');
     end
     % set filter order --NB check with ANSI S1.11-2004
     N = 4;
