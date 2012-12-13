@@ -16,6 +16,9 @@ h5model = wavread('model5/model.wav');
 %% Crop IRs
 [hCF,tF] = rbaCropIR(h1full,fsFull,length(h1full));
 [hCM,tM] = rbaCropIR(h1model,fsModel,length(h1model));
+%%
+H = rbaIR2OctaveBands(hCF,fsFull,250,2000);
+R = rbaSchroeder(H,fsFull,1,1.8e5);
 %% Convert model to full scale by multiplying in the frequency domain
 nfft = 2^(nextpow2(length(hCM))); 
 Fh1M = fft(hCM,nfft);
