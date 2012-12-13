@@ -57,7 +57,7 @@ for i = 1:n
         h2dB = 10*log10(h2(:,i));
         h2dB = h2dB-max(h2dB);
         % Average in intervals of 5ms
-        tAvg = ceil(fs*10e-3);
+        tAvg = ceil(fs*5e-3);
         hSmooth = smooth(h2dB,tAvg);
         idx = find(hSmooth(1:knee)<rmsNoise+10,1,'first');
         coeff = polyfit((idx:knee),hSmooth(idx:knee)',1);
