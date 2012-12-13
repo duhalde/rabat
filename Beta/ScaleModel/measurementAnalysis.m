@@ -13,26 +13,16 @@ h2model = wavread('model2/model.wav');
 h3model = wavread('model3/model.wav');
 h4model = wavread('model4/model.wav');
 h5model = wavread('model5/model.wav');
-%% 
-idx1 = rbaStartIR(h1full);
-h1F = h1full(idx1:end);
-idx1 = rbaStartIR(h1model);
-h1M = h1model(idx1:end);
-
-tFull = 0:1/fsFull:length(h1F)/fsFull-1/fsFull;
-tModel = 0:1/fsModel:length(h1M)/fsModel-1/fsModel;
-%%
-figure(1)
-plot(h1F)
-figure(2)
-plot(h1M(1:length(h1F)))
+%% Crop IRs
+[hCF,tF] = rbaCropIR(h1full,fsFull,length(h1full));
+[hCM,tM] = rbaCropIR(h1model,fsModel,length(h1model));
 %% Convert model to full scale by multiplying in the frequency domain
-nfft = 2^(nextpow2(length(h1M))); 
-Fh1M = fft(h1M,nfft);
+nfft = 2^(nextpow2(length(hCM))); 
+Fh1M = fft(hCM,nfft);
 NumUniquePts = ceil((nfft+1)/2); 
 Fh1M = Fh1M(1:NumUniquePts);
 f = (0:NumUniquePts-1)*fsModel/nfft; 
-plot(f,20*log10(abs(Fh1M)))
+semilogx(f,20*log10(abs(Fh1M)))
 %%
 figure(2)
 T = 25;
