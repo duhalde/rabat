@@ -38,7 +38,9 @@ elseif nargin == 4 && strcmpi(varargin{1},'Lundeby');
     [knee, rmsNoise,varargout] = rbaLundeby(h,fs);
 elseif nargin == 4 && isnumeric(varargin{1})
     knee = ceil(varargin{1});
-    rmsNoise = 10*log10(sqrt(mean(h2(knee:end).^2)));
+    h2dB = 10*log10(h2);
+    h2dB = h2dB-max(h2dB);
+    rmsNoise = -sqrt(mean(h2dB(knee:end).^2));
 elseif nargin<3 && nargin > 4
     error('Wrong number of input arguments')
 end
@@ -53,15 +55,17 @@ for i = 1:n
     
     % Noise compensation
     if flag == 1
-        % Average in intervals of 100 samples
-        hSmooth = 10*log10(smooth(h2(:,i),100));
+        % Average in intervals of 5ms
+        tAvg = ceil(fs*1e-3);
+        hSmooth = smooth(h2dB(:,i),tAvg);
         idx = find(hSmooth(1:knee)<rmsNoise+10,1,'first');
         coeff = polyfit((idx:knee),hSmooth(idx:knee)',1);
    
         A = coeff(1);
         B = coeff(2);
         if A == 0   % Try another interval if A is zero
-            hSmooth = 10*log10(smooth(h2(:,i),500));
+            tAvg = ceil(fs*10e-3);
+            hSmooth = smooth(h2dB(:,i),tAvg);
             idx = find(hSmooth(1:knee)<rmsNoise+10,1,'first');
             coeff = polyfit((idx:knee),hSmooth(idx:knee)',1);
             A = coeff(1);
