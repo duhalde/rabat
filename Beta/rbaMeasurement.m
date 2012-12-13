@@ -27,12 +27,13 @@ function y = rbaMeasurement(signal, fs, N, estimatedRT, transient, latency)
 
 % Error checking
 switch nargin
+    case 4
+        transient = 0;
+        latency = 1;
     case 5
         latency = 1;
     case 6
-        if latency == 1 || latency == 2
-
-        else
+        if latency ~= 1 && latency ~= 2
             error('Latency must be set to either 1 or 2!')
         end
     otherwise
