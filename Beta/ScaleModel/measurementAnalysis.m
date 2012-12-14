@@ -4,7 +4,7 @@ cd /Users/Oliver/Dropbox/SpecialKursus/Measurements/ScaleModel/dirac
 
 %% Load wav measurements in model and full scale
 [h1full,fsFull] = wavread('model1/fullScale.wav');
-h2full = wavread('model2/fullScale.wav');
+[h2full,fsF2] = wavread('model2/fullScale.wav');
 h3full = wavread('model3/fullScale.wav');
 h4full = wavread('model4/fullScale.wav');
 h5full = wavread('model5/fullScale.wav');
@@ -14,8 +14,14 @@ h3model = wavread('model3/model.wav');
 h4model = wavread('model4/model.wav');
 h5model = wavread('model5/model.wav');
 %% Crop IRs
-[hCF,tF] = rbaCropIR(h1full,fsFull,length(h1full));
-[hCM,tM] = rbaCropIR(h1model,fsModel,length(h1model));
+[hCF,tF] = rbaCropIR(h2full,fsF2,length(h2full));
+[hCM,tM] = rbaCropIR(h3model,fsModel,length(h3model));
+%%
+figure(1)
+plot(tF,hCF)
+figure(2)
+plot(tM,hCM)
+%%
 [hr,fs] = wavread('sounds/room.wav');
 hr = hr(:,1);
 H = rbaIR2OctaveBands(hr,fs,250,8000);
