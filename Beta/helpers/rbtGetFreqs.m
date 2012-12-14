@@ -30,7 +30,7 @@ elseif BandsPerOctave == 3
     
 % octave band functionality
 else
-    freqs = [16 31.5 63 125 250 500 1000 2000 4000 8000 16000 32000 64000 120000];
+    freqs = [16 31.5 63 125 250 500 1000 2000 4000 8000 16000 32000 64000 128000];
     freqs = freqs(freqs<=cfmax); % cut away f's above cfmax
     freqs = freqs(freqs>=cfmin); % cut away f's below cfmin
 end
