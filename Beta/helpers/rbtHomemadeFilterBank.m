@@ -94,7 +94,10 @@ A = zeros(2*N+1,nCF);
 for m = 1:nCF
     fupper = fc(m) * 2^(1/(2*BandsPerOctave)) / (fs/2); % find normalized upper
     flower = fc(m) / 2^(1/(2*BandsPerOctave)) / (fs/2); % and lower frequencies
-    
+    if fupper > 1 || flower > 1
+        error(['You are violating the Nyquist Theorem. The ' num2str(fc(m))...
+               ' Hz band cannot be processed, with a sampling frequency of ' num2str(fs)]);
+    end
     WN = [flower,fupper];
     [B(:,m),A(:,m)] = butter(N,WN);
 end
