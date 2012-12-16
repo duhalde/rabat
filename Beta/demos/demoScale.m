@@ -5,8 +5,9 @@ clc
 path = '~/Dropbox/SpecialKursus/Measurements/ScaleModel/dirac/model3/';
 
 [sigMod,fsMod] = wavread([path 'model.wav']);
+
 [hCrop,t] = rbaCropIR(sigMod,fsMod,3.3e5);
-plot(t,hCrop)
+
 sigMod = hCrop;
 %%
 K = 20; % scale factor
@@ -28,7 +29,7 @@ hrMod = 40;
 PaMod = 101.325;
 
 % air attenuation in dB/m
-%mfRef = mEvans(TRef,hrRef,PaRef,fRef);
+%mfRef = mEvans(TRef,hrRef,PaRef,fRef); 
 %mfMod = mEvans(TMod,hrMod,PaMod,fMod);
 mfRef = EACm(TRef,hrRef,PaRef,fRef);
 mfMod = EACm(TMod,hrMod,PaMod,fMod);
@@ -47,8 +48,15 @@ for i = 1:length(bn)
 end
 
 % convert signal to octave bands
-sigModOct = rbaIR2OctaveBands(sigMod,fsRef,min(fRef),max(fRef));
+sigModOct = rbaIR2OctaveBands(hCrop,fsRef,min(fRef),max(fRef));
 
+for i = 1
+[knee, rmsNoise] = rbtLundeby(sigModOct(:,i),fsMod);
+kn(i) = knee(end);
+rm(i) = rmsNoise(end);
+sigRef = sigModOct(1:kn(i)).*H(1:kn(i));
+end
+%%
 sigRef = sum(sigModOct.*H,2);
 
 plot(t,sigRef)

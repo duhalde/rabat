@@ -53,17 +53,19 @@ else
     hrMod = hr(1);
 end
 
-if length(Pa)==2
-PaRef = Pa(1);
-PaMod = Pa(2);
-elseif length(Pa)==1
-    PaRef = 101.325 kPa;
-    PaMod = T(1);
-elseif isempty(Pa)
-    PaRef = 101.325 kPa;
+if nargin == 6
+    PaRef = 101.325;
     PaMod = PaRef;
+elseif nargin == 7
+    if length(Pa)==2
+        PaRef = Pa(1);
+        PaMod = Pa(2);
+    else
+        PaRef = 101.325;
+        PaMod = T(1);
+    end
 end
-
+   
 %mfRef = mEvans(TRef,hrRef,PaRef,fRef);
 %mfMod = mEvans(TMod,hrMod,PaMod,fMod);
 mfRef = EACm(TRef,hrRef,PaRef,fRef);
