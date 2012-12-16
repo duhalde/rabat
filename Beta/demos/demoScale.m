@@ -5,14 +5,16 @@ clc
 path = '~/Dropbox/SpecialKursus/Measurements/ScaleModel/dirac/model3/';
 
 [sigMod,fsMod] = wavread([path 'model.wav']);
-
+[hCrop,t] = rbaCropIR(sigMod,fsMod,3.3e5);
+plot(t,hCrop)
+sigMod = hCrop;
 %%
 K = 20; % scale factor
 fsRef = fsMod/K;
 t = 0:1/fsRef:length(sigMod)/fsRef-1/fsRef;
 
 % get center frequencies for reference and model
-fRef = rbtGetFreqs(125,2000,1);
+fRef = rbtGetFreqs(125,1000,1);
 fMod = fRef*K;
 
 %% reference ambience
@@ -26,8 +28,11 @@ hrMod = 40;
 PaMod = 101.325;
 
 % air attenuation in dB/m
-mfRef = mEvans(TRef,hrRef,PaRef,fRef);
-mfMod = mEvans(TMod,hrMod,PaMod,fMod);
+%mfRef = mEvans(TRef,hrRef,PaRef,fRef);
+%mfMod = mEvans(TMod,hrMod,PaMod,fMod);
+mfRef = EACm(TRef,hrRef,PaRef,fRef);
+mfMod = EACm(TMod,hrMod,PaMod,fMod);
+
 
 cRef = 344;
 cMod = cRef;

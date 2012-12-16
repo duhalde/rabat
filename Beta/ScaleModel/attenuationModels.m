@@ -9,5 +9,5 @@ mE = mEvans(T,hr,Pa,f);
 mISO = EACm(T,hr,Pa,f);
 
 semilogx(f,mE-mISO,'-ro'), hold on
-plot(f,mISO,'-s')
+%plot(f,mISO,'-s')
 legend('Evans & Bazley','ISO','Location','NW')
