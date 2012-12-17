@@ -6,14 +6,17 @@ path = '~/Dropbox/SpecialKursus/Measurements/ScaleModel/dirac/model3/';
 
 [sigMod,fsMod] = wavread([path 'model.wav']);
 
-[hCrop,t] = rbaCropIR(sigMod,fsMod,3.3e5);
+[hCrop,t] = rbaCropIR(sigMod,fsMod);
 
 sigMod = hCrop;
+figure(1)
+plot(t,hCrop)
+ylim([-3e-9 3e-9])
 %%
 K = 20; % scale factor
 fsRef = fsMod/K;
-t = 0:1/fsRef:length(sigMod)/fsRef-1/fsRef;
-
+t = 0:1/fsMod:length(sigMod)/fsMod-1/fsMod;
+tRef = t*K;
 % get center frequencies for reference and model
 fRef = rbtGetFreqs(125,1000,1);
 fMod = fRef*K;
@@ -50,16 +53,21 @@ end
 % convert signal to octave bands
 sigModOct = rbaIR2OctaveBands(hCrop,fsRef,min(fRef),max(fRef));
 
-for i = 1
-[knee, rmsNoise] = rbtLundeby(sigModOct(:,i),fsMod);
+for i = 1:size(sigModOct,2)
+[knee, rmsNoise] = rbtLundeby(sigModOct(:,i),fsRef);
 kn(i) = knee(end);
 rm(i) = rmsNoise(end);
-sigRef = sigModOct(1:kn(i)).*H(1:kn(i));
+%sigRefOct(:,i) = (sigModOct(1:kn(i),i).*H(1:kn(i),i));
+sigRefOct(:,i) = [(sigModOct(1:kn(i),i).*H(1:kn(i),i)); H(kn(i),i).*sigModOct(kn(i)+1:end,i)];
 end
+sigRef = sum(sigRefOct,2);
+figure(2)
+plot(tRef,sigRef)
+ylim([-3e-9 3e-9])
+
 %%
-sigRef = sum(sigModOct.*H,2);
 
-plot(t,sigRef)
-
-
-
+[hFull,tRef] = rbaScaleModel(sigMod,fsMod,K,fRef,[TRef TMod],[hrRef hrMod]);
+figure(3)
+plot(tRef,hFull)
+ylim([-3e-9 3e-9])
