@@ -1,8 +1,8 @@
-function [y,t] = rbtGenerateSignal(sig_type,varargin)
+function [y,t] = rbaGenerateSignal(sig_type,varargin)
 %
 %   Description: Generate signals
 %
-%   Usage: [y,t] = rbtGenerateSignal(sig_type,varargin)
+%   Usage: [y,t] = rbaGenerateSignal(sig_type,varargin)
 %
 %   Input parameters:
 %       - sig_type: String specifing the type of signal to be generated
@@ -23,7 +23,7 @@ function [y,t] = rbtGenerateSignal(sig_type,varargin)
 %   ------------
 %
 %   'logsin'    Creates a logarithmic sweep in the time domain.
-%               Usage: [y,t] = rbtGenerateSignal('logsin',fs,f1,f2,length_sig,zero_pad,amp,phase)
+%               Usage: [y,t] = rbaGenerateSignal('logsin',fs,f1,f2,length_sig,zero_pad,amp,phase)
 %               Input parameters:
 %               - fs: Sampling frequency
 %               - f1: Lower frequency
@@ -36,7 +36,7 @@ function [y,t] = rbtGenerateSignal(sig_type,varargin)
 %
 %
 %   'linsin'    Creates a linear sweep in the time domain.
-%               Usage: [y,t] = rbtGenerateSignal('linsin',fs,f1,f2,length_sig,zero_pad,amp,phase)
+%               Usage: [y,t] = rbaGenerateSignal('linsin',fs,f1,f2,length_sig,zero_pad,amp,phase)
 %               Input parameters:
 %               - fs: Sampling frequency
 %               - f1: Lower frequency
@@ -49,7 +49,7 @@ function [y,t] = rbtGenerateSignal(sig_type,varargin)
 %
 %
 %   'sin'       Creates a linear sweep in the time domain.
-%               Usage: [y,t] = rbtGenerateSignal('sin',fs,f0,length_sig,amp,phase)
+%               Usage: [y,t] = rbaGenerateSignal('sin',fs,f0,length_sig,amp,phase)
 %               Input parameters:
 %               - fs: Sampling frequency
 %               - f0: frequency
@@ -61,7 +61,7 @@ function [y,t] = rbtGenerateSignal(sig_type,varargin)
 %
 %   'mls'       Creates a Maximum-Length Sequence in GF(2^m), where GF stands for
 %               Galois Field.
-%               Usage: [y,t] = rbtGenerateSignal('mls',fs,varargin)
+%               Usage: [y,t] = rbaGenerateSignal('mls',fs,varargin)
 %               Input parameters:
 %               -
 %               -
@@ -89,10 +89,10 @@ switch lower(sig_type)
         f2 = varargin{3};
         length_sec = varargin{4};
         if nargin == 5
-        [y,t] = rbtLogSin(f1,f2,fs,length_sec);
+        [y,t] = rbaLogSin(f1,f2,fs,length_sec);
         elseif nargin > 5 && nargin < 9
             arg = varargin{5:end};
-            [y,t] = rbtLogSin(f1,f2,fs,length_sec,arg);
+            [y,t] = rbaLogSin(f1,f2,fs,length_sec,arg);
         elseif nargin > 8
             error('Too many input arguments')
         end
@@ -107,10 +107,10 @@ switch lower(sig_type)
         f2 = varargin{3};
         length_sec = varargin{4};
         if nargin == 5
-            [y,t] = rbtLinSin(f1,f2,fs,length_sec);
+            [y,t] = rbaLinSin(f1,f2,fs,length_sec);
         elseif nargin > 5 && nargin < 9
             arg = varargin{5:end};
-            [y,t] = rbtLinSin(f1,f2,fs,length_sec,arg);
+            [y,t] = rbaLinSin(f1,f2,fs,length_sec,arg);
         else
             error('Too many input arguments')
         end
@@ -124,10 +124,10 @@ switch lower(sig_type)
         f0 = varargin{2};
         length_sec = varargin{3};
         if nargin == 4
-            [y,t] = rbtSin(f0,fs,length_sec);
+            [y,t] = rbaSin(f0,fs,length_sec);
         elseif nargin > 4 && nargin <8
             arg = varargin{4:end};
-            [y,t] = rbtSin(f0,fs,length_sec,arg);
+            [y,t] = rbaSin(f0,fs,length_sec,arg);
         else
             error('Too many input arguments')
         end
@@ -158,11 +158,11 @@ switch lower(sig_type)
 end
 end
 
-function [x,t] = rbtLogSin(f1,f2,fs,length_sec,varargin)
+function [x,t] = rbaLogSin(f1,f2,fs,length_sec,varargin)
 %
-% rbtLogSin creates a logarithmic sweep in the time domain.
+% rbaLogSin creates a logarithmic sweep in the time domain.
 %
-% [x,t] = rbtLogSin(f1,f2,fs,length_sec,zero_padding,amplitude,phase)
+% [x,t] = rbaLogSin(f1,f2,fs,length_sec,zero_padding,amplitude,phase)
 %
 % Input parameters:
 %       - f1: lower frequency of the sweep.
@@ -212,11 +212,11 @@ x = [amplitude*sin(length_sec*2*pi*f1/log(f2/f1)*(exp(t*log(f2/f1)/length_sec)-1
 t = 0:1/fs:(length_sec+zero_padding-1/fs);
 end
 
-function [x,t,Sweeprate] = rbtLinSin(flow,fup,fs,T,varargin)
+function [x,t,Sweeprate] = rbaLinSin(flow,fup,fs,T,varargin)
 %
-% rbtLinSin creates a linear sweep in the time domain.
+% rbaLinSin creates a linear sweep in the time domain.
 %
-% [x,t] = rbtLinSin(flow,fup,fs,T,zero_padding,amplitude,phase_rad)
+% [x,t] = rbaLinSin(flow,fup,fs,T,zero_padding,amplitude,phase_rad)
 %
 % Input parameters:
 %       - flow: lower frequency of the sweep.
@@ -273,14 +273,14 @@ Sweeprate =(f2-f1)/T;
 
 end
 
-function [y,t] = rbtSin(f0,fs,length_sec,varargin)
+function [y,t] = rbaSin(f0,fs,length_sec,varargin)
 %
-%   rbtSin returns a sampled sine function and its corresponding time
+%   rbaSin returns a sampled sine function and its corresponding time
 %   vector. It is taken into account the effect of the very last sample when
 %   calculating the corresponding Fourier Transform, i.e. the sine is sampled
 %   within the interval of time from '0' to 'length_sec-1/fs'.
 %
-%   [y,t] = rbtSin(f0,fs,length_sec,amplitude,phase_rad)
+%   [y,t] = rbaSin(f0,fs,length_sec,amplitude,phase_rad)
 %
 %   Input parameters:
 %       - f0: frequency of oscillation.
@@ -421,11 +421,11 @@ varargout{2} = idx;
 varargout{3} = 0;
 end
 
-function [seq,varargout] = rbtIrs(m,varargin)
-% rbtIrs computes a Inverse Repeated Sequence defined from the corresponding
+function [seq,varargout] = rbaIrs(m,varargin)
+% rbaIrs computes a Inverse Repeated Sequence defined from the corresponding
 % MLS sequence of period 2^m-1. It also returns the corresponding time vector.
 %
-%   Usage: [seq,t,idx,flagWarn] = rbtIrs(m,'opt1',val_opt1,'opt2',val_opt2,...)
+%   Usage: [seq,t,idx,flagWarn] = rbaIrs(m,'opt1',val_opt1,'opt2',val_opt2,...)
 %
 %   Input parameters:
 %       - m: Integer that determines the order of GF and thus the length of

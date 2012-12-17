@@ -13,7 +13,7 @@ function H = rbaIR2OctaveBands(h,fs,cfmin,cfmax)
 %       - H: A matrix with filtered impulse response in the selected octave
 %            bands. Size is length(h) x number of bands
 %
-%   See also: rbtCropIR
+%   See also: rbaCropIR
 %
 %   Author: Oliver Lylloff, Mathias Immanuel Nielsen & David Duhalde 
 %   Date: 9-11-2012, Last update: 30-11-2012
@@ -29,11 +29,11 @@ end
 bandsPerOctave = 1;
 
 % Get octave-band center frequencies
-freqs = rbtGetFreqs(cfmin,cfmax,bandsPerOctave);
+freqs = rbaGetFreqs(cfmin,cfmax,bandsPerOctave);
 nCF = length(freqs);
 
 % Calculate filter coeeficients
-[B,A] = rbtHomemadeFilterBank(bandsPerOctave,fs,cfmin,cfmax,1);
+[B,A] = rbaFilterBank(bandsPerOctave,fs,cfmin,cfmax,1);
 
 H = zeros(length(h),nCF);           % filter rir with octave band filters
 

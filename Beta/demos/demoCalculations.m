@@ -8,9 +8,9 @@ fc = [63 125 250 500 1000 2000 4000 8000];
 
 %h = h(1:20000,1);
 %plot(h)
-h_band = rbtOctaveBand(h,fs,fc);
+h_band = rbaOctaveBand(h,fs,fc);
 %a = int8(0);
-%Hd = rbtFilterBank(1,44100,63,8000,a);
+%Hd = rbaFilterBank(1,44100,63,8000,a);
 %out = filter(sig,Hd(1));
 
 rir = h_band.^2;
@@ -25,8 +25,8 @@ close all
 figure(1)
 t30 = zeros(length(fc),1);
 for ii = 1:1%length(fc)
-   Rband = rbtDecayCurve(h_band(ii,:));
-   t30(ii) = rbtT30(Rband,fs);
+   Rband = rbaDecayCurve(h_band(ii,:));
+   t30(ii) = rbaT30(Rband,fs);
    h(ii) = plot((0:length(Rband)-1)/fs,Rband); 
    hold all
    %axis([0 length(h)/fs -80 0])

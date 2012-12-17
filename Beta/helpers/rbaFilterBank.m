@@ -1,4 +1,4 @@
-function [B,A] = rbaHomemadeFilterBank(BandsPerOctave,fs,cfmin,cfmax)
+function [B,A] = rbaFilterBank(BandsPerOctave,fs,cfmin,cfmax)
 %
 %   Description: Calculate octave or 3rd-octave band filters according 
 %	to the ANSI S1.11-2004.

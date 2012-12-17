@@ -7,7 +7,7 @@ cfmin = 63;             % lowest center frequency of interest
 cfmax = 8000;           % highest center frequency of interest
 bandsPerOctave = 1;     % octave band filter
 
-freqs = rbtGetFreqs(cfmin,cfmax,bandsPerOctave);
+freqs = rbaGetFreqs(cfmin,cfmax,bandsPerOctave);
 nCF = length(freqs);
 [rir,fs] = wavread('/Users/Oliver/Dropbox/Specialkursus/Measurements/LargeRoom/Dirac/meas1NoDirac.wav');
 
@@ -17,7 +17,7 @@ intnoise = find(diff(rir)>1e-3,1);      % Cut away onset
 rir = rir(intnoise:end);
 t = 0:1/fs:length(rir)/fs-1/fs;
 %%
-[B,A] = rbtHomemadeFilterBank(1,fs,cfmin,cfmax,1);
+[B,A] = rbaFilterBank(1,fs,cfmin,cfmax,1);
 
 % filter rir with octave band filters
 rir_band = zeros(length(rir),nCF);
@@ -41,6 +41,6 @@ avgTime= 50e-3;
 noiseHeadRoom=10;
 dynRange=20;
 
-[knee, rms_noise] = rbtLundeby(rir_band(:,i),fs,maxIter,avgTime,noiseHeadRoom,dynRange)
+[knee, rms_noise] = rbaLundeby(rir_band(:,i),fs,maxIter,avgTime,noiseHeadRoom,dynRange)
 
 

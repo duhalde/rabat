@@ -18,7 +18,7 @@ fsRef = fsMod/K;
 t = 0:1/fsMod:length(sigMod)/fsMod-1/fsMod;
 tRef = t*K;
 % get center frequencies for reference and model
-fRef = rbtGetFreqs(125,1000,1);
+fRef = rbaGetFreqs(125,1000,1);
 fMod = fRef*K;
 
 %% reference ambience
@@ -54,7 +54,7 @@ end
 sigModOct = rbaIR2OctaveBands(hCrop,fsRef,min(fRef),max(fRef));
 
 for i = 1:size(sigModOct,2)
-[knee, rmsNoise] = rbtLundeby(sigModOct(:,i),fsRef);
+[knee, rmsNoise] = rbaLundeby(sigModOct(:,i),fsRef);
 kn(i) = knee(end);
 rm(i) = rmsNoise(end);
 %sigRefOct(:,i) = (sigModOct(1:kn(i),i).*H(1:kn(i),i));

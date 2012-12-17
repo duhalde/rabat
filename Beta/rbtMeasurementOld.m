@@ -1,8 +1,8 @@
-function y = rbtMeasurementOld(signal, fs, estimatedRT ,latency)
+function y = rbaMeasurementOld(signal, fs, estimatedRT ,latency)
 %
 %   Description:    
 %
-%   Usage: y = rbtMeasurement(signal, fs, estimatedRT[, latency=1])
+%   Usage: y = rbaMeasurement(signal, fs, estimatedRT[, latency=1])
 %
 %   Input parameters:
 %       - signal    : Measurement Signal

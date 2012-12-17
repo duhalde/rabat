@@ -24,12 +24,12 @@ cfmin = 250;             % lowest center frequency of interest
 cfmax = 4000;           % highest center frequency of interest
 
 % Get center frequencies in octave bands
-freqs = rbtGetFreqs(cfmin,cfmax,1);
+freqs = rbaGetFreqs(cfmin,cfmax,1);
 
 % Crop IR
 idxStartR = rbaStartIR(hR);
 [hCropR,idxEndR,tR] = rbaCropIR(hR,fsR,idxStartR,floor(6.271e5));
-HR = rbtIR2octBands(hCropR,fs,cfmin,cfmax);
+HR = rbaIR2octBands(hCropR,fs,cfmin,cfmax);
 
 for ii = 1:length(freqs)
 subplot(2,2,ii)

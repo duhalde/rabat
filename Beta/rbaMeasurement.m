@@ -1,21 +1,15 @@
 function y = rbaMeasurement(signal, fs, N, estimatedRT, transient, latency)
 %
 %   Description: Performs a system response measurement with the default
-%   input and output of the system.
+%   input and output ports of the computer operating system.
 %
-%   Usage: y = rbtMeasurement(signal, fs, N, estimatedRT[, transient = 0, latency=1])
+%   Usage: y = rbaMeasurement(signal, fs, N, estimatedRT)
 %
 %   Input parameters:
 %       - signal        : Measurement Signal
 %       - fs            : Sampling frequency
 %       - N             : Number of Averages
 %       - estimatedRT   : Estimated reverberation time in seconds
-%       - transient     : Measurement type, set 1 for transient, otherwise
-%                           A steady state mesurement are used
-%                           (transient = 0) default
-%       - latency       : Optional latency setting for PsychPortAudio
-%                           Normal latency setting (latency = 1) default
-%                           Low (fast) latency setting (latency = 2)
 %
 %   Output parameters:
 %       - y             : Measured Signal
@@ -25,20 +19,6 @@ function y = rbaMeasurement(signal, fs, N, estimatedRT, transient, latency)
 %   Acoustic Technology, DTU 2012
 %
 
-% Error checking
-switch nargin
-    case 4
-        transient = 0;
-        latency = 1;
-    case 5
-        latency = 1;
-    case 6
-        if latency ~= 1 && latency ~= 2
-            error('Latency must be set to either 1 or 2!')
-        end
-    otherwise
-        error('Wrong number of input arguments')
-end
 
 % Disable most status messages from PsychPortAudio during
 % initialization
@@ -49,10 +29,8 @@ end
 
 InitializePsychSound;   % Initialize PsychPortAudio
 
-if transient
 % zero-pad to wanted length
 signal = [signal(:)' zeros(1,estimatedRT*fs)];
-end
 
 nrChannels = 1;
 signalSeconds = length(signal)/fs;
@@ -82,18 +60,11 @@ compTime = 2;           % Estimated CPU time
 % Allocate recording buffer     * Check Buffersize
 PsychPortAudio('GetAudioData', recHandle, signalSeconds+totalLatency+compTime);
 
-if transient
-    % initialize matrix for storing the recorded sweeps
-    Y = zeros(signalSeconds*fs,N);
-    loopVals = 1:N;
-else
-    % initialize matrix for storing the recorded sweeps
-    Y = zeros(signalSeconds*fs,N);
-    loopVals = 1:N+1;
-end
+% initialize matrix for storing the recorded sweeps
+Y = zeros(signalSeconds*fs,N);
 
 % For-loop START
-for k = loopVals
+for k = 1:N
 
     recordedAudio = [];
 
@@ -106,13 +77,7 @@ for k = loopVals
     PsychPortAudio('Start', playHandle);
 
     % inform the user of the progress
-    if transient
-        disp(['Now recording sweep ' num2str(k) ' out of ' num2str(N)]);
-    elseif k == 1
-        disp('Sound field building up')
-    else
-        disp(['Now recording sweep ' num2str(k-1) ' out of ' num2str(N)]);
-    end
+    disp(['Now recording sweep ' num2str(k) ' out of ' num2str(N)]);
 
     % Get playback status
     status = PsychPortAudio('GetStatus',playHandle);
@@ -137,11 +102,7 @@ for k = loopVals
     % Make sure full sound decay has reached the microphone.
     % 500 ms corresponds to a sound travel distance of 171.5 m. Change this
     % value if any of the room dimensions exceeds 86 m.
-    if transient
-        soundDecayDistance = 500e-3;
-    else % wait only for a very short time
-        soundDecayDistance = 50e-3;
-    end
+    soundDecayDistance = 500e-3;
     WaitSecs(soundDecayDistance);
 
     % Stop audio recording
@@ -160,13 +121,7 @@ for k = loopVals
     sweepEndIdx = sweepIdx+length(signal)-1;
     
     % and place the recorded sweep in a matrix
-    if transient
-        Y(:,k) = recordedAudio(sweepIdx:sweepEndIdx);
-    elseif k == 1   % do not save the build-up sweep
-        continue;
-    else    % treat sescond sweep as the first recording
-        Y(:,k-1) = recordedAudio(sweepIdx:sweepEndIdx);
-    end
+    Y(:,k) = recordedAudio(sweepIdx:sweepEndIdx);
 
 end
 

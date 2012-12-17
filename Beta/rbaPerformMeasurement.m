@@ -2,7 +2,7 @@ function y = rbaPerformMeasurement(signal, fs, N, estimatedRT, transient, latenc
 %
 %   Description:
 %
-%   Usage: y = rbtMeasurement(signal, fs, N, estimatedRT[, transient = 0, latency=1])
+%   Usage: y = rbaMeasurement(signal, fs, N, estimatedRT[, transient = 0, latency=1])
 %
 %   Input parameters:
 %       - signal        : Measurement Signal
@@ -170,7 +170,7 @@ for k = playbacks
 
     % Read audiodata from recording buffer
     % ctsstarttime could give a good estimate of the onset sample, to use
-    % with rbtCropIR
+    % with rbaCropIR
     disp('data is being read')
     %[audioData,~,~,ctsstarttime] = PsychPortAudio('GetAudioData',recHandle);
     %recordedAudio = [recordedAudio audioData];

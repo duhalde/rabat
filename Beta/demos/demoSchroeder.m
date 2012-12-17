@@ -6,11 +6,11 @@ cfmin = 63;             % lowest center frequency of interest
 cfmax = 8000;           % highest center frequency of interest
 bandsPerOctave = 1;     % octave band filter
 
-freqs = rbtGetFreqs(cfmin,cfmax,bandsPerOctave);
+freqs = rbaGetFreqs(cfmin,cfmax,bandsPerOctave);
 nCF = length(freqs);    
 [h,fs] = wavread('sounds/church.wav');
 
-[B,A] = rbtHomemadeFilterBank(1,fs,cfmin,cfmax,1);
+[B,A] = rbaFilterBank(1,fs,cfmin,cfmax,1);
 
 h = mean(h,2);     % convert to mono by mean of stereo
 
@@ -38,13 +38,13 @@ avgTime= 50e-3;
 noiseHeadRoom=20;
 dynRange=30;
 
-[knee, rms_noise] = rbtLundeby(h_bandDb(:,i),fs,maxIter,avgTime,noiseHeadRoom,dynRange);
+[knee, rms_noise] = rbaLundeby(h_bandDb(:,i),fs,maxIter,avgTime,noiseHeadRoom,dynRange);
 kneepoint(i) = knee(end);
 noisefloor(i) = rms_noise(end);
 plot(kneepoint(i)/fs,noisefloor(i),'ro')
 
 onset = 1;
-R = rbtBackInt(h_band(:,i),onset,kneepoint(i));
+R = rbaBackInt(h_band(:,i),onset,kneepoint(i));
 t = 0:1/fs:length(R)/fs-1/fs;
 subplot(2,4,i), plot(t,R), hold on
 xlabel('time / s')

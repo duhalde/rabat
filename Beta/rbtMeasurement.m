@@ -1,8 +1,8 @@
-function y = rbtMeasurement(signal, fs, N, estimatedRT ,latency)
+function y = rbaMeasurement(signal, fs, N, estimatedRT ,latency)
 %
 %   Description:
 %
-%   Usage: y = rbtMeasurement(signal, fs, N, estimatedRT[, latency=1])
+%   Usage: y = rbaMeasurement(signal, fs, N, estimatedRT[, latency=1])
 %
 %   Input parameters:
 %       - signal        : Measurement Signal
@@ -129,7 +129,7 @@ for k = 1:N
 
     % Read audiodata from recording buffer
     % ctsstarttime could give a good estimate of the onset sample, to use
-    % with rbtCropIR
+    % with rbaCropIR
     [audioData,~,~,ctsstarttime] = PsychPortAudio('GetAudioData',recHandle);
     recordedAudio = [recordedAudio audioData];
     % find the exact position of the sweep in the recorded signal

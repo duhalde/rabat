@@ -19,7 +19,7 @@ cfmin = 63;             % lowest center frequency of interest
 cfmax = 8000;           % highest center frequency of interest
 
 % Get center frequencies in octave bands
-freqs = rbtGetFreqs(cfmin,cfmax,1);
+freqs = rbaGetFreqs(cfmin,cfmax,1);
 
 % Crop IR
 idxStartR = rbaStartIR(hR);
@@ -29,19 +29,19 @@ idxStartD = rbaStartIR(hD);
 [hCropR,idxEndR,tR] = rbaCropIR(hR,fsR,idxStartR,floor(6.271e5));
 
 % Filter impulse response
-HD = rbtIR2octBands(hCropD,fsD,cfmin,cfmax);
-HR = rbtIR2octBands(hCropR,fsR,cfmin,cfmax);
+HD = rbaIR2octBands(hCropD,fsD,cfmin,cfmax);
+HR = rbaIR2octBands(hCropR,fsR,cfmin,cfmax);
 
 %% Determine knee points and Noise floor level
-[kneeD, rmsNoiseD] = rbtLundeby(HD,fsD);
+[kneeD, rmsNoiseD] = rbaLundeby(HD,fsD);
 %%
-[kneeR, rmsNoiseR,C] = rbtLundeby(HR,fsR);
+[kneeR, rmsNoiseR,C] = rbaLundeby(HR,fsR);
 
 %% Get decay curves
-%RD = rbtBackInt(HD,1,kneeD(end),0);
-RR = rbtBackInt(HR,C);
+%RD = rbaBackInt(HD,1,kneeD(end),0);
+RR = rbaBackInt(HR,C);
 
-%R = rbtBackIntComp(HR,kneeR(end),1);
+%R = rbaBackIntComp(HR,kneeR(end),1);
 
 figure(1)
 plot(RR(:,1))
