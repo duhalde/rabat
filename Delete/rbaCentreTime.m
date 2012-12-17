@@ -1,14 +1,14 @@
-function TS = rbtCentreTime(h,fs)
+function TS = rbaCentreTime(h,fs)
 %
 %   Description:    Calculate centre time in accordance with ISO-3382
 %
-%   Usage: TS = rbtCentreTime(h,fs)
+%   Usage: CT = rbaCentreTime(h,fs)
 %
 %   Input parameters:
 %       - h: Impulse response
 %		- fs: Sampling frequency 
 %   Output parameters:
-%       - TS: 	Calculated centre time
+%       - CT: 	Calculated centre time
 %
 %   Author: Oliver Lylloff, Mathias Immanuel Nielsen & David Duhalde 
 %   Date: 05-11-2012, Last update: 17-12-2012
