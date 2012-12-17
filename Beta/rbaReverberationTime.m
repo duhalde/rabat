@@ -116,8 +116,8 @@ end
 function [RT,r2] = varT(R,t,idx,lim)
 [~,n] = size(R);
 [k,~] = size(t);
-lim(1) = up; 
-lim(2) = low;
+up = lim(1); 
+low =lim(2);
 L = zeros(k,n);
 RT = zeros(1,n);
 r2 = zeros(1,n);

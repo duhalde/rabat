@@ -33,9 +33,9 @@ end
 h2 = h.^2;
 
 if nargin == 3
-    [knee, rmsNoise] = rbaLundeby(h,fs);
+    %[knee, rmsNoise] = rbaLundeby(h,fs);
 elseif nargin == 4 && strcmpi(varargin{1},'Lundeby');
-    [knee, rmsNoise] = rbaLundeby(h,fs);
+    %[knee, rmsNoise] = rbaLundeby(h,fs);
 elseif nargin == 4 && isnumeric(varargin{1})
     knee = ceil(varargin{1});
     h2dB = 10*log10(h2(:,1));
@@ -49,9 +49,13 @@ end
 %    error('Flag must be set to 1 or 0')
 %end
 
-R = zeros(knee,n);
+R = zeros(length(h),n);
 
 for i = 1:n
+    
+    [knee, rmsNoise] = rbaLundeby(h(:,i),fs);
+    knee = knee(end);
+    rmsNoise = rmsNoise(end);
     % Noise compensation
     if flag == 1
         h2dB = 10*log10(h2(:,i));
@@ -79,9 +83,14 @@ for i = 1:n
         E = 0;
     end
     
-    R(:,i) = cumsum(h2(knee:-1:1,i));
-    R(:,i) = 10*log10(R(end:-1:1,i)+E);
-    R(:,i) = R(:,i)-max(R(:,i));
+    R(1:knee,i) = cumsum(h2(knee:-1:1,i));
+    R(1:knee,i) = 10*log10(R(knee:-1:1,i)+E);
+    R(1:knee,i) = R(1:knee,i)-max(R(1:knee,i));
+    idx = find(R(1:knee,i) < -100);
+    if ~isempty(idx)
+    R(idx,i) = -100;
+    end
+    R(knee+1:end,i) = -100;
 end
 
 end

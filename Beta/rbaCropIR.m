@@ -6,10 +6,8 @@ function [hCrop,t] = rbaCropIR(h,fs,varargin)
 %   Usage: [hCrop,t] = rbaCropIR(h,fs[,knee])
 %
 %   Input parameters:
-%       - h: Broadband impulse response. If h is a matrix then it's assumed that the
-%       impulse response are divided into filtered bands and it's cropped
-%       accordingly. Notice that the cropping is most reliable for
-%       broadband signals.
+%       - h: Broadband impulse response. If h is a matrix then it's assumed
+%       that h holds multiple broadband IRs which are aligned by xcorr
 %       - fs: Sampling frequency
 %
 %   Optional input parameters:
@@ -38,17 +36,22 @@ end
 idxStart = zeros(1,n);
 idxEnd = zeros(1,n);
 hCrop = zeros(m,n);
-for i = 1:n
+
 % Find start sample of IR and crop onset
+for i = 1:n
 idxStart(i) = rbaStartIR(h(:,i));
-hCropOnset = h(idxStart(i):end,i);
+end
+idxStart = min(idxStart);
+
+for i = 1:n
+hCropOnset = h(idxStart:end,i);
     
 if nargin == 2
     % Determine knee point of decay curve based on Lundebys method
     kneePoint = rbaLundeby(hCropOnset,fs);
 elseif nargin == 3 
     % Get knee point from input
-    kneePoint = ceil(varargin{1})-idxStart(i); 
+    kneePoint = ceil(varargin{1})-idxStart; 
 end
 % Crop impulse response
 idxEnd(i) = ceil(kneePoint(end));
@@ -57,10 +60,18 @@ if n == 1
 hCrop = hCropOnset(1:idxEnd(i),i);
 else
 hCrop(:,i) = [hCropOnset(1:idxEnd(i)); zeros(m-idxEnd(i),1)];
+if i > 1
+    [c, lags] = xcorr(hCrop(:,i-1), hCrop(:,i));
+    delay = lags(max(c)==c);
+    if delay > 0
+        hCrop(:,i-1) = [hCrop(delay+1:end,i-1); zeros(delay,1)];
+    elseif delay < 0
+        hCrop(:,i) = [hCrop(abs(delay)+1:end,i); zeros(abs(delay),1)];
+    end
 end
-
+end
+end
 t = (0:1/fs:length(hCrop)/fs-1/fs)';
-end
 end
 
 function sampleStart = rbaStartIR(h)
