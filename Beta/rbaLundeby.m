@@ -1,16 +1,24 @@
-function [knee, rmsNoise,varargout] = rbtLundeby(h,fs,maxIter,avgTime,noiseHeadRoom,dynRange)
+function [knee, rmsNoise] = rbaLundeby(h,fs,maxIter,avgTime,noiseHeadRoom,dynRange)
 %
-%   Description:    
+%   Description: Determine the sample (knee-point) at which the sound decay of IR meets
+%                the noise-floor.
 %
-%   Usage: y = function_name(x,...)
+%   Usage: [knee, rmsNoise] = rbaLundeby(h,fs,maxIter,avgTime,noiseHeadRoom,dynRange)
 %
 %   Input parameters:
-%       - x: 
+%       - h:
+%       - fs:
+%   Optional input parameters:
+%       - maxIter:
+%       - avgTime:
+%       - noiseHeadRoom
+%       - dynRange:
 %   Output parameters:
-%       - y: 
+%       - knee: Knee-point in samples
+%       - rmsNoise: The root-mean-square level of noise floor in dB
 %
 %   Author: Oliver Lylloff, Mathias Immanuel Nielsen & David Duhalde 
-%   Date: 11-9-2012, Last update: 11-9-2012
+%   Date: 11-9-2012, Last update: 17-12-2012
 %   Acoustic Technology, DTU 2012
 
 if nargin < 3
@@ -130,10 +138,7 @@ for k=1:maxIter
 end
 
 knee = floor(preCross);
-A = fs*10^(a/10);
-B = 10^(b/10);
-C = -(B/A)*exp(A * knee(end)/fs);
-varargout{1} = C;
+
 end
 end
 
