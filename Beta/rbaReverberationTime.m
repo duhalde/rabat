@@ -1,4 +1,4 @@
-function [RT, r2p,dynRange] = rbaReverberationTime(R,t,varargin)
+function [RT, r2p,dynRange,stdDev] = rbaReverberationTime(R,t,varargin)
 %
 %
 %   Description: Calculate reverberation time from decay curve.
@@ -31,6 +31,7 @@ function [RT, r2p,dynRange] = rbaReverberationTime(R,t,varargin)
 %              to a perfect correlation between data and fit.
 %              The decay curve is non-linear for r2p > 10. 
 %              According to ISO 3382-1:2009 (sec. B.3)
+%       - stdDev: The standard deviation of the linear regression fit.
 %
 %   Ref: ISO 3382-1:2009(E) and ISO 3382-2:2008
 %
@@ -77,43 +78,45 @@ if min(dynRange)<65
         else 
             switch lower(option) 
                 case 'best'
-                    [RT,r2] = varT(R,t,idx,[5 25]);
+                    [RT,r2,stdDev] = varT(R,t,idx,[5 25]);
                     r2p = 1000*(1-r2);
                 case 'all'
-                    [RT,r2] = varT(R,t,idx,[5 25]);
+                    [RT,r2,stdDev] = varT(R,t,idx,[5 25]);
                     r2p = 1000*(1-r2);
             end
         end
     else
         switch lower(option) 
             case 'best'
-                [RT,r2] = varT(R,t,idx,[5 35]);
+                [RT,r2,stdDev] = varT(R,t,idx,[5 35]);
                 r2p = 1000*(1-r2);
             case 'all'
-                [RT20,r220] = varT(R,t,idx,[5 25]);
-                [RT30,r230] = varT(R,t,idx,[5 35]);
+                [RT20,r220,stdDev20] = varT(R,t,idx,[5 25]);
+                [RT30,r230,stdDev30] = varT(R,t,idx,[5 35]);
                 RT = [RT20; RT30];
                 r2p = 1000*[1-r220; 1-r230];
+                stdDev = [stdDev20;stdDev30];
         end
     end
 else
     switch lower(option) 
         case 'best'
-            [RT,r2] = varT(R,t,idx,[5 65]);
+            [RT,r2,stdDev] = varT(R,t,idx,[5 65]);
             r2p = 1000*(1-r2);
         case 'all'
-            [RT20,r220] = varT(R,t,idx,[5 25]);
-            [RT30,r230] = varT(R,t,idx,[5 35]);
-            [RT60,r260] = varT(R,t,idx,[5 65]);
+            [RT20,r220,stdDev20] = varT(R,t,idx,[5 25]);
+            [RT30,r230,stdDev30] = varT(R,t,idx,[5 35]);
+            [RT60,r260,stdDev60] = varT(R,t,idx,[5 65]);
             RT = [RT20; RT30; RT60];
             r2p = 1000*[1-r220; 1-r230; 1-r260];
+            stdDev = [stdDev20; stdDev30; stdDev60];
     end
 end
 
 end
 
 
-function [RT,r2,sdev] = varT(R,t,idx,lim)
+function [RT,r2,stdDev] = varT(R,t,idx,lim)
 [~,n] = size(R);
 [k,~] = size(t);
 up = lim(1); 
@@ -121,6 +124,7 @@ low = lim(2);
 L = zeros(k,n);
 RT = zeros(1,n);
 r2 = zeros(1,n);
+stdDev = zeros(1,n);
 for ii = 1:n
     idxup = find(R(1:idx(ii),ii)<-up,1,'first');
     idxlow = find(R(1:idx(ii),ii)<-low,1,'first');
@@ -135,7 +139,7 @@ for ii = 1:n
         RT(ii) = 3*(-20/coeff(1));
     end
     r2(ii) = nonLinCheck(R(idxup:idxlow,ii),L(idxup:idxlow,ii));
-    sdev = std(R(idxup:idxlow,ii)-L(idxup:idxlow,ii))
+    stdDev(ii) = std(R(idxup:idxlow,ii)-L(idxup:idxlow,ii));
 end
 end
 
