@@ -12,7 +12,8 @@ sigMod = hCrop;
 figure(1)
 plot(t,hCrop)
 ylim([-3e-9 3e-9])
-%%
+title('Cropped impulse response in scale model')
+%% Scale all parameters
 K = 20; % scale factor
 fsRef = fsMod/K;
 t = 0:1/fsMod:length(sigMod)/fsMod-1/fsMod;

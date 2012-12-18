@@ -1,4 +1,4 @@
-function [hCrop,t] = rbaCropIR(h,fs,varargin)
+function [hCrop,t,idxEnd] = rbaCropIR(h,fs,varargin)
 %
 %   Description: Crop impulse response according to ISO 3382 and optionally 
 %                Lundeby's method.
@@ -18,6 +18,7 @@ function [hCrop,t] = rbaCropIR(h,fs,varargin)
 %   Output parameters:
 %       - hCrop: Cropped impulse response. 
 %       - t: Time vector of cropped impulse response
+%       - idxEnd: Sample at which sound decay meets noise floor (knee point).
 %   
 %   See also: rbaLundeby
 %   
@@ -34,6 +35,7 @@ end
 
 % Allocate
 idxStart = zeros(1,n);
+idxEnd = zeros(1,n);
 idxEnd = zeros(1,n);
 hCrop = zeros(m,n);
 

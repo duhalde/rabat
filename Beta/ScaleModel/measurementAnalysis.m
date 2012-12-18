@@ -27,8 +27,8 @@ hr = hr(:,1);
 H = rbaIR2OctaveBands(hr,fs,250,8000);
 R2 = rbaSchroeder(H,fs,0,3e4);
 %% Convert model to full scale by multiplying in the frequency domain
-nfft = 2^(nextpow2(length(hCM))); 
-Fh1M = fft(hCM,nfft);
+nfft = 2^(nextpow2(length(h1N))); 
+Fh1M = fft(h1N,nfft);
 NumUniquePts = ceil((nfft+1)/2); 
 Fh1M = Fh1M(1:NumUniquePts);
 f = (0:NumUniquePts-1)*fsModel/nfft; 

@@ -87,6 +87,9 @@ for i = 1:n
     R(1:knee,i) = 10*log10(R(knee:-1:1,i)+E);
     R(1:knee,i) = R(1:knee,i)-max(R(1:knee,i));
     
+    % Catch small values of decay curve and limit to 100 dB dynamic range
+    % This will result in a decay curve ending in a bend towards -100 dB
+    % and constant from there.
     idx = find(R(1:knee,i) < -100);
     if ~isempty(idx)
     R(idx,i) = -100;
