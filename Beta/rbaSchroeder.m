@@ -86,6 +86,7 @@ for i = 1:n
     R(1:knee,i) = cumsum(h2(knee:-1:1,i));
     R(1:knee,i) = 10*log10(R(knee:-1:1,i)+E);
     R(1:knee,i) = R(1:knee,i)-max(R(1:knee,i));
+    
     idx = find(R(1:knee,i) < -100);
     if ~isempty(idx)
     R(idx,i) = -100;

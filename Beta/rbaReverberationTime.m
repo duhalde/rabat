@@ -63,13 +63,13 @@ end
 
 % Allocate
 dynRange = zeros(1,n);
-
+idx = zeros(1,n);
 % Calculate the available dynamic range by assuming the last 5% is noise.
 for ii = 1:n
-    idx = floor(0.95*length(R(:,ii)));  % Cut away the last 5%.
-    dynRange(ii) = R(1,ii)-R(idx,ii);   % Calculate the dynamic range
+    idxFloor = find(R(:,ii)>min(R(:,ii)),1,'last');
+    idx(ii) = floor(0.95*length(R(1:idxFloor,ii)));  % Cut away the last 5%.
+    dynRange(ii) = R(1,ii)-R(idx(ii),ii);   % Calculate the dynamic range
 end
-
 if min(dynRange)<65
     if min(dynRange)<35
         if min(dynRange)<25
@@ -113,17 +113,17 @@ end
 end
 
 
-function [RT,r2] = varT(R,t,idx,lim)
+function [RT,r2,sdev] = varT(R,t,idx,lim)
 [~,n] = size(R);
 [k,~] = size(t);
 up = lim(1); 
-low =lim(2);
+low = lim(2);
 L = zeros(k,n);
 RT = zeros(1,n);
 r2 = zeros(1,n);
 for ii = 1:n
-    idxup = find(R(1:idx,ii)<-up,1,'first');
-    idxlow = find(R(1:idx,ii)<-low,1,'first');
+    idxup = find(R(1:idx(ii),ii)<-up,1,'first');
+    idxlow = find(R(1:idx(ii),ii)<-low,1,'first');
     coeff = polyfit(t(idxup:idxlow),R(idxup:idxlow,ii),1);
     L(:,ii) = coeff(1)*t+coeff(2);
     
@@ -135,6 +135,7 @@ for ii = 1:n
         RT(ii) = 3*(-20/coeff(1));
     end
     r2(ii) = nonLinCheck(R(idxup:idxlow,ii),L(idxup:idxlow,ii));
+    sdev = std(R(idxup:idxlow,ii)-L(idxup:idxlow,ii))
 end
 end
 
