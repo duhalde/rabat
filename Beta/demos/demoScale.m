@@ -2,9 +2,9 @@ clear all
 close all
 clc
 
-path = '~/Dropbox/SpecialKursus/Measurements/ScaleModel/dirac/model3/';
+path = '~/Dropbox/SpecialKursus/Measurements/newScaleModel/';
 
-[sigMod,fsMod] = wavread([path 'model.wav']);
+[sigMod,fsMod] = wavread([path 'scalemodel1.wav']);
 
 [hCrop,t] = rbaCropIR(sigMod,fsMod);
 
