@@ -23,8 +23,8 @@ function H = rbaIR2OctaveBands(h,fs,cfmin,cfmax)
  
 if m<n
     h = h';
-    %[m,n] = size(h);
 end
+
 
 bandsPerOctave = 1;
 
@@ -35,8 +35,8 @@ nCF = length(freqs);
 % Calculate filter coeeficients
 [B,A] = rbaFilterBank(bandsPerOctave,fs,cfmin,cfmax);
 
-H = zeros(length(h),nCF);           % filter rir with octave band filters
-
+H = zeros(length(h),nCF);           
+% filter rir with octave band filters
 for i = 1:nCF 
 H(:,i) = filter(B(:,i),A(:,i),h);   % Filtered IR
 end

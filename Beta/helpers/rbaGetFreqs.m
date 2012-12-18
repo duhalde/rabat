@@ -16,6 +16,12 @@ function freqs = rbaGetFreqs(cfmin,cfmax,BandsPerOctave)
 %   Date: 1-10-2012, Last update: 17-12-2012
 %   Acoustic Technology, DTU 2012
 
+% input handling
+if nargin == 2
+    BandsPerOctave = 1;
+    % return octave band frequencies by default.
+end
+
 % error handling
 if (BandsPerOctave ~= 1) && (BandsPerOctave ~= 3)
     error('only octave bands and 3rd octave bands supported!')

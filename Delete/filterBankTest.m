@@ -73,7 +73,7 @@ end
 
 
 f0 = 1000;  % Center reference frequency (Hz)
-freqs = rbtGetFreqs(cfmin,cfmax,BandsPerOctave); % center frequencies
+freqs = rbaGetFreqs(cfmin,cfmax,BandsPerOctave); % center frequencies
 nCF = length(freqs); % number of center frequencies
 
 fc = zeros(nCF,1);

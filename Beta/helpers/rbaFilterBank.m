@@ -33,7 +33,7 @@ if BandsPerOctave == 1
         error('maximum center frequency is 16000 Hz');
     end
     % set filter order --NB check with ANSI S1.11-2004
-    N = 4;
+    N = 3;
 elseif BandsPerOctave == 3
     if cfmin < 25
         error('minimum center frequency is 25 Hz');
@@ -41,26 +41,13 @@ elseif BandsPerOctave == 3
         error('maximum center frequency is 20000 Hz');
     end
     % set filter order --NB check with ANSI S1.11-2004
-    N = 6;
+    N = 4;
 else
     error('Only 1 or 3 bands per octave is supported, at the moment.')
 end
 
-
-f0 = 1000;  % Center reference frequency (Hz)
-freqs = rbaGetFreqs(cfmin,cfmax,BandsPerOctave); % center frequencies
-nCF = length(freqs); % number of center frequencies
-
-fc = zeros(nCF,1);
-
-% find the index of 1000 Hz
-idf0 = find(freqs==f0);
-% assign exact center frequencies below f0
-fc(1:idf0-1) = 1000./(2.^(1/BandsPerOctave).^((idf0-1):-1:1));
-% assign f0
-fc(idf0) = f0;
-% assign exact center frequencies above f0
-fc(idf0+1:nCF) = 1000.*(2.^(1/BandsPerOctave).^(1:nCF-idf0));
+fc = rbaGetFreqs(cfmin,cfmax,BandsPerOctave); % center frequencies
+nCF = length(fc); % number of center frequencies
 
 % initialize output variables
 B = zeros(2*N+1,nCF);
@@ -73,6 +60,7 @@ for m = 1:nCF
 	% representation will add up to 1
     fUpper = fc(m) * 2^(1/(2*BandsPerOctave)) / (fs/2); % find normalized upper
     fLower = fc(m) / 2^(1/(2*BandsPerOctave)) / (fs/2); % and lower frequencies
+    
 	% make sure that the nyquist theorem (fs/2 > max(f)) is not violated.
     if fUpper > 1 || fLower > 1
         error(['You are violating the Nyquist Theorem. The ' num2str(fc(m))...
