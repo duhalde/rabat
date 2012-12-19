@@ -1,6 +1,7 @@
 function C = rbaClarity(ir,fs,time)
 %
-%   Description:    Calculate clarity (C30,C50,C80) from impulse response (ISO-3382)
+%   Description:    Calculate clarity (C30,C50,C80) from impulse response
+%					according to ISO-3382
 %
 %   Usage: C = rbaClarity(ir,fs,time)
 %
