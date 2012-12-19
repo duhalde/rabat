@@ -75,6 +75,10 @@ for i = 1:n
         E0 = 10^(B/10);
         a = log(10^(A/10));
         E = -(E0/a)*exp(a*knee);
+        % E should be a positive parameter, if it's negative something went wrong.
+        if E < 0    
+            E = 0;
+        end
         else
         E = 0;      
     end
