@@ -24,8 +24,6 @@ function [B,A] = rbaFilterBank(BandsPerOctave,fs,cfmin,cfmax)
 %       Octave-Band and Fractional-Octave-Band Analog and
 %       Digital Filters.
 %
-
-
 %   Author: Oliver Lylloff, Mathias Immanuel Nielsen & David Duhalde
 %   Date: 1-10-2012, Last update: 18-12-2012
 %   Acoustic Technology, DTU 2012

@@ -22,6 +22,10 @@ function H = rbaIR2OctaveBands(h,fs,cfmin,cfmax,bandsPerOctave,reverse)
 %            bands. Size is length(h) x number of bands
 %
 %   See also: rbaCropIR
+% 
+% 	References: 
+%   [1] Finn Jacobsen and Jens Holger Rindel. TIME REVERSED DECAY MEASUREMENTS 
+%       Journal ofsound and Vibration (1987) 117(l), 187-190
 %
 %   Author: Oliver Lylloff, Mathias Immanuel Nielsen & David Duhalde
 %   Date: 9-11-2012, Last update: 30-11-2012
@@ -51,7 +55,7 @@ nCF = length(freqs);
 H = zeros(length(h),nCF);
 % filter rir with octave band filters
 if reverse
-    % apply reverse filtering method.
+    % apply reverse filtering method, see [1].
     h = flipud(h);  % time reverse signal
     for i = 1:nCF
         H(:,i) = filter(B(:,i),A(:,i),h);   % apply filter

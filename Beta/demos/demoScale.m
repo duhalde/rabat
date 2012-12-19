@@ -11,7 +11,7 @@ path = '~/Dropbox/SpecialKursus/Measurements/newScaleModel/';
 sigMod = hCrop;
 figure(1)
 plot(t,hCrop)
-ylim([-3e-9 3e-9])
+% ylim([-3e-9 3e-9])
 title('Cropped impulse response in scale model')
 %% Scale all parameters
 K = 20; % scale factor
@@ -46,9 +46,9 @@ cMod = cRef;
 bn = mfMod.*cMod-K*mfRef.*cRef;
 
 % Compensation filter
-H = zeros(length(t),length(bn));
+H = zeros(length(tRef),length(bn));
 for i = 1:length(bn)
-    H(:,i) = 10.^(bn(i)*t/20);
+    H(:,i) = 10.^(bn(i)*tRef/20);
 end
 
 % convert signal to octave bands
@@ -64,7 +64,7 @@ end
 sigRef = sum(sigRefOct,2);
 figure(2)
 plot(tRef,sigRef)
-ylim([-3e-9 3e-9])
+% ylim([-3e-9 3e-9])
 
 %%
 
