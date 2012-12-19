@@ -32,30 +32,27 @@ end
 
 h2 = h.^2;
 
-if nargin == 3
-    %[knee, rmsNoise] = rbaLundeby(h,fs);
-elseif nargin == 4 && strcmpi(varargin{1},'Lundeby');
-    %[knee, rmsNoise] = rbaLundeby(h,fs);
-elseif nargin == 4 && isnumeric(varargin{1})
-    knee = ceil(varargin{1});
-    h2dB = 10*log10(h2(:,1));
-    h2dB = h2dB-max(h2dB);
-    rmsNoise = mean(h2dB(knee:end));
-elseif nargin<3 && nargin > 4
+if nargin<3 && nargin > 4
     error('Wrong number of input arguments')
 end
-
-%if (flag~=1 || flag~=0)
-%    error('Flag must be set to 1 or 0')
-%end
 
 R = zeros(length(h),n);
 
 for i = 1:n
-    
+   
+    % Calculate knee and RMS noise from Lundeby 
+    if nargin == 4 && strcmpi(varargin{1},'Lundeby');
     [knee, rmsNoise] = rbaLundeby(h(:,i),fs);
     knee = knee(end);
     rmsNoise = rmsNoise(end);
+    % Calculate knee and RMS noise from user input
+    elseif nargin == 4 && isnumeric(varargin{1})
+    knee = ceil(varargin{1});
+    h2dB = 10*log10(h2(:,1));
+    h2dB = h2dB-max(h2dB);
+    rmsNoise = mean(h2dB(knee:end));
+    end
+    
     % Noise compensation
     if flag == 1
         h2dB = 10*log10(h2(:,i));
@@ -65,7 +62,6 @@ for i = 1:n
         hSmooth = smooth(h2dB,tAvg);
         idx = find(hSmooth(1:knee)<rmsNoise+10,1,'first');
         coeff = polyfit((idx:knee),hSmooth(idx:knee)',1);
-   
         A = coeff(1);
         B = coeff(2);
         if A == 0   % Try another interval if A is zero
@@ -79,10 +75,9 @@ for i = 1:n
         E0 = 10^(B/10);
         a = log(10^(A/10));
         E = -(E0/a)*exp(a*knee);
-    else
-        E = 0;
+        else
+        E = 0;      
     end
-    
     R(1:knee,i) = cumsum(h2(knee:-1:1,i));
     R(1:knee,i) = 10*log10(R(knee:-1:1,i)+E);
     R(1:knee,i) = R(1:knee,i)-max(R(1:knee,i));
@@ -98,6 +93,7 @@ for i = 1:n
 end
 
 end
+
 
 function hSmooth = smooth(h,avgSamples)
 % process in blocks
