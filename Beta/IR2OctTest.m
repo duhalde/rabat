@@ -3,13 +3,16 @@ close all
 clc
 
 [h,fs] = wavread('sounds/room.wav');
-freqs = rbaGetFreqs(63,8000,1);
-H = rbaIR2OctaveBands(h(:,1), fs, min(freqs), max(freqs));
-%% plot an impulse for each band
+t = 0:1/fs:length(h)/fs-1/fs;
+bandsPerOctave = 3;
+freqs = rbaGetFreqs(25,160,bandsPerOctave);
+H = rbaIR2OctaveBands(h(:,1), fs, min(freqs), max(freqs), bandsPerOctave,1);
+
+% plot an impulse respones for each band
 figure(1)
 for i = 1:length(freqs)
-    subplot(3,3,i)
-    plot(H(:,i))
+    subplot(3,4,i)
+    plot(t,H(:,i))
     title([num2str(freqs(i)) ' Hz'])
 end
 

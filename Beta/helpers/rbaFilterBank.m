@@ -16,11 +16,18 @@ function [B,A] = rbaFilterBank(BandsPerOctave,fs,cfmin,cfmax)
 %       - cfmax: highest center frequency of interest
 %
 %   Output parameters:
-%       - Hd: vector with filter-structs. Used like:
-%           out = filter(sig,Hd(1));
+%       - B:
+%       - A:
+% 
+% 	References: 
+%   [1] ANSI SANSI S1.11-2004: Specifications for
+%       Octave-Band and Fractional-Octave-Band Analog and
+%       Digital Filters.
 %
+
+
 %   Author: Oliver Lylloff, Mathias Immanuel Nielsen & David Duhalde
-%   Date: 1-10-2012, Last update: 17-12-2012
+%   Date: 1-10-2012, Last update: 18-12-2012
 %   Acoustic Technology, DTU 2012
 
 
@@ -41,7 +48,7 @@ elseif BandsPerOctave == 3
         error('maximum center frequency is 20000 Hz');
     end
     % set filter order --NB check with ANSI S1.11-2004
-    N = 4;
+    N = 3;
 else
     error('Only 1 or 3 bands per octave is supported, at the moment.')
 end
@@ -58,18 +65,26 @@ for m = 1:nCF
 	% by using these corner frequencies, which will match up between
 	% neighbouring bands, it is ensured that the butterworth filter
 	% representation will add up to 1
-    fUpper = fc(m) * 2^(1/(2*BandsPerOctave)) / (fs/2); % find normalized upper
-    fLower = fc(m) / 2^(1/(2*BandsPerOctave)) / (fs/2); % and lower frequencies
+    fupper = fc(m) * 2^(1/(2*BandsPerOctave)); % find upper
+    flower = fc(m) / 2^(1/(2*BandsPerOctave)); % and lower cutoff
     
+	% As suggested in [1] a bilinear transform is used in the filter design.
+    Qr = fc(m)/(fupper-flower); 
+	Qd = (pi/2/N)/(sin(pi/2/N)) * Qr;
+	alpha = (1 + sqrt(1 + 4 * Qd^2))/2/Qd;
+    
+	% assign normalized corner frequencies
+    W1 = fc(m)/(fs/2)/alpha;
+	W2 = fc(m)/(fs/2)/alpha;
+	
 	% make sure that the nyquist theorem (fs/2 > max(f)) is not violated.
-    if fUpper > 1 || fLower > 1
+    if W1 > 1 || W2 > 1
         error(['You are violating the Nyquist Theorem. The ' num2str(fc(m))...
-               ' Hz band cannot be processed, with a sampling frequency of ' num2str(fs)]);
+               ' Hz band cannot be processed, with a sampling frequency of '...
+               num2str(fs)]);
     end
-	% assign corner frequencies
-    WN = [fLower,fUpper];
 	% get butterworth parameters.
-    [B(:,m),A(:,m)] = butter(N,WN);
+    [B(:,m),A(:,m)] = butter(N,[W1,W2]);
 end
 
 end
