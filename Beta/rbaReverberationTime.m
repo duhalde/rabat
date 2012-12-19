@@ -65,16 +65,23 @@ end
 % Allocate
 dynRange = zeros(1,n);
 idx = zeros(1,n);
+chk = (1:n);
 % Calculate the available dynamic range by assuming the last 5% is noise.
 for ii = 1:n
     idxFloor = find(R(:,ii)>min(R(:,ii)),1,'last');
     idx(ii) = floor(0.95*length(R(1:idxFloor,ii)));  % Cut away the last 5%.
     dynRange(ii) = R(1,ii)-R(idx(ii),ii);   % Calculate the dynamic range
+    if dynRange(ii)<25
+        chk(ii) = [];
+    end
 end
+
 if min(dynRange)<65
     if min(dynRange)<35
         if min(dynRange)<25
-            error('Dynamic range too small to compute RT. Consider using EDT.')
+            warning('Dynamic range too small to compute RT in one or more bands. Computation of RT will be omitted here.')
+            [RT,r2,stdDev] = varT(R(:,chk),t,idx,[5 25]);
+            r2p = 1000*(1-r2);
         else 
             switch lower(option) 
                 case 'best'
@@ -129,6 +136,9 @@ for ii = 1:n
     idxup = find(R(1:idx(ii),ii)<-up,1,'first');
     idxlow = find(R(1:idx(ii),ii)<-low,1,'first');
     coeff = polyfit(t(idxup:idxlow),R(idxup:idxlow,ii),1);
+    if coeff(1) == 0 || isempty(coeff(1));
+        RT(ii) = 0;
+    else
     L(:,ii) = coeff(1)*t+coeff(2);
     
     if low == 65
@@ -140,6 +150,7 @@ for ii = 1:n
     end
     r2(ii) = nonLinCheck(R(idxup:idxlow,ii),L(idxup:idxlow,ii));
     stdDev(ii) = std(R(idxup:idxlow,ii)-L(idxup:idxlow,ii));
+    end
 end
 end
 
