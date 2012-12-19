@@ -41,3 +41,5 @@ else
     freqs = freqs(freqs<=cfmax); % cut away f's above cfmax
     freqs = freqs(freqs>=cfmin); % cut away f's below cfmin
 end
+
+end

@@ -112,4 +112,5 @@ if mod(length(h),avgSamples) ~= 0
     idx = k*avgSamples+1:length(h);
     hSmooth(idx) = mean(h(idx));
 end
+
 end

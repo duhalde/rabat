@@ -19,14 +19,16 @@ if nargin < 2
     error('Too few input arguments')
 end
 
-% convert ir to mono, if stereo
-DIM = size(ir);
+% convert h to mono, if stereo
+DIM = size(h);
 if DIM(1)<DIM(2)
-    ir = ir(1,:);
+    h = h(1,:);
 else
-    ir = ir(:,1);
+    h = h(:,1);
 end
 
-t = 0:1/fs:length(ir)/fs-1/fs;
+t = 0:1/fs:length(h)/fs-1/fs;
 
-TS = sum(t*ir)/sum(ir);
+TS = sum(t*h)/sum(h);
+
+end

@@ -131,5 +131,5 @@ PsychPortAudio('Close', playHandle);
 
 % take the ensemble average, i.e. along the 2nd dimension of Y
 y = mean(Y,2);
-%y = recordedAudio;
 
+end

@@ -164,4 +164,5 @@ if mod(length(h),avgSamples) ~= 0
     idx = k*avgSamples+1:length(h);
     hSmooth(idx) = 20*log10(mean(10.^(h(idx)/20)));
 end
+
 end

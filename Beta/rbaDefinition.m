@@ -40,3 +40,5 @@ end
 
 % calculate Clarity parameter, see ISO-3382-1 (A.11)
 D = sum(ir(1:int_idx).^2)/sum(ir.^2);
+
+end

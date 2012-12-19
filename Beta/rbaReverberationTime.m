@@ -152,6 +152,7 @@ for ii = 1:n
     stdDev(ii) = std(R(idxup:idxlow,ii)-L(idxup:idxlow,ii));
     end
 end
+
 end
 
 

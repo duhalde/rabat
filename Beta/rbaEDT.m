@@ -12,16 +12,16 @@ function [EDT,r2p] = rbaEDT(R,t)
 %       - t: Time vector in seconds.
 %   Output parameters:
 %       - EDT: Early Decay Time in seconds.
-%       - r2p: Correlation coefficient 1000*(1-r2), with 0 corresponding 
+%       - r2p: Correlation coefficient 1000*(1-r2), with 0 corresponding
 %              to a perfect correlation between data and fit.
-%              The decay curve is non-linear for r2p > 10. 
+%              The decay curve is non-linear for r2p > 10.
 %              According to ISO 3382-1:2009 (sec. B.3)
 %
 %   Ref: ISO 3382-1:2009(E) section (A.2.2)
 %
 %   See also: rbaBackInt
 %
-%   Author: Oliver Lylloff, Mathias Immanuel Nielsen & David Duhalde 
+%   Author: Oliver Lylloff, Mathias Immanuel Nielsen & David Duhalde
 %   Date: 10-11-2012, Last update: 10-11-2012
 %   Acoustic Technology, DTU 2012
 
@@ -40,33 +40,34 @@ if k<l
     t = t';
 end
 
-% Allocate 
+% Allocate
 L = zeros(m,n);
 rSqr = zeros(n,1);
 EDT = zeros(n,1);
 r2p = zeros(n,1);
 
 for ii = 1:n
-idx = find(R(:,ii)<-10,1,'first');    % Find first index where R is is below -10 dB
-
-coeff = polyfit(t(1:idx),R(1:idx,ii),1);    % Linear regression
-
-L(1:idx,ii) = coeff(1)*t(1:idx);    % Fitted curve
-
-% Compute r^2
-r2p(ii) = nonLinCheck(R(1:idx,ii),L(1:idx,ii));
-
-% Check non-linearity according to ISO 3382-1:2009 (sec. B.3)
-if 1000*(1-rSqr(ii)) > 10                 
-    warning('The decay curve looks non-linear. The calculated EDT may be wrong.')
+    idx = find(R(:,ii)<-10,1,'first');    % Find first index where R is is below -10 dB
+    
+    coeff = polyfit(t(1:idx),R(1:idx,ii),1);    % Linear regression
+    
+    L(1:idx,ii) = coeff(1)*t(1:idx);    % Fitted curve
+    
+    % Compute r^2
+    r2p(ii) = nonLinCheck(R(1:idx,ii),L(1:idx,ii));
+    
+    % Check non-linearity according to ISO 3382-1:2009 (sec. B.3)
+    if 1000*(1-rSqr(ii)) > 10
+        warning('The decay curve looks non-linear. The calculated EDT may be wrong.')
+    end
+    
+    EDT(ii) = t(find(L(1:idx,ii)<-10,1,'first'));
+    r2p(ii) = 1000*(1-r2);
 end
 
-EDT(ii) = t(find(L(1:idx,ii)<-10,1,'first'));
-r2p(ii) = 1000*(1-r2);
-end
 end
 
 function rSqr = nonLinCheck(R1,L1)
-    rSqr = sum((L1(:)-mean(R1)).^2)/sum((R1(:)-mean(R1)).^2);
+rSqr = sum((L1(:)-mean(R1)).^2)/sum((R1(:)-mean(R1)).^2);
 end
 

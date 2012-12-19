@@ -19,20 +19,22 @@ function BR = rbaBassRatio(h,fs)
 %   Date: 05-11-2012, Last update: 17-12-2012
 %   Acoustic Technology, DTU 2012
 
-% convert ir to mono, if stereo
-DIM = size(ir);
+% convert h to mono, if stereo
+DIM = size(h);
 if DIM(1)<DIM(2)
-    ir = ir(1,:);
+    h = h(1,:);
 else
-    ir = ir(:,1);
+    h = h(:,1);
 end
 
-% get frequency vector
+% get octave band frequency vector from 63 to 2000 Hz
 f = rbaGetFreqs(63,2000,1);
 
-R = rbaDecayCurve(ir, fs, min(f), max(f),'non-linear');
+R = rbaDecayCurve(h, fs, min(f), max(f),'non-linear');
 % find reverberation time for the frequencies
 RT = rbaRevTime(R, fs);
 
 % calculate Bass Ratio, definiton is given in [1]
 BR = (RT(f==63)+RT(f==125))/(RT(f==500)+RT(f==1000)+RT(f==2000));
+
+end

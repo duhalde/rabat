@@ -57,4 +57,4 @@ lags = -maxlag:maxlag;
 % crop output c to match lags
 c = [c(end-maxlag+1:end,:); c(1:maxlag+1,:)];
 
-
+end

@@ -40,3 +40,5 @@ end
 % calculate Clarity parameter, see ISO-3382-1 (A.12) or Note 4213 by Anders
 % Christian Gade pp. 16 for definition.
 C = 10*log10(sum(ir(1:int_idx).^2)/sum(ir(int_idx:end).^2));
+
+end
