@@ -14,7 +14,7 @@ function H = rbaIR2OctaveBands(h,fs,cfmin,cfmax,bandsPerOctave,reverse)
 %   Optional input parameters:
 %       - bandsPerOctave: number of bands per octave.
 %           defaults to 1 (octave bands)
-%       - reverse: allows the user to select a reverse filtering method,
+%       - reverse: Logical 1 or 0. Allows the user to select a reverse filtering method,
 %           which will reduce distortion in the signal, when using narrow
 %           banded filters, e.g. low frequency third octave filters.
 %   Output parameters:
