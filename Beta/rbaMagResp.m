@@ -1,30 +1,19 @@
-function rbaMagResp(g,fs,realOnly,dynrange)
-%MAGRESP   Magnitude response plot of window
+function rbaMagResp(g,fs,dynrange)
+%MAGRESP   Magnitude response plot of positive frequencies
 %   Usage:   magresp(g)
 %            magresp(g,fs)
-%            magresp(g,fs,realOnly)
-%            magresp(g,fs,realOnly,dynrange)
+%            magresp(g,fs,dynrange)
 %
 %   MAGRESP(g) will display the magnitude response of the window on a log
 %   scale (dB);
 %
 %   MAGRESP(g,fs) does the same for windows that are intended to be used
 %   with signals with sampling rate fs. The x-axis will display Hz.
-%
-%   MAGRESP(g,fs,L) zero-pads the signal to length L before plotting.
 % 
-%   MAGRESP(g,fs,L,dynrange) will limit the dynamic range.
-%   
-%   MAGRESP takes the following parameters at the end of the line of
-%   input arguments.
-%
-%      dynrange - Limit the dynamic range of the plot to r dB.
-%
-%      Show positive frequencies for real-valued signals,
-%           otherwise show also the negative frequencies.
+%   MAGRESP(g,fs,dynrange) will limit the dynamic range.
 
 %   Author: Oliver Lylloff, Mathias Immanuel Nielsen & David Duhalde
-%   Date: 19-12-2012, Last update: 19-12-2012
+%   Date: 19-12-2012, Last update: 20-12-2012
 %   Acoustic Technology, DTU 2012
 
 % 	This file is a simplified version of the function MAGRESP from LTFAT
@@ -34,15 +23,14 @@ function rbaMagResp(g,fs,realOnly,dynrange)
 
 
 if nargin == 1
-    fs = [];
-    realOnly = 0;
+    fs = [];    
     dynrange = [];
 elseif nargin == 2
-    realOnly = 0;
-    dynrange = [];
-elseif nargin == 3
     dynrange = [];    
 end;
+
+% default and only behaviour, at the moment.
+realOnly = 1;
 
 % normalize input signal
 g = g./max(max(abs(g)));

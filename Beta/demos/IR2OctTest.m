@@ -2,10 +2,10 @@ clear all
 close all
 clc
 
-[h,fs] = wavread('sounds/room.wav');
+[h,fs] = wavread('sounds/church.wav');
 t = 0:1/fs:length(h)/fs-1/fs;
-bandsPerOctave = 3;
-freqs = rbaGetFreqs(25,160,bandsPerOctave);
+bandsPerOctave = 1;
+freqs = rbaGetFreqs(63,4000,bandsPerOctave);
 H = rbaIR2OctaveBands(h(:,1), fs, min(freqs), max(freqs), bandsPerOctave,1);
 
 % plot an impulse respones for each band

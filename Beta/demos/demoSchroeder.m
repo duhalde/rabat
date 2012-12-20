@@ -10,7 +10,7 @@ freqs = rbaGetFreqs(cfmin,cfmax,bandsPerOctave);
 nCF = length(freqs);    
 [h,fs] = wavread('sounds/church.wav');
 
-[B,A] = rbaFilterBank(1,fs,cfmin,cfmax,1);
+[B,A] = rbaFilterBank(1,fs,cfmin,cfmax);
 
 h = mean(h,2);     % convert to mono by mean of stereo
 
