@@ -1,4 +1,4 @@
-function Hd = FilterBank(BandsPerOctave,fs,cfmin,cfmax,varargin)
+function [B,A] = rbaOldFilterBank(BandsPerOctave,fs,cfmin,cfmax,varargin)
 %
 %   Description: Calculate standardized octave or 3rd-octave band second 
 %       order section filters.
@@ -49,7 +49,7 @@ if BandsPerOctave == 3
         error('maximum center frequency is 20000 Hz');
     end
     % set filter order --NB check with ANSI S1.11-2004
-    N = 8;
+    N = 4;
 elseif BandsPerOctave == 1
     if cfmin < 31.5
         error('minimum center frequency is 31.5 Hz');
@@ -57,7 +57,7 @@ elseif BandsPerOctave == 1
         error('maximum center frequency is 16000 Hz');
     end
     % set filter order --NB check with ANSI S1.11-2004
-    N = 6;
+    N = 3;
 else
     error('Only 1 or 3 bands per octave is supported, at the moment.')
 end
@@ -76,7 +76,8 @@ nrCenterFrequencies = length(F1);
 
 for i = 1:nrCenterFrequencies
     f.F0 = F1(i);
-    Hd(i) = design(f,'butter');
+    Hd = design(f,'butter');
+    [B(:,i),A(:,i)] = sos2tf(Hd.sosMatrix,Hd.ScaleValues);
 end
 
 end

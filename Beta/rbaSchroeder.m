@@ -41,7 +41,11 @@ R = zeros(length(h),n);
 for i = 1:n
    
     % Calculate knee and RMS noise from Lundeby 
-    if nargin == 4 && strcmpi(varargin{1},'Lundeby');
+    if nargin == 3
+    [knee, rmsNoise] = rbaLundeby(h(:,i),fs);
+    knee = knee(end);
+    rmsNoise = rmsNoise(end);        
+    elseif nargin == 4 && strcmpi(varargin{1},'Lundeby');
     [knee, rmsNoise] = rbaLundeby(h(:,i),fs);
     knee = knee(end);
     rmsNoise = rmsNoise(end);
