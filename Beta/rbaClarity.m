@@ -1,7 +1,12 @@
 function C = rbaClarity(ir,fs,time)
 %
 %   Description:    Calculate clarity (C30,C50,C80) from impulse response
-%					according to ISO-3382
+%					according to ISO-3382. 
+%                   Note that the Clarity value is highly sensitive to 
+%                   the onset of the impulse response. Here the onset is set 
+%                   at 5ms before the peak of the impulse response. Some
+%                   other methods for determining the onset is discussed in
+%                   the referenced paper.
 %
 %   Usage: C = rbaClarity(ir,fs,time)
 %
@@ -12,6 +17,10 @@ function C = rbaClarity(ir,fs,time)
 %               		   e.g. 80 for C80
 %   Output parameters:
 %       - C: Calculated clarity parameter (C80 by default)
+%
+%   Reference: Defrance, G, L Daudet, and J D Polack. 2008. 
+%              ?Finding the Onset of a Room Impulse Response: Straightforward?.? 
+%               J. Acoust. Soc. Am. 124 (4): EL248?EL254.
 %
 %   Author: Oliver Lylloff, Mathias Immanuel Nielsen & David Duhalde
 %   Date: 05-11-2012, Last update: 17-12-2012
@@ -33,6 +42,12 @@ end
 
 % Determine proper onset of impulse response
 [~,idxstart] = max(ir);
+if idxstart > floor(5e-3*fs)
+idxstart = idxstart-floor(5e-3*fs);
+else
+    idxstart = 1;
+end
+ir = ir(idxstart:end);
 ir2 = ir.^2;
 
 % find index of integration time in ir
