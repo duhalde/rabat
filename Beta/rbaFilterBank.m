@@ -84,7 +84,8 @@ for m = 1:nCF
                num2str(fs)]);
     end
 	% get butterworth parameters.
-    [B(:,m),A(:,m)] = butter(N,[W1,W2]);
+    [B(:,m),A(:,m)] = butter(N,[flower/(fs/2),fupper/(fs/2)]);
+   % [B(:,m),A(:,m)] = butter(N,[W1,W2]);
 end
 
 end

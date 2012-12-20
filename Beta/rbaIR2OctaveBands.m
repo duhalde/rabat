@@ -50,7 +50,8 @@ freqs = rbaGetFreqs(cfmin,cfmax,bandsPerOctave);
 nCF = length(freqs);
 
 % Calculate filter coeeficients
-[B,A] = rbaFilterBank(bandsPerOctave,fs,cfmin,cfmax);
+Hi = rbaOldFilterBank(bandsPerOctave,fs,cfmin,cfmax);
+%[B,A] = rbaFilterBank(bandsPerOctave,fs,cfmin,cfmax);
 
 H = zeros(length(h),nCF);
 % filter rir with octave band filters
@@ -64,7 +65,8 @@ if reverse
 else
     % filter in a regular fashion
     for i = 1:nCF
-        H(:,i) = filter(B(:,i),A(:,i),h);   % apply filter
+        H(:,i) = filter(Hi(i),h);   % apply filter
+       % H(:,i) = filter(B(:,i),A(:,i),h);   % apply filter
     end
 end
 
