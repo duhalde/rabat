@@ -31,6 +31,8 @@ else
     ir = ir(:,1);
 end
 
+% Determine proper onset of impulse response
+[~,idxstart] = max(ir);
 ir2 = ir.^2;
 
 % find index of integration time in ir
