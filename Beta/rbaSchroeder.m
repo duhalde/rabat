@@ -1,14 +1,14 @@
-function R = rbaSchroeder(h,fs,flag,varargin)
+function R = rbaSchroeder(h,fs,noiseComp,varargin)
 %
 %   Description: Compute decay curve from Schröders backwards integration
 %                method
 %
-%   Usage: R = rbtSchroeder(h,fs,flag[,option])
+%   Usage: R = rbtSchroeder(h,fs,noiseComp[,option])
 %
 %   Input parameters:
 %       - h         : Impulse response
 %       - fs        : Sampling frequency
-%       - flag      : 1 or 0. Enable noise compensation 
+%       - noiseComp      : 1 or 0. Enable noise compensation 
 %   Optional input parameters:
 %       - 'Lundeby' : String enabling the use of Lundeby's method to determine
 %                     the kneepoint between decay and noise floor (default)
@@ -58,7 +58,7 @@ for i = 1:n
     end
     
     % Noise compensation
-    if flag == 1
+    if noiseComp == 1
         h2dB = 10*log10(h2(:,i));
         h2dB = h2dB-max(h2dB);
         % Average in intervals of 5ms
