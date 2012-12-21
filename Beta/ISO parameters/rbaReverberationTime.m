@@ -1,9 +1,8 @@
 function [RT, r2p,dynRange,stdDev] = rbaReverberationTime(R,t,varargin)
 %
-%
 %   Description: Calculate reverberation time from decay curve.
 %
-%   Usage: [RT, r2p, dynRange] = rbtReverberationTime(R,t,'all')
+%   Usage: [RT, r2p, dynRange,stdDev] = rbaReverberationTime(R,t,'all')
 %
 %   Input parameters:
 %       - R: Normalized decay curve calculated by e.g. Schröeders method. If R is a
@@ -35,10 +34,10 @@ function [RT, r2p,dynRange,stdDev] = rbaReverberationTime(R,t,varargin)
 %
 %   Ref: ISO 3382-1:2009(E) and ISO 3382-2:2008
 %
-%   See also: rbtBackInt
+%   See also: rbaSchroeder, rbaEDT
 % 
 %   Author: Oliver Lylloff, Mathias Immanuel Nielsen & David Duhalde 
-%   Date: 05-11-2012, Last update: 29-11-2012
+%   Date: 05-11-2012, Last update: 21-12-2012
 %   Acoustic Technology, DTU 2012
 
 if nargin == 2
@@ -68,18 +67,23 @@ idx = zeros(1,n);
 chk = (1:n);
 % Calculate the available dynamic range by assuming the last 5% is noise.
 for ii = 1:n
+    % If the decay curve has been truncated with user specified values,
+    % e.g. -100 dB, determine the last index of the original decay.
     idxFloor = find(R(:,ii)>min(R(:,ii)),1,'last');
     idx(ii) = floor(0.95*length(R(1:idxFloor,ii)));  % Cut away the last 5%.
     dynRange(ii) = R(1,ii)-R(idx(ii),ii);   % Calculate the dynamic range
+    % Make sure no reverberation time is computed if less than 25 dB
+    % dynamic range is available
     if dynRange(ii)<25
         chk(ii) = [];
+        warning(['Dynamic range too small to compute RT of R(:,' num2str(ii) '). Computation will be omitted.'])
     end
 end
 
+% Check available dynamic range of arrange output nicely
 if min(dynRange)<65
     if min(dynRange)<35
         if min(dynRange)<25
-            warning('Dynamic range too small to compute RT in one or more bands. Computation of RT will be omitted here.')
             [RT,r2,stdDev] = varT(R(:,chk),t,idx,[5 25]);
             r2p = 1000*(1-r2);
         else 
@@ -122,8 +126,9 @@ end
 
 end
 
-
 function [RT,r2,stdDev] = varT(R,t,idx,lim)
+% This is the general function for computation of reverberation time from 
+% the decay curve.
 [~,n] = size(R);
 [k,~] = size(t);
 up = lim(1); 
@@ -136,11 +141,9 @@ for ii = 1:n
     idxup = find(R(1:idx(ii),ii)<-up,1,'first');
     idxlow = find(R(1:idx(ii),ii)<-low,1,'first');
     coeff = polyfit(t(idxup:idxlow),R(idxup:idxlow,ii),1);
-    if coeff(1) == 0 || isempty(coeff(1));
-        RT(ii) = 0;
-    else
     L(:,ii) = coeff(1)*t+coeff(2);
-    
+    % Computations according to ISO 3382-1. Note this is only done for
+    % pedagogical reasons 
     if low == 65
         RT(ii) = -60/coeff(1);
     elseif low == 35
@@ -148,11 +151,10 @@ for ii = 1:n
     elseif low == 25
         RT(ii) = 3*(-20/coeff(1));
     end
+    % Check for non-linearity and calculate standard deviation
     r2(ii) = nonLinCheck(R(idxup:idxlow,ii),L(idxup:idxlow,ii));
     stdDev(ii) = std(R(idxup:idxlow,ii)-L(idxup:idxlow,ii));
-    end
 end
-
 end
 
 
