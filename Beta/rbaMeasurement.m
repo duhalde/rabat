@@ -22,6 +22,11 @@ function y = rbaMeasurement(signal, fs, N, estimatedRT, transient, latency)
 
 % Disable most status messages from PsychPortAudio during
 % initialization
+
+if  exist('PsychPortAudio','file') ~= 3
+    error('PsychToolbox is required to run rbaMeasurement. Please visit http://psychtoolbox.org/HomePage')
+end
+
 outputMsg = PsychPortAudio('Verbosity');
 if outputMsg > 2
     PsychPortAudio('Verbosity',2);
