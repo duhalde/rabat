@@ -1,4 +1,4 @@
-function R = rbaSchroeder(h,fs,noiseComp,varargin)
+function R = rbaSchroeder(h,fs,knee)
 %
 %   Description: Compute decay curve from Schröders backwards integration
 %                method
@@ -8,10 +8,7 @@ function R = rbaSchroeder(h,fs,noiseComp,varargin)
 %   Input parameters:
 %       - h         : Impulse response
 %       - fs        : Sampling frequency
-%       - noiseComp      : 1 or 0. Enable noise compensation 
 %   Optional input parameters:
-%       - 'Lundeby' : String enabling the use of Lundeby's method to determine
-%                     the kneepoint between decay and noise floor (default)
 %       - knee      : Index value for the kneepoint in samples
 %   Output parameters:
 %       - R: Normalized decay curve in dB
@@ -32,62 +29,57 @@ end
 
 h2 = h.^2;
 
-if nargin<3 && nargin > 4
-    error('Wrong number of input arguments')
-end
-
-R = zeros(length(h),n);
+R = zeros(m,n);
 
 for i = 1:n
    
     % Calculate knee and RMS noise from Lundeby 
-    if nargin == 3
+    if nargin == 2
     [knee, rmsNoise] = rbaLundeby(h(:,i),fs);
     knee = knee(end);
     rmsNoise = rmsNoise(end);        
-    elseif nargin == 4 && strcmpi(varargin{1},'Lundeby');
-    [knee, rmsNoise] = rbaLundeby(h(:,i),fs);
-    knee = knee(end);
-    rmsNoise = rmsNoise(end);
     % Calculate knee and RMS noise from user input
-    elseif nargin == 4 && isnumeric(varargin{1})
-    knee = ceil(varargin{1});
+    elseif nargin == 3
     h2dB = 10*log10(h2(:,1));
     h2dB = h2dB-max(h2dB);
     rmsNoise = mean(h2dB(knee:end));
     end
     
-    % Noise compensation
-    if noiseComp == 1
-        h2dB = 10*log10(h2(:,i));
-        h2dB = h2dB-max(h2dB);
-        % Average in intervals of 5ms
-        tAvg = ceil(fs*5e-3);
-        hSmooth = smooth(h2dB,tAvg);
-        idx = find(hSmooth(1:knee)<rmsNoise+10,1,'first');
-        coeff = polyfit((idx:knee),hSmooth(idx:knee)',1);
-        A = coeff(1);
-        B = coeff(2);
-        if A == 0   % Try another interval if A is zero
-            tAvg = ceil(fs*10e-3);
-            hSmooth = smooth(h2dB,tAvg);
-            idx = find(hSmooth(1:knee)<rmsNoise+10,1,'first');
-            coeff = polyfit((idx:knee),hSmooth(idx:knee)',1);
-            A = coeff(1);
-            B = coeff(2);
-        end
-        E0 = 10^(B/10);
-        a = log(10^(A/10));
-        E = -(E0/a)*exp(a*knee);
-        % E should be a positive parameter, if it's negative something went wrong.
-        if E < 0    
-            E = 0;
-        end
-        else
-        E = 0;      
-    end
+%% !!for later reference!!    
+%     % Noise compensation
+%     rmsNoise can be found e.g. from rbaLundeby() or as an average of the
+%     last 10 % of h
+% 
+%     if noiseComp == 1
+%         h2dB = 10*log10(h2(:,i));
+%         h2dB = h2dB-max(h2dB);
+%         % Average in intervals of 5ms
+%         tAvg = ceil(fs*10e-3);
+%         hSmooth = smooth(h2dB,tAvg);
+%         idx = find(hSmooth(1:knee)<rmsNoise+10,1,'first');
+%         coeff = polyfit((idx:knee),hSmooth(idx:knee)',1);
+%         A = coeff(1);
+%         B = coeff(2);
+%         if A == 0   % Try another interval if A is zero
+%             tAvg = ceil(fs*10e-3);
+%             hSmooth = smooth(h2dB,tAvg);
+%             idx = find(hSmooth(1:knee)<rmsNoise+10,1,'first');
+%             coeff = polyfit((idx:knee),hSmooth(idx:knee)',1);
+%             A = coeff(1);
+%             B = coeff(2);
+%         end
+%         E0 = 10^(B/10);
+%         a = log(10^(A/10));
+%         E = -(E0/a)*exp(a*knee);
+%         % E should be a positive parameter, if it's negative something went wrong.
+%         if E < 0    
+%             E = 0;
+%         end
+%         else
+%         E = 0;      
+%     end
     R(1:knee,i) = cumsum(h2(knee:-1:1,i));
-    R(1:knee,i) = 10*log10(R(knee:-1:1,i)+E);
+    R(1:knee,i) = 10*log10(R(knee:-1:1,i));
     R(1:knee,i) = R(1:knee,i)-max(R(1:knee,i));
     
     % Catch small values of decay curve and limit to 100 dB dynamic range

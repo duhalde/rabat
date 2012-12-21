@@ -5,71 +5,99 @@ close all
 h = h(:,1);     % I only want a mono signal
 t = 0:1/fs:length(h)/fs-1/fs;
 
+export = 1;
+path = '/Users/david/SVN/rabat/Report/figures/';
 %% crop and plot result
-[hCrop,tCrop,idxOnset,idxKnee] = rbaCropIR(h,fs);
+[hCrop,tCrop,idxOnset,idxKnee] = rbaCropIR(h,fs,'tight');
 
-figure(1)
+f1 = figure(1);
 plot(t,h)
 hold on
 plot(idxOnset/fs,h(idxOnset),'ro')
-plot(idxKnee/fs,h(idxKnee),'ro')
+plot(idxKnee/fs,h(idxKnee),'go')
 xlabel('Time [s]')
 ylabel('Magnitude')
+legend('ir','Onset','Knee point')
 
-figure(2)
+if export
+    name = [path 'markedCrops.eps'];
+    saveas(f1,name,'epsc');
+else
+    title('Original impulse response')
+end
+%%
+f2 = figure(2);
 plot(tCrop,hCrop)
 xlabel('Time [s]')
 ylabel('Magnitude')
 
+if export
+    name = [path 'Cropped.eps'];
+    saveas(f2,name,'epsc');
+else
+    title('Cropped impulse response')
+end
 %% Split into octave bands
 bandsPerOctave = 1;
 f = rbaGetFreqs(63,4000,bandsPerOctave);
 
+[h,t] = rbaCropIR(h,fs,'onset'); % crop onset on h
 H = rbaIR2OctaveBands(h,fs,min(f),max(f),bandsPerOctave);
 HCrop = rbaIR2OctaveBands(hCrop,fs,min(f),max(f),bandsPerOctave);
 
 %% Get decay curves
-hDecay = rbaSchroeder(H,fs,0);
-hDecayComp = rbaSchroeder(H,fs,1);
+hDecay = rbaSchroeder(H,fs,length(H));
 
-hCropDecay = rbaSchroeder(HCrop,fs,0);
-hCropDecayComp = rbaSchroeder(HCrop,fs,1);
+hOnsetDecay = rbaSchroeder(H,fs);
 
-%%
+hCropDecay = rbaSchroeder(HCrop,fs);
 
-figure(1)
-for i = 1:2
-RR5 = floor(0.95*length(RR(:,i)));
-RD5 = floor(0.95*length(RD(:,i)));
-subplot(1,2,i)
-plot(RR(:,i)), hold all
-plot(RD(:,i))
-title([num2str(freqs(i)) ' Hz'])
-ylim([-65 0])
-plot(RR5,RR(RR5,i),'or')
-plot(RD5,RD(RD5,i),'or')
-hold off
+%% PLOTTING WITHOUT LUNDEBY
+
+f3 = figure(3);
+% decay curves with only onset crop
+plot(t,hDecay)
+xlabel('Time [s]')
+ylabel('Normalized decay [dB]')
+% create cell array for legends, with frequency bands
+for i=1:length(f)
+leg{i} = num2str(f(i));
 end
-legend('Rabat','Dirac')
-%%
+legend(leg)
+% export or show title
+if export
+    name = [path 'OnsetCrop.eps'];
+    saveas(f3,name,'epsc');
+else
+    title('Original impulse response')
+title('decay curves with only onset crop')
+end
 
-% Get reverberation time
-[RTD, r2pD, dynRangeD] = rbaReverberationTime(RD,tD,'all');
-[RTR, r2pR, dynRangeR] = rbaReverberationTime(RR,tR,'all');
 
-% Results from Dirac
-T30 = [5.196 7.447 7.376 5.968 4.976 4.308 3.344 2.349 1.414 0.849];
-T20 = [6.141	7.531	7.309	5.892	4.989	4.312	3.333	2.284	1.379	0.937];
-%%
-figure(2)
-semilogx(freqs,T20(2:end-1),'--ob'), hold on
-plot(freqs,T30(2:end-1),'--db')
+f4 = figure(4);
+% decay curves with lundeby and onset crop
+plot(t,hOnsetDecay)
+xlabel('Time [s]')
+ylabel('Normalized decay [dB]')
+legend(leg)
+% export or show title
+if export
+    name = [path 'FrequencyCrop.eps'];
+    saveas(f4,name,'epsc');
+else
+    title('decay curves with onset crop and Lundeby on f-bands')
+end
 
-plot(freqs,RTR(1,:),'r--o')
-plot(freqs,RTR(2,:),'r--d')
-
-plot(freqs,RTD,'k--x'),
-
-set(gca,'XTick',freqs)
-axis([60 8000 0 max(T30)+1])
-legend('Dirac-derived T20','Dirac-derived T20','RABAT-derived T20','RABAT-derived T30','RABAT T20 from Dirac rec.')
+f5 = figure(5);
+% decay curves with lundeby and onset crop
+plot(tCrop,hCropDecay)
+xlabel('Time [s]')
+ylabel('Normalized decay [dB]')
+legend(leg)
+% export or show title
+if export
+    name = [path 'FrequencyAndBroadbandCrop.eps'];
+    saveas(f5,name,'epsc');
+else
+    title('decay curves with onset crop and Lundeby on broadband and f-bands')
+end

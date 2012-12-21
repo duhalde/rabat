@@ -23,7 +23,7 @@ function [knee, rmsNoise] = rbaLundeby(h,fs,maxIter,avgTime,noiseHeadRoom,dynRan
 
 if nargin < 3
     maxIter = 5;            %run maximun 5 times
-    avgTime = 10e-3;        % 10-50 ms averaging
+    avgTime = 50e-3;        % 10-50 ms averaging
     intervalsIn10dB = 10;   % 3-10
     noiseHeadRoom = 10;     % dB
     dynRange = 20;          % dB
