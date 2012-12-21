@@ -6,13 +6,17 @@ function [knee, rmsNoise] = rbaLundeby(h,fs,maxIter,avgTime,noiseHeadRoom,dynRan
 %   Usage: [knee, rmsNoise] = rbaLundeby(h,fs,maxIter,avgTime,noiseHeadRoom,dynRange)
 %
 %   Input parameters:
-%       - h:
-%       - fs:
+%       - h: Cropped impulse response
+%       - fs: Sampling frequency
 %   Optional input parameters:
-%       - maxIter:
-%       - avgTime:
-%       - noiseHeadRoom
-%       - dynRange:
+%       - maxIter: Maximum number of iterations (default = 5)
+%       - avgTime: Time averaging in seconds (default = 50e-3). Longer
+%       intervals are better for lower frequencies.
+%       - noiseHeadRoom: Interval in dB above noise level to be used for
+%       fitting curve (default = 10 dB)
+%       - dynRange: Dynamic range in dB to be used in calculating fit.
+%       Larger ranges are better if impulse response allows it (default =
+%       20 dB)
 %   Output parameters:
 %       - knee: Knee-point in samples
 %       - rmsNoise: The root-mean-square level of noise floor in dB
