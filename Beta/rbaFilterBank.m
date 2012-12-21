@@ -39,8 +39,8 @@ if BandsPerOctave == 1
         error('minimum center frequency is 31.5 Hz');
     elseif cfmin < 60
         warning('Filters are not trustworthy below the 63 Hz band.')
-    elseif cfmax > 16000
-        error('maximum center frequency is 16000 Hz');
+    elseif cfmax > 128000
+        error('maximum center frequency is 128000 Hz');
     end
     % set filter order --NB check with ANSI S1.11-2004
     N = 3;

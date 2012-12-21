@@ -1,25 +1,20 @@
 clear all
 close all
-clc
+
 
 path = '~/Dropbox/SpecialKursus/Measurements/newScaleModel/';
 
-[sigMod,fsMod] = wavread([path 'scalemodel1.wav']);
-
-[hCrop,t] = rbaCropIR(sigMod,fsMod);
-
-sigMod = hCrop;
-figure(1)
-plot(t,hCrop)
-% ylim([-3e-9 3e-9])
-title('Cropped impulse response in scale model')
+[h1Mod,fsMod] = wavread([path 'model5.wav']);
+[h1Full,fsFull] = wavread([path 'full5.wav']);
+[hCM,tM] = rbaCropIR(h1Mod,fsMod);
+[hCF,tF] = rbaCropIR(h1Full,fsFull);
 %% Scale all parameters
-K = 20; % scale factor
+K = 10; % scale factor
 fsRef = fsMod/K;
-t = 0:1/fsMod:length(sigMod)/fsMod-1/fsMod;
-tRef = t*K;
+t = 0:1/fsMod:length(hCM)/fsMod-1/fsMod;
+tRef = tM*K;
 % get center frequencies for reference and model
-fRef = rbaGetFreqs(125,1000,1);
+fRef = rbaGetFreqs(125,4000,1);
 fMod = fRef*K;
 
 %% reference ambience
@@ -32,43 +27,26 @@ TMod = 17;
 hrMod = 40;
 PaMod = 101.325;
 
-% air attenuation in dB/m
-%mfRef = mEvans(TRef,hrRef,PaRef,fRef); 
-%mfMod = mEvans(TMod,hrMod,PaMod,fMod);
-mfRef = EACm(TRef,hrRef,PaRef,fRef);
-mfMod = EACm(TMod,hrMod,PaMod,fMod);
+[hFull,tRef] = rbaScaleModel(hCM,fsMod,K,fRef,[TRef TMod],[hrRef hrMod]);
 
-
-cRef = 344;
-cMod = cRef;
-
-% absorption discrepancies (ie. difference in absorption between reference and model)
-bn = mfMod.*cMod-K*mfRef.*cRef;
-
-% Compensation filter
-H = zeros(length(tRef),length(bn));
-for i = 1:length(bn)
-    H(:,i) = 10.^(bn(i)*tRef/20);
-end
-
-% convert signal to octave bands
-sigModOct = rbaIR2OctaveBands(hCrop,fsRef,min(fRef),max(fRef));
-
-for i = 1:size(sigModOct,2)
-[knee, rmsNoise] = rbaLundeby(sigModOct(:,i),fsRef);
-kn(i) = knee(end);
-rm(i) = rmsNoise(end);
-%sigRefOct(:,i) = (sigModOct(1:kn(i),i).*H(1:kn(i),i));
-sigRefOct(:,i) = [(sigModOct(1:kn(i),i).*H(1:kn(i),i)); H(kn(i),i).*sigModOct(kn(i)+1:end,i)];
-end
-sigRef = sum(sigRefOct,2);
+%% Plot figures
+figure(1)
+plot(hCM)
+title('Cropped impulse response in scale model')
 figure(2)
-plot(tRef,sigRef)
-% ylim([-3e-9 3e-9])
-
-%%
-
-[hFull,tRef] = rbaScaleModel(sigMod,fsMod,K,fRef,[TRef TMod],[hrRef hrMod]);
+plot(hFull)
+title('Full scale impulse response (RBA)')
 figure(3)
-plot(tRef,hFull)
-ylim([-3e-9 3e-9])
+plot(hCF)
+title('Full scale impulse response (Dirac)')
+%ylim([-3e-9 3e-9])
+%% RBA
+h1N = hFull/max(hFull);
+Hoct1 = rbaIR2OctaveBands(h1N,fsFull,min(fRef),max(fRef),1,0);
+R1 = rbaSchroeder(Hoct1,fsFull,0);
+[RT1, r2p, dynRange,stdDev1] = rbaReverberationTime(R1,tRef,'best');
+RT1
+%% Dirac
+Hoct1D = rbaIR2OctaveBands(hCF,fsFull,min(fRef),max(fRef),1,0);
+R1D = rbaSchroeder(Hoct1D,fsFull,0);
+[RT1D, r2p, dynRange,stdDev1D] = rbaReverberationTime(R1D,tRef,'best');
