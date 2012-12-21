@@ -1,4 +1,4 @@
-function y = rbaMeasurement(signal, fs, N, estimatedRT, transient, latency)
+function y = rbaMeasurement(signal, fs, N, estimatedRT, latency)
 %
 %   Description: Performs a system response measurement with the default
 %   input and output ports of the computer operating system.
@@ -15,18 +15,19 @@ function y = rbaMeasurement(signal, fs, N, estimatedRT, transient, latency)
 %       - y             : Measured Signal
 %
 %   Author: Oliver Lylloff, Mathias Immanuel Nielsen & David Duhalde
-%   Date: 23-9-2012, Last update: 2-12-2012
+%   Date: 23-9-2012, Last update: 21-12-2012
 %   Acoustic Technology, DTU 2012
 %
 
 
-% Disable most status messages from PsychPortAudio during
-% initialization
 
+% Check if PsychPortAudio is installed
 if  exist('PsychPortAudio','file') ~= 3
     error('PsychToolbox is required to run rbaMeasurement. Please visit http://psychtoolbox.org/HomePage')
 end
 
+% Disable most status messages from PsychPortAudio during
+% initialization
 outputMsg = PsychPortAudio('Verbosity');
 if outputMsg > 2
     PsychPortAudio('Verbosity',2);

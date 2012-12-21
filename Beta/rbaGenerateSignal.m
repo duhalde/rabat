@@ -1,8 +1,14 @@
 function [y,t] = rbaGenerateSignal(sig_type,varargin)
 %
-%   Description: Generate signals
+%   Description: 
+%          Generate measurement signal
 %
-%   Usage: [y,t] = rbaGenerateSignal(sig_type,varargin)
+%   Usage:
+%          [y,t] = rbaGenerateSignal('logsin',fs,f1,f2,length_sig,zero_pad,amp,phase)
+%          [y,t] = rbaGenerateSignal('linsin',fs,f1,f2,length_sig,zero_pad,amp,phase)
+%          [y,t] = rbaGenerateSignal('sin',fs,f0,length_sig,amp,phase)
+%          [y,t] = rbaGenerateSignal('mls',fs, n, amp, zero_pad, offset)
+%          
 %
 %   Input parameters:
 %       - sig_type: String specifing the type of signal to be generated
@@ -10,7 +16,6 @@ function [y,t] = rbaGenerateSignal(sig_type,varargin)
 %         'linsin'  : Linear sine sweep
 %         'sin'     : Sine signal
 %         'mls'     : MLS
-%       - varargin: Variable input parameter list depending on signal
 %
 %   Output parameters:1
 %       - y: sampled signal
@@ -74,7 +79,7 @@ function [y,t] = rbaGenerateSignal(sig_type,varargin)
 %
 %
 %   Author: Oliver Lylloff, Mathias Immanuel Nielsen & David Duhalde
-%   Date: 11-9-2012, Last update: 1-10-2012
+%   Date: 11-9-2012, Last update: 21-12-2012
 %   Acoustic Technology, DTU 2012
 
 switch lower(sig_type)
@@ -88,15 +93,13 @@ switch lower(sig_type)
         length_sec = varargin{4};
         win_len = 1.1;
         if nargin == 5
-        [s ,t] = rbaLogSin(f1/win_len,f2*win_len,fs,length_sec);
+        [y ,t] = rbaLogSin(f1,f2,fs,length_sec);
         elseif nargin > 5 && nargin < 9
             arg = varargin{5:end};
-            [s,t] = rbaLogSin(f1/win_len,f2*win_len,fs,length_sec,arg);
+            [y,t] = rbaLogSin(f1,f2,fs,length_sec,arg);
         elseif nargin > 8
             error('Too many input arguments')
         end
-        win = sweepwin(length(s),f1/win_len,f2*win_len,f1,f2,sig_type);
-        y = s.*win;
         end
 
     case 'linsin'
@@ -107,17 +110,14 @@ switch lower(sig_type)
         f1 = varargin{2};
         f2 = varargin{3};
         length_sec = varargin{4};
-        win_len = 1.2;
         if nargin == 5
-            [s,t] = rbaLinSin(f1/win_len,f2*win_len,fs,length_sec);
+            [y,t] = rbaLinSin(f1,f2,fs,length_sec);
         elseif nargin > 5 && nargin < 9
             arg = varargin{5:end};
-            [s,t] = rbaLinSin(f1/win_len,f2*win_len,fs,length_sec,arg);
+            [y,t] = rbaLinSin(f1,f2,fs,length_sec,arg);
         else
             error('Too many input arguments')
         end
-        win = sweepwin(length(s),f1/win_len,f2*win_len,f1,f2,sig_type);
-        y = s.*win;
         end
 
     case 'sin'
@@ -498,36 +498,4 @@ else
     end
 end
 
-end
-
-
-function win = sweepwin(N,flow,fup,f1,f2,type)
-%
-% Usage: win = sweepwin(N,flow,fup,f1,f2,type)
-%
-%   Input parameters:
-%       N = Window length
-%       flow = Lower frequency
-%       fup = Higher frequency
-%       f1 = First frequency of interest
-%       f2 = Last frequency of interest
-%       type = 'linsin' or 'logsin'
-%
-%   Author: Toni Torras, Date: 27-4-2009, Last update: 27-4-2009
-
-if strcmpi(type,'linsin')
-    n1 = floor(N*(f1-flow)/(fup-flow));
-    n2 = ceil(N*(f2-flow)/(fup-flow));
-elseif strcmpi(type,'logsin')
-    n1 = floor(N*log(f1/flow)/log(fup/flow));
-    n2 = ceil(N*log(f2/flow)/log(fup/flow));
-else
-    error('Wrong input parameter. Type must be either ''linsin'' or ''logsin''');
-end
-
-win = ones(1,N);
-n = 1:n1;
-win(1,n) = (1 + cos(pi*(n-n1)/n1))/2;
-n = n2:N;
-win(1,n) = (1 + cos(pi*(n-n2)/(N-n2)))/2;
 end
