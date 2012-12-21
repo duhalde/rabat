@@ -13,8 +13,7 @@ length_sig = 5;     % Duration of sweep in seconds
 % Start measurement
 RT = 1;             % Estimated reverberation time of room
 N = 4;              % number of sweeps to average over
-transient = 0;
-y = rbaMeasurement(sweep,fs,N,RT,transient);
+y = rbaMeasurement(sweep,fs,N,RT);
 
 % Compute impulse response
 h = sweepdeconv(sweep,y,f1,f2,fs);
