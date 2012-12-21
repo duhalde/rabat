@@ -84,10 +84,11 @@ for m = 1:nCF
 	%W2 = fc(m)/(fs/2)/alpha;
 	
 	% make sure that the nyquist theorem (fs/2 > max(f)) is not violated.
-    %if W1 > 1 || W2 > 1
-    %    error(['You are violating the Nyquist Theorem. The ' num2str(fc(m))...
-    %           ' Hz band cannot be processed, with a sampling frequency of '...
-    %           num2str(fs)]);
+    if flower/(fs/2) > 1 || fupper/(fs/2) > 1
+	    error(['You are violating the Nyquist Theorem. The ' num2str(fc(m))...
+	              ' Hz band cannot be processed, with a sampling frequency of '...
+	              num2str(fs)]);
+	end
     
 	% get butterworth parameters.
     [B(:,m),A(:,m)] = butter(N,[flower/(fs/2),fupper/(fs/2)]);

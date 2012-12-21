@@ -1,15 +1,18 @@
-function R = rbaSchroeder(h,fs)
+function R = rbaSchroeder(H,fs,knee)
 %
 %   Description: Compute decay curve from Schroeders backwards integration
 %                method
 %
-%   Usage: R = rbtSchroeder(h,fs)
+%   Usage: R = rbtSchroeder(H,fs)
 %
 %   Input parameters:
-%       - h         : Impulse response
-%       - fs        : Sampling frequency
+%       - H: Impulse response, normally matrix with frequency bands in the columns.
+%       - fs: Sampling frequency
+%   Optional parameters:
+%       -knee: self-chosen knee point, which will override the lundeby
+%       method, which is default.
 %   Output parameters:
-%       - R: Normalized decay curve in dB
+%       - R: Normalized decay curve in dB for each column of input H.
 %
 %   Ref: ISO 3382-1:2009(E) section 5.3.3
 %
@@ -18,14 +21,14 @@ function R = rbaSchroeder(h,fs)
 %   Acoustic Technology, DTU 2012
 
 % Check size of h
-[m,n] = size(h);
+[m,n] = size(H);
 
 if m<n
-    h = h';
-    [m,n] = size(h);
+    H = H';
+    [m,n] = size(H);
 end
 
-h2 = h.^2;
+H2 = H.^2;
 
 R = zeros(m,n);
 
@@ -33,14 +36,14 @@ for i = 1:n
    
     % Calculate knee and RMS noise from Lundeby 
     if nargin == 2
-    [knee, rmsNoise] = rbaLundeby(h(:,i),fs);
+    [knee, rmsNoise] = rbaLundeby(H(:,i),fs);
     knee = knee(end);
     rmsNoise = rmsNoise(end);        
     % Calculate knee and RMS noise from user input
     elseif nargin == 3
-    h2dB = 10*log10(h2(:,1));
-    h2dB = h2dB-max(h2dB);
-    rmsNoise = mean(h2dB(knee:end));
+    H2dB = 10*log10(H2(:,1));
+    H2dB = H2dB-max(H2dB);
+    rmsNoise = mean(H2dB(knee:end));
     end
     
 %% !!for later reference!!    
@@ -76,7 +79,7 @@ for i = 1:n
 %         else
 %         E = 0;      
 %     end
-    R(1:knee,i) = cumsum(h2(knee:-1:1,i));
+    R(1:knee,i) = cumsum(H2(knee:-1:1,i));
     R(1:knee,i) = 10*log10(R(knee:-1:1,i));
     R(1:knee,i) = R(1:knee,i)-max(R(1:knee,i));
     
