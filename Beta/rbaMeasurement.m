@@ -14,6 +14,9 @@ function y = rbaMeasurement(signal, fs, N, estimatedRT, latency)
 %   Output parameters:
 %       - y             : Measured Signal
 %
+%   NB! This function requires PsychToolbox:
+%   http://psychtoolbox.org/HomePage
+%
 %   Author: Oliver Lylloff, Mathias Immanuel Nielsen & David Duhalde
 %   Date: 23-9-2012, Last update: 21-12-2012
 %   Acoustic Technology, DTU 2012
