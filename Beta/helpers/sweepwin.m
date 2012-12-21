@@ -12,14 +12,14 @@ function win = sweepwin(N,flow,fup,f1,f2,type)
 %
 %   Author: Toni Torras, Date: 27-4-2009, Last update: 27-4-2009
 
-if strcmpi(type,'Lin')
+if strcmpi(type,'linsin')
     n1 = floor(N*(f1-flow)/(fup-flow));
     n2 = ceil(N*(f2-flow)/(fup-flow));
-elseif strcmpi(type,'Log')
+elseif strcmpi(type,'logsin')
     n1 = floor(N*log(f1/flow)/log(fup/flow));
     n2 = ceil(N*log(f2/flow)/log(fup/flow));
 else
-    error('Wrong input parameter. Type must be either ''Lin'' or ''Log''');
+    error('Wrong input parameter. Type must be either ''linsin'' or ''logsin''');
 end
 
 win = ones(1,N);

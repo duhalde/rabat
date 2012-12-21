@@ -1,4 +1,4 @@
-function y = rbaMeasurement(signal, fs, N, estimatedRT, latency)
+function y = rbaMeasurement(signal, fs, N, estimatedRT)
 %
 %   Description: Performs a system response measurement with the default
 %   input and output ports of the computer operating system.
@@ -6,10 +6,10 @@ function y = rbaMeasurement(signal, fs, N, estimatedRT, latency)
 %   Usage: y = rbaMeasurement(signal, fs, N, estimatedRT)
 %
 %   Input parameters:
-%       - signal        : Measurement Signal
-%       - fs            : Sampling frequency
-%       - N             : Number of Averages
-%       - estimatedRT   : Estimated reverberation time in seconds
+%       - signal         : Measurement Signal
+%       - fs             : Sampling frequency
+%       - N              : Number of Averages
+%       - estimatedRT    : Estimated reverberation time in seconds
 %
 %   Output parameters:
 %       - y             : Measured Signal
@@ -45,8 +45,8 @@ nrChannels = 1;
 signalSeconds = length(signal)/fs;
 
 % Open channels for playback and recording
-playHandle = PsychPortAudio('Open', [], [], latency, fs, nrChannels);
-recHandle = PsychPortAudio('Open', [], 2, latency, fs, nrChannels);
+playHandle = PsychPortAudio('Open', [], [], [], fs, nrChannels);
+recHandle = PsychPortAudio('Open', [], 2, [], fs, nrChannels);
 
 % Restore output message settings to default level
 PsychPortAudio('Verbosity',outputMsg);
