@@ -1,6 +1,6 @@
 % Compare scale model measurements
 % cd to measurements in DropBox
-cd /Users/Oliver/Dropbox/SpecialKursus/Measurements/ScaleModel/dirac
+cd /Users/Oliver/Dropbox/SpecialKursus/Measurements/newScaleModel/
 
 %% Load wav measurements in model and full scale
 [h1full,fsFull] = wavread('model1/fullScale.wav');
