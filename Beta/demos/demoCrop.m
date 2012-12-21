@@ -1,7 +1,7 @@
 clear all
 close all
 % Load impulse response from wav:
-[h,fs] = wavread('sounds/');
+[h,fs] = wavread('sounds/LargeRevChamberRBA1.wav');
 h = h(:,1);     % I only want a mono signal
 t = 0:1/fs:length(h)/fs-1/fs;
 
