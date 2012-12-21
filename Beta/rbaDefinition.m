@@ -1,4 +1,4 @@
-function D = rbaDefinition(ir,fs,time)
+function D = rbaDefinition(h,fs,time)
 %
 %   Description:    Calculate definition parameter (D50 by default) 
 %	in accordance with ISO-3382
@@ -23,32 +23,36 @@ elseif nargin == 2
     time = 50;  % calculate D%= by default
 end
 
-% convert ir to mono, if stereo
-DIM = size(ir);
-if DIM(1)<DIM(2)
-    ir = ir(1,:);
-else
-    ir = ir(:,1);
+% Check size of h
+[m,n] = size(h);
+% ensure that octave bands are in the columns
+if m<n
+    h = h';
+    [m,n] = size(h);
 end
 
+% initialize output column vector
+D = zeros(1,n);
+idxstart = zeros(1,n);
+for i = 1:n
 % Determine proper onset of impulse response
-[~,idxstart] = max(ir);
-if idxstart > floor(5e-3*fs)
-idxstart = idxstart-floor(5e-3*fs);
+[~,idxstart(i)] = max(h(:,i));
+if idxstart(i) > floor(5e-3*fs)
+idxstart(i) = idxstart(i)-floor(5e-3*fs);
 else
-    idxstart = 1;
+    idxstart(i) = 1;
 end
-ir = ir(idxstart:end);
-ir2 = ir.^2;
+h2 = h(idxstart(i):end,i).^2;
 
 % find index of integration time in ir
 int_idx = ceil(time*1e-3*fs);
 % error handling
-if int_idx > length(ir)
-    error('Impulse response must be longer than wanted time intergration!')
+if int_idx > length(h2)
+    error('Impulse response must be longer than wanted time integration!')
 end
 
 % calculate Clarity parameter, see ISO-3382-1 (A.11)
-D = sum(ir2(1:int_idx))/sum(ir2);
+D(:,i) = sum(h2(1:int_idx))/sum(h2);
 
+end
 end
