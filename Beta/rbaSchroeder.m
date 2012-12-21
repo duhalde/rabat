@@ -1,15 +1,13 @@
-function R = rbaSchroeder(h,fs,knee)
+function R = rbaSchroeder(h,fs)
 %
-%   Description: Compute decay curve from Schröders backwards integration
+%   Description: Compute decay curve from Schroeders backwards integration
 %                method
 %
-%   Usage: R = rbtSchroeder(h,fs,noiseComp[,option])
+%   Usage: R = rbtSchroeder(h,fs)
 %
 %   Input parameters:
 %       - h         : Impulse response
 %       - fs        : Sampling frequency
-%   Optional input parameters:
-%       - knee      : Index value for the kneepoint in samples
 %   Output parameters:
 %       - R: Normalized decay curve in dB
 %
