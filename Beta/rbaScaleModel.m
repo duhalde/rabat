@@ -1,7 +1,7 @@
 function [hFull,tFull] = rbaScaleModel(hModel,fsModel,K,fFull,T,hr,Pa)
 %
 %   Description: Rescale impulse response measured in a 1/K scale model 
-%   according to ISO 9613-1 and compensation for excess air attenuation.
+%   according to ISO 9613-1 and compensate for excess air attenuation.
 %   NOTE: This function is still under development and further testing is
 %   needed in order to verify its functionality.
 %
@@ -28,14 +28,25 @@ function [hFull,tFull] = rbaScaleModel(hModel,fsModel,K,fFull,T,hr,Pa)
 %           attenuation.
 %       - tFull: Full-scale time vector
 %
+%   See also: rbaIR2OctaveBands
+%
+%   References: ISO 9613-1. 
+%               Boone, M M, and E Braat-Eggen. 
+%               'Room Acoustic Parameters in a Physical Scale Model of the
+%               New Music Centre in Eindhoven: Measurement Method and Results.'
+%               Applied Acoustics 42 (1): 13?28 (1994).
+%
 %   Author: Oliver Lylloff, Mathias Immanuel Nielsen & David Duhalde 
 %   Date: 16-12-2012, Last update: 21-12-2012
 %   Acoustic Technology, DTU 2012
 
+% Construct time vector
 tMod = (0:1/fsModel:length(hModel)/fsModel-1/fsModel);
 tFull = tMod*K;
+% Scale frequencies
 fMod = fFull*K;
 
+% Input check
 if length(T)==2
 TFull = T(1);
 TMod = T(2);
@@ -64,16 +75,21 @@ elseif nargin == 7
         PaMod = T(1);
     end
 end
-  
-%mfFull = mEvans(TFull,hrFull,PaFull,fFull);
-%mfMod = mEvans(TMod,hrMod,PaMod,fMod);
+
+% Calculate simplified air absorption m [dB/m]
+% mfFull = mEvans(TFull,hrFull,PaFull,fFull);
+% mfMod = mEvans(TMod,hrMod,PaMod,fMod);
+
+% Calculate air absorption m [dB/m] from ISO 9613-1
 [mfFull,cFull] = EACm(TFull,hrFull,PaFull,fFull);
 [mfMod,cMod] = EACm(TMod,hrMod,PaMod,fMod);
 
-% absorption discrepancies (ie. difference in absorption between reference and model)
+% Absorption discrepancy (ie. difference in absorption between reference and model)
 bn = mfMod.*cMod-K*mfFull.*cFull;
 
-% Compensation filter
+% Compensation filter applies a gain factor in the time domain according to
+% the excess air attenuation in a scale model. The filter is applied to
+% octave bands and is assumed constant over the band.
 H = zeros(length(tMod),length(bn));
 for i = 1:length(bn)
     H(:,i) = 10.^(bn(i)*tMod/20);
@@ -82,14 +98,18 @@ end
 % convert signal to octave bands
 sigModOct = rbaIR2OctaveBands(hModel,fsModel,min(fMod),max(fMod));
 
+% Allocate
 sigFullOct = zeros(size(sigModOct));
 kn = zeros(size(sigModOct,2),1);
+% Multiply impulse response with filter H for each octave band.
 for i = 1:size(sigModOct,2)
 knee = rbaLundeby(sigModOct(:,i),fsModel);
 kn(i) = knee(end);
 sigFullOct(:,i) = [(sigModOct(1:kn(i),i).*H(1:kn(i),i)); H(kn(i),i).*sigModOct(kn(i)+1:end,i)];
 end
 
+% The full-scale broadband impulse response is obtained by a summation of
+% the corrected octave band filtered responses
 hFull = sum(sigFullOct,2);
 
 end
@@ -107,6 +127,8 @@ function [m,c] = EACm(T,hr,Pa,f)
 % Oliver Lylloff, Mathias Immanuel Nielsen & David Duhalde
 %   Date: 16-12-2012, Last update: 21-12-2012
 %   Acoustic Technology, DTU 2012
+%
+% Reference: ISO 9613-1
 % 
 % Initial values
 Pr = 101.325; % reference ambient atmospheric pressure, in kilopascals
@@ -147,6 +169,10 @@ function m=mEvans(T,hr,Pa,f)
 %   Date: 16-12-2012, Last update: 21-12-2012
 %   Acoustic Technology, DTU 2012
 %
+% Reference: E.J. Evans and E. N. Bazley. 
+%            'The absorption of sound in air at audio frequencies.'
+%             Acoustic, Vol. 6, 1956.
+% 
 % Initial values
 Pr = 101.325; % reference ambient atmospheric pressure, in kilopascals
 T0 = 293.15; % reference air temperature, in kelvin
