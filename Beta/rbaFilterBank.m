@@ -2,7 +2,7 @@ function [B,A] = rbaFilterBank(BandsPerOctave,fs,cfmin,cfmax)
 %
 %   Description: Calculate octave or 3rd-octave band filters according 
 %	to the ANSI S1.11-2004. Note: The filters are only trustworthy for
-%	frequencies at and above 63 Hz at this time.
+%	frequencies bands at and above 63 Hz at this time.
 %
 %   Usage: Hd = filterBank(BandsPerOctave,fs,cfmin,cfmax)
 %
@@ -38,9 +38,9 @@ if BandsPerOctave == 1
     if cfmin < 31.5
         error('minimum center frequency is 31.5 Hz');
     elseif cfmin < 60
-        warning('Filters are not trustworthy below the 63 Hz band.')
-    elseif cfmax > 128000
-        error('maximum center frequency is 128000 Hz');
+        warning('Filters may not be trustworthy below the 63 Hz band.')
+    elseif cfmax > 64000
+        error('maximum center frequency is 64000 Hz');
     end
     % set filter order --NB check with ANSI S1.11-2004
     N = 3;
@@ -48,9 +48,9 @@ elseif BandsPerOctave == 3
     if cfmin < 25
         error('minimum center frequency is 25 Hz');
     elseif cfmin < 60
-        warning('Filters are not trustworthy below the 63 Hz band.')
-    elseif cfmax > 20000
-        error('maximum center frequency is 20000 Hz');
+        warning('Filters may not be trustworthy below the 63 Hz band.')
+    elseif cfmax > 64000
+        error('maximum center frequency is 64000 Hz');
     end
     % set filter order --NB check with ANSI S1.11-2004
     N = 3;
