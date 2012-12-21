@@ -6,7 +6,7 @@ function [knee, rmsNoise] = rbaLundeby(h,fs,maxIter,avgTime,noiseHeadRoom,dynRan
 %   Usage: [knee, rmsNoise] = rbaLundeby(h,fs,maxIter,avgTime,noiseHeadRoom,dynRange)
 %
 %   Input parameters:
-%       - h: Cropped impulse response
+%       - h: Impulse response (best results are obtained if the impulse response has been cropped at the onset)
 %       - fs: Sampling frequency
 %   Optional input parameters:
 %       - maxIter: Maximum number of iterations (default = 5)
@@ -21,8 +21,16 @@ function [knee, rmsNoise] = rbaLundeby(h,fs,maxIter,avgTime,noiseHeadRoom,dynRan
 %       - knee: Knee-point in samples
 %       - rmsNoise: The root-mean-square level of noise floor in dB
 %
+%   Reference: Lundeby, A, T E Vigran, H Bietz, and M Vorlander. 
+%              Uncertainties of Measurements in Room Acoustics. 
+%              Acta Acustica United with Acustica 81 (4): 344?355. (1995)
+%               
+%              Antsalo, P, A Makivirta, V Valimaki, T Peltonen, and M Karjalainen.
+%              Estimation of Modal Decay Parameters From Noisy Response Measurements. 
+%              Convention paper. (2012)
+%
 %   Author: Oliver Lylloff, Mathias Immanuel Nielsen & David Duhalde
-%   Date: 11-9-2012, Last update: 17-12-2012
+%   Date: 11-9-2012, Last update: 21-12-2012
 %   Acoustic Technology, DTU 2012
 
 if nargin < 3
@@ -34,6 +42,7 @@ if nargin < 3
     
 end
 
+% Make sure h is oriented properly
 [m,n] = size(h);
 
 if m<n
@@ -44,7 +53,6 @@ end
 % Allocate
 h2 = zeros(m,n);
 hSqrSmooth = zeros(m,n);
-
 for i = 1:n
     % Squared impulse response normalized in dB
     h2(:,i) = 10*log10(h(:,i).^2);
@@ -94,20 +102,12 @@ for i = 1:n
     %% STEP 7
     
     for k=1:maxIter
-        %%
-        % Plots for debugging
-        %subplot(xdim,ydim,k); plot(hSqrSmooth); hold all;
-        %plot([0,length(hSqrSmooth)],[rmsNoise(k), rmsNoise(k)],'r--');
-        
         % cross point between decay and noise-5dB
         noiseIdx = ceil((rmsNoise(k)-noiseHeadRoom-b)/a);
         % make sure we have 10% of response in noise estimate
         if noiseIdx > floor(0.9*length(h2))
             noiseIdx = floor(0.9*length(h2));
         end
-        
-        %plot([noiseIdx,noiseIdx],[min(hSqrSmooth),0],'k--');
-        
         
         % determine background noise level
         noise_data = hSqrSmooth(noiseIdx:end,i);
@@ -123,10 +123,7 @@ for i = 1:n
         if isempty(id1)
             id1 = 1;
         end
-        
-        %plot([0,length(hSqrSmooth)],[rmsNoise(k+1)+noiseHeadRoom,rmsNoise(k+1)+noiseHeadRoom],'b--')
-        %plot([0,length(hSqrSmooth)],[rmsNoise(k+1)+dynRange+noiseHeadRoom,rmsNoise(k+1)+dynRange+noiseHeadRoom],'b--')
-        
+
         % linear regression on smoothed rir until the SPL is noise floor + 5dB
         coeff = polyfit((id1:id2)',hSqrSmooth(id1:id2,i),1);
         a = coeff(1);
@@ -134,11 +131,6 @@ for i = 1:n
         %% STEP 9
         % preliminary cross point
         preCross(k+1) = (rmsNoise(k+1)-b)/a;
-        %if preCross(k+1)>length(h2)
-        %    preCross(k+1) = length(h2);
-        %end
-        x = (0:length(hSqrSmooth(:,i)));
-        %plot(x,a.*x+b,'k');
     end
     
     knee = floor(preCross);
@@ -155,7 +147,7 @@ end
 end
 
 function hSmooth = smooth(h,avgSamples)
-
+% Smoothing function for time-averaging
 % process in blocks
 hSmoothSize = length(h)/avgSamples;
 hSmooth = zeros(length(h),1);
