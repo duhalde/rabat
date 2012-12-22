@@ -3,7 +3,9 @@ function [hCrop,t,Onset,Knee] = rbaCropIR(h,fs,typeOfCrop)
 %   Description: Crop impulse response according to ISO 3382 and optionally
 %                Lundeby's method.
 %
-%   Usage: [hCrop,t] = rbaCropIR(h,fs[,knee])
+%   Usage: [hCrop,t,Onset,Knee] = rbaCropIR(h,fs)
+%          [hCrop,t,Onset,Knee] = rbaCropIR(h,fs,'onset')
+%          [hCrop,t,Onset,Knee] = rbaCropIR(h,fs,'tight')
 %
 %   Input parameters:
 %       - h: Broadband impulse response. If h is a matrix then it's assumed
@@ -19,11 +21,9 @@ function [hCrop,t,Onset,Knee] = rbaCropIR(h,fs,typeOfCrop)
 %   Output parameters:
 %       - hCrop: Cropped impulse response.
 %       - t: Time vector of cropped impulse response
-% 
-%   Optional input parameters:    
+%
 %       NOTE: the returned indexes are relative to the time of the input.
 %       And points out the boundaries of output t in the input h.
-%       
 %       - Onset: Sample at which impulse begins
 %       - Knee: Sample at which sound decay meets noise floor (knee point).
 %                   if no cut is made at the knee (typeOfCut = 'onset', default) 
