@@ -37,4 +37,3 @@ legend(leg)
 % show title
 title('decay curves with onset crop')
 
-% if you want more parameters at this time, see demoCalculations.m
