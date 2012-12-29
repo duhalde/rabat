@@ -144,10 +144,10 @@ switch lower(sig_type)
         fs = varargin{1};
         n = varargin{2};
         if nargin == 3
-            [y,t] = rbaMls(n,fs);
+            [y,t] = rbaMls(n,'fs',fs);
         elseif nargin > 3 && nargin < 5
             arg = varargin{3:end};
-            [y,t] = rbaMls(n,fs,arg);
+            [y,t] = rbaMls(n,'fs',fs,arg);
         else
             error('Too many input arguments')
         end
@@ -383,7 +383,7 @@ if nargin > 1 && mod(nargin,2) ~= 0
         end
     end
 elseif nargin > 1
-    error('Wrong input number of arguments!!!')
+    error('Wrong number of input arguments!!!')
 end
 if ~exist('amplitude','var')
     amplitude = 1;
