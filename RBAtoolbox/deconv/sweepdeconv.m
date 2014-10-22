@@ -16,7 +16,7 @@ function [h,t] = sweepdeconv(x,y,f1,f2,fs,varargin)
 x = x(:);
 y = y(:);
 
-Xinv = fft([zeros(length(y)-1,1) ; flip(x)]);
+Xinv = fft([zeros(length(y)-1,1) ; rbaflip(x)]);
 F = Xinv.*exp(-1j*2*pi*(0:length(Xinv)-1).'/length(Xinv))./(Xinv.*conj(Xinv));
 
 Y = fft([y ; zeros(length(x)-1,1)]);

@@ -63,3 +63,4 @@ plot(h)
 figure(4)
 %figure('Name','Cropped Impulse response','Position',[420 400 400 400])
 plot(t,hCrop)
+

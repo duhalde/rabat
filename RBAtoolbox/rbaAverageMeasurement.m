@@ -63,10 +63,10 @@ statusPlay = PsychPortAudio('GetStatus',playHandle);
 statusRec = PsychPortAudio('GetStatus',recHandle);
 dOut = PsychPortAudio('GetDevices',[],statusPlay.OutDeviceIndex);
 dIn = PsychPortAudio('GetDevices',[],statusRec.InDeviceIndex);
-outLatency = dOut.HighOutputLatency;
-inLatency = dIn.HighInputLatency;
+outLatency = dOut.HighOutputLatency
+inLatency = dIn.HighInputLatency
 
-totalLatency = outLatency+inLatency;
+totalLatency = outLatency+inLatency
 compTime = 2;           % Estimated CPU time in seconds
 
 % Allocate recording buffer
@@ -132,11 +132,12 @@ while avgCount < N  % && status.Active == 1 % Record while playback is active
                 recordedAudio = recordedAudio(onset:end);
                 disp(['onset found as ' num2str(onset) ' samples.'])
                 disp(['recAudio is now ' num2str(length(recordedAudio)) ' samples.'])
+                
             catch
-                error('Cannot determine onset of system. Impulse response might be shifted.')
+                warning('Cannot determine onset of system. Impulse response might be shifted.')
                 dismiss = 0;
             end
-            onsetFound = 1; % onset has been found
+            onsetFound = 1; % onset has been investigated
         elseif dismiss
             disp('dismissing first sequence')
             % throw away the first excitation recording

@@ -29,7 +29,7 @@ x = x(:);
 y = y(:);
 
 Y = fft(y);
-Xinv = fft(flip(x));
+Xinv = fft(rbaflip(x));
 % Compute circular crosscorrelation
 h = ifft(Y.*Xinv.*exp(-1j*2*pi*(0:length(Xinv)-1).'/length(Xinv))/length(x),'symmetric');
 h = h.';

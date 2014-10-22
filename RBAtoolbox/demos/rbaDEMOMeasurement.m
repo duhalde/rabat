@@ -42,7 +42,15 @@ signal = y.*win;
 N = 1; % Number of averages
 estimatedRT = 2; % Estimated reverberation time
 
-measuredResult = rbaMeasurement(signal, fs, N, estimatedRT);
+%measuredResult = rbaMeasurement(signal, fs, N, estimatedRT);
+
+% let us simulate a measurement instead
+% the room impulse used is
+rir = wavread('./sounds/HagiaIreneMosque.Wav');
+% now the excitaion signal is simulated in the room
+measuredSignal = rbaC
+% and we need some noise
+noise = rand()
 
 % Save measurement result as 32bit wav-file
 savedir = pwd; % Save in current directory

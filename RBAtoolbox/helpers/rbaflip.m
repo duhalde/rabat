@@ -1,9 +1,9 @@
-function out = flip(in)
+function out = rbaflip(in)
 %
 %   Description: Flip dimension of vector. Utility function for
 %   deconvolution purposes.
 %
-%   Usage: out = flip(in)
+%   Usage: out = rbaflip(in)
 %
 %   Input parameters:
 %       - x: Vector or matrix input
